@@ -15,13 +15,13 @@
       toaster-oven-of-death = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./sys/configuration.nix
+          ./configuration.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.beaver = import ./home/home.nix;
+            home-manager.users.beaver = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
