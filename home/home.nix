@@ -10,29 +10,29 @@
     # android-studio #commented bc it takes a lot of downloads
     nil
     nixpkgs-fmt
-    # go 
-    # python 
-    # rustc
-    # cargo
+    go
+    python3
+    rustc
+    cargo
 
-    # gaems (uncomment section later)
-    # steam 
-    # protonup-qt
-    # protontricks
-    # gamemode
-    # prismlauncher # minecarft
+    # gaems
+    steam
+    protonup-qt
+    protontricks
+    gamemode
+    prismlauncher # minecarft
 
     # random utilities
-    # gimp
-    # inkscape
-    # vesktop
+    gimp
+    inkscape
+    vesktop
     zsh
-    # spotify
-    # vlc
+    spotify
+    vlc
 
 
     # misc
-    # bitwarden
+    bitwarden
     zip
     ripgrep
     cowsay
