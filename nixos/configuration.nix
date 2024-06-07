@@ -92,6 +92,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+    # zsh
+  programs.zsh.enable = true;
+
   users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -109,8 +112,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # zsh
-  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
