@@ -15,7 +15,7 @@
       toaster-oven-of-death = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./sys/configuration.nix
+          ./nixos/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
