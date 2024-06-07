@@ -63,7 +63,7 @@
   services.printing.enable = true;
 
   # Flatpaks
-#   services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true;

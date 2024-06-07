@@ -36,7 +36,6 @@
     inkscape
     vesktop
     zsh
-    spotify
     vlc
     just
 
