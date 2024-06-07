@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   home.username = "beaver";
   home.homeDirectory = "/home/beaver";
@@ -11,13 +10,19 @@
     vscode # android-studio #commented bc it takes a lot of downloads
 
     # LSPs, etc
-    nil nixpkgs-fmt
+    nil
+    nixpkgs-fmt
 
     # Languages
-    go python3 rustc cargo nodejs
+    go
+    python3
+    rustc
+    cargo
+    nodejs
 
     # Python packages
-    python312Packages.pip thefuck
+    python312Packages.pip
+    thefuck
 
     # gaems
     steam
@@ -37,19 +42,30 @@
 
     # misc
     bitwarden
-    zip unzip ripgrep cowsay file which tree
+    zip
+    unzip
+    ripgrep
+    cowsay
+    file
+    which
+    tree
 
     nix-output-monitor
 
     # monitors
-    btop iotop iftop
+    btop
+    iotop
+    iftop
 
-    strace ltrace lsof
+    strace
+    ltrace
+    lsof
 
     sysstat
     lm_sensors
     ethtool
-    pciutils usbutils
+    pciutils
+    usbutils
   ];
 
   programs.git = {
