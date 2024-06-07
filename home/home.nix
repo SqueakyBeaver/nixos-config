@@ -77,14 +77,13 @@
 
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
+      rebuild = "nixos-rebuild switch --flake /home/beaver/nixos-config#toaster-oven-of-death";
     };
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
+    };
   };
-
-};
 
   programs.starship = {
     enable = true;
