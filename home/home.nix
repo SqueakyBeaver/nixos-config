@@ -7,18 +7,18 @@
     # Coding stuff
 
     # Text editors / IDEs
-    vscode # android-studio #commented bc it takes a lot of downloads
+    # vscode # android-studio #commented bc it takes a lot of downloads
 
     # LSPs, etc
-    nil
-    nixpkgs-fmt
+    # nil
+    # nixpkgs-fmt
 
     # Languages
-    go
-    python312
-    rustc
-    cargo
-    nodejs
+    # go
+    # python312
+    # rustc
+    # cargo
+    # nodejs
 
     # Python packages
     python312Packages.pip
@@ -27,41 +27,41 @@
     python312Packages.tqdm
     python312Packages.httpx
     python312Packages.tkinter
-    thefuck
+    # thefuck
 
     # gaems
-    steam
-    protonup-qt
-    protontricks
-    gamemode
-    prismlauncher # minecarft
+    # steam
+    # protonup-qt
+    # protontricks
+    # gamemode
+    # prismlauncher # minecarft
 
     # random utilities
-    kdePackages.kdeconnect-kde
-    gimp
-    inkscape
-    vesktop
-    zsh
-    vlc
-    just
-    p7zip
+    # kdePackages.kdeconnect-kde
+    # gimp
+    # inkscape
+    # vesktop
+    # zsh
+    # vlc
+    # just
+    # p7zip
 
     # misc
-    bitwarden
-    zip
-    unzip
-    ripgrep
+    # bitwarden
+    # zip
+    # unzip
+    # ripgrep
     cowsay
-    file
-    which
-    tree
+    # file
+    # which
+    # tree
 
     nix-output-monitor
 
     # monitors
-    btop
-    iotop
-    iftop
+    # btop
+    # iotop
+    # iftop
 
     strace
     ltrace
@@ -120,5 +120,5 @@
   home.stateVersion = "24.05";
 
   # Let home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-mancager.enable = true;
 }

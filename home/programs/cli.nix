@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+
   home.packages = with pkgs; [
     # archives
     zip
@@ -31,7 +32,7 @@
 
     git = {
       enable = true;
-      # FIXME: If you copy this, change this
+      # FIXME: If you copy this, change it
       userName = "Beaverr";
       userEmail = "theboxguy659@gmail.com";
     };

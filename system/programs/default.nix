@@ -5,4 +5,9 @@
     ./games.nix
     ./hyprland.nix
   ];
+
+  programs = {
+    firefox.enable = true;
+    zsh.enable = true;
+  };
 }

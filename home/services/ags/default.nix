@@ -6,7 +6,7 @@
   ...
 }: let
   requiredDeps = with pkgs; [
-    config.wayland.windowManager.hyprland.package
+    wayland.windowManager.hyprland.package
     bash
     coreutils
     dart-sass

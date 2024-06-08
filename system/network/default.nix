@@ -1,6 +1,9 @@
-{lib, ...}:
+{ lib, ... }:
 # networking configuration
 {
+  imports = [
+    ./kdeconnect.nix
+  ];
   networking = {
     # FIXME: Put your preferred hostname
     hostname = "toaster-oven-of-death";
