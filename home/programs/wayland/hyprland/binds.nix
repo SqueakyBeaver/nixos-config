@@ -50,6 +50,8 @@ in {
         ", XF86Calculator, exec, run-as-service gnome-calculator"
         # open settings
         "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"
+        # Clipboard history (hope)
+        "$mod, V, exec, cliphist list | fuzzel -d | cliphist decode | wl-copy"
 
         # move focus
         "$mod, left, movefocus, l"
