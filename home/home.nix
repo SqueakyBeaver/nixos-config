@@ -15,13 +15,18 @@
 
     # Languages
     go
-    python3
+    python312
     rustc
     cargo
     nodejs
 
     # Python packages
     python312Packages.pip
+    python312Packages.rich
+    python312Packages.zstd
+    python312Packages.tqdm
+    python312Packages.httpx
+    python312Packages.tkinter
     thefuck
 
     # gaems
@@ -32,12 +37,14 @@
     prismlauncher # minecarft
 
     # random utilities
+    kdePackages.kdeconnect-kde
     gimp
     inkscape
     vesktop
     zsh
     vlc
     just
+    p7zip
 
     # misc
     bitwarden
@@ -88,6 +95,7 @@
       ll = "ls -l";
       rebuild = "nixos-rebuild switch --flake /home/beaver/nixos-config#toaster-oven-of-death";
     };
+    initExtra = "export ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd history)";
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
