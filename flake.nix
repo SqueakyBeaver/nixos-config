@@ -6,16 +6,14 @@
     nixosConfigurations = {
       toaster-oven-of-death = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        
+
         imports = [
           ./home
           ./system
-        ]
-
+        ];
       };
     };
   };
-
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
