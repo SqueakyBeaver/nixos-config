@@ -1,0 +1,6 @@
+{ pkgs, self, ... }:
+{
+  imports = [
+    ./packages
+  ];
+}
