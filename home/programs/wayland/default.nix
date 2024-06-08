@@ -13,7 +13,8 @@
 
     # utils
     self.packages.${pkgs.system}.wl-ocr
-    wl-clipboard
+    # wl-clipboard
+    cliphist
     wl-screenrec
     wlr-randr
   ];

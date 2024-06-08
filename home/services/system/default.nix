@@ -1,6 +1,7 @@
 { pkgs, self, ... }:
 {
   imports = [
-    ./programs
+    ./cliphist.nix
+    ./kdeconnect.nix
   ];
 }

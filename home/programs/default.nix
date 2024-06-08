@@ -1,6 +1,8 @@
 { pkgs, self, ... }:
 {
   imports = [
-    ./programs
+    ./fuzzel
+    ./wayland
+    ./zsh.nix
   ];
 }

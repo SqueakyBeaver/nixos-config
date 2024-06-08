@@ -5,6 +5,8 @@
 
     exec-once = [
       "dunst"
+      "wl-paste --type text --watch cliphist store"
+      "wl-paste --type image --watch cliphist store"
     ];
 
     general = {

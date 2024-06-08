@@ -1,8 +1,8 @@
 { pkgs, self, ... }:
 {
   imports = [
-    ./hyprland.nix
+    ./fonts.nix
     ./games.nix
-    ./zsh.nix
+    ./hyprland.nix
   ];
 }
