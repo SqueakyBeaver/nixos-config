@@ -6,17 +6,12 @@
     nixosConfigurations = {
       toaster-oven-of-death = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ./nixos/configuration.nix
+        
+        imports = [
+          ./home
+          ./system
+        ]
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.backupFileExtension = "backup";
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.beaver = import ./home/home.nix;
-          }
-        ];
       };
     };
   };
@@ -30,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hypr
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hypridle = {
@@ -63,6 +59,10 @@
       inputs.systems.follows = "hyprland/systems";
     };
 
+    # etc
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
 }
