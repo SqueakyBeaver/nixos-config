@@ -3,6 +3,7 @@
   imports = [
     ./fonts.nix
     ./games.nix
+    ./home-manager.nix
     ./hyprland.nix
   ];
 
