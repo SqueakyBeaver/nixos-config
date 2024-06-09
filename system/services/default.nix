@@ -2,10 +2,11 @@
 {
   imports = [
     ./flatpak.nix
+    ./greetd.nix
     ./pipewire.nix
     ./power.nix
     ./printing.nix
-    ./sddm.nix
+    # ./sddm.nix
   ];
 
 }
