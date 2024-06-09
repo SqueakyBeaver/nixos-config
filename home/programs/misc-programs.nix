@@ -11,5 +11,7 @@
     vesktop
     vlc
     bitwarden
+    blueberry
+    networkmanagerapplet
   ];
 }

@@ -11,6 +11,7 @@
 
   qt = {
     enable = true;
-    style = "breeze";
+    style = "gtks";
+    platformTheme = "gtk2";
   };
 }

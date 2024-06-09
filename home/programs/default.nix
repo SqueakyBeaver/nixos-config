@@ -5,6 +5,7 @@
     ./wayland
 
     ./cli.nix
+    ./gtk.nix
     ./misc-programs.nix
     ./programming.nix
     ./term.nix

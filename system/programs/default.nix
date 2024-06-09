@@ -10,5 +10,11 @@
   programs = {
     firefox.enable = true;
     zsh.enable = true;
+    dconf.enable = true;
+
+    kdeconnect.enable = true;
+
+    seahorse.enable = true;
+
   };
 }

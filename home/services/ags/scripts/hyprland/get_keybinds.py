@@ -186,7 +186,7 @@ def get_binds_recursive(current_content, scope):
             reading_line += 1
             current_content["children"].append(get_binds_recursive(Section([], [], section_name), heading_scope))
 
-        elif line == "" or line.startswith("$") or line.startswith("#"): # Comment, ignore
+        elif line == "" or line.startswith("$") or line.startswith("#") or not line.startswith("bind"): # Comment, ignore
             pass
 
         else: # Normal keybind

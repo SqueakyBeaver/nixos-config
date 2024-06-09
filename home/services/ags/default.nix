@@ -16,6 +16,8 @@ let
     hypridle
     hyprlock
     anyrun
+    ddcutil
+    gjs
   ];
 
   guiDeps = with pkgs; [

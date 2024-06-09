@@ -16,7 +16,7 @@ in
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
       "ags"
-      # "hyprlock"
+      "hyprlock" # Lock pretty much immediately since there's not other login manager
     ];
 
     general = {
