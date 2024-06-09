@@ -11,6 +11,6 @@
 
   qt = {
     enable = true;
-    #  TODO: Theme maybe
+    style = "breeze";
   };
 }
