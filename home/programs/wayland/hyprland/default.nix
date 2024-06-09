@@ -2,6 +2,7 @@
 {
   imports = [
     ./settings.nix
+    ./binds.nix
   ];
 
   home.packages = [

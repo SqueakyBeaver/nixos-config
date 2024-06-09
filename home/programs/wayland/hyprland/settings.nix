@@ -75,7 +75,7 @@ in {
       };
 
       input = {
-        kb_layout = "ro";
+        # kb_layout = "ro";
 
         # focus change on cursor move
         follow_mouse = 1;
@@ -99,7 +99,7 @@ in {
         animate_mouse_windowdragging = false;
 
         # enable variable refresh rate (effective depending on hardware)
-        vrr = 1;
+        # vrr = 1;
 
         # we do, in fact, want direct scanout
         no_direct_scanout = false;
