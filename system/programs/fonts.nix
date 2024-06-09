@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   fonts = {
     packages = with pkgs; [
       # icon fonts
@@ -9,14 +9,14 @@
       noto-fonts-cjk
       noto-fonts-emoji
       roboto
-      (google-fonts.override {fonts = ["Inter"];})
+      (google-fonts.override { fonts = [ "Inter" ]; })
 
       # monospace fonts
       jetbrains-mono
       fira-code
 
       # nerdfonts
-      (nerdfonts.override {fonts = [ "FiraCode" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
     ];
 
     # causes more issues than it solves
@@ -25,14 +25,18 @@
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
-    fontconfig.defaultFonts = let
-      addAll = builtins.mapAttrs (k: v: ["Symbols Nerd Font"] ++ v ++ ["Noto Color Emoji"]);
-    in
-      addAll {
-        serif = ["Noto Serif"];
-        sansSerif = ["Inter"];
-        monospace = ["JetBrains Mono"];
-        emoji = [];
-      };
+    fontconfig = {
+      subpixel.rgba = "rgb";
+      defaultFonts =
+        let
+          addAll = builtins.mapAttrs (k: v: [ "Symbols Nerd Font" ] ++ v ++ [ "Noto Color Emoji" ]);
+        in
+        addAll {
+          serif = [ "Noto Serif" ];
+          sansSerif = [ "Inter" ];
+          monospace = [ "JetBrains Mono" "Fira Code" ];
+          emoji = [ ];
+        };
+    };
   };
 }

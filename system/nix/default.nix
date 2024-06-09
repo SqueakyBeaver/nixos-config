@@ -11,7 +11,7 @@
     wget
     curl
     gcc
-    catpuccin-sddm
+    catppuccin-sddm
   ];
 
   nix = {
