@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, self, ... }:
 {
   theme = {
-    wallpaper = /. + "${config.xdg.userDirs.pictures}" + /wall;
+    wallpaper = "${toString ./wall.png}";
   };
-
+ 
   programs. matugen = {
     enable = false;
     wallpaper = config.theme.wallpaper;

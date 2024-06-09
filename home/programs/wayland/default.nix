@@ -15,7 +15,7 @@
     slurp
 
     # utils
-    self.packages.${pkgs.system}.wl-ocr
+    # self.packages.${pkgs.system}.wl-ocr
     # wl-clipboard
     cliphist
     wl-screenrec

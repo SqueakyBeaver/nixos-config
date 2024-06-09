@@ -44,8 +44,8 @@ in {
         # lock screen, to be used with the F10 special key on my keyboard
         "$mod, I, exec, loginctl lock-session"
         # select area to perform OCR on
-        "$mod, O, exec, run-as-service wl-ocr"
-        ", XF86Favorites, exec, run-as-service wl-ocr"
+        # "$mod, O, exec, run-as-service wl-ocr"
+        # ", XF86Favorites, exec, run-as-service wl-ocr"
         # open calculator
         ", XF86Calculator, exec, run-as-service gnome-calculator"
         # open settings
