@@ -4,6 +4,7 @@
   imports = [
     ./hyprland
     ./dunst
+    ./waybar
     
     ./hyprlock.nix
     ./wlogout.nix

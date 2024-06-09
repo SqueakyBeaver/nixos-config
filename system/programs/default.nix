@@ -1,7 +1,7 @@
 { pkgs, self, ... }:
 {
   imports = [
-    # ./fonts.nix
+    ./fonts.nix
     ./games.nix
     ./home-manager.nix
     ./hyprland.nix

@@ -6,7 +6,6 @@
 
       # Sans(Serif) fonts
       noto-fonts
-      noto-fonts-cjk
       noto-fonts-emoji
       roboto
       (google-fonts.override { fonts = [ "Inter" ]; })
@@ -21,7 +20,7 @@
     ];
 
     # causes more issues than it solves
-    enableDefaultPackages = true;
+    enableDefaultPackages = false;
 
     fontDir.enable = true;
 
@@ -31,14 +30,14 @@
     fontconfig = {
       subpixel.rgba = "rgb";
       defaultFonts =
-        let
+        /*let
           addAll = builtins.mapAttrs (k: v: [ "Symbols Nerd Font" ] ++ v ++ [ "Noto Color Emoji" ]);
         in
-        addAll {
+        addAll*/ {
           serif = [ "Noto Serif" ];
-          sansSerif = [ "Inter" ];
+          sansSerif = [ "Inter" "Noto Serif" ];
           monospace = [ "JetBrains Mono" "Fira Code" ];
-          emoji = [ ];
+          emoji = [ "Noto Color Emoji" ];
         };
     };
   };

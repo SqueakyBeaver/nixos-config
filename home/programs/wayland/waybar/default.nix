@@ -3,6 +3,8 @@
   programs.waybar = {
     enable = true;
 
+    style = ./style.css;
+
     settings = {
       mainBar = {
         layer = "top";
@@ -25,7 +27,7 @@
         };
 
         "custom/dunst" = {
-          "exec" = ./dunst.sh; 
+          "exec" = ./dunst.sh;
           "on-click" = "dunstctl set-paused toggle";
           "restart-interval" = 1;
         };
