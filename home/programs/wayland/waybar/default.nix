@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, self, ... }:
 {
   programs.waybar = {
     enable = true;
@@ -23,11 +23,11 @@
           all-outputs = true;
         };
         cpu = {
-          format = "{useage}%  {max_frequency}";
+          format = "{usage}%    {max_frequency}GHz";
         };
 
         "custom/dunst" = {
-          "exec" = ./dunst.sh;
+          "exec" = "${self}./dunst.sh";
           "on-click" = "dunstctl set-paused toggle";
           "restart-interval" = 1;
         };

@@ -29,15 +29,11 @@
     # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig = {
       subpixel.rgba = "rgb";
-      defaultFonts =
-        /*let
-          addAll = builtins.mapAttrs (k: v: [ "Symbols Nerd Font" ] ++ v ++ [ "Noto Color Emoji" ]);
-        in
-        addAll*/ {
+      defaultFonts = {
           serif = [ "Noto Serif" ];
           sansSerif = [ "Inter" "Noto Serif" ];
           monospace = [ "JetBrains Mono" "Fira Code" ];
-          emoji = [ "Noto Color Emoji" ];
+          emoji = [ "Symbols Nerd Font" "Noto Color Emoji" ];
         };
     };
   };

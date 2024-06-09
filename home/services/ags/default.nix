@@ -1,10 +1,5 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ inputs, pkgs, lib, config, ... }:
+let
   requiredDeps = with pkgs; [
     config.wayland.windowManager.hyprland.package
     bash
@@ -15,6 +10,12 @@
     procps
     ripgrep
     util-linux
+    python312Packages.pywayland
+    python312Packages.psutil
+    hyprpicker
+    hypridle
+    hyprlock
+    anyrun
   ];
 
   guiDeps = with pkgs; [
@@ -27,26 +28,31 @@
   dependencies = requiredDeps ++ guiDeps;
 
   cfg = config.programs.ags;
-in {
+in
+{
   imports = [
     inputs.ags.homeManagerModules.default
   ];
 
+  home.packages = dependencies;
+
   programs.ags.enable = true;
 
-  systemd.user.services.ags = {
-    unitConfig = {
-      Description = "Aylur's Gtk Shell";
-      PartOf = [
-        "tray.target"
-        "graphical-session.target"
-      ];
-    };
-    serviceConfig = {
-      Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-      ExecStart = "${cfg.package}/bin/ags";
-      Restart = "on-failure";
-    };
-    Install.WantedBy = ["graphical-session.target"];
-  };
+
+
+  # systemd.user.services.ags = {
+  #   unitConfig = {
+  #     Description = "Aylur's Gtk Shell";
+  #     PartOf = [
+  #       "tray.target"
+  #       "graphical-session.target"
+  #     ];
+  #   };
+  #   serviceConfig = {
+  #     Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
+  #     ExecStart = "${cfg.package}/bin/ags";
+  #     Restart = "on-failure";
+  #   };
+  #   Install.WantedBy = [ "graphical-session.target" ];
+  # };
 }
