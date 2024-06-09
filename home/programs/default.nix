@@ -6,6 +6,7 @@
 
     ./cli.nix
     ./misc-programs.nix
+    ./programming.nix
     ./wezterm.nix
     ./zsh.nix
   ];
