@@ -12,6 +12,7 @@
 
     # utils
     du-dust
+    wl-clipboard
     duf
     fd
     file
