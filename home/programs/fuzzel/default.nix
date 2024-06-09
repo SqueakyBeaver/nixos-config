@@ -6,7 +6,7 @@
     settings = {
       main = {
         dpi-aware = "no";
-        icon-theme = "Papirus-Dark";
+        icon-theme = "breeze";
         width = 25;
         font = "Inter:size=12";
         line-height = 50;
