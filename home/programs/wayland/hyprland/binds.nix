@@ -36,7 +36,7 @@ in {
 
         # utility
         # terminal
-        "$mod, Return, exec, run-as-service wezterm"
+        "$mod, Return, exec, wezterm"
         # logout menu
         "$mod, Escape, exec, wlogout -p layer-shell"
         # lock screen
@@ -47,7 +47,7 @@ in {
         # "$mod, O, exec, run-as-service wl-ocr"
         # ", XF86Favorites, exec, run-as-service wl-ocr"
         # open calculator
-        ", XF86Calculator, exec, run-as-service gnome-calculator"
+        ", XF86Calculator, exec, gnome-calculator"
         # open settings
         "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"
         # Clipboard history (hope)

@@ -9,7 +9,7 @@ in {
 
     exec-once = [
       # "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-      # "dunst"
+      "dunst"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
       # "hyprlock"

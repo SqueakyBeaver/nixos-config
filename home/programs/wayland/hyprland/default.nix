@@ -1,8 +1,9 @@
 { inputs, pkgs, self, ... }:
 {
   imports = [
-    ./settings.nix
     ./binds.nix
+    ./settings.nix
+    ./rules.nix
   ];
 
   home.packages = [
@@ -16,5 +17,13 @@
       hyprbars
       hyprexpo
     ];
+
+    systemd = {
+      variables = [ "--all" ];
+      extraCommands = [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
+    };
   };
 }

@@ -11,7 +11,7 @@
         font = "Inter:size=12";
         line-height = 50;
         fields = "name,generic,comment,categories,filename,keywords";
-        terminal = "wezterm - e";
+        terminal = "wezterm";
         prompt = "❯   ";
         layer = "overlay";
       };
