@@ -8,6 +8,8 @@
 
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+    inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
   ];
 
   wayland.windowManager.hyprland = {

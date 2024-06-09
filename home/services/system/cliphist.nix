@@ -2,6 +2,5 @@
 {
   services.cliphist = {
     enable = true;
-    
   };
 }
