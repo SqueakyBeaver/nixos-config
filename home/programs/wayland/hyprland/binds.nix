@@ -92,7 +92,7 @@ in {
 
     bindr = [
       # launcher
-      "$mod, SUPER_L, exec, pkill fuzzel || anyrun"
+      "$mod, SUPER_L, exec, pkill fuzzel || fuzzel"
     ];
 
     bindl = [

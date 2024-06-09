@@ -9,10 +9,10 @@ in {
 
     exec-once = [
       # "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-      "dunst"
+      # "dunst"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
-      "hyprlock"
+      # "hyprlock"
     ];
 
     general = {
@@ -114,6 +114,7 @@ in {
       xwayland.force_zero_scaling = true;
 
       debug.disable_logs = false;
+      debug.enable_stdout_logs = true;
 
       plugin = {
         hyprbars = {
