@@ -14,13 +14,16 @@
       # monospace fonts
       jetbrains-mono
       fira-code
+      fira-code-symbols
 
       # nerdfonts
       (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
     ];
 
     # causes more issues than it solves
-    enableDefaultPackages = false;
+    enableDefaultPackages = true;
+
+    fontDir.enable = true;
 
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's

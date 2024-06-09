@@ -5,6 +5,7 @@
     ./games.nix
     ./home-manager.nix
     ./hyprland.nix
+    ./term.nix
   ];
 
   programs = {

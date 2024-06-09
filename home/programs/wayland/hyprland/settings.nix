@@ -7,6 +7,8 @@ in {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
 
+    monitor = [ ",preferred,auto,1" ];
+
     exec-once = [
       # "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
       "dunst"

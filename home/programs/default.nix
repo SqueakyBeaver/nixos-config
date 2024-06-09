@@ -8,7 +8,6 @@
     ./misc-programs.nix
     ./programming.nix
     ./transient-services.nix
-    ./wezterm.nix
     ./zsh.nix
   ];
 }
