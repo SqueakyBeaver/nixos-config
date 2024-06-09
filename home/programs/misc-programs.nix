@@ -5,7 +5,7 @@
     protontricks
     prismlauncher
 
-    kdePackages.kdeconnect-kde
+    # kdePackages.kdeconnect-kde
     gimp
     inkscape
     vesktop
