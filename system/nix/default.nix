@@ -12,6 +12,7 @@
     curl
     gcc
     catppuccin-sddm
+    kdePackages.dolphin
   ];
 
   nix = {
