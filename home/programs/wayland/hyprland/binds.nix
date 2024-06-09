@@ -51,7 +51,7 @@ in {
         # open settings
         "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"
         # Clipboard history (hope)
-        "$mod, V, exec, cliphist list | fuzzel -d | cliphist decode | wl-copy"
+        "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel -d | cliphist decode | wl-copy"
 
         # move focus
         "$mod, left, movefocus, l"
@@ -92,7 +92,7 @@ in {
 
     bindr = [
       # launcher
-      "$mod, SUPER_L, exec, pkill .anyrun-wrapped || run-as-service anyrun"
+      "$mod, SUPER_L, exec, pkill fuzzel || anyrun"
     ];
 
     bindl = [
