@@ -4,6 +4,9 @@
   imports = [
     ./hyprland
     ./dunst
+    
+    ./hyprlock.nix
+    ./wlogout.nix
   ];
 
   home.packages = with pkgs; [

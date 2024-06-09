@@ -1,4 +1,4 @@
-{ pkgs, self, ... }:
+{ inputs, pkgs, self, ... }:
 {
   imports = [
     ./settings.nix

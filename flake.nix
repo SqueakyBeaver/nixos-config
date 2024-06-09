@@ -7,7 +7,7 @@
       toaster-oven-of-death = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        imports = [
+        modules = [
           ./home
           ./system
         ];
@@ -57,9 +57,15 @@
       inputs.systems.follows = "hyprland/systems";
     };
 
-    # etc
+    # Widgets
     ags = {
       url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Colors
+    matugen = {
+      url = "github:InioX/matugen/module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

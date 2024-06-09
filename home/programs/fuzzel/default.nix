@@ -5,7 +5,7 @@
 
     settings = {
       main = {
-        dpi-aware = "no;"
+        dpi-aware = "no";
         icon-theme = "Papirus-Dark";
         width = 25;
         font = "Inter:size=12";

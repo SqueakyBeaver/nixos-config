@@ -2,10 +2,9 @@
   # Set the wallpaper to ~/pictures/wall (or similar path),
   # which is a symlink to a wallpaper image
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${xdg.userDirs.pictures}/wall
-    wallpaper = , ${xdg.userDirs.pictures}/wall
+    preload = ${config.theme.wallpaper}
+    wallpaper = , ${config.theme.wallpaper}
   '';
-
   systemd.user.services.hyprpaper = {
     Unit = {
       Description = "Hyprland wallpaper daemon";
