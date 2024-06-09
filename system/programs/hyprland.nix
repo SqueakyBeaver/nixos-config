@@ -5,8 +5,8 @@
   # enable hyprland and required options
   programs.hyprland.enable = true;
 
-  services.hyperidle.enable = true;
-
+  # May not be necessary but oh well
+  services.hypridle.enable = true;
   programs.hyprlock.enable = true;
 
   qt = {

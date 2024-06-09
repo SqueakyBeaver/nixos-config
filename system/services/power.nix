@@ -2,7 +2,7 @@
   services = {
     logind.powerKey = "suspend-then-hibernate";
 
-    services.tlp = {
+    tlp = {
       enable = true;
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";

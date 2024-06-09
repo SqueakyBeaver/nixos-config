@@ -1,8 +1,19 @@
 {
   description = "A very basic flake";
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
+      imports = [
+        ./home/profiles
+        ./hosts
+        ./modules
+      ];
+    };
+
+  /*
+    outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       toaster-oven-of-death = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -14,7 +25,8 @@
         ];
       };
     };
-  };
+    };
+  */
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -68,6 +80,11 @@
     matugen = {
       url = "github:InioX/matugen/module";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
   };
 }

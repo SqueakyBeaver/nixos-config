@@ -9,13 +9,13 @@
       specialArgs = { inherit inputs self; };
     in
     {
-      io = nixosSystem {
+      toaster-oven-of-death = nixosSystem {
         inherit specialArgs;
         modules = [
           ./laptop
 
-          "${mod}/programs/games.nix"
-          "${mod}/programs/hyprland.nix"
+          "${mod}/programs"
+          "${mod}/services"
           {
             home-manager = {
               users.beaver.imports = homeImports."beaver@laptop";

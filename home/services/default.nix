@@ -1,18 +1,20 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, self, ... }:
 {
   imports = [
     ./ags
     ./media
     ./system
     ./wayland
+    ./theme.nix
   ];
 
+
   theme = {
-    wallpaper = /. + "${config.xdg.userDirs.pictures}"/wall;
+    wallpaper = /. + "${config.xdg.userDirs.pictures}" /wall;
   };
 
-  programs.matugen = {
+  programs. matugen = {
     enable = false;
-    wallpaper = config.theme.wallpaper;
+    wallpaper = self.theme.wallpaper;
   };
 }

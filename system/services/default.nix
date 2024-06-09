@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  inmports = [
+  imports = [
     ./flatpak.nix
     ./pipewire.nix
     ./power.nix
