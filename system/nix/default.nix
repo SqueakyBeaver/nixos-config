@@ -1,6 +1,7 @@
 { config, pkgs, inputs, lib, ... }: {
   imports = [
     ./nixpkgs.nix
+    ./substituters.nix
   ];
 
   # we need git for flakes

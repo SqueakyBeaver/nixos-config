@@ -1,4 +1,4 @@
-{ self, inputs, homeImports, ... }: {
+{ self, inputs, homeImports, pkgs, ... }: {
   flake.nixosConfigurations =
     let
       # shorten paths
@@ -22,6 +22,9 @@
               extraSpecialArgs = specialArgs;
             };
           }
+
+          "${mod}"
+
         ];
       };
     };

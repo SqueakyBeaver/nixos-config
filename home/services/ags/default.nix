@@ -35,14 +35,14 @@ in {
   programs.ags.enable = true;
 
   systemd.user.services.ags = {
-    Unit = {
+    unitConfig = {
       Description = "Aylur's Gtk Shell";
       PartOf = [
         "tray.target"
         "graphical-session.target"
       ];
     };
-    Service = {
+    serviceConfig = {
       Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
       ExecStart = "${cfg.package}/bin/ags";
       Restart = "on-failure";

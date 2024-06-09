@@ -6,11 +6,11 @@
     wallpaper = , ${config.theme.wallpaper}
   '';
   systemd.user.services.hyprpaper = {
-    Unit = {
+    unitConfig = {
       Description = "Hyprland wallpaper daemon";
       PartOf = [ "graphical-session.target" ];
     };
-    Service = {
+    serviceConfig = {
       ExecStart = "${lib.getExe inputs.hyprpaper.packages.${pkgs.system}.default}";
       Restart = "on-failure";
     };
