@@ -8,7 +8,9 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system
+          ./home/profiles
+          ./hosts
+          ./modules
         ];
       };
     };

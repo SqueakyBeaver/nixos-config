@@ -5,9 +5,6 @@
     ./kdeconnect.nix
   ];
   networking = {
-    # FIXME: Put your preferred hostname
-    hostname = "toaster-oven-of-death";
-
     # use my nextDNS config
     nameservers = [
       "45.90.28.0#7dbdb5.dns.nextdns.io"
