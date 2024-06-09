@@ -1,11 +1,10 @@
-{ pkgs, lib, config, self, ... }:
+{ inputs, config, self, ... }:
 {
   imports = [
     ./ags
     ./media
     ./system
     ./wayland
-    ./theme.nix
   ];
 
 

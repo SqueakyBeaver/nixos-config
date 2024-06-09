@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ config, ... }:
 {
   theme = {
     wallpaper = /. + "${config.xdg.userDirs.pictures}" /wall;
