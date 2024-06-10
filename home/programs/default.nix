@@ -1,6 +1,7 @@
 { pkgs, self, ... }:
 {
   imports = [
+    ./anyrun
     ./fuzzel
     ./wayland
 

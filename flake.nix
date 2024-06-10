@@ -36,6 +36,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    anyrun.url = "github:anyrun-org/anyrun";
+
     # Hypr
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 

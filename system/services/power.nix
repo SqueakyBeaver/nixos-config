@@ -22,5 +22,7 @@
 
       };
     };
+
+    upower.enable = true;
   };
 }

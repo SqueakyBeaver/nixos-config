@@ -36,7 +36,7 @@ in {
 
         # utility
         # terminal
-        "$mod, Return, exec, wezterm"
+        "$mod, Return, exec, kitty"
         # logout menu
         "$mod, Escape, exec, wlogout -p layer-shell"
         # lock screen
@@ -92,7 +92,7 @@ in {
 
     bindr = [
       # launcher
-      "$mod, SUPER_L, exec, pkill fuzzel || fuzzel"
+      "$mod, SUPER_L, exec, pkill .anyrun-wrapped || run-as-service anyrun"
     ];
 
     bindl = [

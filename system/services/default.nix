@@ -2,6 +2,7 @@
 {
   imports = [
     ./flatpak.nix
+    ./gnome.nix
     ./greetd.nix
     ./pipewire.nix
     ./power.nix

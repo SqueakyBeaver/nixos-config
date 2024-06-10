@@ -13,7 +13,9 @@ const SystemMenuBox = () =>
 
     children: [
       Toggles(),
-      PowerProfiles(),
+    //   PowerProfiles(), // I use TLP
+    // TODO: Implement this
+    // TlpProfile(),
       Sliders(),
       BatteryInfo(),
     ],
