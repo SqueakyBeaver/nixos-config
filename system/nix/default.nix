@@ -11,8 +11,8 @@
     wget
     curl
     gcc
-    catppuccin-sddm
-    kdePackages.dolphin
+    gnome.nautilus
+    gtksourceview # hope
   ];
 
   nix = {

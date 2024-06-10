@@ -36,7 +36,7 @@ let configOptions = {
         'network': "XDG_CURRENT_DESKTOP=\"gnome\" gnome-control-center wifi",
         'settings': "XDG_CURRENT_DESKTOP=\"gnome\" gnome-control-center wifi",
         'taskManager': "gnome-usage",
-        'terminal': "foot", // This is only for shell actions
+        'terminal': "kitty", // This is only for shell actions
     },
     'battery': {
         'low': 20,
@@ -53,7 +53,7 @@ let configOptions = {
         // 'eDP-1': "brightnessctl",
         // 'DP-1': "ddcutil",
         'controllers': {
-            'default': "auto",
+            'default': "brightnessctl",
         },
     },
     'gaming': {

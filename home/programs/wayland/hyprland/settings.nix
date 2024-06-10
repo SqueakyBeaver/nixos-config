@@ -2,7 +2,7 @@
 let
   variant = "dark";
   c = config.programs.matugen.theme.colors.colors.${variant};
-  # pointer = config.home.pointerCursor;
+  pointer = config.home.pointerCursor;
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -11,7 +11,7 @@ in
     monitor = [ ",preferred,auto,1" ];
 
     exec-once = [
-      # "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+      "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
       "dunst"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"

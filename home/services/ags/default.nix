@@ -10,14 +10,6 @@ let
     procps
     ripgrep
     util-linux
-    python312Packages.pywayland
-    python312Packages.psutil
-    hyprpicker
-    hypridle
-    hyprlock
-    anyrun
-    ddcutil
-    gjs
   ];
 
   guiDeps = with pkgs; [
@@ -40,21 +32,19 @@ in
 
   programs.ags.enable = true;
 
-
-
-  # systemd.user.services.ags = {
-  #   unitConfig = {
-  #     Description = "Aylur's Gtk Shell";
-  #     PartOf = [
-  #       "tray.target"
-  #       "graphical-session.target"
-  #     ];
-  #   };
-  #   serviceConfig = {
-  #     Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-  #     ExecStart = "${cfg.package}/bin/ags";
-  #     Restart = "on-failure";
-  #   };
-  #   Install.WantedBy = [ "graphical-session.target" ];
-  # };
+  systemd.user.services.ags = {
+    unitConfig = {
+      Description = "Aylur's Gtk Shell";
+      PartOf = [
+        "tray.target"
+        "graphical-session.target"
+      ];
+    };
+    serviceConfig = {
+      Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
+      ExecStart = "${cfg.package}/bin/ags";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }
