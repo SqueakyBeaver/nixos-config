@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   home.pointerCursor = {
     package = pkgs.material-cursors;
-    name = "Material";
+    name = "Material Cursors";
     size = 16;
     gtk.enable = true;
     x11.enable = true;
