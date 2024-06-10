@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./backlight.nix
     ./flatpak.nix
     ./gnome.nix
     ./greetd.nix
