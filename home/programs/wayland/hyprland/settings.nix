@@ -104,7 +104,7 @@ in
       # vrr = 1;
 
       # we do, in fact, want direct scanout
-      # no_direct_scanout = false;
+      no_direct_scanout = false;
 
       # font_family = "Inter";
     };

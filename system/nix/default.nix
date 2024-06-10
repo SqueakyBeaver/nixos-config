@@ -16,6 +16,12 @@
   ];
 
   nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
+    optimise.automatic = true;
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;

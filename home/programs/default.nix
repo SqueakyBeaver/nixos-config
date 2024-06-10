@@ -6,6 +6,7 @@
     ./wayland
 
     ./cli.nix
+    ./games.nix
     ./gtk.nix
     ./misc-programs.nix
     ./programming.nix

@@ -4,6 +4,7 @@
     protonup-qt
     protontricks
     prismlauncher
+    gamescope
 
     # kdePackages.kdeconnect-kde
     gimp
