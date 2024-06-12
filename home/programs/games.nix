@@ -5,5 +5,10 @@
     protontricks
     prismlauncher
     gamescope
+    mangohud
   ];
+
+  home.sessionVariables = {
+    MANGOHUD = 1;
+  };
 }
