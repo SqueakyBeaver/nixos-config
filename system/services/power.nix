@@ -3,7 +3,8 @@
     logind.powerKey = "suspend-then-hibernate";
 
     tlp = {
-      enable = true;
+      # Disabling for one second
+      # enable = true;
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";

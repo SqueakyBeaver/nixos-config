@@ -6,8 +6,7 @@
     ./theme.nix
     inputs.matugen.nixosModules.default
     inputs.nix-index-db.hmModules.nix-index
-    self.nixosModules.theme
-
+    ../modules/theme
   ];
 
   # FIXME: put your own stuff here

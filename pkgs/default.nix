@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
-  pyinstaller = pkgs.callPackage ./pyinstaller;
+  pyinstaller = pkgs.callPackage ./pyinstaller { };
 in
 {
-  pixelflasher = pkgs.callPackage ./pixelflasher { inherit pyinstaller; };
+    pixelflasher = pkgs.callPackage ./pixelflasher { inherit pyinstaller; };
+    pyinstaller = pyinstaller;
 }

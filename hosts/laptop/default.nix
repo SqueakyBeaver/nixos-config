@@ -3,11 +3,9 @@ let
 in {
   imports = [
     ./hardware-configuration.nix
-
-
   ];
 
-  users.groups.beaver = {};
+  users.groups.beaver = { };
   users.users.beaver = {
     isNormalUser = true;
     description = "Squeaky beaver";

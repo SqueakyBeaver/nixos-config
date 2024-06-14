@@ -7,8 +7,9 @@
       hyprland.default = ["gtk" "hyprland"];
     };
 
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+
+    # extraPortals = [
+    #   pkgs.xdg-desktop-portal-gtk
+    # ];
   };
 }
