@@ -109,7 +109,7 @@ in
 
           # special workspace
           "$mod SHIFT, grave, movetoworkspace, special"
-          "$mod, grave, togglespecialworkspace, eDP-1"
+          "$mod, grave, togglespecialworkspace"
 
           # cycle workspaces
           "$mod, bracketleft, workspace, m-1"
@@ -149,6 +149,12 @@ in
         # backlight
         ", XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5"
         ", XF86MonBrightnessDown, exec, brillo -q -u 300000 -U 5"
+      ];
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
       ];
     };
   };

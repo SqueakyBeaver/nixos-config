@@ -67,36 +67,12 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
 
-  /*
-    outputs = { self, nixpkgs, ... } @ inputs:
-    let
-      inherit (self) outputs;
-
-      # systems = [ "x86_64-linux" ];
-
-      # forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-
-      imports = [
-        ./home/profiles
-        ./hosts
-        ./modules
-        # ./pkgs
-      ];
-
-      flake =  {
-        packages.x86_64-linux = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
-      };
-
-      # TODO: Make it more like this 
-      # https://github.com/Misterio77/nix-starter-configs/blob/main/standard/flake.nix
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    */
-
+  };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
