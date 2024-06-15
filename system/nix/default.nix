@@ -7,12 +7,13 @@
   # we need git for flakes
   environment.systemPackages = with pkgs; [
     git
-    neovim
+    # neovim
     wget
     curl
     gcc
     gnome.nautilus
     gtksourceview # hope
+    # inputs.nixvim.packages."x86_64-linux".default
   ];
 
   nix = {

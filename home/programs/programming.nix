@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # Text editors or IDEs
     vscode
-    neovim
+    # neovim
     # android-studio # Commented until I need it
 
     #LSP

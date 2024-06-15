@@ -1,9 +1,8 @@
 # https://github.com/LazyVim/LazyVim/discussions/1972
-# "Temporary" until I get the motivation to make my own config
-
 { config, lib, pkgs, ... }:
 {
   programs.neovim = {
+    enable = true;
     extraPackages = with pkgs; [
       # LazyVim
       lua-language-server

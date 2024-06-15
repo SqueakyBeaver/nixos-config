@@ -5,5 +5,6 @@
 
       providers.wl-copy.enable = true;
     };
+
   };
 }

@@ -70,7 +70,8 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # url = "github:mikaelfangel/nixvim-config"; # nixvim config based on AstroVim
+      inputs.nixpkgs.follows = "nixpkgs"; # Causes an error right now
     };
   };
 

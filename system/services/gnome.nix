@@ -11,5 +11,5 @@
     gvfs.enable = true;
   };
   programs.dconf.enable = true;
-  services.xserver.desktopManager.gnome.enable = true; # Need this for a minute
+  # services.xserver.desktopManager.gnome.enable = true; # Need this for a minute
 }

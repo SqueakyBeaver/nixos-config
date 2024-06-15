@@ -1,4 +1,4 @@
-{ lib }: {
+{ lib, inputs, ... }: {
   programs.nixvim = {
     keymaps =
       let

@@ -3,7 +3,7 @@
 {
   imports = [
     ./hyprland
-    ./dunst
+    # ./dunst
     # ./waybar
     
     ./hyprlock.nix

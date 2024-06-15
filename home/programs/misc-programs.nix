@@ -16,9 +16,9 @@
     networkmanagerapplet
     android-tools
 
-    gsettings-qt
-    gsettings-desktop-schemas
-    xdg-desktop-portal-shana
+    # gsettings-qt
+    # gsettings-desktop-schemas
+    # xdg-desktop-portal-shana
   ];
 
 }
