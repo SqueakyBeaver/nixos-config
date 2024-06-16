@@ -3,7 +3,7 @@
     # Text editors or IDEs
     vscode
     # neovim
-    # android-studio # Commented until I need it
+    android-studio # Commented until I need it
 
     #LSP
     nil

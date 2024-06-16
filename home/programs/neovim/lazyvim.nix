@@ -33,6 +33,7 @@
           gitsigns-nvim
           indent-blankline-nvim
           lualine-nvim
+          meson
           neo-tree-nvim
           neoconf-nvim
           neodev-nvim
