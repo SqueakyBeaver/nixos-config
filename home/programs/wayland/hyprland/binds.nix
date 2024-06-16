@@ -52,7 +52,7 @@ in
           # compositor commands
           "$mod SHIFT, E, exec, pkill Hyprland"
           "$mod, Q, killactive,"
-          "$mod, F, fullscreen,"
+          "$mod SHIFT, F, fullscreen," # Is not F since that interferes with gamescope
           "$mod, G, togglegroup,"
           "$mod SHIFT, N, changegroupactive, f"
           "$mod SHIFT, P, changegroupactive, b"
