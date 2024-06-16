@@ -3,6 +3,7 @@
   imports = [ 
     ./boot.nix
     ./hardware.nix
+    ./kernel.nix
   ];
 
     # Set your time zone.

@@ -3,5 +3,10 @@
   #   theme = import ./theme;
   # };
 
-  imports = [ ./theme ];
+  imports = [
+    ./theme
+    ./platformOptimizations.nix
+  ];
+
+  
 }
