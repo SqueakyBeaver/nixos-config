@@ -5,5 +5,7 @@
     ./media
     ./system
     ./wayland
+
+    ./qt.nix
   ];
 }

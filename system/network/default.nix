@@ -19,6 +19,13 @@
       dns = "systemd-resolved";
       wifi.powersave = true;
     };
+
+    firewall = {
+      allowedTCPPorts = [ 
+        1701 # Weylus
+        9001 # Weylus
+         ];
+    };
   };
 
   services = {

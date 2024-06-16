@@ -9,9 +9,9 @@
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
 
-  qt = {
-    enable = true;
-    style = "gtk2";
-    platformTheme = "gtk2";
-  };
+  # qt = {
+  #   enable = true;
+  #   style = "gtk2";
+  #   platformTheme = "qt5ct";
+  # };
 }

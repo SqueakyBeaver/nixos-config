@@ -9,6 +9,7 @@
       stylua
       # Telescope
       ripgrep
+      lazygit
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -30,6 +31,7 @@
           dressing-nvim
           flash-nvim
           friendly-snippets
+          fzfWrapper
           gitsigns-nvim
           indent-blankline-nvim
           lualine-nvim

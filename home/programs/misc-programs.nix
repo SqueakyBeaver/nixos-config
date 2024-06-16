@@ -8,6 +8,8 @@
 
     # kdePackages.kdeconnect-kde
     gimp
+    krita
+    weylus
     inkscape
     vesktop
     vlc
