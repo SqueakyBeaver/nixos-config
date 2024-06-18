@@ -18,11 +18,7 @@
     networkmanagerapplet
     android-tools
 
-    gtksourceview
-    zim
-    gtkspell3
-    xdot
-    graphviz
+    obsidian
 
     # gsettings-qt
     # gsettings-desktop-schemas
