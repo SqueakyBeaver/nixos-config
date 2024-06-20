@@ -5,9 +5,10 @@
     # neovim
     android-studio # Commented until I need it
 
-    #LSP
+    #LSP/Linters/Etc
     nil
     nixpkgs-fmt
+    nodePackages.eslint
 
     # Languages
     go
