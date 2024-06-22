@@ -4,7 +4,7 @@
     ./fonts.nix
     ./games.nix
     ./home-manager.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     ./xdg.nix
   ];
 

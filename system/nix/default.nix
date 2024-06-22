@@ -11,8 +11,8 @@
     wget
     curl
     gcc
-    gnome.nautilus
-    gtksourceview # hope
+    # gnome.nautilus
+    # gtksourceview # hope
   ];
 
   nix = {

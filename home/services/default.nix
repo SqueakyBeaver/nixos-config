@@ -1,10 +1,10 @@
 { inputs, config, self, ... }:
 {
   imports = [
-    ./ags
+    # ./ags
     ./media
-    ./system
-    ./wayland
+    # ./system
+    # ./wayland
 
     ./qt.nix
   ];
