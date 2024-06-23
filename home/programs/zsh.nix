@@ -16,7 +16,36 @@
       ll = "ls -l";
       rebuild = "nixos-rebuild switch --flake /home/beaver/nixos-config#toaster-oven-of-death";
     };
-    initExtra = "export ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd history)";
+    initExtra = ''
+          export ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd history)
+        # Nix-direnv?
+          nixify() {
+        if [ ! -e ./.envrc ]; then
+          echo "use nix" > .envrc
+          direnv allow
+        fi
+        if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+          cat > default.nix <<'EOF'
+      with import <nixpkgs> {};
+      mkShell {
+        nativeBuildInputs = [
+          bashInteractive
+        ];
+      }
+      EOF
+          ${EDITOR:-vim} default.nix
+        fi
+      }
+      flakify() {
+        if [ ! -e flake.nix ]; then
+          nix flake new -t github:nix-community/nix-direnv .
+        elif [ ! -e .envrc ]; then
+          echo "use flake" > .envrc
+          direnv allow
+        fi
+        ${EDITOR:-vim} flake.nix
+      }
+    '';
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
