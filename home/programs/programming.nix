@@ -11,6 +11,7 @@
     nodePackages.eslint
 
     # Languages
+    corepack_22
     go
     python312
     rustc
