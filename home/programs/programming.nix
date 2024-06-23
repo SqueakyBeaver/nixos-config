@@ -17,5 +17,9 @@
     rustc
     cargo
     nodejs
+
+    openssl
+    nodePackages.prisma
+    prisma-engines
   ];
 }
