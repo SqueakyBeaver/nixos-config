@@ -7,6 +7,7 @@
     # ./wayland
 
     ./cli.nix
+    ./direnv.nix
     ./games.nix
     # ./gtk.nix
     ./misc-programs.nix
