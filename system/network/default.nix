@@ -5,6 +5,8 @@
     ./kdeconnect.nix
   ];
   networking = {
+    nftables.enable = true;
+
     # use my nextDNS config
     nameservers = [
       "45.90.28.0" #7dbdb5.dns.nextdns.io"
@@ -21,10 +23,18 @@
     };
 
     firewall = {
-      allowedTCPPorts = [ 
+      allowedTCPPorts = [
         1701 # Weylus
         9001 # Weylus
-         ];
+        9090
+        8080
+      ];
+
+      allowedUDPPortRanges = [
+        { from = 4000; to = 4007; }
+        { from = 8000; to = 8010; }
+        { from = 8080; to = 8090; }
+      ];
     };
   };
 

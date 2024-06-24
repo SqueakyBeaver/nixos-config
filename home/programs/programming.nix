@@ -21,5 +21,7 @@
     openssl
     nodePackages.prisma
     prisma-engines
+
+    react-native-debugger
   ];
 }
