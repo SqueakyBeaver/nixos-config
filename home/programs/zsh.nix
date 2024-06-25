@@ -33,7 +33,7 @@
         ];
       }
       EOF
-          ${EDITOR:-vim} default.nix
+          $EDITOR default.nix
         fi
       }
       flakify() {
@@ -43,7 +43,7 @@
           echo "use flake" > .envrc
           direnv allow
         fi
-        ${EDITOR:-vim} flake.nix
+        $EDITOR flake.nix
       }
     '';
     history = {
