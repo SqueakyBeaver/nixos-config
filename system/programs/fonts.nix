@@ -17,10 +17,14 @@
 
       # nerdfonts
       (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
+
+      # Other fonts
+      google-fonts
+      
     ];
 
     # causes more issues than it solves
-    enableDefaultPackages = false;
+    enableDefaultPackages = true;
 
     fontDir.enable = true;
 
