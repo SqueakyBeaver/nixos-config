@@ -14,6 +14,7 @@
     corepack_22
     go
     python312
+    poetry
     rustc
     cargo
     nodejs
