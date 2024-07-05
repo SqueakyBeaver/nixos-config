@@ -1,15 +1,11 @@
 { pkgs, self, ... }:
 {
   imports = [
-    # ./anyrun
-    # ./fuzzel
-    ./neovim 
-    # ./wayland
+    # ./neovim #Temporarily unused
 
     ./cli.nix
     ./direnv.nix
     ./games.nix
-    # ./gtk.nix
     ./misc-programs.nix
     ./programming.nix
     ./term.nix

@@ -7,12 +7,9 @@
   # we need git for flakes
   environment.systemPackages = with pkgs; [
     git
-    # neovim
     wget
     curl
     gcc
-    # gnome.nautilus
-    # gtksourceview # hope
   ];
 
   nix = {
