@@ -5,6 +5,11 @@
 
 
   inputs = {
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     home-manager = {
@@ -35,7 +40,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, lix-module, home-manager, ... }@inputs:
     let
       mkSystem = { username, hostname, arch } @ sysCfg: {
         ${hostname} = nixpkgs.lib.nixosSystem {
@@ -47,6 +52,7 @@
             ./modules
             ./system
             home-manager.nixosModules.home-manager
+            lix-module.nixosModules.default
 
             {
               home-manager = {
@@ -67,13 +73,11 @@
           extraSpecialArgs = { inherit inputs sysCfg; };
           modules = [
             # > Our main home-manager configuration file <
-            ./hhome
+            ./home
           ];
         };
 
       };
-
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in
     {
       nixosConfigurations = mkSystem
@@ -92,13 +96,6 @@
         };
 
       packages.x86_64-linux = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
-
-      devShells.default = pkgs.mkShell {
-        packages = [
-          pkgs.git
-          pkgs.zsh
-        ];
-      };
     };
 }
 
