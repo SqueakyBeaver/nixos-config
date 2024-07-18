@@ -17,6 +17,7 @@
     poetry
     rustc
     cargo
+    rust-analyzer
     nodejs
 
     openssl
