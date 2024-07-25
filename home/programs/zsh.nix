@@ -45,6 +45,11 @@
         fi
         $EDITOR flake.nix
       }
+
+      # devenv <lang>
+      devenv() {
+        nix flake init --template github:the-nix-way/dev-templates#$1
+      }
     '';
     history = {
       size = 10000;

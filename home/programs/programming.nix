@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # Text editors or IDEs
-    vscode
     # neovim
     android-studio # Commented until I need it
+    zed-editor
 
     #LSP/Linters/Etc
     nil
@@ -26,4 +26,14 @@
 
     react-native-debugger
   ];
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      vadimcn.vscode-lldb
+      rust-lang.rust-analyzer
+      mkhl.direnv
+      jnoortheen.nix-ide
+    ];
+  };
 }
