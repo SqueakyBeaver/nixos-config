@@ -1,4 +1,4 @@
-{ lib, ... }:
+{lib, ...}:
 # networking configuration
 {
   imports = [
@@ -31,9 +31,18 @@
       ];
 
       allowedUDPPortRanges = [
-        { from = 4000; to = 4007; }
-        { from = 8000; to = 8010; }
-        { from = 8080; to = 8090; }
+        {
+          from = 4000;
+          to = 4007;
+        }
+        {
+          from = 8000;
+          to = 8010;
+        }
+        {
+          from = 8080;
+          to = 8090;
+        }
       ];
     };
   };

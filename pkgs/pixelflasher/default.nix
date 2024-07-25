@@ -1,4 +1,15 @@
-{ lib, stdenv, android-tools, cacert, fetchFromGitHub, makeDesktopItem, makeWrapper, pyinstaller, python311, substituteAll }:
+{
+  lib,
+  stdenv,
+  android-tools,
+  cacert,
+  fetchFromGitHub,
+  makeDesktopItem,
+  makeWrapper,
+  pyinstaller,
+  python311,
+  substituteAll,
+}:
 stdenv.mkDerivation (finalAttrs: {
   pname = "PixelFlasher";
   version = "6.9.6.0";
@@ -37,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
       --set REQUESTS_CA_BUNDLE "${cacert}/etc/ssl/certs/ca-bundle.crt"
   '';
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [makeWrapper];
 
   buildInputs = with python311.pkgs; [
     android-tools
@@ -68,7 +79,7 @@ stdenv.mkDerivation (finalAttrs: {
     exec = finalAttrs.pname;
     icon = finalAttrs.pname;
     desktopName = finalAttrs.pname;
-    categories = [ "Utility" ];
+    categories = ["Utility"];
     genericName = finalAttrs.meta.description;
     noDisplay = false;
     startupNotify = true;
@@ -80,7 +91,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Pixel™ phone flashing GUI utility with features";
     homepage = "https://github.com/badabing2005/PixelFlasher";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ ];
+    maintainers = with lib.maintainers; [];
     mainProgram = "PixelFlasher";
     platforms = lib.platforms.all;
   };

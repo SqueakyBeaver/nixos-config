@@ -1,5 +1,9 @@
-{ inputs, config, self, ... }:
 {
+  inputs,
+  config,
+  self,
+  ...
+}: {
   imports = [
     ./media
 

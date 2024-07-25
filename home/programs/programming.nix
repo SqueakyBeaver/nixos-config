@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Text editors or IDEs
     # neovim
@@ -7,7 +7,7 @@
 
     #LSP/Linters/Etc
     nil
-    nixpkgs-fmt
+    alejandra
     nodePackages.eslint
 
     # Languages
@@ -26,14 +26,4 @@
 
     react-native-debugger
   ];
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      vadimcn.vscode-lldb
-      rust-lang.rust-analyzer
-      mkhl.direnv
-      jnoortheen.nix-ide
-    ];
-  };
 }

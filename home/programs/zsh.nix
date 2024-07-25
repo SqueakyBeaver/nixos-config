@@ -1,11 +1,15 @@
-{ config, pks, self, ... }:
 {
+  config,
+  pks,
+  self,
+  ...
+}: {
   programs.zsh = {
     enable = true;
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "direnv" ];
+      plugins = ["git" "thefuck" "direnv"];
       theme = "robbyrussell";
     };
     enableCompletion = true;

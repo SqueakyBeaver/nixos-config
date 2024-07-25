@@ -1,5 +1,9 @@
-{  lib, self, inputs, ... }:
 {
+  lib,
+  self,
+  inputs,
+  ...
+}: {
   imports = [
     ./programs
     ./services

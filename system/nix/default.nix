@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, lib, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     ./nixpkgs.nix
     ./substituters.nix
@@ -22,13 +28,13 @@
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
 
       # for direnv GC roots
       keep-derivations = true;
       keep-outputs = true;
 
-      trusted-users = [ "root" "wheel" ];
+      trusted-users = ["root" "wheel"];
     };
   };
 }

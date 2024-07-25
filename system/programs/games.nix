@@ -1,5 +1,9 @@
-{ config, pkgs, self, ... }:
 {
+  config,
+  pkgs,
+  self,
+  ...
+}: {
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
@@ -25,7 +29,6 @@
           xorg.libXScrnSaver
         ];
     };
-
   };
 
   programs.gamemode.enable = true;

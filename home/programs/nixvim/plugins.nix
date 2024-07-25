@@ -4,7 +4,5 @@
       enable = true;
       triggers = "auto";
     };
-
-    
   };
 }

@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
@@ -33,10 +32,10 @@
       autoEnableSources = true;
 
       settings.sources = [
-        { name = "nvim_lsp"; }
-        { name = "path"; }
-        { name = "buffer"; }
-        { name = "luasnip"; }
+        {name = "nvim_lsp";}
+        {name = "path";}
+        {name = "buffer";}
+        {name = "luasnip";}
       ];
     };
   };

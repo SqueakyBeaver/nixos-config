@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     protonup-qt
     protontricks
@@ -24,5 +23,4 @@
     # gsettings-desktop-schemas
     # xdg-desktop-portal-shana
   ];
-
 }

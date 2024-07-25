@@ -1,7 +1,7 @@
 {
   programs.wezterm.enable = true;
 
-    programs.kitty = {
+  programs.kitty = {
     enable = true;
     font = {
       size = 10;
@@ -27,5 +27,4 @@
 
     theme = "Catppuccin-Mocha";
   };
-
 }

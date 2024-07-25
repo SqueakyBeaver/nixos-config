@@ -1,10 +1,14 @@
 # Shamelessly stolen
 # TODO: Figure out what this means
-{ pkgs, config, lib, ... }:
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   inherit (builtins) concatStringsSep mapAttrs toString;
 
-  path = lib.optionalString (config.home.sessionPath != [ ]) ''
+  path = lib.optionalString (config.home.sessionPath != []) ''
     export PATH=${concatStringsSep ":" config.home.sessionPath}:$PATH
   '';
 
@@ -32,7 +36,6 @@ let
       --wait \
       bash -lc "exec ${apply-hm-env} $@"
   '';
-in
-{
-  home.packages = [ run-as-service ];
+in {
+  home.packages = [run-as-service];
 }

@@ -7,6 +7,4 @@
     ./theme
     ./platformOptimizations.nix
   ];
-
-  
 }

@@ -1,5 +1,8 @@
-{ pkgs, self, ... }:
 {
+  pkgs,
+  self,
+  ...
+}: {
   imports = [
     ./playerctl.nix
   ];
