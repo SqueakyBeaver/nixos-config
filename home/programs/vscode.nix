@@ -10,15 +10,20 @@ in {
     enable = true;
     package = pkgs.vscodium;
     # package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]); # temporary, don't shoot me
-    extensions = with vscode-extensions; [
-      open-vsx.vadimcn.vscode-lldb
-      open-vsx.rust-lang.rust-analyzer
-      open-vsx.mkhl.direnv
-      open-vsx.jnoortheen.nix-ide
-      open-vsx.tamasfe.even-better-toml
-      open-vsx.serayuzgur.crates
-      open-vsx.pkief.material-icon-theme
-    ];
+    extensions = with vscode-extensions;
+      [
+        # vscode-marketplace.vadimcn.vscode-lldb
+        open-vsx.rust-lang.rust-analyzer
+        open-vsx.mkhl.direnv
+        open-vsx.jnoortheen.nix-ide
+        open-vsx.tamasfe.even-better-toml
+        open-vsx.serayuzgur.crates
+        open-vsx.pkief.material-icon-theme
+      ]
+      ++ [
+        # Only way this actually works, in my testing
+        pkgs.vscode-extensions.vadimcn.vscode-lldb
+      ];
 
     userSettings = {
       "workbench.colorTheme" = "Default Dark+";
@@ -42,6 +47,7 @@ in {
           };
         };
       };
+      # "lldb.library" = "${pkgs.lldb.lib}/lib/liblldb.so";
     };
   };
 }

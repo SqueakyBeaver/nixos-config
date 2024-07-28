@@ -9,6 +9,7 @@
     nil
     alejandra
     nodePackages.eslint
+    lldb
 
     # Languages
     corepack_22
