@@ -10,8 +10,6 @@
     libnotify
 
     # utils
-    du-dust
-    wl-clipboard
     duf
     fd
     file
@@ -24,6 +22,7 @@
     iotop
     iftop
     thefuck
+    kdePackages.yakuake
   ];
 
   programs = {

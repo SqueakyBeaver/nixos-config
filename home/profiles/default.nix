@@ -1,16 +1,19 @@
 {
   self,
   inputs,
+  username,
+  hostname,
   ...
 }: let
   # get these into the module system
   extraSpecialArgs = {inherit inputs self;};
 
   homeImports = {
-    "beaver@laptop" = [
+    "${username}@${hostname}" = [
       ../.
-      ./laptop
+      ./${hostname}
     ];
+
   };
 
   inherit (inputs.hm.lib) homeManagerConfiguration;

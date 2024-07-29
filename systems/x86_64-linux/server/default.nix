@@ -13,16 +13,14 @@
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    toaster-oven-of-death = nixosSystem {
+    oven-of-death = nixosSystem {
       inherit specialArgs;
       modules = [
-        ./laptop
-
         "${mod}/programs"
         "${mod}/services"
         {
           home-manager = {
-            users.beaver.imports = homeImports."beaver@laptop";
+            users.beaver.imports = homeImports."beaver@server";
             extraSpecialArgs = specialArgs;
           };
         }

@@ -19,6 +19,7 @@ in {
         open-vsx.tamasfe.even-better-toml
         open-vsx.serayuzgur.crates
         open-vsx.pkief.material-icon-theme
+        open-vsx.eamodio.gitlens
       ]
       ++ [
         # Only way this actually works, in my testing
