@@ -10,6 +10,7 @@
     ./power.nix
     ./printing.nix
     ./sddm.nix
+    ./tailscale.nix 
   ];
 
   # MySQL (Mariadb)
