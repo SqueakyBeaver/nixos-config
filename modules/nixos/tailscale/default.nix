@@ -57,8 +57,6 @@ in {
         ];
     };
 
-    systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = mkIf (
-      cfg.server != "https://controlplane.tailscale.com"
-    ) "true";
+    systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
   };
 }
