@@ -4,20 +4,25 @@ All options are prefaced by the snowfall namescpace
 For example `browser.enable` would be `timber.browser.enable` if the snowfall namescpace is `timber`
 
 ## `home` folder
-| Option                    | Default | Location              | Explanation                                                                         |
-|---------------------------|---------|-----------------------|-------------------------------------------------------------------------------------|
-| `browser.enable`          | `false` | `browser/default.nix` | Whether to enable browser                                                           |
-| `browser.firefox.enable`  | `true`  | `browser/default.nix` | Whether to enable firefox                                                           |
-| `browser.chromium.enable` | `false` | `browser/default.nix` | Whether to enable ungoogled chromium                                                |
-| `editors.enable`          | `false` | `editors/default.nix` | Whether to enable graphical editors                                                 |
-| `editors.codium.enable`   | `true`  | `editors/default.nix` | Whether to enable vscodium with some extensions (will be custimizable eventually)   |
-| `editors.android.enable`  | `false` | `editors/default.nix` | Whether to enable android studio                                                    |
-| `apps.enable`             | `true`  | `apps/default.nix`    | Whether to allow using various graphical applications (not recommended for servers) |
-| `apps.enable`             | `true`  | `apps/default.nix`    | Whether to allow using various graphical applications (not recommended for servers) |
-| `apps.enable`             | `true`  | `apps/default.nix`    | Whether to allow using various graphical applications (not recommended for servers) |
-| `apps.enable`             | `true`  | `apps/default.nix`    | Whether to allow using various graphical applications (not recommended for servers) |
-| `apps.enable`             | `true`  | `apps/default.nix`    | Whether to allow using various graphical applications (not recommended for servers) |
-| `apps.enable`             | `true`  | `apps/default.nix`    | Whether to allow using various graphical applications (not recommended for servers) |
+| Option                          | Default       | Location                         | Explanation                                                         |
+|---------------------------------|---------------|----------------------------------|---------------------------------------------------------------------|
+| `browser.enable`                | `false`       | `browser/default.nix`            | Whether to enable browser                                           |
+| `browser.firefox.enable`        | `true`        | `browser/default.nix`            | Whether to enable firefox                                           |
+| `browser.chromium.enable`       | `false`       | `browser/default.nix`            | Whether to enable ungoogled chromium                                |
+| `editors.enable`                | `false`       | `editors/default.nix`            | Whether to enable graphical editors                                 |
+| `editors.codium.enable`         | `true`        | `editors/default.nix`            | Whether to enable vscodium with some extensions                     |
+| `editors.android.enable`        | `false`       | `editors/default.nix`            | Whether to enable android studio                                    |
+| `apps.enable`                   | `true`        | `apps/default.nix`               | Whether to install misc. applications (not recommended for servers) |
+| `apps.bitwarden.enable`         | `apps.enable` | `apps/bitwarden/default.nix`     | Whether to install Bitwarden                                        |
+| `apps.graphics.enable`          | `apps.enable` | `apps/graphics/default.nix`      | Whether to install graphics apps (GIMP)                             |
+| `apps.graphics.gimp.enable`     | `true`        | `apps/graphics/default.nix`      | Whether to install GIMP                                             |
+| `apps.graphics.krita.enable`    | `false`       | `apps/graphics/default.nix`      | Whether to install Krita                                            |
+| `apps.graphics.inkscape.enable` | `false`       | `apps/graphics/default.nix`      | Whether to install Inkscape                                         |
+| `apps.obsidian.enable`          | `apps.enable` | `apps/obsidian/default.nix`      | Whether to install obsidian                                         |
+| `apps.prismlauncher.enable`     | `apps.enable` | `apps/prismlauncher/default.nix` | Whether to install prism launcher                                   |
+| `apps.spotify.enable`           | `apps.enable` | `apps/spotify/default.nix`       | Whether to install spotify                                          |
+| `apps.vesktop.enable`           | `apps.enable` | `apps/vesktop/default.nix`       | Whether to install vesktop                                          |
+| `apps.vlc.enable`               | `apps.enable` | `apps/vlc/default.nix`           | Whether to install vlc                                              |
 
 
 ## `nixos` folder

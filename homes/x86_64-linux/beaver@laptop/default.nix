@@ -22,5 +22,6 @@
   timber = {
     browser.enable = true;
     editors.enable = true;
+    apps.enable = true;
   };
 }
