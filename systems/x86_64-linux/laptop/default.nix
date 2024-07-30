@@ -45,5 +45,7 @@
     games.enable = true;
     games.optimize.enable = true;
     xdg.enable = true;
+    virtualisation.enable = true;
+    virtualisation.guest.enable = true;
   };
 }
