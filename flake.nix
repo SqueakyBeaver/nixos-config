@@ -112,27 +112,23 @@
       inherit inputs;
       src = ./.;
 
-      systems.hosts.laptop.modules = with inputs; [
+      systems.modules.nixos = with inputs; [
         lix-module.nixosModules.default
-
-        # home-manager.nixosModules.home-manager
-        # {
-        #   home-manager = {
-        #     useGlobalPkgs = true;
-        #     useUserPackages = true;
-        #     extraSpecialArgs = {inherit inputs sysCfg;};
-        #     users.${username}.imports = [
-        #       ./home
-        #     ];
-        #   };
-        # }
       ];
 
       snowfall = {
-        name = "death-ovens";
+        namespace = "timber";
 
-        meta.name = "bad-configs";
+        meta.name = "timber";
         meta.title = "Currently a very not good NixOS config";
+      };
+
+      outputs-builder = channels: {
+        formatter = channels.nixpkgs.alejandra;
+      };
+
+      channels-config = {
+        allowUnfree = true;
       };
     };
 }

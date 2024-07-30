@@ -29,7 +29,7 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "codium";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

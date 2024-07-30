@@ -1,17 +1,32 @@
 {
   config,
   lib,
+  namespace,
   ...
-}: {
-  options = {
-    programs.steam.platformOptimizations.enable = lib.mkEnableOption ''
+}:
+with lib; let
+  module = "games";
+  cfg = config.${namespace}.${module};
+in {
+  options.${namespace}.${module} = {
+    enable = mkEnableOption "Game module";
+    optimize.enable = lib.mkEnableOption ''
       set the same sysctl settings as are set on SteamOS
     '';
   };
 
-  config = lib.mkIf config.programs.steam.platformOptimizations.enable {
+  config = mkIf cfg.enable {
+    programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+      ];
+    };
     # last cheched with https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamos-customizations-jupiter-20240219.1-2-any.pkg.tar.zst
-    boot.kernel.sysctl = {
+    boot.kernel.sysctl = mkIf cfg.optimize.enable {
       # 20-shed.conf
       "kernel.sched_cfs_bandwidth_slice_us" = 3000;
       # 20-net-timeout.conf
