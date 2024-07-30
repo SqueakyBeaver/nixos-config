@@ -7,7 +7,7 @@
 with lib; let
   module = "apps";
   appName = "vlc";
-  cfg = config.${namespace}.${module};
+  cfg = config.${namespace}.${module}.${appName};
 in {
   options.${namespace}.${module}.${appName} = {
     enable = mkOption {
@@ -20,7 +20,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = mkIf cfg.${appName}.enable [
+    home.packages = [
       pkgs.vlc
     ];
   };

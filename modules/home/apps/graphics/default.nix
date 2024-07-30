@@ -20,7 +20,7 @@
 with lib; let
   module = "apps";
   appName = "graphics";
-  cfg = config.${namespace}.${module};
+  cfg = config.${namespace}.${module}.${appName};
 in {
   options.${namespace}.${module}.${appName} = {
     enable = mkOption {
@@ -57,16 +57,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = mkIf cfg.${appName}.enable [
-      mkIf
-      cfg.${appName}.gimp.enable
-      pkgs.gimp
-      mkIf
-      cfg.${appName}.krita.enable
-      pkgs.krita
-      mkIf
-      cfg.${appName}.inkscape.enable
-      pkgs.inkscape
+    home.packages = [
+      (mkIf cfg.gimp.enable pkgs.gimp)
+      (mkIf cfg.krita.enable pkgs.krita)
+      (mkIf cfg.inkscape.enable pkgs.inkscape)
     ];
   };
 }
