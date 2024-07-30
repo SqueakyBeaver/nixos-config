@@ -31,9 +31,10 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 | `bluetooth.enable`              | `false` | `bluetooth/default.nix` | Whether to enable bluetooth on the machine                     |
 | `desktop.plasma.enable`         | `false` | `desktop/default.nix`   | Whether to use KDE plasma 6                                    |
 | `games.enable`                  | `false` | `games/default.nix`     | Whether to enable some gaming stuff, like Steam and Proton     |
-| `games.optimize.enable`         | `true`  | `games/default.nix`     | Whether to enable kernel optimizations that the steam deck has |
+| `games.optimize`                | `false` | `games/default.nix`     | Whether to enable kernel optimizations that the steam deck has |
 | `xdg.enable`                    | `false` | `xdg/default.nix`       | Whether to enable xdg-open                                     |
 | `networking.tailscale.enable`   | `true`  | `tailscale/default.nix` | Whether to enable the tailscale service                        |
 | `networking.tailscale.exitNode` | `false` | `tailscale/default.nix` | Whether to make the device a tailscale exit node               |
-| `virtualisation.enable`         | `false` | `tailscale/default.nix` | Whether to enable virtualisation using virtualbox              |
-| `virtualisation.guest.enable`   | `false` | `tailscale/default.nix` | Whether to enable virtualbox guest additions                   |
+| `virtualisation.enable`         | `false` | `tailscale/default.nix` | Whether to enable virtualisation using virt-manager            |
+| `printing.enable`               | `false` | `tailscale/default.nix` | Whether to enable printing                                     |
+| `printing.openFirewall`         | `true`  | `tailscale/default.nix` | Whether to enable searching for printers over the network      |

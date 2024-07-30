@@ -18,7 +18,7 @@
     isNormalUser = true;
     description = "Squeaky beaver";
     group = "beaver";
-    extraGroups = ["networkmanager" "wheel" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "gamemode" "libvirtd"];
     # shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
@@ -42,10 +42,15 @@
   timber = {
     audio.enable = true;
     desktop.plasma.enable = true;
-    games.enable = true;
-    games.optimize.enable = true;
+    games = {
+      enable = true;
+      optimize = true;
+    };
     xdg.enable = true;
     virtualisation.enable = true;
-    virtualisation.guest.enable = true;
+    printing = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }

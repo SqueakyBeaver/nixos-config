@@ -11,7 +11,7 @@ with lib; let
 in {
   options.${namespace}.${module} = {
     enable = mkEnableOption "Game module";
-    optimize.enable = lib.mkEnableOption ''
+    optimize = lib.mkEnableOption ''
       set the same sysctl settings as are set on SteamOS
     '';
   };
@@ -27,7 +27,7 @@ in {
       ];
     };
     # last cheched with https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamos-customizations-jupiter-20240219.1-2-any.pkg.tar.zst
-    boot.kernel.sysctl = mkIf cfg.optimize.enable {
+    boot.kernel.sysctl = mkIf cfg.optimize {
       # 20-shed.conf
       "kernel.sched_cfs_bandwidth_slice_us" = 3000;
       # 20-net-timeout.conf
