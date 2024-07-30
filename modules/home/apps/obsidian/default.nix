@@ -32,7 +32,7 @@ in {
     };
   };
 
-  inputs = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = mkIf cfg.${appName}.enable [
       pkgs.obsidian
     ];

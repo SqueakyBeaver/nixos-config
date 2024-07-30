@@ -56,11 +56,17 @@ in {
     };
   };
 
-  inputs = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = mkIf cfg.${appName}.enable [
-      mkIf cfg.${appName}.gimp.enable pkgs.gimp
-      mkIf cfg.${appName}.krita.enable pkgs.krita
-      mkIf cfg.${appName}.inkscape.enable pkgs.inkscape
+      mkIf
+      cfg.${appName}.gimp.enable
+      pkgs.gimp
+      mkIf
+      cfg.${appName}.krita.enable
+      pkgs.krita
+      mkIf
+      cfg.${appName}.inkscape.enable
+      pkgs.inkscape
     ];
   };
 }

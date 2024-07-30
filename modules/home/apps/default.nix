@@ -21,23 +21,10 @@ with lib; let
   module = "apps";
   cfg = config.${namespace}.${module};
 in {
-  imports = [
-    ./biwarden
-    ./graphics
-    ./obsidian
-    ./prismlauncher
-    ./spotify
-    ./vesktop
-    ./vlc
-  ];
-
   options.${namespace}.${module} = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = ''
-        Enable the use of various graphical applications
-      '';
-    };
+    enable = mkEnableOption ''
+      Enable the use of various graphical applications
+    '';
   };
+
 }

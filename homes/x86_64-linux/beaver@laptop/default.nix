@@ -19,7 +19,7 @@
 }: {
   programs.zsh.enable = true;
 
-  timber = {
+  ${namespace} = {
     browser.enable = true;
     editors.enable = true;
     apps.enable = true;

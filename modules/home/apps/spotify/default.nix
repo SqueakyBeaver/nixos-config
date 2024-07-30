@@ -32,12 +32,10 @@ in {
     };
   };
 
-  inputs = mkIf cfg.enable {
-    home.packages =
-      mkIf cfg.${appName}.enable [
-        # TODO: use spotX overlay
-        pkgs.spotify
-
-      ];
+  config = mkIf cfg.enable {
+    home.packages = mkIf cfg.${appName}.enable [
+      # TODO: use spotX overlay
+      pkgs.spotify
+    ];
   };
 }
