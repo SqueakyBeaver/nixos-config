@@ -1,9 +1,9 @@
-# Options in this folder
+# Options in this directory
 
 All options are prefaced by the snowfall namescpace
 For example `browser.enable` would be `timber.browser.enable` if the snowfall namescpace is `timber`
 
-## `home` folder
+## `home/` directory
 | Option                          | Default                | Location                         | Explanation                                     |
 |---------------------------------|------------------------|----------------------------------|-------------------------------------------------|
 | `browser.enable`                | `false`                | `browser/default.nix`            | Whether to enable browser                       |
@@ -24,7 +24,7 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 | `apps.vlc.enable`               | `false`                | `apps/vlc/default.nix`           | Whether to install vlc                          |
 
 
-## `nixos` folder
+## `nixos/` directory
 | Option                          | Default | Location                | Explanation                                                    |
 |---------------------------------|---------|-------------------------|----------------------------------------------------------------|
 | `audio.enable`                  | `false` | `audio/default.nix`     | Whether to enable the pipewire service                         |
