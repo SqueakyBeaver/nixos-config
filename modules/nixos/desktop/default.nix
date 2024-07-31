@@ -26,5 +26,7 @@ in {
       kdePackages.yakuake
       kdePackages.kate
     ];
+
+    programs.kdeconnect.enable = true;
   };
 }
