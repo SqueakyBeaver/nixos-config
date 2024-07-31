@@ -26,6 +26,8 @@ in {
         pkgs.proton-ge-bin
       ];
     };
+    programs.gamemode.enable = true;
+
     # last cheched with https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamos-customizations-jupiter-20240219.1-2-any.pkg.tar.zst
     boot.kernel.sysctl = mkIf cfg.optimize {
       # 20-shed.conf

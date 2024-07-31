@@ -7,14 +7,8 @@
     enable = true;
     efiSupport = true;
     configurationLimit = 10;
-    # theme = "${pkgs.kdePackages.breeze-grub}/grub/themes/breeze";
+    theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
     device = "nodev";
-  };
-
-  boot.loader.grub2-theme = {
-    enable = true;
-    theme = "stylish";
-    footer = true;    
   };
 
   boot.loader.efi.canTouchEfiVariables = true;

@@ -32,11 +32,16 @@
     };
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+    };
   };
 
   outputs = inputs @ {
     lix-module,
     home-manager,
+    grub2-themes,
     ...
   }:
     inputs.snowfall-lib.mkFlake {
@@ -45,6 +50,7 @@
 
       systems.modules.nixos = with inputs; [
         lix-module.nixosModules.default
+        grub2-themes.nixosModules.default
       ];
 
       snowfall = {

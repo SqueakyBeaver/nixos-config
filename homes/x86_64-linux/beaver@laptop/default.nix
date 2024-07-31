@@ -1,6 +1,4 @@
 {...}: {
-  programs.zsh.enable = true;
-
   timber = {
     browser.enable = true;
     editors.enable = true;
