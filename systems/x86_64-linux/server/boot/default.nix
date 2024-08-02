@@ -14,7 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
-  boot.resumeDevice = "/dev/disk/by-partlabel   /root";
+  boot.resumeDevice = "/dev/disk/by-partlabel/root";
   # FIXME: Change if drive chages or anything
   # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Manually_specify_hibernate_location
   boot.kernelParams = ["resume_offset=23279616"];

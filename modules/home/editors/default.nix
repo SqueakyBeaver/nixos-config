@@ -36,11 +36,9 @@ in {
     in
       mkIf cfg.codium.enable {
         enable = true;
-        package = pkgs.vscodium;
-        # package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]); # temporary, don't shoot me
+        # package = pkgs.vscodium;
         extensions = with vscode-extensions;
           [
-            # vscode-marketplace.vadimcn.vscode-lldb
             open-vsx.rust-lang.rust-analyzer
             open-vsx.mkhl.direnv
             open-vsx.jnoortheen.nix-ide
@@ -50,8 +48,15 @@ in {
             open-vsx.eamodio.gitlens
           ]
           ++ [
-            # Only way this actually works, in my testing
+            # For those extensions that  don't work on the vscode-extensions repo
             pkgs.vscode-extensions.vadimcn.vscode-lldb
+            pkgs.vscode-extensions.ms-python.python
+            pkgs.vscode-extensions.ms-python.debugpy
+            # pkgs.vscode-extensions.ms-python.isort
+            pkgs.vscode-extensions.ms-python.vscode-pylance
+            pkgs.vscode-extensions.ms-python.black-formatter
+            pkgs.vscode-extensions.yzhang.markdown-all-in-one
+            pkgs.vscode-extensions.shd101wyy.markdown-preview-enhanced
           ];
 
         userSettings = {
@@ -76,6 +81,9 @@ in {
               };
             };
           };
+          # "python.languageServer" = "Jedi";
+          "gitlens.telemetry.enabled" = false;
+          "telemetry.telemetryLevel" = "off";
         };
       };
 

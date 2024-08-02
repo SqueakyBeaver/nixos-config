@@ -37,6 +37,14 @@ in {
         Whether to make the device an exit node
       '';
     };
+
+    useSSH = mkOption {
+      type = types.bool;
+      default = true;
+      description = ''
+        Whether to advertise ssh on this device
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -54,6 +62,9 @@ in {
         ]
         ++ mkIf cfg.exitNode [
           "--advertise-exit-node"
+        ]
+        ++ mkIf cfg.useSSH [
+          "--ssh"
         ];
     };
 

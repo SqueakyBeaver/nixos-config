@@ -5,7 +5,7 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 
 ## `home/` directory
 | Option                          | Default                | Location                         | Explanation                                     |
-|---------------------------------|------------------------|----------------------------------|-------------------------------------------------|
+| ------------------------------- | ---------------------- | -------------------------------- | ----------------------------------------------- |
 | `browser.enable`                | `false`                | `browser/default.nix`            | Whether to enable browser                       |
 | `browser.firefox.enable`        | `true`                 | `browser/default.nix`            | Whether to enable firefox                       |
 | `browser.chromium.enable`       | `false`                | `browser/default.nix`            | Whether to enable ungoogled chromium            |
@@ -26,7 +26,7 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 
 ## `nixos/` directory
 | Option                          | Default | Location                | Explanation                                                    |
-|---------------------------------|---------|-------------------------|----------------------------------------------------------------|
+| ------------------------------- | ------- | ----------------------- | -------------------------------------------------------------- |
 | `audio.enable`                  | `false` | `audio/default.nix`     | Whether to enable the pipewire service                         |
 | `bluetooth.enable`              | `false` | `bluetooth/default.nix` | Whether to enable bluetooth on the machine                     |
 | `desktop.plasma.enable`         | `false` | `desktop/default.nix`   | Whether to use KDE plasma 6                                    |
@@ -35,6 +35,7 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 | `xdg.enable`                    | `false` | `xdg/default.nix`       | Whether to enable xdg-open                                     |
 | `networking.tailscale.enable`   | `true`  | `tailscale/default.nix` | Whether to enable the tailscale service                        |
 | `networking.tailscale.exitNode` | `false` | `tailscale/default.nix` | Whether to make the device a tailscale exit node               |
+| `networking.tailscale.useSSH`   | `true`  | `tailscale/default.nix` | Whether to use tailscale for ssh authentication                |
 | `virtualisation.enable`         | `false` | `tailscale/default.nix` | Whether to enable virtualisation using virt-manager            |
 | `printing.enable`               | `false` | `tailscale/default.nix` | Whether to enable printing                                     |
 | `printing.openFirewall`         | `true`  | `tailscale/default.nix` | Whether to enable searching for printers over the network      |
