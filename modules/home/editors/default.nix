@@ -28,6 +28,14 @@ in {
         Enable Android Studio
       '';
     };
+
+    nvim.enable = mkOption {
+      type = types.bool;
+      default = true; # It's very heavy and I only sometimes use it
+      description = ''
+        Enable a neovim config based on LazyVim
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -87,8 +95,12 @@ in {
         };
       };
 
-    home.packages = mkIf cfg.android.enable [
-      pkgs.android-studio
-    ];
+    home.packages =
+      mkIf cfg.android.enable [
+        pkgs.android-studio
+      ]
+      ++ (mkIf cfg.nvim.enable [
+        inputs.nixvim-config.packages.${system}.default
+      ]);
   };
 }

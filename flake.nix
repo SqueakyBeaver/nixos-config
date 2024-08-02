@@ -36,6 +36,10 @@
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
     };
+
+    nixvim-config = {
+      url = "github:dc-tec/nixvim";
+    };
   };
 
   outputs = inputs @ {
