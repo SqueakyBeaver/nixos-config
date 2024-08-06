@@ -29,6 +29,7 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 | ------------------------------- | ------- | ----------------------- | -------------------------------------------------------------- |
 | `audio.enable`                  | `false` | `audio/default.nix`     | Whether to enable the pipewire service                         |
 | `bluetooth.enable`              | `false` | `bluetooth/default.nix` | Whether to enable bluetooth on the machine                     |
+| `db.enable`                     | `true`  | `db/default.nix`        | Whether to enable mySQL using mariadb                          |
 | `desktop.plasma.enable`         | `false` | `desktop/default.nix`   | Whether to use KDE plasma 6                                    |
 | `games.enable`                  | `false` | `games/default.nix`     | Whether to enable some gaming stuff, like Steam and Proton     |
 | `games.optimize`                | `false` | `games/default.nix`     | Whether to enable kernel optimizations that the steam deck has |

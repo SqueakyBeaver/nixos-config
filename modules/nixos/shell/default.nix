@@ -58,6 +58,9 @@
       setup-direnv() {
         nix flake init --template github:the-nix-way/dev-templates#$1
       }
+
+      # Too lazy to put this in a better place ;-;
+      export PATH=$HOME/bin:$PATH
     '';
   };
 

@@ -95,12 +95,9 @@ in {
         };
       };
 
-    home.packages =
-      mkIf cfg.android.enable [
-        pkgs.android-studio
-      ]
-      ++ (mkIf cfg.nvim.enable [
-        inputs.nixvim-config.packages.${system}.default
-      ]);
+    home.packages = [
+        (mkIf cfg.android.enable pkgs.android-studio) 
+        (mkIf cfg.nvim.enable inputs.nixvim-config.packages.${system}.default)
+      ];
   };
 }
