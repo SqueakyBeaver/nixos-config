@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   stdenv,
   android-tools,
@@ -6,19 +7,19 @@
   fetchFromGitHub,
   makeDesktopItem,
   makeWrapper,
-  pyinstaller,
+  # pyinstaller ? false,
   python311,
   substituteAll,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "PixelFlasher";
-  version = "6.9.6.0";
+  version = "7.3.2.0";
 
   src = fetchFromGitHub {
     owner = "badabing2005";
     repo = "PixelFlasher";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-nHWSlxQetggw/QBJC8NjzSiA1T9KdSef5XXUmLwquoA=";
+    hash = "";
   };
 
   phases = [
@@ -49,6 +50,8 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   nativeBuildInputs = [makeWrapper];
+
+  pyinstaller = pkgs."$namespace".pyinstaller;
 
   buildInputs = with python311.pkgs; [
     android-tools

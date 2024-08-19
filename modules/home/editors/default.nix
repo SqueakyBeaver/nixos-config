@@ -29,9 +29,17 @@ in {
       '';
     };
 
+    pragtical.enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = ''
+        Enable pragtical ediro
+      '';
+    };
+
     nvim.enable = mkOption {
       type = types.bool;
-      default = true; # It's very heavy and I only sometimes use it
+      default = true;
       description = ''
         Enable a neovim config based on LazyVim
       '';
@@ -96,8 +104,10 @@ in {
       };
 
     home.packages = [
-        (mkIf cfg.android.enable pkgs.android-studio) 
-        (mkIf cfg.nvim.enable inputs.nixvim-config.packages.${system}.default)
-      ];
+      (mkIf cfg.android.enable pkgs.android-studio)
+      (mkIf cfg.nvim.enable inputs.nixvim-config.packages.${system}.default)
+      (mkIf cfg.pragtical.enable pkgs.pragtical)
+    ];
+
   };
 }

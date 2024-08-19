@@ -12,6 +12,8 @@ For example `browser.enable` would be `timber.browser.enable` if the snowfall na
 | `editors.enable`                | `false`                | `editors/default.nix`            | Whether to enable graphical editors             |
 | `editors.codium.enable`         | `true`                 | `editors/default.nix`            | Whether to enable vscodium with some extensions |
 | `editors.android.enable`        | `false`                | `editors/default.nix`            | Whether to enable android studio                |
+| `editors.pragtical.enable`      | `true`                 | `editors/default.nix`            | Whether to enable pragtical                                    |
+| `editors.nvim.enable`           | `true`                 | `editors/default.nix`            | Whether to enable neovim                        |
 | `apps.bitwarden.enable`         | `false`                | `apps/bitwarden/default.nix`     | Whether to install Bitwarden                    |
 | `apps.graphics.enable`          | `false`                | `apps/graphics/default.nix`      | Whether to install graphics apps (GIMP)         |
 | `apps.graphics.gimp.enable`     | `apps.graphics.enable` | `apps/graphics/default.nix`      | Whether to install GIMP                         |

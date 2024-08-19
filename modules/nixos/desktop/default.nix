@@ -25,8 +25,10 @@ in {
     environment.systemPackages = with pkgs; [
       kdePackages.yakuake
       kdePackages.kate
+      xorg.libxcb # Too lazy to find another spot (this is for PixelFlasher)
     ];
 
     programs.kdeconnect.enable = true;
+    security.polkit.enable = true;
   };
 }

@@ -17,6 +17,7 @@
       "wheel"
       "gamemode"
       "libvirtd"
+      "adbusers"
     ];
     shell = pkgs.zsh;
   };
