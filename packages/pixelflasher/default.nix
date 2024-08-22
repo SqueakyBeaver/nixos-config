@@ -10,16 +10,20 @@
   # pyinstaller ? false,
   python311,
   substituteAll,
+  namespace,
+  ...
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "PixelFlasher";
+  pname = "pixelflasher";
+  # I'd rather not make the package name capitalized, but the installer wants it to be
+  ppname = "PixelFlasher";
   version = "7.3.2.0";
 
   src = fetchFromGitHub {
     owner = "badabing2005";
     repo = "PixelFlasher";
     rev = "v${finalAttrs.version}";
-    hash = "";
+    hash = "sha256-U7fZ3Tx5TjYTus6IwOW9gAejY6jn7weGwcnyfS7IGSc=";
   };
 
   phases = [
@@ -30,6 +34,9 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildPhase = ''
+    # https://github.com/pyinstaller/pyinstaller/issues/1684#issuecomment-590288201
+    sed -i 's/hiddenimports=\[\]/hiddenimports=\["_cffi_backend"\]/' build-on-*.spec
+
     # we set the default android-tools path for convenience
     sed -i 's#platform_tools_path = None#platform_tools_path = "${android-tools}\/bin"#' config.py
 
@@ -37,21 +44,25 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   installPhase = ''
-    install -D dist/${finalAttrs.pname} $out/bin/${finalAttrs.pname}
+    # AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    mkdir -p $out/bin/ $out/share dist
 
-    install -D images/icon-dark-256.png $out/share/pixmaps/${finalAttrs.pname}.png
+    install -D dist/${finalAttrs.ppname} $out/bin
+
+    install -D images/icon-dark-256.png $out/share/pixmaps/${finalAttrs.ppname}.png
 
     ln -s ${finalAttrs.desktopItem}/share/applications $out/share/
   '';
 
   fixupPhase = ''
-    wrapProgram $out/bin/${finalAttrs.pname} \
+    ls -lh $out/bin
+    wrapProgram $out/bin/${finalAttrs.ppname} \
       --set REQUESTS_CA_BUNDLE "${cacert}/etc/ssl/certs/ca-bundle.crt"
   '';
 
   nativeBuildInputs = [makeWrapper];
 
-  pyinstaller = pkgs."$namespace".pyinstaller;
+  pyinstaller = pkgs.${namespace}.pyinstaller;
 
   buildInputs = with python311.pkgs; [
     android-tools
