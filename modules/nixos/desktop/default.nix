@@ -11,6 +11,7 @@ with lib; let
 in {
   options.${namespace}.${module} = {
     plasma.enable = mkEnableOption "KDE plasma and SDDM";
+    gnome.enable = mkEnableOption "Gnome";
   };
 
   config = mkIf cfg.plasma.enable {
@@ -30,5 +31,8 @@ in {
 
     programs.kdeconnect.enable = true;
     security.polkit.enable = true;
+
+    # TODO Move this out of here (it is almost midnight)
+    services.xserver.desktopManager.gnome.enable = cfg.gnome.enable;
   };
 }

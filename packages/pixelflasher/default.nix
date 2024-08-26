@@ -6,10 +6,14 @@
   cacert,
   fetchFromGitHub,
   makeDesktopItem,
-  makeWrapper,
   # pyinstaller ? false,
   python311,
   substituteAll,
+  wrapGAppsHook,
+  gtk3,
+  glib,
+  gsettings-desktop-schemas,
+  gsettings-qt,
   namespace,
   ...
 }:
@@ -60,8 +64,6 @@ stdenv.mkDerivation (finalAttrs: {
       --set REQUESTS_CA_BUNDLE "${cacert}/etc/ssl/certs/ca-bundle.crt"
   '';
 
-  nativeBuildInputs = [makeWrapper];
-
   pyinstaller = pkgs.${namespace}.pyinstaller;
 
   buildInputs = with python311.pkgs; [
@@ -86,6 +88,11 @@ stdenv.mkDerivation (finalAttrs: {
     rsa
     six
     wxpython
+    gtk3
+    glib
+    gsettings-desktop-schemas
+    gsettings-qt
+    wrapGAppsHook
   ];
 
   desktopItem = makeDesktopItem {
