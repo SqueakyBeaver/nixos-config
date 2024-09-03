@@ -3,7 +3,7 @@
     #LSP/Linters/Etc
     nil
     alejandra
-    nodePackages.eslint
+    # nodePackages.eslint
 
     # Languages
     corepack_22
