@@ -3,19 +3,23 @@
   self,
   ...
 }: {
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    configurationLimit = 10;
-    # theme = "${pkgs.kdePackages.breeze-grub}/grub/themes/breeze";
-    device = "nodev";
-  };
+  # boot.loader.grub = {
+  #   enable = true;
+  #   efiSupport = true;
+  #   configurationLimit = 10;
+  #   # theme = "${pkgs.kdePackages.breeze-grub}/grub/themes/breeze";
+  #   device = "nodev";
+  # };
 
-  boot.loader.grub2-theme = {
-    enable = true;
-    theme = "stylish";
-    footer = true;
-  };
+  # boot.loader.grub2-theme = {
+  #   enable = true;
+  #   theme = "stylish";
+  #   footer = true;
+  # };
+
+  boot.loader.systemd-boot.enable = true;
+  # Limit number of snapshots to keep
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."kernel.sysrq" = 1;
