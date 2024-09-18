@@ -6,12 +6,12 @@
     # nodePackages.eslint
 
     # Languages
-    corepack_22
-    go
-    python312
-    rustc
-    cargo
-    nodejs
+    # corepack_22
+    # go
+    # python312
+    # rustc
+    # cargo
+    # nodejs
 
     openssl
   ];

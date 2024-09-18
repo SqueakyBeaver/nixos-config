@@ -2,11 +2,12 @@
   timber = {
     browser.enable = true;
     editors.enable = true;
+    terminal.enable = true;
 
     apps = {
       bitwarden.enable = true;
-      graphics.enable = true;
-      obsidian.enable = true;
+      # graphics.enable = true;
+      # obsidian.enable = true;
       prismlauncher.enable = true;
       spotify.enable = true;
       vesktop.enable = true;
