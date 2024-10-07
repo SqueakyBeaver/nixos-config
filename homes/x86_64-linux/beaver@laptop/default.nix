@@ -6,13 +6,13 @@
 
     apps = {
       bitwarden.enable = true;
-      # graphics.enable = true;
-      # obsidian.enable = true;
+      graphics.enable = false;
+      obsidian.enable = false;
       prismlauncher.enable = true;
       spotify.enable = true;
       vesktop.enable = true;
       vlc.enable = true;
-      # I don't want to update glibc a lot, so I will comment this out
+      libreoffice.enable = true;
       # pixelflasher.enable = true;
     };
   };

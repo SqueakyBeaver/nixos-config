@@ -3,12 +3,12 @@
   description = "A very basic flake";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -43,6 +43,7 @@
   };
 
   outputs = inputs @ {
+    nixpkgs,
     lix-module,
     home-manager,
     # grub2-themes,
@@ -53,7 +54,7 @@
       src = ./.;
 
       systems.modules.nixos = with inputs; [
-        lix-module.nixosModules.default
+        lix-module.nixosModules.lixFromNixpkgs
         # grub2-themes.nixosModules.default
       ];
 

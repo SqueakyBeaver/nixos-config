@@ -12,7 +12,7 @@
     ./boot
     ./power
     ./users
-    ./plymouth
+    # ./plymouth
   ];
 
   timber = {

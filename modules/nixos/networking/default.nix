@@ -25,6 +25,13 @@
         9001 # Weylus
         9090
         8080
+        7236 # Miracast
+        7250 # Miracast
+      ];
+
+      allowedUDPPorts = [
+        7236 # Miracast
+        5353 # Miracast
       ];
 
       allowedTCPPortRanges = [

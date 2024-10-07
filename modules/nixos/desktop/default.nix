@@ -26,13 +26,14 @@ in {
     environment.systemPackages = with pkgs; [
       kdePackages.yakuake
       kdePackages.kate
-      xorg.libxcb # Too lazy to find another spot (this is for PixelFlasher)
+      gnome.adwaita-icon-theme # For gnome apps
     ];
 
     programs.kdeconnect.enable = true;
     security.polkit.enable = true;
 
-    # TODO Move this out of here (it is almost midnight)
+    programs.dconf.enable = true;
+    # TODO Move this out of here so it doesn't rely on plasma being enabled (it is almost midnight)
     services.xserver.desktopManager.gnome.enable = cfg.gnome.enable;
   };
 }
