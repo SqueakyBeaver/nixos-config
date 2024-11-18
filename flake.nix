@@ -31,22 +31,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
-    # grub2-themes = {
-    #   url = "github:vinceliuice/grub2-themes";
-    # };
+   nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nixvim-config = {
       url = "github:dc-tec/nixvim";
     };
+
+    inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = inputs @ {
     nixpkgs,
     lix-module,
     home-manager,
-    # grub2-themes,
+    nixos-hardware,
     ...
   }:
     inputs.snowfall-lib.mkFlake {
@@ -55,7 +53,6 @@
 
       systems.modules.nixos = with inputs; [
         lix-module.nixosModules.lixFromNixpkgs
-        # grub2-themes.nixosModules.default
       ];
 
       snowfall = {
