@@ -51,5 +51,5 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  environment.variables.EDITOR = "codium";
+  environment.variables.EDITOR = "code";
 }

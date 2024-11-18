@@ -73,6 +73,8 @@ in {
             pkgs.vscode-extensions.ms-python.black-formatter
             pkgs.vscode-extensions.yzhang.markdown-all-in-one
             pkgs.vscode-extensions.shd101wyy.markdown-preview-enhanced
+            pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
+            pkgs.vscode-extensions.ms-vscode.cpptools-extension-pack
           ];
 
         userSettings = {

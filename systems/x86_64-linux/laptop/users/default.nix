@@ -10,7 +10,7 @@
   users.groups.beaver = {};
   users.users.beaver = {
     isNormalUser = true;
-    description = "The one who builds";
+    description = "Squeaky Beaver";
     group = "beaver";
     extraGroups = [
       "networkmanager"

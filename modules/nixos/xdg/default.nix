@@ -1,5 +1,5 @@
 {
-  pkgs, 
+  pkgs,
   config,
   lib,
   namespace,
@@ -18,7 +18,7 @@ in {
       enable = true;
       xdgOpenUsePortal = true;
       config = {
-        common.default = ["kde"];
+        common.default = ["kde" "gtk" "gnome"];
       };
 
       extraPortals = [

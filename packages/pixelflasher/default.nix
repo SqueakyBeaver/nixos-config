@@ -21,13 +21,13 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "pixelflasher";
   # I'd rather not make the package name capitalized, but the installer wants it to be
   ppname = "PixelFlasher";
-  version = "7.3.2.0";
+  version = "7.5.0.0";
 
   src = fetchFromGitHub {
     owner = "badabing2005";
     repo = "PixelFlasher";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-U7fZ3Tx5TjYTus6IwOW9gAejY6jn7weGwcnyfS7IGSc=";
+    hash = "sha256-wX67Me3JOikxtg6N7WeIJxjbiwfyL38+WfhxFx/eRCw=";
   };
 
   phases = [
@@ -81,7 +81,7 @@ stdenv.mkDerivation (finalAttrs: {
     platformdirs
     protobuf
     psutil
-    pyinstaller
+    pkgs.${namespace}.pyinstaller
     pyinstaller-versionfile
     pyperclip
     requests

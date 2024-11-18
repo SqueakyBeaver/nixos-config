@@ -29,6 +29,7 @@ in {
       gnome.adwaita-icon-theme # For gnome apps
     ];
 
+    # programs.partition-manager.enable = true;
     programs.kdeconnect.enable = true;
     security.polkit.enable = true;
 
