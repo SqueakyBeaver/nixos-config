@@ -1,7 +1,10 @@
 {...}: {
   timber = {
     browser.enable = true;
-    editors.enable = true;
+    editors = {
+      enable = true;
+      android.enable = true;
+    };
     terminal.enable = true;
 
     apps = {

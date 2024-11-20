@@ -8,7 +8,7 @@
   ...
 }: {
   imports = with inputs.nixos-hardware.nixosModules; [
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
     ./boot
     ./power
     ./users
@@ -30,6 +30,9 @@
       openFirewall = true;
     };
   };
+
+  services.fwupd.enable = true;
+  services.thinkfan.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";

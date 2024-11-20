@@ -6,7 +6,7 @@
   spotify = prev.spotify.overrideAttrs (finalAttrs: prevAttrs: {
     spotx = prev.fetchurl {
       url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/main/spotx.sh";
-      hash = "sha256-AGTxNbR+jAi7X5DQYyi2UfEYPg71sljO6S4PQH0hypA=   ";
+      hash = "sha256-3pDwCikcNJaLuEV6qb+rL4j9h2oiiniCEmn16iISxL8=";
     };
     installPhase =
       builtins.replaceStrings [
