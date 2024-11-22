@@ -11,6 +11,7 @@
       bitwarden.enable = true;
       graphics.enable = false;
       obsidian.enable = false;
+      lutris.enable = true;
       prismlauncher.enable = true;
       spotify.enable = true;
       vesktop.enable = true;
