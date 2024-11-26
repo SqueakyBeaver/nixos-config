@@ -22,6 +22,8 @@
     games = {
       enable = true;
       optimize = true;
+      steam.enable = true;
+      lutris.enable = true;
     };
     xdg.enable = true;
     virtualisation.enable = true;

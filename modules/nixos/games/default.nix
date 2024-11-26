@@ -14,10 +14,12 @@ in {
     optimize = lib.mkEnableOption ''
       set the same sysctl settings as are set on SteamOS
     '';
+    steam.enable = mkEnableOption "Steam";
+    lutris.enable = mkEnableOption "Lutris";
   };
 
   config = mkIf cfg.enable {
-    programs.steam = {
+    programs.steam = mkIf cfg.steam.enable {
       enable = true;
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -27,6 +29,13 @@ in {
         pkgs.dotnet-sdk # For tmodloader
       ];
     };
+
+    environment.systemPackages = mkIf cfg.lutris.enable [
+      pkgs.lutris
+    ];
+
+    hardware.graphics.enable32Bit = cfg.lutris.enable;
+
     programs.gamemode.enable = true;
 
     # last cheched with https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamos-customizations-jupiter-20240219.1-2-any.pkg.tar.zst
