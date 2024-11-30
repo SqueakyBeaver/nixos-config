@@ -26,6 +26,7 @@ in {
     environment.systemPackages = with pkgs; [
       kdePackages.yakuake
       kdePackages.kate
+      kdePackages.discover
       gnome.adwaita-icon-theme # For gnome apps
     ];
 
