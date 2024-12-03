@@ -16,7 +16,9 @@
       fira-code-symbols
 
       # nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
 
       # Other fonts
       google-fonts

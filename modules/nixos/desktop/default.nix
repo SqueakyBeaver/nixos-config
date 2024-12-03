@@ -27,7 +27,7 @@ in {
       kdePackages.yakuake
       kdePackages.kate
       kdePackages.discover
-      gnome.adwaita-icon-theme # For gnome apps
+      adwaita-icon-theme # For gnome apps
     ];
 
     # programs.partition-manager.enable = true;
