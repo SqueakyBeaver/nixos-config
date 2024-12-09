@@ -16,7 +16,7 @@
       vesktop.enable = true;
       vlc.enable = true;
       libreoffice.enable = true;
-      # pixelflasher.enable = true;
+      pixelflasher.enable = true;
     };
   };
 }

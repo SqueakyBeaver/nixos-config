@@ -1,72 +1,32 @@
+# https://github.com/NixOS/nixpkgs/pull/336191
 {
-  pkgs,
-  lib,
-  stdenv,
   android-tools,
   cacert,
   fetchFromGitHub,
+  lib,
   makeDesktopItem,
-  # pyinstaller ? false,
-  python311,
+  nix-update-script,
+  python3,
+  stdenv,
   substituteAll,
-  wrapGAppsHook,
-  gtk3,
-  glib,
-  gsettings-desktop-schemas,
-  gsettings-qt,
-  namespace,
-  ...
+  wrapGAppsHook3,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "pixelflasher";
-  # I'd rather not make the package name capitalized, but the installer wants it to be
-  ppname = "PixelFlasher";
-  version = "7.5.0.0";
+  version = "7.8.0.1";
 
   src = fetchFromGitHub {
     owner = "badabing2005";
     repo = "PixelFlasher";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-wX67Me3JOikxtg6N7WeIJxjbiwfyL38+WfhxFx/eRCw=";
+    hash = "sha256-NFDM1uHveD+qNiCX8003GVvua/2P6ikGKiqSac9bR+s=";
   };
 
-  phases = [
-    "unpackPhase"
-    "buildPhase"
-    "installPhase"
-    "fixupPhase"
-  ];
+  disabled = python3.pythonOlder "3.11";
 
-  buildPhase = ''
-    # https://github.com/pyinstaller/pyinstaller/issues/1684#issuecomment-590288201
-    sed -i 's/hiddenimports=\[\]/hiddenimports=\["_cffi_backend"\]/' build-on-*.spec
+  nativeBuildInputs = [wrapGAppsHook3];
 
-    # we set the default android-tools path for convenience
-    sed -i 's#platform_tools_path = None#platform_tools_path = "${android-tools}\/bin"#' config.py
-
-    sh build.sh
-  '';
-
-  installPhase = ''
-    # AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    mkdir -p $out/bin/ $out/share dist
-
-    install -D dist/${finalAttrs.ppname} $out/bin
-
-    install -D images/icon-dark-256.png $out/share/pixmaps/${finalAttrs.ppname}.png
-
-    ln -s ${finalAttrs.desktopItem}/share/applications $out/share/
-  '';
-
-  fixupPhase = ''
-    ls -lh $out/bin
-    wrapProgram $out/bin/${finalAttrs.ppname} \
-      --set REQUESTS_CA_BUNDLE "${cacert}/etc/ssl/certs/ca-bundle.crt"
-  '';
-
-  pyinstaller = pkgs.${namespace}.pyinstaller;
-
-  buildInputs = with python311.pkgs; [
+  buildInputs = with python3.pkgs; [
     android-tools
     attrdict
     beautifulsoup4
@@ -81,25 +41,42 @@ stdenv.mkDerivation (finalAttrs: {
     platformdirs
     protobuf
     psutil
-    pkgs.${namespace}.pyinstaller
-    pyinstaller-versionfile
+    pyinstaller
     pyperclip
     requests
     rsa
     six
     wxpython
-    gtk3
-    glib
-    gsettings-desktop-schemas
-    gsettings-qt
-    wrapGAppsHook
   ];
 
+  patchPhase = ''
+    # we set the default android-tools path for convenience
+    substituteInPlace config.py --replace-fail \
+      "platform_tools_path = None" "platform_tools_path = '${lib.getBin android-tools}/bin'"
+  '';
+
+  buildPhase = ''
+    sh build.sh
+  '';
+
+  installPhase = ''
+    install -D dist/PixelFlasher $out/bin/pixelflasher
+    install -D images/icon-dark-256.png $out/share/pixmaps/pixelflasher.png
+    ln -s ${finalAttrs.desktopItem}/share/applications $out/share/
+  '';
+
+  preFixup = ''
+    gappsWrapperArgs+=(
+      --set REQUESTS_CA_BUNDLE "${cacert}/etc/ssl/certs/ca-bundle.crt"
+      --set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION python
+    )
+  '';
+
   desktopItem = makeDesktopItem {
-    name = finalAttrs.pname;
-    exec = finalAttrs.pname;
-    icon = finalAttrs.pname;
-    desktopName = finalAttrs.pname;
+    desktopName = "PixelFlasher";
+    name = "pixelflasher";
+    exec = "pixelflasher";
+    icon = "pixelflasher";
     categories = ["Utility"];
     genericName = finalAttrs.meta.description;
     noDisplay = false;
@@ -108,12 +85,17 @@ stdenv.mkDerivation (finalAttrs: {
     type = "Application";
   };
 
+  passthru.updateScript = nix-update-script {};
+
   meta = {
     description = "Pixel™ phone flashing GUI utility with features";
     homepage = "https://github.com/badabing2005/PixelFlasher";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [];
-    mainProgram = "PixelFlasher";
+    maintainers = with lib.maintainers; [
+      cjshearer
+      samueltardieu
+    ];
+    mainProgram = "pixelflasher";
     platforms = lib.platforms.all;
   };
 })

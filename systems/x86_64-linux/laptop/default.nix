@@ -18,7 +18,6 @@
   timber = {
     audio.enable = true;
     desktop.plasma.enable = true;
-    # desktop.gnome.enable = true; # Fucking gtk menus agagaggag
     games = {
       enable = true;
       optimize = true;
