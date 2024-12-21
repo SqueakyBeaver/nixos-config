@@ -9,6 +9,7 @@
 
     apps = {
       bitwarden.enable = true;
+      bottles.enable = true;
       graphics.enable = false;
       obsidian.enable = false;
       prismlauncher.enable = true;
