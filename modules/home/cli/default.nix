@@ -20,7 +20,7 @@
     tree
     btop
     iotop
-    iftop   
+    iftop
     thefuck
   ];
 
@@ -34,6 +34,14 @@
       # FIXME: If you copy this, change it
       userName = "Beaverr";
       userEmail = "beaver@transgender.army"; # hehe funnee email
+    };
+  };
+
+  
+  home.file = {
+    ".ssh/config" = {
+      target = ".ssh/config_source";
+      onChange = ''cat .ssh/config_source > .ssh/config && chmod 400 .ssh/config'';
     };
   };
 }

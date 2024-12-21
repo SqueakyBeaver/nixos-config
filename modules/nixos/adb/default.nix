@@ -4,7 +4,6 @@
   namespace,
   ...
 }:
-
 # TODO Add to readme (am lazy)
 with lib; let
   module = "adb";
@@ -20,6 +19,5 @@ in {
 
   config = mkIf cfg.enable {
     programs.adb.enable = true;
-    
   };
 }
