@@ -33,6 +33,12 @@
       enable = true;
       openFirewall = true;
     };
+
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      package = pkgs.ollama-rocm;
+    };
   };
 
   services.fwupd.enable = true;
