@@ -18,6 +18,7 @@
       "gamemode"
       "libvirtd"
       "adbusers"
+      "podman"
     ];
     shell = pkgs.zsh;
   };

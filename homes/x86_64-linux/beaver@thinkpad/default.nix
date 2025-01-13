@@ -18,6 +18,7 @@
       vlc.enable = true;
       libreoffice.enable = true;
       pixelflasher.enable = true;
+      dolphin.enable = true;
     };
   };
 }

@@ -25,7 +25,10 @@
       lutris.enable = true;
     };
     xdg.enable = true;
-    virtualisation.enable = true;
+    virtualisation = {
+      enable = true;
+      podman.enable = true;
+    };
     printing = {
       enable = true;
       openFirewall = true;
