@@ -54,6 +54,7 @@ in {
         enable = true;
         # package = pkgs.vscodium;
         extensions = with vscode-extensions;
+        with pkgs.vscode-extensions;
           [
             open-vsx.rust-lang.rust-analyzer
             open-vsx.mkhl.direnv
@@ -64,17 +65,20 @@ in {
             open-vsx.eamodio.gitlens
           ]
           ++ [
+            # pkgs.vscode-extensions
             # For those extensions that  don't work on the vscode-extensions repo
-            pkgs.vscode-extensions.vadimcn.vscode-lldb
-            pkgs.vscode-extensions.ms-python.python
-            pkgs.vscode-extensions.ms-python.debugpy
-            # pkgs.vscode-extensions.ms-python.isort
-            pkgs.vscode-extensions.ms-python.vscode-pylance
-            pkgs.vscode-extensions.ms-python.black-formatter
-            pkgs.vscode-extensions.yzhang.markdown-all-in-one
-            pkgs.vscode-extensions.shd101wyy.markdown-preview-enhanced
-            pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
-            pkgs.vscode-extensions.ms-vscode.cpptools-extension-pack
+            vadimcn.vscode-lldb
+            ms-python.python
+            ms-python.debugpy
+            ms-python.isort
+            ms-python.vscode-pylance
+            ms-python.black-formatter
+            visualstudioexptteam.vscodeintellicode
+            yzhang.markdown-all-in-one
+            shd101wyy.markdown-preview-enhanced
+            llvm-vs-code-extensions.vscode-clangd
+            ms-vscode.cpptools-extension-pack
+            redhat.java
           ];
 
         userSettings = {
@@ -110,6 +114,5 @@ in {
       (mkIf cfg.nvim.enable inputs.nixvim-config.packages.${system}.default)
       (mkIf cfg.pragtical.enable pkgs.pragtical)
     ];
-
   };
 }
