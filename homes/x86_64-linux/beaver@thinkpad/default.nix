@@ -19,6 +19,10 @@
       libreoffice.enable = true;
       pixelflasher.enable = true;
       dolphin.enable = true;
+      musescore = {
+        enable = true;
+        sounds.enable = true;
+      };
     };
   };
 }
