@@ -16,6 +16,7 @@ in {
     '';
     steam.enable = mkEnableOption "Steam";
     lutris.enable = mkEnableOption "Lutris";
+    mangohud.enable = mkEnableOption "MangoHUD";
   };
 
   config = mkIf cfg.enable {
@@ -31,8 +32,9 @@ in {
       ];
     };
 
-    environment.systemPackages = mkIf cfg.lutris.enable [
-      pkgs.lutris
+    environment.systemPackages = [
+      (mkIf cfg.lutris.enable pkgs.lutris)
+      (mkIf cfg.mangohud.enable pkgs.mangohud)
     ];
 
     hardware.graphics.enable32Bit = cfg.lutris.enable;
