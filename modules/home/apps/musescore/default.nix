@@ -35,7 +35,9 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.musescore
+      # pkgs.musescore
+      # temporary fix bc panels are broken atm
+      pkgs.${namespace}.musescore-appimage
       (mkIf cfg.sounds.enable pkgs.muse-sounds-manager)
     ];
   };
