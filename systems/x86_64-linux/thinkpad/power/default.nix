@@ -2,25 +2,25 @@
   services = {
     logind.powerKey = "poweroff";
 
-    tlp = {
-      # Disabling for one second
-      # enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 85;
-      };
-    };
+    thermald.enable = true;
 
     upower.enable = true;
+
+    # Just in case kde plasma enables it
+    power-profiles-daemon.enable = false;
   };
 
-  powerManagement.powertop.enable = true;
+  programs.auto-cpufreq = {
+      enable = true;
+      settings = {
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+      };
+    };
 }
