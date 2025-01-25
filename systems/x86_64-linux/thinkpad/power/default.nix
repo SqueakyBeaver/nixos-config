@@ -2,12 +2,16 @@
   services = {
     logind.powerKey = "poweroff";
 
-    thermald.enable = true;
+    thermald = {
+      enable = true;
+      ignoreCpuidCheck = true;
+    };
+    thinkfan.enable = true;
 
     upower.enable = true;
 
     # Just in case kde plasma enables it
-    power-profiles-daemon.enable = false;
+    # power-profiles-daemon.enable = false;
   };
 
   programs.auto-cpufreq = {

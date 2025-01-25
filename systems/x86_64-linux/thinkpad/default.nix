@@ -23,6 +23,7 @@
       optimize = true;
       steam.enable = true;
       lutris.enable = true;
+      mangohud.enable = true;
     };
     xdg.enable = true;
     virtualisation = {
@@ -33,16 +34,9 @@
       enable = true;
       openFirewall = true;
     };
-
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-      package = pkgs.ollama-rocm;
-    };
   };
 
   services.fwupd.enable = true;
-  services.thinkfan.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
