@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nixvim-config = {
       url = "github:dc-tec/nixvim";
@@ -48,39 +48,75 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+
+    clan-core = {
+      url = "git+https://git.clan.lol/clan/clan-core";
+      # Don't do this if your machines are on nixpkgs stable.
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     lix-module,
     home-manager,
     nixos-hardware,
     auto-cpufreq,
+    flake-parts,
+    clan-core,
     ...
   }:
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
-      src = ./.;
+    flake-parts.lib.mkFlake {inherit inputs;} ({
+      self,
+      pkgs,
+      ...
+    }: {
+      systems = [];
 
-      systems.modules.nixos = with inputs; [
-        lix-module.nixosModules.lixFromNixpkgs
-        sops-nix.nixosModules.sops
-        auto-cpufreq.nixosModules.default
-      ];
+      imports = [clan-core.flakeModules.default];
 
-      snowfall = {
-        namespace = "timber";
+      clan = {
+        directory = self;
+        specialArgs = {};
+        inventory.meta.name = "beaver-dam";
 
-        meta.name = "timber";
-        meta.title = "Currently a very not good NixOS config";
+        machines = {
+          # My main machine/laptop; my baby
+          # My thinkpad
+          shadow = {
+            nixpkgs.hostPlatform = "x86-64_linux";
+            imports = ["./machines/shadow/configuration.nix"];
+          };
+
+          # not the fastest, but a place where i tinker and self-host stuff
+          # My old laptop
+          tails = {
+            nixpkgs.hostPlatform = "x86-64_linux";
+            imports = ["./machines/tails/configuration.nix"];
+          };
+        };
       };
-
-      outputs-builder = channels: {
-        formatter = channels.nixpkgs.alejandra;
-      };
-
-      channels-config = {
-        allowUnfree = true;
-      };
-    };
+    });
+  # nixosConfigurations = clan.nixosConfigurations;
+  # inherit (clan) clanInternals;
 }
+# inputs.snowfall-lib.mkFlake {
+#   inherit inputs;
+#   src = ./.;
+#   systems.modules.nixos = with inputs; [
+#     lix-module.nixosModules.lixFromNixpkgs
+#     sops-nix.nixosModules.sops
+#     auto-cpufreq.nixosModules.default
+#   outputs-builder = channels: {
+#     formatter = channels.nixpkgs.alejandra;
+#   };
+#   channels-config = {
+#     allowUnfree = true;
+#   };
+# };
+

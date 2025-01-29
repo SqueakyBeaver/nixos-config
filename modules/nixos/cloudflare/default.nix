@@ -3,22 +3,19 @@
   pkgs,
   config,
   lib,
-  namespace,
   ...
 }:
 with lib; let
   module = "cloudflare";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "enable cloudflared";
-    
   };
 
   config = mkIf cfg.enable {
     services.cloudflared = {
       enable = true;
-      
     };
   };
 }

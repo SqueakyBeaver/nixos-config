@@ -1,15 +1,14 @@
 {
   lib,
-  namespace,
   config,
   pkgs,
   ...
 }:
 with lib; let
   module = "db";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkOption {
       type = types.bool;
       default = true;

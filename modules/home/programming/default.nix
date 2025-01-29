@@ -1,4 +1,4 @@
-{pkgs, namespace, ...}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     #LSP/Linters/Etc
     nil
@@ -15,5 +15,4 @@
 
     openssl
   ];
-
 }

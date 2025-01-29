@@ -1,14 +1,13 @@
 {
   config,
   lib,
-  namespace,
   ...
 }:
 with lib; let
   module = "browser";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "Whether to install browsers";
     firefox.enable = mkOption {
       type = types.bool;

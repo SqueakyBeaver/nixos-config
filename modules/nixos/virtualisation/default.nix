@@ -1,14 +1,13 @@
 {
   lib,
-  namespace,
   config,
   ...
 }:
 with lib; let
   module = "virtualisation";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "Whether to enable virtualisation";
     podman.enable = mkEnableOption "Whether to enable Podman";
   };
@@ -23,6 +22,5 @@ in {
       };
     };
     programs.virt-manager.enable = cfg.enable;
-
   };
 }
