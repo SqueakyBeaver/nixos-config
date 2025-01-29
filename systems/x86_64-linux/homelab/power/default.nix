@@ -1,6 +1,6 @@
 {
   services = {
-    logind.powerKey = "suspend-then-hibernate";
+    logind.powerKey = "poweroff";
 
     tlp = {
       # Disabling for one second
@@ -24,6 +24,5 @@
     };
 
     upower.enable = true;
-    
   };
 }

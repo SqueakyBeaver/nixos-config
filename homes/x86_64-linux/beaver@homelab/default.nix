@@ -5,7 +5,7 @@
     terminal.enable = true;
 
     apps = {
-      bitwarden.enable = true;
+      # bitwarden.enable = true;
       # graphics.enable = false;
       # obsidian.enable = false;
       # prismlauncher.enable = true;

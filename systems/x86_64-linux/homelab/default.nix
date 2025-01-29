@@ -18,15 +18,14 @@
   timber = {
     audio.enable = true;
     desktop.plasma.enable = true;
-    games = {
-      enable = true;
-      optimize = true;
-    };
     xdg.enable = true;
     virtualisation.enable = true;
     printing = {
       enable = true;
       openFirewall = true;
+    };
+    cloudflared = {
+      enable = true;
     };
   };
 
