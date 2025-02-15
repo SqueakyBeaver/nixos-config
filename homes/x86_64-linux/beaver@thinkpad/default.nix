@@ -1,4 +1,8 @@
-{...}: {
+{config, ...}: {
+  imports = [
+    ./syncthing
+  ];
+
   timber = {
     browser.enable = true;
     editors = {
@@ -14,7 +18,7 @@
       obsidian.enable = false;
       prismlauncher.enable = true;
       spotify.enable = true;
-      vesktop.enable = true;
+      discord.enable = true;
       vlc.enable = true;
       libreoffice.enable = true;
       pixelflasher.enable = true;
@@ -25,4 +29,6 @@
       };
     };
   };
+
+  sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
 }

@@ -19,7 +19,7 @@
 }:
 with lib; let
   module = "apps";
-  appName = "vesktop";
+  appName = "discord";
   cfg = config.${namespace}.${module}.${appName};
 in {
   options.${namespace}.${module}.${appName} = {
@@ -27,14 +27,14 @@ in {
       type = types.bool;
       default = true;
       description = ''
-        Whether to install vesktop
+        Whether to install legcord (discord)
       '';
     };
   };
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.vesktop
+      pkgs.legcord
     ];
   };
 }

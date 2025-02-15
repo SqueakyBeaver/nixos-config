@@ -6,17 +6,21 @@
 
     # use my nextDNS config
     nameservers = [
-      "45.90.28.0" #7dbdb5.dns.nextdns.io"
-      # "2a07:a8c0::#7dbdb5.dns.nextdns.io"
-      "45.90.30.0" #7dbdb5.dns.nextdns.io"
-      # "2a07:a8c1::#7dbdb5.dns.nextdns.io"
-      "1.1.1.1"
+      "45.90.28.0#7dbdb5.dns.nextdns.io"
+      "2a07:a8c0::#7dbdb5.dns.nextdns.io"
+      "45.90.30.0#7dbdb5.dns.nextdns.io"
+      "2a07:a8c1::#7dbdb5.dns.nextdns.io"
+      # "1.1.1.1"
     ];
+
+    # useDHCP = false;
+    # dhcpcd.enable = false;
 
     networkmanager = {
       enable = true;
-      dns = "systemd-resolved";
+      # dns = "none";
       wifi.powersave = true;
+      wifi.macAddress = "random";
     };
 
     firewall = {
@@ -66,7 +70,9 @@
     # DNS resolver
     resolved = {
       enable = true;
+      domains = ["~."];
       dnsovertls = "opportunistic";
+      # dnssec = "true";
     };
   };
 }

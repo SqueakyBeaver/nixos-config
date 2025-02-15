@@ -14,15 +14,18 @@ in {
   };
 
   config = {
+    programs.virt-manager.enable = cfg.enable;
+    
     virtualisation = {
       libvirtd.enable = cfg.enable;
+      spiceUSBRedirection.enable = cfg.enable;
+
       podman = mkIf cfg.podman.enable {
         enable = true;
         dockerCompat = true;
         defaultNetwork.settings.dns_enabled = true;
       };
     };
-    programs.virt-manager.enable = cfg.enable;
 
   };
 }

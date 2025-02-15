@@ -79,6 +79,9 @@ in {
             llvm-vs-code-extensions.vscode-clangd
             ms-vscode.cpptools-extension-pack
             redhat.java
+            ms-toolsai.jupyter
+            ms-toolsai.jupyter-renderers
+            ms-toolsai.datawrangler
           ];
 
         userSettings = {
@@ -106,6 +109,12 @@ in {
           # "python.languageServer" = "Jedi";
           "gitlens.telemetry.enabled" = false;
           "telemetry.telemetryLevel" = "off";
+          "leetcode.workspaceFolder" = "/home/beaver/Coding/leetcode";
+          "leetcode.defaultLanguage" = "python3";
+          "leetcode.hint.commandShortcut" = false;
+          "leetcode.hint.setDefaultLanguage" = false;
+          "leetcode.hint.configWebviewMarkdown" = false;
+          "leetcode.showDescription" = "Both";
         };
       };
 

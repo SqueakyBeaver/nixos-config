@@ -32,6 +32,18 @@ in {
       ];
     };
 
+    hardware.xpadneo.enable = true;
+    # My controller is fucky and requires this for rumble
+    # Also idk which will work
+    # boot.extraModprobeConfig = ''
+    #   options hid_xpadneo quirks=30:a6:a4:a8:de:67+6
+    #   options hid_xpadneo quirks=3E:42:6C:30:a6:a4:a8:de:67+6
+    #   options hid_xpadneo quirks=3E:42:6C:a8:de:67+6
+
+    # '';
+
+    services.udev.packages = [pkgs.steam-devices-udev-rules pkgs.game-devices-udev-rules];
+
     environment.systemPackages = [
       (mkIf cfg.lutris.enable pkgs.lutris)
       (mkIf cfg.mangohud.enable pkgs.mangohud)

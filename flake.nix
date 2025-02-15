@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nixvim-config = {
       url = "github:dc-tec/nixvim";
@@ -66,6 +66,10 @@
         lix-module.nixosModules.lixFromNixpkgs
         sops-nix.nixosModules.sops
         auto-cpufreq.nixosModules.default
+      ];
+
+      homes.modules = with inputs; [
+        sops-nix.homeManagerModules.sops
       ];
 
       snowfall = {

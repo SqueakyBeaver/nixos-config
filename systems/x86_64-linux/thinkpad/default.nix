@@ -34,6 +34,7 @@
       enable = true;
       openFirewall = true;
     };
+    syncthing.enable = true;
   };
 
   services.fwupd.enable = true;

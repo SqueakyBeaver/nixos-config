@@ -11,7 +11,7 @@
     upower.enable = true;
 
     # Just in case kde plasma enables it
-    # power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = false;
   };
 
   programs.auto-cpufreq = {
