@@ -35,6 +35,11 @@
       openFirewall = true;
     };
     syncthing.enable = true;
+
+    tor = {
+      enable = true;
+      snowflake.enable = true;
+    };
   };
 
   services.fwupd.enable = true;

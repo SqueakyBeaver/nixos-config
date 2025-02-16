@@ -14,7 +14,7 @@ in {
   options.${namespace}.${module} = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = ''
         Whether to enable the use of SyncThing on this system
       '';
