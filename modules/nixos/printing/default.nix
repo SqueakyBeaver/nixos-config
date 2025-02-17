@@ -21,6 +21,7 @@ in {
 
   config = mkIf cfg.enable {
     services.printing.enable = true;
+    services.printing.openFirewall = cfg.openFirewall;
 
     services.avahi = {
       enable = true;
