@@ -28,5 +28,9 @@ in {
       nssmdns6 = true;
       openFirewall = true;
     };
+
+    services.resolved.extraConfig = ''
+      MulticastDNS=resolve
+    '';
   };
 }
