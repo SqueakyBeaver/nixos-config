@@ -2,6 +2,7 @@
   lib,
   namespace,
   config,
+  pkgs,
   ...
 }:
 with lib; let
@@ -20,18 +21,21 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.printing.enable = true;
-    services.printing.openFirewall = cfg.openFirewall;
+    services.printing = {
+      enable = true;
+      openFirewall = cfg.openFirewall;
+      drivers = [pkgs.gutenprint];
+      browsing = true;
+    };
 
     services.avahi = {
       enable = true;
       nssmdns4 = true;
-      nssmdns6 = true;
       openFirewall = true;
     };
 
-    services.resolved.extraConfig = ''
-      MulticastDNS=resolve
-    '';
+    # services.resolved.extraConfig = ''
+    #   MulticastDNS=resolve
+    # '';
   };
 }
