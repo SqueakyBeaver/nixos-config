@@ -18,7 +18,7 @@
     just
     which
     tree
-    btop
+    btop-rocm
     iotop
     iftop
     thefuck
