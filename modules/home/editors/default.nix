@@ -41,7 +41,7 @@ in {
       type = types.bool;
       default = true;
       description = ''
-        Enable a neovim config based on LazyVim
+        Enable neovim using the LazyVim configuration
       '';
     };
   };
@@ -120,8 +120,8 @@ in {
 
     home.packages = [
       (mkIf cfg.android.enable pkgs.android-studio)
-      (mkIf cfg.nvim.enable inputs.nixvim-config.packages.${system}.default)
       (mkIf cfg.pragtical.enable pkgs.pragtical)
+      (mkIf cfg.nvim.enable pkgs.lunarvim)
     ];
   };
 }

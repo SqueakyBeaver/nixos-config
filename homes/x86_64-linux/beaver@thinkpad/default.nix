@@ -31,4 +31,9 @@
   };
 
   sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
+
+  home.sessionVariables = {
+    EDITOR = "lvim";
+    NIXOS_OZONE_WL = "1";
+  };
 }

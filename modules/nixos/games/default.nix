@@ -47,6 +47,8 @@ in {
     environment.systemPackages = [
       (mkIf cfg.lutris.enable pkgs.lutris)
       (mkIf cfg.mangohud.enable pkgs.mangohud)
+      pkgs.steamtinkerlaunch # Not gonna set an option bc I'm lazy rn
+      pkgs.protonup-qt
     ];
 
     hardware.graphics.enable32Bit = cfg.lutris.enable;

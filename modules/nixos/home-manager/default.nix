@@ -1,7 +1,8 @@
 {
   inputs,
-  system,
+  config,
   ...
 }: {
-  environment.systemPackages = [inputs.home-manager.defaultPackage.${system}];
+  config.home-manager.useGlobalPkgs = true;
+  config.home-manager.useUserPackages = true;
 }

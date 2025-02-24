@@ -15,6 +15,10 @@
     lenovo-thinkpad-t14-amd-gen1
   ];
 
+  environment.systemPackages = [
+    pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
+  ];
+
   timber = {
     audio.enable = true;
     desktop.plasma.enable = true;
@@ -40,7 +44,19 @@
       enable = true;
       snowflake.enable = true;
     };
+
+    ollama = {
+      enable = true;
+      accel = "rocm";
+    };
   };
+
+  # Worth a shot
+  services.ollama = {
+    # rocmOverrideGfx = "9.0.0";
+    package = pkgs.ollama-rocm;
+  };
+  # hardware.amdgpu.opencl.enable = true;
 
   services.fwupd.enable = true;
 
@@ -63,6 +79,4 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-
-  environment.variables.EDITOR = "code";
 }

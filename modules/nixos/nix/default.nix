@@ -26,16 +26,13 @@
       builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
 
-      # for direnv GC roots
-      keep-derivations = true;
-      keep-outputs = true;
-
       trusted-users = ["root" "wheel"];
 
       substituters = [
         # high priority since it's almost always used
         "https://cache.nixos.org?priority=10"
 
+        "https://nixos-rocm.cachix.org"
         "https://nix-community.cachix.org"
         "https://cache.lix.systems"
       ];
@@ -43,6 +40,7 @@
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
 
+        "nixos-rocm.cachix.org-1:VEpsf7pRIijjd8csKjFNBGzkBqOmw8H9PRmgAq14LnE="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
       ];
