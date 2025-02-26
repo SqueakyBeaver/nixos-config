@@ -44,10 +44,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -55,7 +51,6 @@
     lix-module,
     home-manager,
     nixos-hardware,
-    auto-cpufreq,
     ...
   }:
     inputs.snowfall-lib.mkFlake {
@@ -65,7 +60,6 @@
       systems.modules.nixos = with inputs; [
         lix-module.nixosModules.lixFromNixpkgs
         sops-nix.nixosModules.sops
-        auto-cpufreq.nixosModules.default
       ];
 
       homes.modules = with inputs; [

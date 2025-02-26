@@ -12,6 +12,7 @@
     ./boot
     ./power
     ./users
+    ./plymouth
     lenovo-thinkpad-t14-amd-gen1
   ];
 
@@ -53,8 +54,8 @@
 
   # Worth a shot
   services.ollama = {
-    # rocmOverrideGfx = "9.0.0";
-    package = pkgs.ollama-rocm;
+    rocmOverrideGfx = "9.0.0";
+    # package = pkgs.ollama-rocm;
   };
   # hardware.amdgpu.opencl.enable = true;
 
