@@ -2,7 +2,17 @@
   services = {
     logind.powerKey = "poweroff";
 
-    thinkfan.enable = true;
+    thinkfan = {
+      enable = true;
+
+      levels = [
+        [0 0 50]
+        [1 47 60]
+        [3 57 70]
+        [5 67 80]
+        ["level full-speed" 77 32767]
+      ];
+    };
 
     upower.enable = true;
 
