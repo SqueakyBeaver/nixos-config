@@ -15,7 +15,7 @@
       bitwarden.enable = true;
       bottles.enable = true;
       graphics.enable = false;
-      obsidian.enable = false;
+      obsidian.enable = true;
       prismlauncher.enable = true;
       spotify.enable = true;
       discord.enable = true;
@@ -33,7 +33,7 @@
   sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
 
   home.sessionVariables = {
-    EDITOR = "lvim";
+    # EDITOR = "lvim";
     NIXOS_OZONE_WL = "1";
   };
 }

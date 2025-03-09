@@ -21,8 +21,14 @@ in {
     };
 
     accel = mkOption {
-      type = types.string;
-      default = null;
+      type = types.nullOr (
+        types.enum [
+          false
+          "rocm"
+          "cuda"
+        ]
+      );
+      default = null; 
       description = ''
         The gpu acceleration to use. Same as `services.ollama.acceleration`
       '';

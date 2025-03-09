@@ -17,8 +17,8 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 1w";
+      dates = "Mon,Wed,Fri *-*-* 09:45";
+      options = "--delete-older-than 7d";
     };
     optimise.automatic = true;
     settings = {

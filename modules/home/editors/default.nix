@@ -121,7 +121,19 @@ in {
     home.packages = [
       (mkIf cfg.android.enable pkgs.android-studio)
       (mkIf cfg.pragtical.enable pkgs.pragtical)
-      (mkIf cfg.nvim.enable pkgs.lunarvim)
+      # (mkIf cfg.nvim.enable pkgs.lunarvim)
     ];
+
+    programs.neovim = mkIf cfg.nvim.enable {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+
+      plugins = with pkgs.vimPlugins; [
+        LazyVim
+        lazy-nvim
+
+      ];
+    };
   };
 }

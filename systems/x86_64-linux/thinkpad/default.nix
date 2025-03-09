@@ -55,9 +55,9 @@
   # Worth a shot
   services.ollama = {
     rocmOverrideGfx = "9.0.0";
-    # package = pkgs.ollama-rocm;
+    package = pkgs.ollama-rocm;
   };
-  # hardware.amdgpu.opencl.enable = true;
+  hardware.amdgpu.opencl.enable = true;
 
   services.fwupd.enable = true;
 
