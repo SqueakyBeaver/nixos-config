@@ -30,7 +30,7 @@ in {
   config = mkIf cfg.enable {
     programs.firefox = mkIf cfg.firefox.enable {
       enable = true;
-      # TODO: Native messaging hosts probably
+      nativeMessagingHosts = [pkgs.kdePackages.plasma-browser-integration];
     };
 
     programs.chromium = mkIf cfg.chromium.enable {
