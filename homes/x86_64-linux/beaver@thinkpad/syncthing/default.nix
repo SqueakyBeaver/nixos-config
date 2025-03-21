@@ -12,7 +12,7 @@
     enable = true; # Shouldn't be needed (?) but just in case
     cert = config.sops.secrets.beaver_thinkpad_syncthing_cert.path;
     key = config.sops.secrets.beaver_thinkpad_syncthing_key.path;
-    tray = true;
+    tray.enable = true;
     settings = {
       devices = {
         "phone" = {
@@ -23,7 +23,7 @@
           id = "NVXPD5G-4ZYQLJ5-TYOUWIU-GWAXLIU-7CRVDSF-GIWNQI5-JKT34SL-RNUKNQA";
         };
       };
-      
+
       folders = {
         "/home/beaver/Documents/sync" = {
           label = "documents";
