@@ -47,16 +47,15 @@
     };
 
     ollama = {
-      enable = true;
+      enable = false;
       accel = "rocm";
     };
   };
 
   # Worth a shot
-  services.ollama = {
-    rocmOverrideGfx = "9.0.0";
-    package = pkgs.ollama-rocm;
-  };
+  # services.ollama = {
+  #   rocmOverrideGfx = "9.0.0";
+  # };
   hardware.amdgpu.opencl.enable = true;
 
   services.fwupd.enable = true;

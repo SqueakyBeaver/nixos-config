@@ -4,74 +4,7 @@
 
     thinkfan = {
       enable = true;
-
       smartSupport = true;
-
-      # Text wall incoming
-      sensors = [
-        {
-          query = "/proc/acpi/ibm/thermal";
-          type = "tpacpi";
-        }
-        # I guess sometimes the hwmon number changes. interesting.
-        {
-          query = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon6/temp6_input";
-          type = "hwmon";
-        }
-        {
-          query = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon6/temp3_input";
-          type = "hwmon";
-        }
-        {
-          query = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon6/temp7_input";
-          type = "hwmon";
-        }
-        {
-          query = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon6/temp4_input";
-          type = "hwmon";
-        }
-        # CPU
-        {
-          query = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon6/temp1_input";
-          type = "hwmon";
-        }
-        # NVME sensors
-        {
-          query = "/sys/devices/pci0000:00/0000:00:02.1/0000:01:00.0/nvme/nvme0/hwmon1/temp3_input";
-          type = "hwmon";
-        }
-        {
-          query = "/sys/devices/pci0000:00/0000:00:02.1/0000:01:00.0/nvme/nvme0/hwmon1/temp1_input";
-          type = "hwmon";
-        }
-        {
-          query = "/sys/devices/pci0000:00/0000:00:02.1/0000:01:00.0/nvme/nvme0/hwmon1/temp2_input";
-          type = "hwmon";
-        }
-        # GPU
-        {
-          query = "/sys/devices/pci0000:00/0000:00:08.1/0000:07:00.0/hwmon/hwmon0/temp1_input";
-          type = "hwmon";
-        }
-        # CPU
-        {
-          query = "/sys/devices/virtual/thermal/thermal_zone0/hwmon2/temp1_input";
-          type = "hwmon";
-        }
-        # Wifi card
-        {
-          query = "/sys/devices/virtual/thermal/thermal_zone1/hwmon7/temp1_input";
-          type = "hwmon";
-        }
-      ];
-
-      levels = [
-        [0 0 50]
-        [1 47 60]
-        [3 57 70]
-        [4 67 80]
-        ["level full-speed" 77 32767]
-      ];
     };
 
     upower.enable = true;
