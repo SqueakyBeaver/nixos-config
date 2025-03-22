@@ -26,6 +26,14 @@ in {
         Whether to enable ungoogled chromium
       '';
     };
+
+    vivaldi.enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Whether to enable vivaldi
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -37,6 +45,14 @@ in {
     programs.chromium = mkIf cfg.chromium.enable {
       enable = true;
       package = pkgs.ungoogled-chromium;
+    };
+
+    programs.vivaldi = mkIf cfg.vivaldi.enable {
+      enable = true;
+      package = pkgs.vivaldi;
+      nativeMessagingHosts = [
+        pkgs.kdePackages.plasma-browser-integration
+      ];
     };
   };
 }

@@ -4,7 +4,10 @@
   ];
 
   timber = {
-    browser.enable = true;
+    browser = {
+      enable = true;
+      vivaldi.enable = true;
+    };
     editors = {
       enable = true;
       android.enable = true;
@@ -27,6 +30,7 @@
         enable = true;
         sounds.enable = true;
       };
+      hmm.enable = true;
     };
   };
 
