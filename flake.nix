@@ -88,6 +88,13 @@
 
       channels-config = {
         allowUnfree = true;
+
+        # Developer is not really concerned
+        # see https://github.com/krille-chan/fluffychat/issues/1258
+        permittedInsecurePackages = [
+          "fluffychat-linux-1.25.1"
+          "olm-3.2.16"
+        ];
       };
     };
 }

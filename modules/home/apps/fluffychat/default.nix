@@ -24,7 +24,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      fluffychat
+      pkgs.fluffychat
     ];
   };
 }
