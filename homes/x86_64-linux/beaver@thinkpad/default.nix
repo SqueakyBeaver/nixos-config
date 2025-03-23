@@ -31,6 +31,7 @@
         sounds.enable = true;
       };
       hmm.enable = true;
+      fluffychat.enable = true;
     };
   };
 
