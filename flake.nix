@@ -48,6 +48,11 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hmm = {
+      url = "git+https://codeberg.org/SqueakyBeaver/hmm-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
