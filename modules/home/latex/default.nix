@@ -7,7 +7,7 @@
 }:
 with lib; let
   # I don't want to set this up per-directory tbh
-  module = "latext";
+  module = "latex";
   cfg = config.${namespace}.${module};
 in {
   options.${namespace}.${module} = {
