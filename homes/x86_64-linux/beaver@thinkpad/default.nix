@@ -8,11 +8,15 @@
       enable = true;
       vivaldi.enable = true;
     };
+
     editors = {
       enable = true;
       android.enable = true;
     };
+
     terminal.enable = true;
+
+    latex.enable = true;
 
     apps = {
       bitwarden.enable = true;
