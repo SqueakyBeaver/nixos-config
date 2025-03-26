@@ -33,7 +33,7 @@
       enable = true;
       # FIXME: If you copy this, change it
       userName = "Beaverr";
-      userEmail = "beaver@transgender.army"; # hehe funnee email
+      userEmail = "squeaky.beaver4133@protonmail.com"; # hehe funnee email
 
       # https://blog.gitbutler.com/how-git-core-devs-configure-git/
       extraConfig = {
