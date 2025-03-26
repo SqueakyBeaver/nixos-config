@@ -16,7 +16,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.texlive.combined.scheme-basic
+      pkgs.texlive.combined.scheme-medium
       pkgs.texlab
     ];
   };
