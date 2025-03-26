@@ -39,6 +39,12 @@
     };
   };
 
+  # I do not want to make a whole module option for this atm, but it should not be a default probably
+  config = {
+    services.ssh-agent.enable = true;
+    programs.ssh.addKeysToAgent = "confirm";
+  };
+
   sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
 
   home.sessionVariables = {
