@@ -12,7 +12,6 @@
     enable = true; # Shouldn't be needed (?) but just in case
     cert = config.sops.secrets.beaver_thinkpad_syncthing_cert.path;
     key = config.sops.secrets.beaver_thinkpad_syncthing_key.path;
-    tray.enable = true;
     settings = {
       devices = {
         "phone" = {
