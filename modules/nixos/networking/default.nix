@@ -6,10 +6,10 @@
 
     # use my nextDNS config
     nameservers = [
-      "45.90.28.0" #7dbdb5.dns.nextdns.io"
-      "2a07:a8c0::" #7dbdb5.dns.nextdns.io"
-      "45.90.30.0" #7dbdb5.dns.nextdns.io"
-      "2a07:a8c1::"  #7dbdb5.dns.nextdns.io"
+      "45.90.28.0#7dbdb5.dns.nextdns.io"
+      "2a07:a8c0::#7dbdb5.dns.nextdns.io"
+      "45.90.30.0#7dbdb5.dns.nextdns.io"
+      "2a07:a8c1::#7dbdb5.dns.nextdns.io"
       # "1.1.1.1"
     ];
 
