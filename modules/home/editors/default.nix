@@ -66,8 +66,8 @@ in {
               open-vsx.eamodio.gitlens
             ]
             ++ [
-              # pkgs.vscode-extensions
-              # For those extensions that  don't work on the vscode-extensions repo
+              # nixpkgs vscode-extensions
+              # For those extensions that  don't work on the other vscode-extensions repo
               vadimcn.vscode-lldb
               ms-python.python
               ms-python.debugpy
@@ -79,10 +79,11 @@ in {
               shd101wyy.markdown-preview-enhanced
               llvm-vs-code-extensions.vscode-clangd
               ms-vscode.cpptools-extension-pack
-              redhat.java
               ms-toolsai.jupyter
               ms-toolsai.jupyter-renderers
               ms-toolsai.datawrangler
+              ms-vscode-remote.remote-ssh
+              ms-vscode-remote.remote-ssh-edit
             ];
 
           userSettings = {

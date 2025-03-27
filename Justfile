@@ -18,6 +18,13 @@ debug:
 up:
   nix flake update
 
+# When you need to change vscode extensions
+# WARNING: WILL REMOVE ~/.vscode
+vscode:
+  -rm -r ~/.vscode
+  -pkill code
+  nixos-rebuild switch --flake . --use-remote-sudo
+
 # Update specific input
 # usage: make upp i=home-manager
 upp:
