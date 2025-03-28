@@ -22,6 +22,6 @@
     }
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   # https://nixos.wiki/wiki/Linux_kernel
 }
