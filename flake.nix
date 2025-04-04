@@ -36,8 +36,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim-config = {
-      url = "github:dc-tec/nixvim";
+    nvchad4nix = {
+      url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,10 +50,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # niri = {
+    #   url = "github:sodiboo/niri-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     hmm = {
       url = "git+https://codeberg.org/SqueakyBeaver/hmm-flake";
@@ -66,6 +66,7 @@
     lix-module,
     home-manager,
     nixos-hardware,
+    nvchad4nix,
     ...
   }:
     inputs.snowfall-lib.mkFlake {
@@ -79,6 +80,7 @@
 
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
+        nvchad4nix.homeManagerModule
       ];
 
       overlays = with inputs; [

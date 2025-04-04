@@ -29,21 +29,7 @@ in {
       '';
     };
 
-    pragtical.enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Enable pragtical ediro
-      '';
-    };
-
-    nvim.enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = ''
-        Enable neovim using the LazyVim configuration
-      '';
-    };
+    nvchad.enable = mkEnableOption "nvchad";
   };
 
   config = mkIf cfg.enable {
@@ -127,21 +113,28 @@ in {
     #     };
     #   };
 
+    programs.nvchad = mkIf cfg.nvchad.enable {
+      enable = true;
+      extraPackages = with pkgs; [
+        basedpyright
+        python3
+      ];
+
+      extraConfig = ''
+        require'lspconfig'.basedpyright.setup{}
+        require'lspconfig'.ruff.setup{}
+        require'lspconfig'.rust_analyzer.setup{}
+        require'lspconfig'.clangd.setup{}
+        require'lspconfig'.nil_ls.setup{}
+      '';
+
+      hm-activation = true;
+      # backup = true;
+    };
+
     home.packages = [
       (mkIf cfg.android.enable pkgs.android-studio)
-      (mkIf cfg.pragtical.enable pkgs.pragtical)
-      # (mkIf cfg.nvim.enable pkgs.lunarvim)
+      (mkIf cfg.nvchad.enable pkgs.wl-clipboard)
     ];
-
-    programs.neovim = mkIf cfg.nvim.enable {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-
-      plugins = with pkgs.vimPlugins; [
-        LazyVim
-        lazy-nvim
-      ];
-    };
   };
 }

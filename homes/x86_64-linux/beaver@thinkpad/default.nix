@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./syncthing
   ];
@@ -12,6 +16,7 @@
     editors = {
       enable = true;
       android.enable = true;
+      nvchad.enable = true;
     };
 
     terminal.enable = true;
@@ -38,6 +43,11 @@
       fluffychat.enable = true;
     };
   };
+
+  home.packages = [
+    # Should not be enabled for every user, and I don't wanna make a module option
+    pkgs.llvmPackages.clang-unwrapped
+  ];
 
   # I do not want to make a whole module option for this atm, but it should not be a default probably
   services.ssh-agent.enable = true;
