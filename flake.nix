@@ -31,13 +31,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixvim-config = {
       url = "github:dc-tec/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -67,12 +73,16 @@
       src = ./.;
 
       systems.modules.nixos = with inputs; [
-        lix-module.nixosModules.lixFromNixpkgs
+        # lix-module.nixosModules.lixFromNixpkgs
         sops-nix.nixosModules.sops
       ];
 
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
+      ];
+
+      overlays = with inputs; [
+        lix-module.overlays.lixFromNixpkgs
       ];
 
       snowfall = {

@@ -97,6 +97,7 @@
     };
   };
 
+  # Workaround for bad ~/.ssh/config file permissions
   home.file = {
     ".ssh/config" = {
       target = ".ssh/config_source";
