@@ -120,6 +120,12 @@ in {
         python3
       ];
 
+      extraPlugins = ''
+        return {
+          { "direnv/direnv.vim", lazy = false }
+        }
+      '';
+
       extraConfig = ''
         require'lspconfig'.basedpyright.setup{}
         require'lspconfig'.ruff.setup{}
