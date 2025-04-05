@@ -31,10 +31,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nix-vscode-extensions = {
+    #   url = "github:nix-community/nix-vscode-extensions";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
@@ -67,6 +67,7 @@
     home-manager,
     nixos-hardware,
     nvchad4nix,
+    nix-index-db,
     ...
   }:
     inputs.snowfall-lib.mkFlake {
@@ -81,6 +82,7 @@
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
         nvchad4nix.homeManagerModule
+        nix-index-db.hmModules.nix-index
       ];
 
       overlays = with inputs; [

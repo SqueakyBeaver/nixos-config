@@ -19,6 +19,7 @@
       "libvirtd"
       "adbusers"
       "podman"
+      "mysql"
     ];
     shell = pkgs.zsh;
   };

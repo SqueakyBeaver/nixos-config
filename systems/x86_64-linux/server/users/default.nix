@@ -17,6 +17,7 @@
       "wheel"
       "gamemode"
       "libvirtd"
+      "mysql"
     ];
     shell = pkgs.zsh;
   };

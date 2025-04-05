@@ -28,6 +28,7 @@
     eza.enable = true;
     ssh.enable = true;
     zsh.enable = true;
+    nix-index.enable = true;
 
     git = {
       enable = true;

@@ -18,6 +18,7 @@
       "gamemode"
       "libvirtd"
       "adbusers"
+      "mysql"
     ];
     shell = pkgs.zsh;
   };
