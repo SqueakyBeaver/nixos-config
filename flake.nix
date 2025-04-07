@@ -36,8 +36,13 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    nvchad4nix = {
-      url = "github:nix-community/nix4nvchad";
+    # nvchad4nix = {
+    #   url = "github:nix-community/nix4nvchad";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -66,7 +71,7 @@
     lix-module,
     home-manager,
     nixos-hardware,
-    nvchad4nix,
+    nixvim,
     nix-index-db,
     ...
   }:
@@ -81,7 +86,7 @@
 
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
-        nvchad4nix.homeManagerModule
+        nixvim.homeManagerModules.nixvim
         nix-index-db.hmModules.nix-index
       ];
 

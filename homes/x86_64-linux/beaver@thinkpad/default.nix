@@ -16,7 +16,7 @@
     editors = {
       enable = true;
       android.enable = true;
-      nvchad.enable = true;
+      nvim.enable = true;
     };
 
     terminal.enable = true;

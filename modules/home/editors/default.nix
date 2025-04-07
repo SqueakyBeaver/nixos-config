@@ -11,6 +11,10 @@ with lib; let
   module = "editors";
   cfg = config.${namespace}.${module};
 in {
+  imports = [
+    ./nixvim
+  ];
+
   options.${namespace}.${module} = {
     enable = mkEnableOption "Enable graphical editors/IDEs";
     codium.enable = mkOption {
@@ -29,7 +33,7 @@ in {
       '';
     };
 
-    nvchad.enable = mkEnableOption "nvchad";
+    nvim.enable = mkEnableOption "Neovim";
   };
 
   config = mkIf cfg.enable {
@@ -113,34 +117,38 @@ in {
     #     };
     #   };
 
-    programs.nvchad = mkIf cfg.nvchad.enable {
+    # programs.nvchad = mkIf cfg.nvchad.enable {
+    #   enable = true;
+    #   extraPackages = with pkgs; [
+    #     basedpyright
+    #     python3
+    #   ];
+
+    #   extraPlugins = ''
+    #     return {
+    #       { "direnv/direnv.vim", lazy = false }
+    #     }
+    #   '';
+
+    #   extraConfig = ''
+    #     require'lspconfig'.basedpyright.setup{}
+    #     require'lspconfig'.ruff.setup{}
+    #     require'lspconfig'.rust_analyzer.setup{}
+    #     require'lspconfig'.clangd.setup{}
+    #     require'lspconfig'.nil_ls.setup{}
+    #   '';
+
+    #   hm-activation = true;
+    #   # backup = true;
+    # };
+
+    programs.nixvim = mkIf cfg.nvim.enable {
       enable = true;
-      extraPackages = with pkgs; [
-        basedpyright
-        python3
-      ];
-
-      extraPlugins = ''
-        return {
-          { "direnv/direnv.vim", lazy = false }
-        }
-      '';
-
-      extraConfig = ''
-        require'lspconfig'.basedpyright.setup{}
-        require'lspconfig'.ruff.setup{}
-        require'lspconfig'.rust_analyzer.setup{}
-        require'lspconfig'.clangd.setup{}
-        require'lspconfig'.nil_ls.setup{}
-      '';
-
-      hm-activation = true;
-      # backup = true;
     };
 
     home.packages = [
       (mkIf cfg.android.enable pkgs.android-studio)
-      (mkIf cfg.nvchad.enable pkgs.wl-clipboard)
+      (mkIf cfg.nvim.enable pkgs.wl-clipboard)
     ];
   };
 }
