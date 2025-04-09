@@ -9,6 +9,16 @@
       maplocalleader = " ";
     };
 
+    opts = {
+      nu = true;
+      shiftwidth = 0;
+      tabstop = 4;
+      expandtab = true;
+      splitbelow = true;
+      cc = "80";
+      wrap = false;
+    };
+
     # Todo: Figure out which ones I like
     keymaps = [
       {
@@ -317,6 +327,13 @@
         action = "vim.lsp.buf.references";
         options = {desc = "Show references";};
       }
+
+      {
+        mode = "n";
+        key = "<leader>wz";
+        action = "<cmd>ZenMode<CR>";
+        options = {desc = "toggle zen mode";};
+      }
     ];
 
     plugins = {
@@ -370,19 +387,43 @@
       };
 
       lsp-status.enable = true;
+      lsp-lines.enable = true;
 
       cmp = {
         enable = true;
-        settings.sources = [
-          {name = "nvim_lsp";}
-          {name = "nvim_lsp_document_symbol";}
-          {name = "nvim_lsp_signature_help";}
-          {name = "buffer";}
-          {name = "cmdline";}
-          {name = "async_path";}
-          {name = "treesitter";}
-          {name = "dap";}
-        ];
+        settings = {
+          sources = [
+            {name = "nvim_lsp";}
+            {name = "nvim_lsp_document_symbol";}
+            {name = "nvim_lsp_signature_help";}
+            {name = "buffer";}
+            # {name = "cmdline";}
+            {name = "async_path";}
+            {name = "treesitter";}
+          ];
+          # completion = {
+          #   # I hate it when the completion window shows up on a completely blank line!
+          #   keyword_pattern = ''[[\%(-\?\d\+\%(\.\d\+\)\?\|\h\%(\w+\|\%(-\w*\)\+\)\)]]'';
+          # };
+
+          mapping = {
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-e>" = "cmp.mapping.close()";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<CR>" = "cmp.mapping.confirm({ select = false })";
+            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<Tab>" = ''
+              function(fallback)
+                if cmp.visible() then
+                  cmp.select_next_item()
+                else
+                  require("intellitab").indent()
+                end
+              end
+            '';
+          };
+        };
       };
 
       bufferline = {
@@ -562,26 +603,14 @@
 
       lightline.enable = true;
 
+      nix.enable = true;
+
       mini = {
         enable = true;
-        # I don't wanna go through everything tbh. This all looks good enough
         modules = {
           ai = {
             n_lines = 50;
             search_method = "cover_or_next";
-          };
-          comment = {
-            mappings = {
-              comment = "<leader>/";
-              comment_line = "<leader>/";
-              comment_visual = "<leader>/";
-              textobject = "<leader>/";
-            };
-          };
-          diff = {
-            view = {
-              style = "sign";
-            };
           };
           surround = {
             mappings = {
@@ -677,6 +706,58 @@
       };
 
       web-devicons.enable = true;
+
+      gitsigns.enable = true;
+
+      indent-blankline.enable = true;
+
+      twilight.enable = true;
+      zen-mode = {
+        enable = true;
+
+        settings = {
+          on_close = ''
+            function()
+              require("gitsigns.actions").toggle_current_line_blame()
+              vim.cmd('IBLEnable')
+              vim.cmd('GitBlameToggle')
+              vim.opt.number = true
+              require("gitsigns.actions").refresh()
+            end
+          '';
+          on_open = ''
+            function()
+              require("gitsigns.actions").toggle_current_line_blame()
+              vim.cmd('IBLDisable')
+              vim.cmd('GitBlameToggle')
+              vim.opt.number = false
+              require("gitsigns.actions").refresh()
+            end
+          '';
+          plugins = {
+            gitsigns = {
+              enabled = true;
+            };
+            
+            options = {
+              enabled = true;
+              ruler = false;
+              showcmd = false;
+            };
+            twilight = {
+              enabled = false;
+            };
+          };
+          window = {
+            backdrop = 0.95;
+            height = 1;
+            options = {
+              signcolumn = "no";
+            };
+            width = 0.8;
+          };
+        };
+      };
     };
   };
 }
