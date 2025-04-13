@@ -16,6 +16,10 @@
     lenovo-thinkpad-t14-amd-gen1
   ];
 
+  services.plantuml-server.enable = true;
+  # I don't want it auto-started tbh
+  systemd.services.plantuml-server.wantedBy = pkgs.lib.mkOverride 0 [];
+
   environment.systemPackages = [
     pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
   ];
