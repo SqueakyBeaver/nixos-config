@@ -60,6 +60,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
+    # stylix = {
+    #   url = "github:danth/stylix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     hmm = {
       url = "git+https://codeberg.org/SqueakyBeaver/hmm-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +78,8 @@
     nixos-hardware,
     nixvim,
     nix-index-db,
+    # niri,
+    # stylix,
     ...
   }:
     inputs.snowfall-lib.mkFlake {
@@ -82,6 +89,8 @@
       systems.modules.nixos = with inputs; [
         # lix-module.nixosModules.lixFromNixpkgs
         sops-nix.nixosModules.sops
+        # niri.nixosModules.niri
+        # stylix.nixosModules.stylix
       ];
 
       homes.modules = with inputs; [

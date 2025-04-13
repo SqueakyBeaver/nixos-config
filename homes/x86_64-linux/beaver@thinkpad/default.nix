@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./syncthing
+    # ./niri.nix
   ];
 
   timber = {
