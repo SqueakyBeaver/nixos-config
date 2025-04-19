@@ -1,6 +1,7 @@
 {
   pkgs,
   self,
+  config,
   ...
 }: {
   boot.loader.systemd-boot.enable = true;
@@ -23,5 +24,6 @@
   # ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.extraModulePackages = with config.boot.kernelPackages; [ryzen-smu];
   # https://nixos.wiki/wiki/Linux_kernel
 }

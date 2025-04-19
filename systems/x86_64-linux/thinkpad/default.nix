@@ -40,14 +40,14 @@
       podman.enable = true;
     };
     printing = {
-      enable = true;
-      openFirewall = true;
+      enable = false;
+      openFirewall = false;
     };
     syncthing.enable = true;
 
     tor = {
       enable = true;
-      snowflake.enable = true;
+      snowflake.enable = false;
     };
 
     ollama = {

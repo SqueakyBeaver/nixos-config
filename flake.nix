@@ -69,6 +69,11 @@
       url = "git+https://codeberg.org/SqueakyBeaver/hmm-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -78,6 +83,7 @@
     nixos-hardware,
     nixvim,
     nix-index-db,
+    auto-cpufreq,
     # niri,
     # stylix,
     ...
@@ -87,8 +93,8 @@
       src = ./.;
 
       systems.modules.nixos = with inputs; [
-        # lix-module.nixosModules.lixFromNixpkgs
         sops-nix.nixosModules.sops
+        auto-cpufreq.nixosModules.default
         # niri.nixosModules.niri
         # stylix.nixosModules.stylix
       ];
