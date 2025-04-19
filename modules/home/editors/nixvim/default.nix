@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./maps.nix
   ];
@@ -58,21 +62,22 @@
         };
 
         servers = {
-          clangd.enable = true;
-          pylsp = {
+          bashls.enable = true;
+          basedpyright = {
             enable = true;
             settings = {
-              plugins = {
-                ruff = {
-                  enabled = true;
+              basedpyright = {
+                analysis = {
+                  typeCheckingMode = "basic";
                 };
               };
             };
           };
+          clangd.enable = true;
           gopls.enable = true;
           html.enable = true;
           nil_ls.enable = true;
-          # ruff.enable = true;
+          ruff.enable = true;
           rust_analyzer = {
             enable = true;
             installRustc = true;
@@ -83,47 +88,211 @@
         };
       };
 
-      lsp-status.enable = true;
+      fidget.enable = true;
       lsp-lines.enable = true;
 
-      cmp = {
+      luasnip.enable = true;
+      blink-cmp = {
         enable = true;
 
-        cmdline = {
-          "/" = {
-            mapping = {
-              __raw = "cmp.mapping.preset.cmdline()";
+        settings = {
+          completion = {
+            accept.auto_brackets = {
+              enabled = true;
+              semantic_token_resolution = {
+                enabled = false;
+              };
             };
-            sources = [
-              {name = "buffer";}
-              {name = "nvim_lsp_document_symbol";}
+            documentation.auto_show = true;
+          };
+          keymap = {
+            preset = "super-tab";
+          };
+          signature = {
+            enabled = true;
+          };
+          sources = {
+            providers = {
+              buffer = {
+                score_offset = -7;
+              };
+              lsp = {
+                fallbacks = [];
+              };
+            };
+          };
+        };
+      };
+
+      comment.enable = true;
+
+      cursorline.enable = true;
+
+      dropbar.enable = true;
+
+      gitblame.enable = true;
+
+      intellitab.enable = true;
+
+      lightline.enable = true;
+
+      nix.enable = true;
+
+      mini = {
+        enable = true;
+        modules = {
+          ai = {
+            n_lines = 50;
+            search_method = "cover_or_next";
+          };
+          surround = {
+            mappings = {
+              add = "gsa";
+              delete = "gsd";
+              find = "gsf";
+              find_left = "gsF";
+              highlight = "gsh";
+              replace = "gsr";
+              update_n_lines = "gsn";
+            };
+          };
+        };
+      };
+
+      neo-tree.enable = true;
+
+      neoclip.enable = true;
+
+      telescope = {
+        enable = true;
+
+        settings = {
+          defaults = {
+            file_ignore_patterns = [
+              "^.git/"
+              "^.mypy_cache/"
+              "^__pycache__/"
+              "^output/"
+              "^data/"
+              "%.ipynb"
             ];
+            layout_config = {
+              prompt_position = "top";
+            };
+            mappings = {
+              i = {
+                "<A-j>" = {
+                  __raw = "require('telescope.actions').move_selection_next";
+                };
+                "<A-k>" = {
+                  __raw = "require('telescope.actions').move_selection_previous";
+                };
+              };
+            };
+            selection_caret = "> ";
+            set_env = {
+              COLORTERM = "truecolor";
+            };
+            sorting_strategy = "ascending";
           };
         };
 
-        settings = {
-          sources = [
-            {name = "nvim_lsp";}
-            {name = "async_path";}
-            {name = "nvim_lsp_signature_help";}
-          ];
+        extensions = {
+          fzf-native.enable = true;
+        };
+      };
 
-          mapping = {
-            "<C-Space>" = "cmp.mapping.complete()";
-            "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-e>" = "cmp.mapping.close()";
-            "<C-f>" = "cmp.mapping.scroll_docs(4)";
-            "<CR>" = "cmp.mapping.confirm({ select = false })";
-            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<Tab>" = ''
-              function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                else
-                  require("intellitab").indent()
-                end
-              end
-            '';
+      which-key.enable = true;
+
+      conform-nvim = {
+        enable = true;
+        settings = {
+          formatters_by_ft = {
+            bash = [
+              "shellcheck"
+              "shellharden"
+              "shfmt"
+            ];
+            cpp = ["clang_format"];
+            javascript = {
+              __unkeyed-1 = "prettierd";
+              __unkeyed-2 = "prettier";
+              timeout_ms = 2000;
+              stop_after_first = true;
+            };
+            python = [
+              "ruff_fix"
+              "ruff_format"
+              "ruff_organize_imports"
+            ];
+            nix = [
+              "alejandra"
+            ];
+          };
+          log_level = "debug";
+          notify_on_error = false;
+          notify_no_formatters = false;
+          default_format_opts.lsp_format = "fallback";
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+        settings.open_mapping = "[[<C-\\>]]";
+      };
+
+      web-devicons.enable = true;
+
+      gitsigns.enable = true;
+
+      indent-blankline.enable = true;
+
+      autoclose.enable = true;
+
+      twilight.enable = true;
+      zen-mode = {
+        enable = true;
+
+        settings = {
+          on_close = ''
+            function()
+              require("gitsigns.actions").toggle_current_line_blame()
+              vim.cmd('IBLEnable')
+              vim.cmd('GitBlameToggle')
+              vim.opt.number = true
+              require("gitsigns.actions").refresh()
+            end
+          '';
+          on_open = ''
+            function()
+              require("gitsigns.actions").toggle_current_line_blame()
+              vim.cmd('IBLDisable')
+              vim.cmd('GitBlameToggle')
+              vim.opt.number = false
+              require("gitsigns.actions").refresh()
+            end
+          '';
+          plugins = {
+            gitsigns = {
+              enabled = true;
+            };
+
+            options = {
+              enabled = true;
+              ruler = false;
+              showcmd = false;
+            };
+            twilight = {
+              enabled = false;
+            };
+          };
+          window = {
+            backdrop = 0.95;
+            height = 1;
+            options = {
+              signcolumn = "no";
+            };
+            width = 0.8;
           };
         };
       };
@@ -289,176 +458,6 @@
               '';
             };
             tab_size = 18;
-          };
-        };
-      };
-
-      comment.enable = true;
-
-      cursorline.enable = true;
-
-      dropbar.enable = true;
-
-      gitblame.enable = true;
-
-      intellitab.enable = true;
-
-      lightline.enable = true;
-
-      nix.enable = true;
-
-      mini = {
-        enable = true;
-        modules = {
-          ai = {
-            n_lines = 50;
-            search_method = "cover_or_next";
-          };
-          surround = {
-            mappings = {
-              add = "gsa";
-              delete = "gsd";
-              find = "gsf";
-              find_left = "gsF";
-              highlight = "gsh";
-              replace = "gsr";
-              update_n_lines = "gsn";
-            };
-          };
-        };
-      };
-
-      neo-tree.enable = true;
-
-      neoclip.enable = true;
-
-      telescope = {
-        enable = true;
-
-        settings = {
-          defaults = {
-            file_ignore_patterns = [
-              "^.git/"
-              "^.mypy_cache/"
-              "^__pycache__/"
-              "^output/"
-              "^data/"
-              "%.ipynb"
-            ];
-            layout_config = {
-              prompt_position = "top";
-            };
-            mappings = {
-              i = {
-                "<A-j>" = {
-                  __raw = "require('telescope.actions').move_selection_next";
-                };
-                "<A-k>" = {
-                  __raw = "require('telescope.actions').move_selection_previous";
-                };
-              };
-            };
-            selection_caret = "> ";
-            set_env = {
-              COLORTERM = "truecolor";
-            };
-            sorting_strategy = "ascending";
-          };
-        };
-
-        extensions = {
-          fzf-native.enable = true;
-        };
-      };
-
-      which-key.enable = true;
-
-      conform-nvim = {
-        enable = true;
-        settings = {
-          formatters_by_ft = {
-            bash = [
-              "shellcheck"
-              "shellharden"
-              "shfmt"
-            ];
-            cpp = ["clang_format"];
-            javascript = {
-              __unkeyed-1 = "prettierd";
-              __unkeyed-2 = "prettier";
-              timeout_ms = 2000;
-              stop_after_first = true;
-            };
-            python = [
-              "ruff_fix"
-              "ruff_format"
-              "ruff_organize_imports"
-            ];
-          };
-          log_level = "debug";
-          notify_on_error = false;
-          notify_no_formatters = false;
-          default_format_opts.lsp_format = "fallback";
-        };
-      };
-
-      toggleterm = {
-        enable = true;
-        settings.open_mapping = "[[<C-\\>]]";
-      };
-
-      web-devicons.enable = true;
-
-      gitsigns.enable = true;
-
-      indent-blankline.enable = true;
-
-      autoclose.enable = true;
-
-      twilight.enable = true;
-      zen-mode = {
-        enable = true;
-
-        settings = {
-          on_close = ''
-            function()
-              require("gitsigns.actions").toggle_current_line_blame()
-              vim.cmd('IBLEnable')
-              vim.cmd('GitBlameToggle')
-              vim.opt.number = true
-              require("gitsigns.actions").refresh()
-            end
-          '';
-          on_open = ''
-            function()
-              require("gitsigns.actions").toggle_current_line_blame()
-              vim.cmd('IBLDisable')
-              vim.cmd('GitBlameToggle')
-              vim.opt.number = false
-              require("gitsigns.actions").refresh()
-            end
-          '';
-          plugins = {
-            gitsigns = {
-              enabled = true;
-            };
-
-            options = {
-              enabled = true;
-              ruler = false;
-              showcmd = false;
-            };
-            twilight = {
-              enabled = false;
-            };
-          };
-          window = {
-            backdrop = 0.95;
-            height = 1;
-            options = {
-              signcolumn = "no";
-            };
-            width = 0.8;
           };
         };
       };

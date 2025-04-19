@@ -23,6 +23,11 @@ in {
     services.mysql = {
       enable = true;
       package = pkgs.mariadb;
+      settings = {
+        mysqld = {
+          lower_case_table_names = 1;
+        };
+      };
     };
   };
 }

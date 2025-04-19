@@ -20,6 +20,7 @@
       "adbusers"
       "podman"
       "mysql"
+      "wireshark"
     ];
     shell = pkgs.zsh;
   };
