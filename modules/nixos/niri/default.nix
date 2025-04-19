@@ -12,7 +12,7 @@ in {
   options.${namespace}.${module} = {
     niri.enable = mkEnableOption "Use the niri compositor";
   };
-
+/*
   config = mkIf cfg.niri.enable {
     programs.niri.enable = true;
 
@@ -28,5 +28,5 @@ in {
       xwayland-satellite-unstable
       swaybg
     ];
-  };
+  };*/
 }

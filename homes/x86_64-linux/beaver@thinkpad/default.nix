@@ -58,5 +58,7 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    ### OOOOH Java font anti-aliasing
+    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
   };
 }
