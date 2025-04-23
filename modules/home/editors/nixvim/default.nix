@@ -10,6 +10,7 @@
   programs.nixvim = {
     clipboard.providers.wl-copy.enable = true;
     clipboard.register = "unnamedplus";
+    luaLoader.enable = true; # Why not
 
     colorschemes.gruvbox.enable = true;
 
@@ -26,6 +27,32 @@
       splitbelow = true;
       cc = "80";
       wrap = false;
+    };
+
+    autoCmd = [
+      {
+        group = "lsp_attach_disable_ruff_hover";
+        callback = config.lib.nixvim.mkRaw ''
+          function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if client == nil then
+              return
+            end
+            if client.name == 'ruff' then
+              -- Disable hover in favor of Pyright
+              client.server_capabilities.hoverProvider = false
+            end
+          end
+        '';
+        desc = "LSP: Disable hover capability from Ruff";
+        event = "LspAttach";
+      }
+    ];
+
+    autoGroups = {
+      lsp_attach_disable_ruff_hover = {
+        clear = true;
+      };
     };
 
     plugins = {
@@ -69,7 +96,9 @@
               basedpyright = {
                 analysis = {
                   typeCheckingMode = "basic";
+                  ignore = ["*"];
                 };
+                disableOrganizeImports = true;
               };
             };
           };
@@ -77,7 +106,27 @@
           gopls.enable = true;
           html.enable = true;
           nil_ls.enable = true;
-          ruff.enable = true;
+          ruff = {
+            enable = true;
+            settings = {
+              lint = {
+                select = [
+                  # pycodestyle
+                  "E"
+                  # Pyflakes
+                  "F"
+                  # pyupgrade
+                  "UP"
+                  # flake8-bugbear
+                  "B"
+                  # flake8-simplify
+                  "SIM"
+                  # isort
+                  "I"
+                ];
+              };
+            };
+          };
           rust_analyzer = {
             enable = true;
             installRustc = true;
@@ -92,6 +141,7 @@
       lsp-lines.enable = true;
 
       luasnip.enable = true;
+
       blink-cmp = {
         enable = true;
 
@@ -104,9 +154,33 @@
               };
             };
             documentation.auto_show = true;
+            trigger.show_in_snippet = false;
+            list.selection = {
+              preselect = false;
+              auto_insert = false;
+            };
           };
           keymap = {
             preset = "super-tab";
+            # "<C-Space>" = ["cmp.mapping.complete()" "fallback"];
+            # "<C-d>" = ["cmp.mapping.scroll_docs(-4)" "fallback"];
+            # "<C-e>" = ["cmp.mapping.close()" "fallback"];
+            # "<C-f>" = ["cmp.mapping.scroll_docs(4)" "fallback"];
+            # "<CR>" = ["cmp.mapping.confirm({ select = false })" "fallback"];
+            # "<S-Tab>" = ["cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})" "fallback"];
+            # "<Tab>" = [
+            #   config.lib.nixvim.mkRaw
+            #   ''
+            #     function(fallback)
+            #       if cmp.visible() then
+            #         cmp.select_next_item()
+            #       else
+            #         require("intellitab").indent()
+            #       end
+            #     end
+            #   ''
+            #   "fallback"
+            # ];
           };
           signature = {
             enabled = true;

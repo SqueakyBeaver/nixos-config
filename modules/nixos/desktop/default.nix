@@ -30,6 +30,8 @@ in {
       adwaita-icon-theme # For gnome apps
     ];
 
+    services.input-remapper.enable = true;
+
     # programs.partition-manager.enable = true;
     programs.kdeconnect.enable = true;
     security.polkit.enable = true;
