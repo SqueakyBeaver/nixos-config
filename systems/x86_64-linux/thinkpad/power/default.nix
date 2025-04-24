@@ -32,8 +32,9 @@
 
     settings = {
       charger = {
-        governor = "schedutil";
+        governor = "performance";
         platform_profile = "performance";
+        turbo = "auto";
       };
 
       battery = {

@@ -10,19 +10,41 @@ with lib; let
 in {
   options.${namespace}.${module} = {
     # Not needed in machines with no window system
-    enable = mkEnableOption "Whether to install terminal emulators";
-    wezterm.enable = mkOption {
+    enable = mkEnableOption "Whether to install custom terminal emulators";
+    alacritty.enable = mkOption {
       type = types.bool;
       default = true;
       description = ''
-        Whether to use wezterm
+        Whether to install alacritty
       '';
     };
   };
 
   config = mkIf cfg.enable {
-    programs.wezterm = mkIf cfg.wezterm.enable {
+    programs.alacritty = mkIf cfg.alacritty.enable {
       enable = true;
+
+      settings = {
+        window.startup_mode = "Maximized";
+
+        font = {
+          normal = {
+            family = "Fira Code";
+            style = "Regular";
+          };
+        };
+
+        cursor = {
+          style = {
+            shape = "Beam";
+            blinking = "On";
+          };
+          vi_mode_style = {
+            shape = "Block";
+            blinking = "On";
+          };
+        };
+      };
     };
   };
 }
