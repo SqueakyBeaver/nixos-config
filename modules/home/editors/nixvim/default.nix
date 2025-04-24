@@ -137,9 +137,6 @@
         };
       };
 
-      fidget.enable = true;
-      lsp-lines.enable = true;
-
       luasnip.enable = true;
 
       blink-cmp = {
@@ -198,20 +195,6 @@
         };
       };
 
-      comment.enable = true;
-
-      cursorline.enable = true;
-
-      dropbar.enable = true;
-
-      gitblame.enable = true;
-
-      intellitab.enable = true;
-
-      lightline.enable = true;
-
-      nix.enable = true;
-
       mini = {
         enable = true;
         modules = {
@@ -232,10 +215,6 @@
           };
         };
       };
-
-      neo-tree.enable = true;
-
-      neoclip.enable = true;
 
       telescope = {
         enable = true;
@@ -276,8 +255,6 @@
         };
       };
 
-      which-key.enable = true;
-
       conform-nvim = {
         enable = true;
         settings = {
@@ -314,14 +291,6 @@
         enable = true;
         settings.open_mapping = "[[<C-\\>]]";
       };
-
-      web-devicons.enable = true;
-
-      gitsigns.enable = true;
-
-      indent-blankline.enable = true;
-
-      autoclose.enable = true;
 
       twilight.enable = true;
       zen-mode = {
@@ -535,6 +504,45 @@
           };
         };
       };
+
+      nvim-autopairs = {
+        enable = true;
+        settings = {
+          check_ts = true;
+        };
+      };
+
+      lazygit.enable = true;
+
+      fidget.enable = true;
+
+      lsp-lines.enable = true;
+
+      comment.enable = true;
+
+      cursorline.enable = true;
+
+      dropbar.enable = true;
+
+      gitblame.enable = true;
+
+      intellitab.enable = true;
+
+      lightline.enable = true;
+
+      nix.enable = true;
+
+      neo-tree.enable = true;
+
+      neoclip.enable = true;
+
+      which-key.enable = true;
+
+      web-devicons.enable = true;
+
+      gitsigns.enable = true;
+
+      indent-blankline.enable = true;
     };
   };
 }

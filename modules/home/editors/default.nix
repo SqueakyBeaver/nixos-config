@@ -149,6 +149,7 @@ in {
     home.packages = [
       (mkIf cfg.android.enable pkgs.android-studio)
       (mkIf cfg.nvim.enable pkgs.wl-clipboard)
+      (mkIf cfg.nvim.enable pkgs.neovim-qt)
     ];
   };
 }

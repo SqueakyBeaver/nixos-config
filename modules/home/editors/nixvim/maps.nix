@@ -313,5 +313,30 @@
       action = "<cmd>ZenMode<CR>";
       options = {desc = "toggle zen mode";};
     }
+
+    {
+      mode = "n";
+      key = "<leader>gg";
+      action = "<cmd>LazyGitCurrentFile<CR>" ;
+      options = {desc = "Lazygit (Root Dir)";};
+    }
+    {
+      mode = "n";
+      key = "<leader>gG";
+      action = "<cmd>LazyGit<CR>" ;
+      options = {desc = "Lazygit (cwd)";};
+    }
+    {
+      mode = "n";
+      key = "<leader>gf";
+      action = "<cmd>LazyGitFilterCurrentFile<CR>" ;
+      options = {desc = "Git Current File History";};
+    }
+    {
+      mode = "n";
+      key = "<leader>gl";
+      action = "<cmd>LazyGitFilter<CR>" ;
+      options = {desc = "Git Log";};
+    }
   ];
 }
