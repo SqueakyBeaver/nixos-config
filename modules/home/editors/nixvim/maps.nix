@@ -114,7 +114,11 @@
     {
       mode = "n";
       key = "<leader>ds";
-      action = "vim.diagnostic.setloclist";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.diagnostic.setloclist()
+        end
+      '';
       options = {desc = "LSP diagnostic loclist";};
     }
 
@@ -245,37 +249,61 @@
     {
       mode = "n";
       key = "gD";
-      action = "vim.lsp.buf.declaration";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.declaration()
+        end
+      '';
       options = {desc = "Go to declaration";};
     }
     {
       mode = "n";
       key = "gd";
-      action = "vim.lsp.buf.definition";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.definition()
+        end
+      '';
       options = {desc = "Go to definition";};
     }
     {
       mode = "n";
       key = "gi";
-      action = "vim.lsp.buf.implementation";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.implementation()
+        end
+      '';
       options = {desc = "Go to implementation";};
     }
     {
       mode = "n";
       key = "<leader>sh";
-      action = "vim.lsp.buf.signature_help";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.signature_help()
+        end
+      '';
       options = {desc = "Show signature help";};
     }
     {
       mode = "n";
       key = "<leader>wa";
-      action = "vim.lsp.buf.add_workspace_folder";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.add_workspace_folder()
+        end
+      '';
       options = {desc = "Add workspace folder";};
     }
     {
       mode = "n";
       key = "<leader>wr";
-      action = "vim.lsp.buf.remove_workspace_folder";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.remove_workspace_folder()
+        end
+      '';
       options = {desc = "Remove workspace folder";};
     }
     {
@@ -291,19 +319,31 @@
     {
       mode = "n";
       key = "<leader>D";
-      action = "vim.lsp.buf.type_definition";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.type_definition()
+        end
+      '';
       options = {desc = "Go to type definition";};
     }
     {
       mode = ["n" "v"];
       key = "<leader>ca";
-      action = "vim.lsp.buf.code_action";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.code_action()
+        end
+      '';
       options = {desc = "Code action";};
     }
     {
       mode = "n";
       key = "gr";
-      action = "vim.lsp.buf.references";
+      action = config.lib.nixvim.mkRaw ''
+        function()
+          vim.lsp.buf.references()
+        end
+      '';
       options = {desc = "Show references";};
     }
 
@@ -317,25 +357,25 @@
     {
       mode = "n";
       key = "<leader>gg";
-      action = "<cmd>LazyGitCurrentFile<CR>" ;
+      action = "<cmd>LazyGitCurrentFile<CR>";
       options = {desc = "Lazygit (Root Dir)";};
     }
     {
       mode = "n";
       key = "<leader>gG";
-      action = "<cmd>LazyGit<CR>" ;
+      action = "<cmd>LazyGit<CR>";
       options = {desc = "Lazygit (cwd)";};
     }
     {
       mode = "n";
       key = "<leader>gf";
-      action = "<cmd>LazyGitFilterCurrentFile<CR>" ;
+      action = "<cmd>LazyGitFilterCurrentFile<CR>";
       options = {desc = "Git Current File History";};
     }
     {
       mode = "n";
       key = "<leader>gl";
-      action = "<cmd>LazyGitFilter<CR>" ;
+      action = "<cmd>LazyGitFilter<CR>";
       options = {desc = "Git Log";};
     }
   ];
