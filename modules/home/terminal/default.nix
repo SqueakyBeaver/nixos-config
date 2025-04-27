@@ -27,12 +27,12 @@ in {
       settings = {
         window.startup_mode = "Maximized";
 
-        font = {
-          normal = {
-            family = "Fira Code";
-            style = "Regular";
-          };
-        };
+        # font = {
+        #   normal = {
+        #     family = "Fira Code";
+        #     style = "Regular";
+        #   };
+        # };
 
         cursor = {
           style = {

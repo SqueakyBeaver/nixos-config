@@ -8,12 +8,6 @@
   ];
 
   programs.nixvim = {
-    diagnostics = {
-      virtual_lines = {
-        current_line = true;
-      };
-      virtual_text = false;
-    };
     clipboard.providers.wl-copy.enable = true;
     clipboard.register = "unnamedplus";
     luaLoader.enable = true; # Why not
@@ -158,7 +152,7 @@
             settings = {
               basedpyright = {
                 analysis = {
-                  typeCheckingMode = "basic";
+                  typeCheckingMode = "off";
                   # ignore = ["*"];
                 };
                 disableOrganizeImports = true;
@@ -243,23 +237,11 @@
             "<C-f>" = ["scroll_documentation_down" "fallback"];
             "<CR>" = ["accept" "fallback"];
             "<S-Tab>" = [
-              (config.lib.nixvim.mkRaw ''
-                function(cmp)
-                  cmp.select_prev({ auto_insert = false })
-                end
-              '')
+              "select_prev"
               "fallback"
             ];
             "<Tab>" = [
-              (config.lib.nixvim.mkRaw ''
-                function(cmp)
-                  if cmp.is_visible() then
-                    cmp.select_next({auto_insert = false})
-                  else
-                    require("intellitab").indent()
-                  end
-                end
-              '')
+              "select_next"
               "fallback"
             ];
           };
@@ -435,8 +417,6 @@
       dropbar.enable = true;
 
       gitblame.enable = true;
-
-      intellitab.enable = true;
 
       lightline.enable = true;
 

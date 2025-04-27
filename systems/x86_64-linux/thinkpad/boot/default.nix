@@ -6,7 +6,7 @@
 }: {
   boot.loader.systemd-boot.enable = true;
   # Limit number of snapshots to keep
-  boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader.systemd-boot.configurationLimit = 20;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."kernel.sysrq" = 1;

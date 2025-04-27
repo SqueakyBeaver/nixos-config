@@ -4,9 +4,7 @@
   pkgs,
   config,
   ...
-}:
-{}
-/* let
+}: let
   icons = rec {
     calendar = "󰃭 ";
     clock = " ";
@@ -219,4 +217,4 @@ in {
     }
   '';
 }
-*/
+

@@ -20,6 +20,11 @@
   # I don't want it auto-started tbh
   systemd.services.plantuml-server.wantedBy = pkgs.lib.mkOverride 0 [];
 
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
+
   environment.systemPackages = [
     pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
   ];
@@ -27,6 +32,7 @@
   timber = {
     audio.enable = true;
     desktop.plasma.enable = true;
+    # desktop.niri.enable = true;
     games = {
       enable = true;
       optimize = true;
