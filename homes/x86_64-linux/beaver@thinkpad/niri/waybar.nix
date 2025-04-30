@@ -32,6 +32,8 @@
     notification.bell-outline-badge = "󰅸";
   };
 in {
+  home.packages = [pkgs.networkmanager_dmenu pkgs.gammastep];
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -40,7 +42,12 @@ in {
     layer = "top";
     modules-left = ["wireplumber" "wireplumber#source" "idle_inhibitor"];
     modules-center = ["clock#date" "clock"];
-    modules-right = ["network" "bluetooth" "bluetooth#battery" "battery" "custom/swaync"];
+    modules-right = ["tray" "backlight" "network" "bluetooth" "bluetooth#battery" "battery" "custom/swaync"];
+
+    tray = {
+      icon-size = 21;
+      spacing = 10;
+    };
 
     battery = {
       interval = 5;
@@ -53,14 +60,57 @@ in {
 
     clock = {
       interval = 1;
-      format = "${icons.clock} {:%H:%M:%S} paggles";
+      format = "${icons.clock} {:%H:%M:%S}";
+      calendar = {
+        mode = "month";
+        mode-mon-col = 3;
+        weeks-pos = "right";
+        on-scroll = 1;
+        format = {
+          months = "<span color='#ffead3'><b>{}</b></span>";
+          days = "<span color='#ecc6d9'><b>{}</b></span>";
+          weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+          weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+          today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+        };
+      };
+      actions = [
+        {on-click-right = "mode";}
+        {on-scroll-up = "tz_up";}
+        {on-scroll-down = "tz_down";}
+        {on-scroll-up = "shift_up";}
+        {on-scroll-down = "shift_down";}
+      ];
     };
 
     "clock#date" = {
-      format = "${icons.calendar} {:%Y-%m-%d}";
+      format = "${icons.calendar} {:%d-%b-%Y}";
     };
     "clock#week" = {
       format = "${icons.calendar} {:%W}";
+    };
+
+    backlight = {
+      device = "";
+      format = "<span font='12'>{icon}</span>";
+      states = {
+      };
+      format-icons = [
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+      ];
+      on-scroll-down = "light -A 10";
+      on-scroll-up = "light -U 10";
+      on-click-middle = "${./gammastep_toggle.sh} -t 5000";
+      smooth-scrolling-threshold = 1;
     };
 
     network = {
@@ -69,6 +119,7 @@ in {
       format-ethernet = icons.network.ethernet;
       format-wifi = "{icon} {essid}";
       format-icons = icons.network.strength;
+      on-click = "networkmanager_dmenu";
     };
 
     bluetooth = {
@@ -79,6 +130,7 @@ in {
         connected = icons.bluetooth.on;
       };
       format-connected = "{icon} {device_alias}";
+      on-click = "networkmanager_dmenu";
     };
     "bluetooth#battery" = {
       format = "";
@@ -140,6 +192,7 @@ in {
       escape = true;
     };
   };
+
   stylix.targets.waybar.enable = false;
   programs.waybar.style = let
     colors = config.lib.stylix.colors;
@@ -217,4 +270,3 @@ in {
     }
   '';
 }
-

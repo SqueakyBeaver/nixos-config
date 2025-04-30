@@ -25,14 +25,20 @@ in {
       enable = true;
 
       settings = {
-        window.startup_mode = "Maximized";
+        window = {
+          startup_mode = "Windowed";
+          padding = {
+            x = 20;
+            y = 20;
+          };
+        };
 
-        # font = {
-        #   normal = {
-        #     family = "Fira Code";
-        #     style = "Regular";
-        #   };
-        # };
+        font = lib.mkDefault {
+          normal = {
+            family = "Fira Code";
+            style = "Regular";
+          };
+        };
 
         cursor = {
           style = {

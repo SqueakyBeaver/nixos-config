@@ -22,7 +22,7 @@
 
   programs.wireshark = {
     enable = true;
-    package = pkgs.wireshark;
+    package = pkgs.wireshark-qt;
   };
 
   environment.systemPackages = [
@@ -35,7 +35,6 @@
     # desktop.niri.enable = true;
     games = {
       enable = true;
-      optimize = true;
       steam.enable = true;
       lutris.enable = true;
       mangohud.enable = true;
@@ -49,17 +48,12 @@
       enable = false;
       openFirewall = false;
     };
-    syncthing.enable = true;
+    # syncthing.enable = true;
 
-    tor = {
-      enable = true;
-      snowflake.enable = false;
-    };
-
-    ollama = {
-      enable = false;
-      accel = "rocm";
-    };
+    # tor = {
+    #   enable = true;
+    #   snowflake.enable = false;
+    # };
   };
 
   # Worth a shot

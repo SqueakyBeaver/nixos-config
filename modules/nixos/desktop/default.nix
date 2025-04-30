@@ -27,6 +27,8 @@ in {
       kdePackages.yakuake
       kdePackages.kate
       kdePackages.discover
+      kdePackages.karousel
+      material-kwin-decoration
       adwaita-icon-theme # For gnome apps
     ];
 

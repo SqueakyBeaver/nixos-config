@@ -9,12 +9,38 @@
 
     upower.enable = true;
 
-    thermald = {
+    tlp = {
       enable = true;
-    };
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
 
-    # nixos-hardware is mean to me ;-;
-    tlp.enable = pkgs.lib.mkForce false;
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "balanced";
+
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+
+        # CPU_MIN_PERF_ON_AC = 0;
+        # CPU_MAX_PERF_ON_AC = 100;
+        # CPU_MIN_PERF_ON_BAT = 0;
+        # CPU_MAX_PERF_ON_BAT = 60;
+
+        AMDGPU_ABM_LEVEL_ON_AC = 0;
+        AMDGPU_ABM_LEVEL_ON_BAT = 2;
+
+        START_CHARGE_THRESH_BAT0 = 60;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+
+        RUNTIME_PM_ON_AC = "auto";
+        RUNTIME_PM_ON_BAT = "auto";
+
+        USB_EXCLUDE_BTUSB = 1;
+      };
+    };
 
     # Just in case kde plasma enables it
     power-profiles-daemon.enable = false;
@@ -26,37 +52,4 @@
     pkgs.lm_sensors # For thinkfan
     pkgs.amdctl
   ];
-
-  programs.auto-cpufreq = {
-    enable = true;
-
-    settings = {
-      charger = {
-        governor = "performance";
-        platform_profile = "performance";
-        turbo = "auto";
-      };
-
-      battery = {
-        governor = "schedutil";
-        platform_profile = "low-power";
-        turbo = "never";
-        scaling_min_freq = 400000000;
-        scaling_max_freq = 2100000000;
-      };
-    };
-  };
-
-  boot.kernelParams = [
-    "amd_pstate=active"
-    "amd_pstate.shared_mem=1"
-  ];
-
-  boot.extraModprobeConfig = ''
-    options iwlmvm power_scheme=3
-    options iwlwifi power_save=1
-  '';
-
-  # For amdctl
-  hardware.cpu.x86.msr.enable = true;
 }

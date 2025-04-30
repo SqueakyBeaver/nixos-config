@@ -7,6 +7,7 @@
   imports = [
     ./waybar.nix
     ./stylix.nix
+    ./binds.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,7 +34,7 @@
 
         touchpad = {
           accel-profile = "flat";
-          accel-speed = 0.20;
+          accel-speed = 0.30;
           click-method = "clickfinger";
           scroll-method = "two-finger";
         };

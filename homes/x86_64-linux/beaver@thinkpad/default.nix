@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./syncthing
-    # ./niri.nix
+    # ./niri
   ];
 
   timber = {
@@ -34,8 +34,8 @@
       discord.enable = true;
       vlc.enable = true;
       libreoffice.enable = true;
-      pixelflasher.enable = true;
-      dolphin.enable = true;
+      pixelflasher.enable = false;
+      dolphin.enable = false;
       musescore = {
         enable = true;
         sounds.enable = true;
