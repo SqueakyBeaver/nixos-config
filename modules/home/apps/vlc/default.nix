@@ -2,15 +2,14 @@
   pkgs,
   lib,
   config,
-  namespace,
   ...
 }:
 with lib; let
   module = "apps";
   appName = "vlc";
-  cfg = config.${namespace}.${module}.${appName};
+  cfg = config.${module}.${appName};
 in {
-  options.${namespace}.${module}.${appName} = {
+  options.${module}.${appName} = {
     enable = mkOption {
       type = types.bool;
       default = true;

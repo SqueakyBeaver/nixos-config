@@ -32,7 +32,10 @@
     notification.bell-outline-badge = "󰅸";
   };
 in {
-  home.packages = [pkgs.networkmanager_dmenu pkgs.gammastep];
+  home.packages = [
+    pkgs.networkmanager_dmenu 
+    pkgs.gammastep
+  ];
 
   programs.waybar = {
     enable = true;
@@ -107,9 +110,9 @@ in {
         ""
         ""
       ];
-      on-scroll-down = "light -A 10";
-      on-scroll-up = "light -U 10";
-      on-click-middle = "${./gammastep_toggle.sh} -t 5000";
+      on-scroll-down = "brightnessctl s 5%-";
+      on-scroll-up = "brightnessctl s 5%+";
+      on-click-middle = "sh ${./gammastep_toggle.sh} -t 5000";
       smooth-scrolling-threshold = 1;
     };
 
@@ -208,17 +211,17 @@ in {
 
     window#waybar {
         background: transparent;
-        font-size: 2em;
+        font-size: 1em;
     }
 
     ${modules lib.id} {
         background: transparent;
-        margin: 3px 10px;
+        margin: 3px 5px;
     }
 
     ${module "*"} {
       margin: 3px 1px;
-      padding: 5px 7px;
+      padding: 5px 5px;
       background: #${colors.base00};
     }
     ${module ":first-child"} {

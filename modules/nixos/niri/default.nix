@@ -2,15 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
   ...
-}:{}
-/*
+}:
 with lib; let
   module = "desktop";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     niri.enable = mkEnableOption "Use the niri compositor";
   };
 
@@ -54,4 +52,4 @@ in {
       nemo-with-extensions
     ];
   };
-}*/
+}

@@ -11,18 +11,31 @@
   ];
 
   home.packages = with pkgs; [
-    alacritty
-    fuzzel
+    swaybg
+    brightnessctl
   ];
 
   services.swaync.enable = true;
 
   programs = {
+    fuzzel.enable = true;
+    alacritty.enable = true;
     swaylock.enable = true;
 
     niri.settings = {
       clipboard.disable-primary = true;
       prefer-no-csd = true;
+
+      spawn-at-startup = [
+        {
+          command = ["xwayland-satellite"];
+        }
+      ];
+
+      environment = {
+        QT_QPA_PLATFORM = "wayland";
+        DISPLAY = ":0";
+      };
 
       input = {
         keyboard = {
@@ -62,6 +75,8 @@
         tab-indicator = {
           corner-radius = 5;
         };
+
+        gaps = 10;
       };
 
       workspaces = {

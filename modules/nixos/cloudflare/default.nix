@@ -1,16 +1,14 @@
 # I'm literally using this for like one thing, but oh well
 {
-  pkgs,
   config,
   lib,
-  namespace,
   ...
 }:
 with lib; let
   module = "cloudflare";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "enable cloudflared";
     
   };

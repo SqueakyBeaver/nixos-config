@@ -1,18 +1,15 @@
 {
   lib,
   pkgs,
-  inputs,
-  namespace,
-  system,
   config,
   ...
 }:
 with lib; let
   module = "apps";
   appName = "fluffychat";
-  cfg = config.${namespace}.${module}.${appName};
+  cfg = config.${module}.${appName};
 in {
-  options.${namespace}.${module}.${appName} = {
+  options.${module}.${appName} = {
     enable = mkOption {
       type = types.bool;
       default = false;

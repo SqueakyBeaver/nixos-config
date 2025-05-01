@@ -1,17 +1,14 @@
 # I don't like genai, but if I'm going to use it, it's going to be local
 {
   lib,
-  pkgs,
-  inputs,
-  namespace,
   config,
   ...
 }:
 with lib; let
   module = "ollama";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkOption {
       type = types.bool;
       default = false;

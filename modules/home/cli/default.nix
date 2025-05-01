@@ -30,6 +30,16 @@
     zsh.enable = true;
     nix-index.enable = true;
 
+    bottom = {
+      enable = true;
+      settings = {
+        flags = {
+          enable_gpu = true;
+          temperature_type = "c";
+        };
+      };
+    };
+
     git = {
       enable = true;
       # FIXME: If you copy this, change it

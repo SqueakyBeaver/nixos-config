@@ -1,18 +1,16 @@
 {
   lib,
-  pkgs,
-  inputs,
-  namespace,
-  system,
+inputs,
+pkgs,
   config,
   ...
 }:
 with lib; let
   module = "apps";
   appName = "hmm";
-  cfg = config.${namespace}.${module}.${appName};
+  cfg = config.${module}.${appName};
 in {
-  options.${namespace}.${module}.${appName} = {
+  options.${module}.${appName} = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -24,7 +22,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      inputs.hmm.packages.${system}.default
+      inputs.hmm.packages.${pkgs.system}.default
     ];
   };
 }

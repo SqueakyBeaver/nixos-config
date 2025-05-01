@@ -1,15 +1,14 @@
 {
   lib,
-  namespace,
   config,
   pkgs,
   ...
 }:
 with lib; let
   module = "printing";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "Whether to enable printing";
     openFirewall = mkOption {
       type = types.bool;

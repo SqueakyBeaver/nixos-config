@@ -1,15 +1,14 @@
 {
   config,
   lib,
-  namespace,
   ...
 }:
 # TODO Add to readme (am lazy)
 with lib; let
   module = "wireguard";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkOption {
       type = types.bool;
       default = false; # TODO: Change later when I set stuff up corectly

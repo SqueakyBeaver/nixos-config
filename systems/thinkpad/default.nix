@@ -1,19 +1,13 @@
 {
-  self,
   inputs,
-  lib,
-  homeImports,
   pkgs,
-  namespace,
   ...
 }: {
-  imports = with inputs.nixos-hardware.nixosModules; [
+  imports = [
     ./hardware-configuration.nix
     ./boot
     ./power
     ./users
-    ./plymouth
-    lenovo-thinkpad-t14-amd-gen1
   ];
 
   services.plantuml-server.enable = true;
@@ -29,32 +23,30 @@
     pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
   ];
 
-  timber = {
-    audio.enable = true;
-    desktop.plasma.enable = true;
-    # desktop.niri.enable = true;
-    games = {
-      enable = true;
-      steam.enable = true;
-      lutris.enable = true;
-      mangohud.enable = true;
-    };
-    xdg.enable = true;
-    virtualisation = {
-      enable = true;
-      podman.enable = true;
-    };
-    printing = {
-      enable = false;
-      openFirewall = false;
-    };
-    # syncthing.enable = true;
-
-    # tor = {
-    #   enable = true;
-    #   snowflake.enable = false;
-    # };
+  audio.enable = true;
+  # desktop.plasma.enable = true;
+  desktop.niri.enable = true;
+  games = {
+    enable = true;
+    steam.enable = true;
+    lutris.enable = true;
+    mangohud.enable = true;
   };
+  # xdg.enable = true;
+  virt = {
+    enable = true;
+    podman.enable = true;
+  };
+  printing = {
+    enable = false;
+    openFirewall = false;
+  };
+  # syncthing.enable = true;
+
+  # tor = {
+  #   enable = true;
+  #   snowflake.enable = false;
+  # };
 
   # Worth a shot
   # services.ollama = {
@@ -82,5 +74,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  networking.hostName = "thinkpad";
   users.defaultUserShell = pkgs.zsh;
 }

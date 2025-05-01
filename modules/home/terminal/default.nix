@@ -1,14 +1,13 @@
 {
   config,
   lib,
-  namespace,
   ...
 }:
 with lib; let
   module = "terminal";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     # Not needed in machines with no window system
     enable = mkEnableOption "Whether to install custom terminal emulators";
     alacritty.enable = mkOption {

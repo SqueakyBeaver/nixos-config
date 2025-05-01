@@ -1,17 +1,13 @@
 {
   lib,
-  pkgs,
-  inputs,
-  namespace,
-  systems,
   config,
   ...
 }:
 with lib; let
   module = "tor";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "Enable tor services (currently just snowflake proxy)";
     snowflake.enable = mkOption {
       type = types.bool;

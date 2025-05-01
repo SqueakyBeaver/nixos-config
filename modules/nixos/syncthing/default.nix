@@ -1,17 +1,13 @@
 {
   lib,
-  pkgs,
-  inputs,
-  namespace,
-  systems,
   config,
   ...
 }:
 with lib; let
   module = "syncthing";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkOption {
       type = types.bool;
       default = false;

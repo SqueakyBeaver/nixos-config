@@ -1,16 +1,15 @@
 {
   config,
   lib,
-  namespace,
   pkgs,
   ...
 }:
 with lib; let
   # I don't want to set this up per-directory tbh
   module = "latex";
-  cfg = config.${namespace}.${module};
+  cfg = config.${module};
 in {
-  options.${namespace}.${module} = {
+  options.${module} = {
     enable = mkEnableOption "Whether to install texlive-basic";
   };
 
