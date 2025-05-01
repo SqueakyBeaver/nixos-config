@@ -13,14 +13,45 @@
   home.packages = with pkgs; [
     swaybg
     brightnessctl
+    rofimoji
   ];
 
   services.swaync.enable = true;
+  services.cliphist.enable = true;
+
+  services.swayosd = {
+    enable = true;
+  };
+
+  services.swayidle = {
+    enable = true;
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -fF";
+      }
+      {
+        event = "lock";
+        command = "lock";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 300;
+        command = "${pkgs.swaylock}/bin/swaylock -fF";
+      }
+      {
+        timeout = 600;
+        command = "${pkgs.systemd}/bin/systemctl suspend";
+      }
+    ];
+  };
 
   programs = {
     fuzzel.enable = true;
     alacritty.enable = true;
     swaylock.enable = true;
+    wlogout.enable = true;
 
     niri.settings = {
       clipboard.disable-primary = true;
@@ -47,7 +78,7 @@
 
         touchpad = {
           accel-profile = "flat";
-          accel-speed = 0.30;
+          accel-speed = 0.50;
           click-method = "clickfinger";
           scroll-method = "two-finger";
         };

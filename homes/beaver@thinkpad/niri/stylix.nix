@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  osConfig,
   ...
 }: {
   stylix = {
@@ -23,27 +24,26 @@
 
     opacity.terminal = .85;
 
-    fonts = {
-      serif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Serif";
-      };
-
-      sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-      monospace = {
-        package = pkgs.fira-code;
-        name = "Fira Code";
-      };
-    };
+    # fonts = {
+    #   serif = {
+    #     package = pkgs.noto-fonts;
+    #     name = "Noto Serif";
+    #   };
+    #
+    #   sansSerif = {
+    #     package = pkgs.inter;
+    #     name = "Inter";
+    #   };
+    #
+    #   monospace = {
+    #     package = pkgs.fira-code;
+    #     name = "Fira Code";
+    #   };
+    # };
   };
+
+  fonts.fontconfig.enable = lib.mkForce false;
+
   systemd.user.services."swaybg" = {
     Unit = {
       Description = "wallpapers! brought to you by stylix! :3";

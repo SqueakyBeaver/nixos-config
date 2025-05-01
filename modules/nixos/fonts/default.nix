@@ -8,7 +8,11 @@
       noto-fonts
       noto-fonts-emoji
       roboto
-      (google-fonts.override {fonts = ["Inter"];})
+      inter
+      fira-sans
+      manrope
+      montserrat
+      fraunces
 
       # monospace fonts
       jetbrains-mono
@@ -19,9 +23,6 @@
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
-
-      # Other fonts
-      google-fonts
     ];
 
     # causes more issues than it solves
@@ -34,11 +35,12 @@
     # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig = {
       subpixel.rgba = "rgb";
+      useEmbeddedBitmaps = true;
       defaultFonts = {
         serif = ["Noto Serif"];
-        sansSerif = ["Inter" "Noto Serif"];
+        sansSerif = ["Fira Sans" "Manrope" "Montserrat"];
         monospace = ["JetBrains Mono" "Fira Code"];
-        emoji = ["Symbols Nerd Font" "Noto Color Emoji"];
+        emoji = ["Symbols Nerd Font" "Noto Color Emoji" "Material Symbols"];
       };
     };
   };

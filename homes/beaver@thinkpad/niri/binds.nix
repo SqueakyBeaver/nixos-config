@@ -11,6 +11,10 @@
       "Mod+D".action = spawn "fuzzel";
       "Super+Alt+L".action = spawn "swaylock";
 
+      "Mod+V".action = spawn "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+
+      "Mod+B".action = spawn "rofimoji";
+
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;
         action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"];

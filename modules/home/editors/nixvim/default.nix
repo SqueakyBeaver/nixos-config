@@ -335,6 +335,15 @@
             ];
             nix = [
               "alejandra"
+              "injected"
+            ];
+            lua = [
+              "stylua"
+            ];
+
+            "_" = [
+              "trim_whitespace"
+              "trim_newlines"
             ];
           };
           log_level = "debug";
@@ -406,7 +415,6 @@
 
       multicursors = {
         enable = true;
-
       };
 
       auto-save.enable = true;
