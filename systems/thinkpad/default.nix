@@ -8,6 +8,7 @@
     ./boot
     ./power
     ./users
+    ./plymouth
   ];
 
   services.plantuml-server.enable = true;
@@ -18,6 +19,7 @@
     enable = true;
     package = pkgs.wireshark-qt;
   };
+  services.colord.enable = true;
 
   environment.systemPackages = [
     pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
@@ -25,6 +27,7 @@
 
   audio.enable = true;
   # desktop.plasma.enable = true;
+  # xdg.enable = true;
   desktop.niri.enable = true;
   games = {
     enable = true;
@@ -32,7 +35,6 @@
     lutris.enable = true;
     mangohud.enable = true;
   };
-  # xdg.enable = true;
   virt = {
     enable = true;
     podman.enable = true;
@@ -43,15 +45,6 @@
   };
   # syncthing.enable = true;
 
-  # tor = {
-  #   enable = true;
-  #   snowflake.enable = false;
-  # };
-
-  # Worth a shot
-  # services.ollama = {
-  #   rocmOverrideGfx = "9.0.0";
-  # };
   hardware.amdgpu.opencl.enable = true;
 
   services.fwupd.enable = true;

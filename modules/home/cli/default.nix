@@ -10,6 +10,7 @@
     libnotify
 
     # utils
+    killall
     duf
     fd
     file

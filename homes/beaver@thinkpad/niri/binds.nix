@@ -11,9 +11,13 @@
       "Mod+D".action = spawn "fuzzel";
       "Super+Alt+L".action = spawn "swaylock";
 
-      "Mod+V".action = spawn "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+      "Mod+V".action = spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+
+      "Mod+Shift+D".action = spawn "wlogout";
 
       "Mod+B".action = spawn "rofimoji";
+      # WHY WAS IT NOT WRAPPED WHEN I TESTED IT HUH???????
+      "Mod+M".action = spawn "sh" "-c" "killall -SIGUSR1 waybar || killall -SIGUSR1 '.waybar-wrapped'";
 
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;

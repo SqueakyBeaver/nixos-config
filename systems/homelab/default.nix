@@ -12,21 +12,17 @@
     ./boot
     ./power
     ./users
-    # ./plymouth
   ];
 
-  timber = {
-    audio.enable = true;
-    desktop.plasma.enable = true;
-    xdg.enable = true;
-    virtualisation.enable = true;
-    printing = {
-      enable = true;
-      openFirewall = true;
-    };
-    cloudflared = {
-      enable = true;
-    };
+  audio.enable = true;
+  desktop.plasma.enable = true;
+  xdg.enable = true;
+  virt = {
+    enable = true;
+    podman.enable = true;
+  };
+  cloudflared = {
+    enable = true;
   };
 
   # Set your time zone.
@@ -49,5 +45,5 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  environment.variables.EDITOR = "code";
+  environment.variables.EDITOR = "nvim";
 }

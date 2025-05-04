@@ -1,5 +1,6 @@
 # Niri config for me :3
 {
+  lib,
   pkgs,
   config,
   ...
@@ -18,10 +19,6 @@
 
   services.swaync.enable = true;
   services.cliphist.enable = true;
-
-  services.swayosd = {
-    enable = true;
-  };
 
   services.swayidle = {
     enable = true;
@@ -99,12 +96,11 @@
           {proportion = 1. / 3.;}
           {proportion = 1. / 2.;}
           {proportion = 2. / 3.;}
-
-          # { fixed = 1920; }
         ];
 
         tab-indicator = {
           corner-radius = 5;
+          gaps-between-tabs = 5;
         };
 
         gaps = 10;
@@ -118,17 +114,41 @@
 
       window-rules = [
         {
+          draw-border-with-background = false;
+          geometry-corner-radius = let
+            r = .75;
+          in {
+            top-left = r;
+            top-right = r;
+            bottom-right = r;
+            bottom-left = r;
+          };
+
+          clip-to-geometry = true;
+        }
+        {
+          matches = [
+            {
+              app-id = "steam";
+              title = "^notificationtoasts_\d+_desktop$";
+            }
+          ];
+          default-floating-position = {
+            relative-to = "bottom-right";
+            x = 10;
+            y = 10;
+          };
+        }
+        {
           matches = [
             {app-id = "[Ll]egcord";}
           ];
-
           open-on-workspace = "chat";
         }
         {
           matches = [
             {app-id = "[Ss]potify";}
           ];
-
           open-on-workspace = "music";
         }
       ];

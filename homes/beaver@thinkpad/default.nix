@@ -10,7 +10,6 @@
     sops-nix.homeManagerModules.sops
     nixvim.homeManagerModules.nixvim
     nix-index-db.hmModules.nix-index
-
   ];
 
   browser = {
@@ -22,6 +21,7 @@
     enable = true;
     android.enable = true;
     nvim.enable = true;
+    unity.enable = true;
   };
 
   terminal.enable = true;
@@ -63,6 +63,8 @@
     NIXOS_OZONE_WL = "1";
     ### OOOOH Java font anti-aliasing
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
+    # For neovim-remote
+    NVIM_LISTEN_ADDRESS = "/tmp/nvimsocket";
   };
 
   home.username = "beaver";

@@ -2,27 +2,17 @@
   lib,
   pkgs,
   config,
-  osConfig,
   ...
 }: {
   stylix = {
     enable = true;
     autoEnable = true;
     targets.kde.enable = false;
-    targets.nixvim = {
-      transparentBackground = {
-        main = true;
-        numberLine = true;
-        signColumn = true;
-      };
-    };
 
     image = ./wall.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
     polarity = "dark";
-
-    opacity.terminal = .85;
 
     # fonts = {
     #   serif = {

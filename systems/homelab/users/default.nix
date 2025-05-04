@@ -1,12 +1,4 @@
-{
-  self,
-  inputs,
-  lib,
-  homeImports,
-  pkgs,
-  namespace,
-  ...
-}: {
+{pkgs, ...}: {
   users.groups.beaver = {};
   users.users.beaver = {
     isNormalUser = true;

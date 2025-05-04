@@ -236,6 +236,7 @@
 
           keymap = {
             "<C-Space>" = ["accept" "show_documentation" "hide_documentation" "fallback"];
+            "<C-k>" = ["show_signature" "hide_signature" "fallback"];
             "<C-d>" = ["scroll_documentation_up" "fallback"];
             "<C-e>" = ["cancel" "fallback"];
             "<C-f>" = ["scroll_documentation_down" "fallback"];
@@ -450,6 +451,8 @@
       gitsigns.enable = true;
 
       indent-blankline.enable = true;
+
+      auto-session.enable = true;
     };
   };
 }

@@ -32,6 +32,8 @@ in {
     };
 
     nvim.enable = mkEnableOption "Neovim";
+
+    unity.enable = mkEnableOption "Unity hub/game engine thingy";
   };
 
   config = mkIf cfg.enable {
@@ -147,7 +149,9 @@ in {
     home.packages = [
       (mkIf cfg.android.enable pkgs.android-studio)
       (mkIf cfg.nvim.enable pkgs.wl-clipboard)
+      (mkIf cfg.nvim.enable pkgs.neovim-remote)
       (mkIf cfg.nvim.enable pkgs.neovim-qt)
+      (mkIf cfg.unity.enable pkgs.unityhub)
     ];
   };
 }

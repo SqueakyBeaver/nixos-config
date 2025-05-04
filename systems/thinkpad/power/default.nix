@@ -1,7 +1,5 @@
 {pkgs, ...}: {
   services = {
-    logind.powerKey = "poweroff";
-
     thinkfan = {
       enable = true;
       smartSupport = true;

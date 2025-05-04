@@ -20,6 +20,9 @@ in {
       theme = "breeze";
     };
 
+    stylix.enable = false;
+    stylix.targets.qt.enable = false;
+
     services.desktopManager.plasma6.enable = true;
     services.displayManager.defaultSession = "plasma";
     environment.systemPackages = with pkgs; [

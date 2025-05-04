@@ -101,23 +101,40 @@
         ./modules/nixos
       ];
 
-      hosts.thinkpad = {
-        modules = [
-          # TODO thinkpad module
-          ./systems/thinkpad
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+      hosts = {
+        thinkpad = {
+          modules = [
+            ./systems/thinkpad
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.beaver = ./homes/${"beaver@thinkpad"};
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.users.beaver = ./homes/${"beaver@thinkpad"};
 
-            home-manager.extraSpecialArgs = {inherit inputs;};
+              home-manager.extraSpecialArgs = {inherit inputs;};
 
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-bak";
-          }
-        ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+            }
+          ];
+        };
+        homelab = {
+          modules = [
+            ./systems/homelab
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.users.beaver = ./homes/${"beaver@homelab"};
+
+              home-manager.extraSpecialArgs = {inherit inputs;};
+
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+            }
+          ];
+        };
       };
 
       overlay = import ./overlays;

@@ -1,10 +1,5 @@
 {
-  self,
-  inputs,
-  lib,
-  homeImports,
   pkgs,
-  namespace,
   ...
 }: {
   users.groups.beaver = {};
