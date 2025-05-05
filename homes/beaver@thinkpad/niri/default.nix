@@ -116,7 +116,7 @@
         {
           draw-border-with-background = false;
           geometry-corner-radius = let
-            r = .75;
+            r = 7.0;
           in {
             top-left = r;
             top-right = r;
@@ -152,6 +152,12 @@
           open-on-workspace = "music";
         }
       ];
+
+      outputs = {
+        "eDP-1" = {
+          scale = 1.25;
+        };
+      };
     };
   };
 }

@@ -90,6 +90,7 @@
 
       sharedOverlays = [
         lix-module.overlays.lixFromNixpkgs
+        niri.overlays.niri
         self.overlay
       ];
 

@@ -33,10 +33,19 @@ in {
 
     programs.kdeconnect = {
       enable = true;
-      package = pkgs.gnomeExtensions.gsconnect;
+      # package = pkgs.gnomeExtensions.gsconnect;
     };
 
     programs.seahorse.enable = true;
+
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+        thunar-media-tags-plugin
+      ];
+    };
 
     # Some nice packages to have
     environment.systemPackages = with pkgs; [
@@ -44,12 +53,12 @@ in {
       wayland-utils
       libsecret
       gamescope
-      xwayland-satellite
+      xwayland-satellite-unstable
       swaybg
       networkmanagerapplet
       swaylock
       swayidle
-      nemo-with-extensions
+      gvfs
     ];
   };
 }

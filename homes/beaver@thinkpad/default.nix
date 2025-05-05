@@ -46,6 +46,7 @@
     };
     hmm.enable = true;
     fluffychat.enable = true;
+    obs.enable = true;
   };
 
   home.packages = [
@@ -64,7 +65,7 @@
     ### OOOOH Java font anti-aliasing
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
     # For neovim-remote
-    NVIM_LISTEN_ADDRESS = "/tmp/nvimsocket";
+    # NVIM_LISTEN_ADDRESS = "/tmp/nvimsocket";
   };
 
   home.username = "beaver";
