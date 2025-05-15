@@ -88,7 +88,7 @@ in {
       actions = {
         # Touchpad scrolling sucks tbh
         on-click = "shift_up";
-        on-click-left = "shift_down";
+        on-click-right = "shift_down";
         on-click-middle = "mode";
         on-scroll-up = "shift_up";
         on-scroll-down = "shift_down";
