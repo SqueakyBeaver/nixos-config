@@ -103,12 +103,11 @@
           gaps-between-tabs = 5;
         };
 
-        gaps = 10;
+        gaps = 5;
       };
 
       workspaces = {
         main = {};
-        chat = {};
         music = {};
       };
 
@@ -138,12 +137,6 @@
             x = 10;
             y = 10;
           };
-        }
-        {
-          matches = [
-            {app-id = "[Ll]egcord";}
-          ];
-          open-on-workspace = "chat";
         }
         {
           matches = [

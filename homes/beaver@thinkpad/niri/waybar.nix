@@ -33,7 +33,7 @@
   };
 in {
   home.packages = [
-    pkgs.networkmanager_dmenu 
+    pkgs.networkmanager_dmenu
     pkgs.gammastep
   ];
 
@@ -64,10 +64,18 @@ in {
     clock = {
       interval = 1;
       format = "${icons.clock} {:%H:%M:%S}";
+      actions = {
+        on-scroll-up = "tz_up";
+        on-scroll-down = "tz_down";
+      };
+    };
+
+    "clock#date" = {
+      format = "${icons.calendar} {:%d-%b-%Y}";
+      tooltip-format = "<tt><small>{calendar}</small></tt>";
       calendar = {
         mode = "month";
         mode-mon-col = 3;
-        weeks-pos = "right";
         on-scroll = 1;
         format = {
           months = "<span color='#ffead3'><b>{}</b></span>";
@@ -77,20 +85,14 @@ in {
           today = "<span color='#ff6699'><b><u>{}</u></b></span>";
         };
       };
-      actions = [
-        {on-click-right = "mode";}
-        {on-scroll-up = "tz_up";}
-        {on-scroll-down = "tz_down";}
-        {on-scroll-up = "shift_up";}
-        {on-scroll-down = "shift_down";}
-      ];
-    };
-
-    "clock#date" = {
-      format = "${icons.calendar} {:%d-%b-%Y}";
-    };
-    "clock#week" = {
-      format = "${icons.calendar} {:%W}";
+      actions = {
+        # Touchpad scrolling sucks tbh
+        on-click = "shift_up";
+        on-click-left = "shift_down";
+        on-click-middle = "mode";
+        on-scroll-up = "shift_up";
+        on-scroll-down = "shift_down";
+      };
     };
 
     backlight = {
@@ -216,12 +218,12 @@ in {
 
     ${modules lib.id} {
         background: transparent;
-        margin: 3px 5px;
+        margin: 0px 5px;
     }
 
     ${module "*"} {
-      margin: 3px 1px;
-      padding: 5px 5px;
+      margin: 0px 1px;
+      padding: 3px 5px;
       background: #${colors.base00};
     }
     ${module ":first-child"} {
