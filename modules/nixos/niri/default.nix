@@ -13,7 +13,10 @@ in {
   };
 
   config = mkIf cfg.niri.enable {
-    programs.niri.enable = true;
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
     services.xserver.displayManager.gdm = {
       enable = true;
     };
@@ -47,6 +50,9 @@ in {
       ];
     };
 
+    services.gvfs.enable = true;
+    programs.file-roller.enable = true;
+
     # Some nice packages to have
     environment.systemPackages = with pkgs; [
       wl-clipboard
@@ -58,7 +64,6 @@ in {
       networkmanagerapplet
       swaylock
       swayidle
-      gvfs
     ];
   };
 }
