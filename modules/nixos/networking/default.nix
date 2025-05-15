@@ -18,7 +18,7 @@
 
     networkmanager = {
       enable = true;
-      # dns = "none";
+      dns = "systemd-resolved";
       wifi.macAddress = "random";
     };
 
@@ -65,13 +65,13 @@
     };
   };
 
-  # services = {
-  #   # DNS resolver
-  #   resolved = {
-  #     enable = true;
-  #     domains = ["~."];
-  #     dnsovertls = "opportunistic";
-  #     # dnssec = "true";
-  #   };
-  # };
+  services = {
+    # DNS resolver
+    resolved = {
+      enable = true;
+      domains = ["~."];
+      dnsovertls = "opportunistic";
+      # dnssec = "true";
+    };
+  };
 }
