@@ -44,7 +44,7 @@
     power-profiles-daemon.enable = false;
   };
 
-  powerManagement.powertop.enable = true;
+  # powerManagement.powertop.enable = true;
 
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan

@@ -16,7 +16,7 @@
   systemd.services.plantuml-server.wantedBy = pkgs.lib.mkOverride 0 [];
 
   programs.wireshark = {
-    enable = true;
+    enable = false;
     package = pkgs.wireshark-qt;
   };
   services.colord.enable = true;
