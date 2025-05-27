@@ -53,8 +53,22 @@ in {
     services.gvfs.enable = true;
     programs.file-roller.enable = true;
 
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "alacritty";
+    };
+
+    programs.gnome-disks.enable = true;
+    services.udisks2.enable = true;
+
+    services.gnome.sushi.enable = true;
+    services.blueman.enable = true;
+
+
     # Some nice packages to have
     environment.systemPackages = with pkgs; [
+      nautilus
+      eog
       wl-clipboard
       wayland-utils
       libsecret

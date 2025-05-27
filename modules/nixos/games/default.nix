@@ -44,7 +44,14 @@ in {
     # services.udev.packages = [pkgs.steam-devices-udev-rules pkgs.game-devices-udev-rules];
 
     environment.systemPackages = [
-      (mkIf cfg.lutris.enable pkgs.lutris)
+      (mkIf cfg.lutris.enable (pkgs.lutris.override {
+        extraLibraries = pkgs: [
+          pkgs.libthai
+        ];
+        extraPkgs = pkgs: [
+          pkgs.xemu
+        ];
+      }))
       (mkIf cfg.mangohud.enable pkgs.mangohud)
       pkgs.steamtinkerlaunch # Not gonna set an option bc I'm lazy rn
       pkgs.protonup-qt

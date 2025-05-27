@@ -66,6 +66,7 @@
       };
 
       input = {
+        power-key-handling.enable = false;
         keyboard = {
           xkb = {
             layout = "us";
@@ -99,6 +100,8 @@
         ];
 
         tab-indicator = {
+          gap = 2;
+          place-within-column = true;
           corner-radius = 5;
           gaps-between-tabs = 5;
         };

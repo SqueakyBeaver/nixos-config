@@ -107,6 +107,45 @@
         };
       };
     };
+
+    jujutsu = {
+      enable = true;
+
+      settings = {
+        user = {
+          name = "Beaverr";
+          email = "squeaky.beaver4133@protonmail.com";
+        };
+
+        signing = {
+          behavior = "own";
+          backend = "ssh";
+          # It's fine, it's just a public key (I hope it's fine .-.)
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIMoljotaFu7Cb75gS0MD6fbqtKrxurAmkesi70xRtV7";
+        };
+
+        ui = {
+          editor = "nvim";
+          diff-editor = "nvimdirdiff";
+          merge-editor = "nvimdirdiff";
+        };
+
+        merge-tools.nvimdiffconflicts = {
+          program = "nvim";
+          merge-args = [
+            "-c"
+            "let g:jj_diffconflicts_marker_length=$marker_length"
+            "-c"
+            "JJDiffConflicts!"
+            "$output"
+            "$base"
+            "$left"
+            "$right"
+          ];
+          merge-tool-edits-conflict-markers = true;
+        };
+      };
+    };
   };
 
   # Workaround for bad ~/.ssh/config file permissions

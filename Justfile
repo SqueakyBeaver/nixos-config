@@ -9,6 +9,9 @@
 deploy:
   nixos-rebuild switch --flake . --use-remote-sudo
 
+fast:
+  nixos-rebuild switch --flake . --use-remote-sudo --fast
+
 test:
   nixos-rebuild test --flake . --use-remote-sudo
 
@@ -43,3 +46,4 @@ clean:
 gc:
   # garbage collect all unused nix store entries
   sudo nix-collect-garbage --delete-old
+  nix-collect-garbage --delete-old
