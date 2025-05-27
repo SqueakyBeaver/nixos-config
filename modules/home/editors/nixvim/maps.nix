@@ -378,5 +378,12 @@
       action = "<cmd>LazyGitFilter<CR>";
       options = {desc = "Git Log";};
     }
+
+    {
+      mode = ["n" "v"];
+      key = "<leader>mm";
+      action = "<cmd>MCstart<CR>";
+      options = {desc = "start multicursors";};
+    }
   ];
 }
