@@ -17,7 +17,7 @@ in {
       enable = true;
       package = pkgs.niri-unstable;
     };
-    services.xserver.displayManager.gdm = {
+    services.displayManager.gdm = {
       enable = true;
     };
 
@@ -36,7 +36,7 @@ in {
 
     programs.kdeconnect = {
       enable = true;
-      # package = pkgs.gnomeExtensions.gsconnect;
+      package = pkgs.valent;
     };
 
     programs.seahorse.enable = true;
@@ -63,7 +63,6 @@ in {
 
     services.gnome.sushi.enable = true;
     services.blueman.enable = true;
-
 
     # Some nice packages to have
     environment.systemPackages = with pkgs; [

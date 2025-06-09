@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   programs.nixvim.plugins = {
     direnv.enable = true;
-
+    
+    #### Treesitter stuff ########
     treesitter = {
       enable = true;
       settings = {
@@ -9,6 +10,7 @@
         highlight.enable = true;
         indent.enable = true;
       };
+      # folding = true;
     };
 
     treesitter-context = {
@@ -19,6 +21,12 @@
       };
     };
 
+    ts-autotag.enable = true;
+
+    ############################
+
+    #### Code writing QoL #######
+    
     luasnip.enable = true;
 
     blink-cmp = {
@@ -74,66 +82,6 @@
       };
     };
 
-    mini = {
-      enable = true;
-      modules = {
-        ai = {
-          n_lines = 50;
-          search_method = "cover_or_next";
-        };
-        surround = {
-          mappings = {
-            add = "gsa";
-            delete = "gsd";
-            find = "gsf";
-            find_left = "gsF";
-            highlight = "gsh";
-            replace = "gsr";
-            update_n_lines = "gsn";
-          };
-        };
-      };
-    };
-
-    telescope = {
-      enable = true;
-
-      settings = {
-        defaults = {
-          file_ignore_patterns = [
-            "^.git/"
-            "^.mypy_cache/"
-            "^__pycache__/"
-            "^output/"
-            "^data/"
-            "%.ipynb"
-          ];
-          layout_config = {
-            prompt_position = "top";
-          };
-          mappings = {
-            i = {
-              "<A-j>" = {
-                __raw = "require('telescope.actions').move_selection_next";
-              };
-              "<A-k>" = {
-                __raw = "require('telescope.actions').move_selection_previous";
-              };
-            };
-          };
-          selection_caret = "> ";
-          set_env = {
-            COLORTERM = "truecolor";
-          };
-          sorting_strategy = "ascending";
-        };
-      };
-
-      extensions = {
-        fzf-native.enable = true;
-      };
-    };
-
     conform-nvim = {
       enable = true;
       settings = {
@@ -162,6 +110,9 @@
           lua = [
             "stylua"
           ];
+          html = [
+            "prettierd"
+          ];
 
           "_" = [
             "trim_whitespace"
@@ -175,10 +126,20 @@
       };
     };
 
-    toggleterm = {
+    nvim-autopairs = {
       enable = true;
-      settings.open_mapping = "[[<C-\\>]]";
+      settings = {
+        check_ts = true;
+      };
     };
+
+    lsp-lines.enable = true;
+
+    cursorline.enable = true;
+
+    indent-blankline.enable = true;
+
+    nix.enable = true;
 
     twilight.enable = true;
     zen-mode = {
@@ -228,52 +189,114 @@
       };
     };
 
-    nvim-autopairs = {
-      enable = true;
-      settings = {
-        check_ts = true;
-      };
-    };
+    dropbar.enable = true;
 
-    multicursors = {
-      enable = true;
-    };
+    ###############################
+    
+    #### Neovim random utilies ####
 
     auto-save.enable = true;
 
     barbar.enable = true;
 
-    lazygit.enable = true;
-
-    fidget.enable = true;
-
-    lsp-lines.enable = true;
+    multicursors.enable = true;
 
     comment.enable = true;
-
-    cursorline.enable = true;
-
-    dropbar.enable = true;
-
-    gitblame.enable = true;
+    
+    fidget.enable = true;
 
     lightline.enable = true;
 
-    nix.enable = true;
-
-    neo-tree.enable = true;
+    which-key.enable = true;
 
     neoclip.enable = true;
 
-    which-key.enable = true;
+    toggleterm = {
+      enable = true;
+      settings.open_mapping = "[[<C-\\>]]";
+    };
+   
+    mini = {
+      enable = true;
+      modules = {
+        ai = {
+          n_lines = 50;
+          search_method = "cover_or_next";
+        };
+        surround = {
+          mappings = {
+            add = "gsa";
+            delete = "gsd";
+            find = "gsf";
+            find_left = "gsF";
+            highlight = "gsh";
+            replace = "gsr";
+            update_n_lines = "gsn";
+          };
+        };
+      };
+    };
+
+    auto-session.enable = true;
+
+    nvim-ufo.enable = true;
 
     web-devicons.enable = true;
 
+    ##############################
+    
+
+    ##### Git and file stuff #######
+
+    telescope = {
+      enable = true;
+
+      settings = {
+        defaults = {
+          file_ignore_patterns = [
+            "^.git/"
+            "^.mypy_cache/"
+            "^__pycache__/"
+            "^output/"
+            "^data/"
+            "%.ipynb"
+          ];
+          layout_config = {
+            prompt_position = "top";
+          };
+          mappings = {
+            i = {
+              "<A-j>" = {
+                __raw = "require('telescope.actions').move_selection_next";
+              };
+              "<A-k>" = {
+                __raw = "require('telescope.actions').move_selection_previous";
+              };
+            };
+          };
+          selection_caret = "> ";
+          set_env = {
+            COLORTERM = "truecolor";
+          };
+          sorting_strategy = "ascending";
+        };
+      };
+
+      extensions = {
+        fzf-native.enable = true;
+      };
+    };
+
+    lazygit.enable = true;
+
+    gitblame.enable = true;
+
+    neo-tree.enable = true;
+
     gitsigns.enable = true;
 
-    indent-blankline.enable = true;
 
-    auto-session.enable = true;
+    ###############################
   };
 
   programs.nixvim.extraPlugins = [

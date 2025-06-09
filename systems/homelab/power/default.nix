@@ -1,7 +1,7 @@
 {
   services = {
     logind.powerKey = "poweroff";
-    logind.lidSwitch = "ignore";
+    logind.lidSwitch = "suspend-then-hibernate";
 
     tlp = {
       enable = true;

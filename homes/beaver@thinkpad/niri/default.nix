@@ -15,6 +15,7 @@
     swaybg
     brightnessctl
     rofimoji
+    xsettingsd
   ];
 
   services.swaync.enable = true;
@@ -33,6 +34,10 @@
       }
     ];
     timeouts = [
+      {
+        timeout = 260;
+        command = "brightnessctl s 50%-";
+      }
       {
         timeout = 300;
         command = "${pkgs.swaylock}/bin/swaylock -fF";
@@ -56,7 +61,7 @@
 
       spawn-at-startup = [
         {
-          command = ["xwayland-satellite"];
+          command = ["sh" "-c" "xwayland-satellite & { sleep 1; xsettingsd; } &"];
         }
       ];
 
@@ -129,7 +134,7 @@
           clip-to-geometry = true;
         }
         {
-          matches = [
+    matches = [
             {
               app-id = "steam";
               title = "^notificationtoasts_\d+_desktop$";
@@ -149,11 +154,15 @@
         }
       ];
 
-      outputs = {
-        "eDP-1" = {
-          scale = 1.25;
-        };
-      };
     };
+  };
+
+  # Might need to change this idk.
+  # Only used bc xwayland-satellite makes applications HUUUGE
+  xdg.configFile."xsettingsd/xsettingsd.conf" = {
+    text = ''
+      Gdk/WindowScalingFactor 1
+      Gdk/UnscaledDPI 122880
+    '';
   };
 }

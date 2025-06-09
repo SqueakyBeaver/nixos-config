@@ -83,7 +83,7 @@
       channelsConfig = {
         allowUnfree = true;
         permittedInsecurePackages = [
-          "fluffychat-linux-1.26.0"
+          "fluffychat-linux-1.26.1"
           "olm-3.2.16"
         ];
       };

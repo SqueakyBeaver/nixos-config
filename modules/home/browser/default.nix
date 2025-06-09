@@ -25,33 +25,21 @@ in {
         Whether to enable ungoogled chromium
       '';
     };
-
-    vivaldi.enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Whether to enable vivaldi
-      '';
-    };
   };
 
   config = mkIf cfg.enable {
     programs.firefox = mkIf cfg.firefox.enable {
       enable = true;
-      nativeMessagingHosts = [pkgs.kdePackages.plasma-browser-integration];
+      nativeMessagingHosts = [
+        pkgs.kdePackages.plasma-browser-integration
+        pkgs.valent
+        pkgs.gnomeExtensions.gsconnect
+      ];
     };
 
     programs.chromium = mkIf cfg.chromium.enable {
       enable = true;
       package = pkgs.ungoogled-chromium;
-    };
-
-    programs.vivaldi = mkIf cfg.vivaldi.enable {
-      enable = true;
-      package = pkgs.vivaldi;
-      nativeMessagingHosts = [
-        pkgs.kdePackages.plasma-browser-integration
-      ];
     };
   };
 }

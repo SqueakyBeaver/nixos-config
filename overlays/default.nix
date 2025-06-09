@@ -5,7 +5,7 @@ final: prev: {
     # Not using a pinned version so that way I know I stay up to date (sorry)
     spotx = prev.fetchurl {
       url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/refs/heads/main/spotx.sh";
-      hash = "sha256-7YW4yaIgamuKrdKpjPEwFqnCWX+9pGvvVYvwGySR9VA=";
+      hash = "sha256-/p6cJKzaZzjcLJISFudstQjs+lPXnXx4f0vxKbF9Sqw=";
     };
     installPhase =
       builtins.replaceStrings [
@@ -29,22 +29,4 @@ final: prev: {
         final.zip
       ];
   });
-  vivaldi =
-    (prev.vivaldi.overrideAttrs (oldAttrs: {
-      dontWrapQtApps = false;
-      dontPatchELF = true;
-      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [final.kdePackages.wrapQtAppsHook];
-    }))
-    .override {
-      qt5 = final.qt6;
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-        "--ozone-platform-hint=auto"
-        "--enable-features=WaylandWindowDecorations"
-      ];
-      # The following two are just my preference, feel free to leave them out
-      proprietaryCodecs = true;
-      enableWidevine = true;
-    };
 }

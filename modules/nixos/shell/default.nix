@@ -4,7 +4,7 @@
 
     ohMyZsh = {
       enable = true;
-      plugins = ["git" "thefuck" "direnv"];
+      plugins = ["git" "direnv"];
       theme = "robbyrussell";
     };
     enableCompletion = true;

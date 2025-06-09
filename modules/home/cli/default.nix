@@ -22,7 +22,6 @@
     btop-rocm
     iotop
     iftop
-    thefuck
   ];
 
   programs = {

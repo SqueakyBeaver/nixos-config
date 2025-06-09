@@ -42,6 +42,28 @@
 
     # Just in case kde plasma enables it
     power-profiles-daemon.enable = false;
+
+    # logind.powerKey = "suspend-then-hibernate";
+    # logind.lidSwitch = "suspend-then-hibernate";
+  };
+
+  systemd.services.batenergy = {
+    description = "Track battery energy change during sleep/suspend";
+    wantedBy = ["sleep.target"];
+
+    path = [pkgs.bash pkgs.bc];
+
+    unitConfig = {
+      Before = "sleep.target";
+      StopWhenUnneeded = "yes";
+    };
+
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = "yes";
+      ExecStart = "${./batenergy.sh} pre";
+      ExecStop = "${./batenergy.sh} post";
+    };
   };
 
   # powerManagement.powertop.enable = true;
@@ -49,5 +71,6 @@
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan
     pkgs.amdctl
+    pkgs.bc
   ];
 }

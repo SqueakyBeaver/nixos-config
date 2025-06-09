@@ -14,7 +14,6 @@
 
   browser = {
     enable = true;
-    vivaldi.enable = true;
   };
 
   editors = {
