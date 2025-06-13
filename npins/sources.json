@@ -1,0 +1,229 @@
+{
+  "pins": {
+    "auto-cpufreq": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "AdnanHodzic",
+        "repo": "auto-cpufreq"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "f8b5b5d458e4640c1b2a4a4e09ee1f82b750adbc",
+      "url": "https://github.com/AdnanHodzic/auto-cpufreq/archive/f8b5b5d458e4640c1b2a4a4e09ee1f82b750adbc.tar.gz",
+      "hash": "0hay33rp79cs0b5rm6kcn4b3w69p5pq45fa9qjvlb906yvdbsil8"
+    },
+    "flake-compat": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "flake-compat"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "bbf23c5a71bcc582921145139464226e0fb82192",
+      "url": "https://github.com/nilla-nix/flake-compat/archive/bbf23c5a71bcc582921145139464226e0fb82192.tar.gz",
+      "hash": "165xl96d5f2xaawyiaj3cl8ccisrjvx5b1db8nfh18swaxyzdckn"
+    },
+    "flake-utils": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "gytis-ivaskevicius",
+        "repo": "flake-utils-plus"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "afcb15b845e74ac5e998358709b2b5fe42a948d1",
+      "url": "https://github.com/gytis-ivaskevicius/flake-utils-plus/archive/afcb15b845e74ac5e998358709b2b5fe42a948d1.tar.gz",
+      "hash": "0bvncwls6yxm7y2d9pqkihj4wbjqsbagjjdyzi8ci8hk4np5wqz1"
+    },
+    "hmm": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://codeberg.org/SqueakyBeaver/hmm-flake"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "b9975e12cfbbb961a569f7c239b3751d210160da",
+      "url": null,
+      "hash": "1iflx5aj8lpv058i3zikf2jbdjs8p5ycn78z0zsbadajcdcz96lp"
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "faeab32528a9360e9577ff4082de2d35c6bbe1ce",
+      "url": "https://github.com/nix-community/home-manager/archive/faeab32528a9360e9577ff4082de2d35c6bbe1ce.tar.gz",
+      "hash": "0bpi9mm38sjlyvz9w4hxl9q0bn4g29hhs7h7hsq1h6x1gdlabf20"
+    },
+    "lib": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.auxolotl.org/auxolotl/lib"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.0.1",
+      "revision": "5158499e95b69dfbaa48baadd2e8e25568938657",
+      "url": null,
+      "hash": "17wr8b8wqci81jn9n29h029sgi63h3jfxb15yplgq21k2ii0iwf5"
+    },
+    "lix-module": {
+      "type": "Tarball",
+      "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz",
+      "locked_url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/9098ac95768f7006d7e070b88bae76939f6034e6.tar.gz?rev=9098ac95768f7006d7e070b88bae76939f6034e6",
+      "hash": "1sxvw4yh8dh6rdrgd7vwisrdbn9085lcpn0nw8s1f84wzk404kg9"
+    },
+    "nilla": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nilla"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.0.0-alpha.14",
+      "revision": "2e98ae315a592ad6b6de44670514c048dcc88dc7",
+      "url": "https://api.github.com/repos/nilla-nix/nilla/tarball/v0.0.0-alpha.14",
+      "hash": "0fpl01sb3aw104w6190j3bcakkqd0z1r8s28x53p58hccy2p16fp"
+    },
+    "nilla-cli": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "cli"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "f07ebceebaf2ab7ebea69e3f8f2a3c6f2bed74df",
+      "url": "https://github.com/nilla-nix/cli/archive/f07ebceebaf2ab7ebea69e3f8f2a3c6f2bed74df.tar.gz",
+      "hash": "0x0841aasg25lqbr3mbaf7qh3jkzsahs0z6lxm6zf9yph4wh1aj6"
+    },
+    "nilla-home": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "home"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "1fa4188436530df61344c0f260a046be574ece0b",
+      "url": "https://github.com/nilla-nix/home/archive/1fa4188436530df61344c0f260a046be574ece0b.tar.gz",
+      "hash": "054ghmb7wl9sbhwm40x8m96qm1ms5i7d1ixlcsr6l2v610nqg11h"
+    },
+    "nilla-nixos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nixos"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "52c623ae89fe77de669a981c7e92b1504cd99eac",
+      "url": "https://github.com/nilla-nix/nixos/archive/52c623ae89fe77de669a981c7e92b1504cd99eac.tar.gz",
+      "hash": "0bjbkyd7c1cp7daf8j4h7x339ngrghnjq5wgqq0fbk269rhrvmpf"
+    },
+    "niri": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sodiboo",
+        "repo": "niri-flake"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "ab1fa1825a4aea8c0698641cc1d0030a0d0e6c3d",
+      "url": "https://github.com/sodiboo/niri-flake/archive/ab1fa1825a4aea8c0698641cc1d0030a0d0e6c3d.tar.gz",
+      "hash": "0mw0441g1vfb2wl24cqdf0c0ni38fdkkb9qxpwpd666ccyyxm1f5"
+    },
+    "nix-index-db": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Mic92",
+        "repo": "nix-index-database"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "40a6e15e44b11fbf8f2b1df9d64dbfc117625e94",
+      "url": "https://github.com/Mic92/nix-index-database/archive/40a6e15e44b11fbf8f2b1df9d64dbfc117625e94.tar.gz",
+      "hash": "15y2ibnnxhg9gpgvipnw95avddsx1d249qz10i1g3yq3jdsc4pig"
+    },
+    "nixos-hardware": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "NixOS",
+        "repo": "nixos-hardware"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "4602f7e1d3f197b3cb540d5accf5669121629628",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/4602f7e1d3f197b3cb540d5accf5669121629628.tar.gz",
+      "hash": "1qq9gb0rxw43l2hhdnbf6c24r6051nhnqv7z72zxd79fg108m4av"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre811950.3e3afe5174c5/nixexprs.tar.xz",
+      "hash": "0pfy3xklhz1jcg4ap0vnckash9l0shqfk619sv2bn9lx8rxr9359"
+    },
+    "nixvim": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixvim"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "1b08a4d97632a8c3500469ae7e2db91769425ddf",
+      "url": "https://github.com/nix-community/nixvim/archive/1b08a4d97632a8c3500469ae7e2db91769425ddf.tar.gz",
+      "hash": "1v2jvsk4psn8zfqvm2rvdgz8ccmx7ixdqahhwajq8migwr986358"
+    },
+    "sops-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Mic92",
+        "repo": "sops-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "50754dfaa0e24e313c626900d44ef431f3210138",
+      "url": "https://github.com/Mic92/sops-nix/archive/50754dfaa0e24e313c626900d44ef431f3210138.tar.gz",
+      "hash": "1q0b58m9bm4kkm19c0d8lbr10cg00ijqn63wqwxfc0s5yv6x1san"
+    },
+    "stylix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "danth",
+        "repo": "stylix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "5b74d930209bdafc186695a7c22da251f05ab790",
+      "url": "https://github.com/danth/stylix/archive/5b74d930209bdafc186695a7c22da251f05ab790.tar.gz",
+      "hash": "10xz0dsqcrnfnb32bs71zh91rs8pmn5bzw9alnmiq57fffqpdanm"
+    }
+  },
+  "version": 5
+}

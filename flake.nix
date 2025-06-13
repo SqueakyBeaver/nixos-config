@@ -57,6 +57,8 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nilla-cli.url = "github:nilla-nix/cli";
   };
 
   outputs = inputs @ {
@@ -71,6 +73,7 @@
     nix-index-db,
     niri,
     stylix,
+    nilla-cli,
     ...
   }:
     flake-utils.lib.mkFlake {
@@ -110,23 +113,7 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.users.beaver = ./homes/${"beaver@thinkpad"};
-
-              home-manager.extraSpecialArgs = {inherit inputs;};
-
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hm-bak";
-            }
-          ];
-        };
-        homelab = {
-          modules = [
-            ./systems/homelab
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.users.beaver = ./homes/${"beaver@homelab"};
+              home-manager.users.beaver = ./homes/beaver;
 
               home-manager.extraSpecialArgs = {inherit inputs;};
 

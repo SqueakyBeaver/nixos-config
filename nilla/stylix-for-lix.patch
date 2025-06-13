@@ -1,0 +1,18 @@
+diff --git a/flake/deprecation/default.nix b/flake/deprecation/default.nix
+--- a/flake/deprecation/default.nix
++++ b/flake/deprecation/default.nix
+@@ -16,11 +16,11 @@
+   # Therefore, instead of doing `flake.foo = mkIf` you should do `flake = mkIf (…) { foo = …; }`.
+   # If you need multiple definitions with different conditions, use `flake = mkMerge [ … ]`.
+ 
+   # Drop this alias after 26.05
+-  flake = lib.mkIf (!lib.oldestSupportedReleaseIsAtLeast 2605) {
+-    homeManagerModules = builtins.warn "stylix: flake output `homeManagerModules` has been renamed to `homeModules` and will be removed after 26.05." self.homeModules;
+-  };
++  # flake = lib.mkIf (!lib.oldestSupportedReleaseIsAtLeast 2605) {
++  #   homeManagerModules = builtins.warn "stylix: flake output `homeManagerModules` has been renamed to `homeModules` and will be removed after 26.05." self.homeModules;
++  # };
+ 
+   perSystem.stylix.aliases = [
+     {
+       output = "apps";
