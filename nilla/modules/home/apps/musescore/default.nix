@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  project,
   ...
 }: let
   module = "apps";
@@ -25,7 +26,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      pkgs.musescore-appimage
+      project.packages.musescore-appimage.result.${pkgs.system}
+
       (lib.mkIf cfg.sounds.enable pkgs.muse-sounds-manager)
     ];
   };

@@ -1,11 +1,9 @@
 final: prev: {
-  musescore-appimage = prev.callPackage ./musescore.nix {};
-
   spotify = prev.spotify.overrideAttrs (finalAttrs: prevAttrs: {
     # Not using a pinned version so that way I know I stay up to date (sorry)
     spotx = prev.fetchurl {
       url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/refs/heads/main/spotx.sh";
-      hash = "sha256-/p6cJKzaZzjcLJISFudstQjs+lPXnXx4f0vxKbF9Sqw=";
+      hash = "sha256-XFPSzcgMJFruFKm0P4TejMMq/Gg5lXU8jY9EJtXXZeo=";
     };
     installPhase =
       builtins.replaceStrings [

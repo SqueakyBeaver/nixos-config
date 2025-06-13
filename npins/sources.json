@@ -180,10 +180,17 @@
       "hash": "1qq9gb0rxw43l2hhdnbf6c24r6051nhnqv7z72zxd79fg108m4av"
     },
     "nixpkgs": {
-      "type": "Channel",
-      "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre811950.3e3afe5174c5/nixexprs.tar.xz",
-      "hash": "0pfy3xklhz1jcg4ap0vnckash9l0shqfk619sv2bn9lx8rxr9359"
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixpkgs-unstable",
+      "submodules": false,
+      "revision": "6e7721e37bf00fa7ea44ac3cfc9d2411284ec3ef",
+      "url": "https://github.com/nixos/nixpkgs/archive/6e7721e37bf00fa7ea44ac3cfc9d2411284ec3ef.tar.gz",
+      "hash": "1nkhl00yv4w5fb0k3q8nm08pbmw2vayx4q7lmass6akhylx9ny1q"
     },
     "nixvim": {
       "type": "Git",

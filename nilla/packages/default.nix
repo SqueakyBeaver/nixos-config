@@ -1,4 +1,5 @@
 {
   includes = [
+    ./musescore.nix
   ];
 }

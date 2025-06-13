@@ -19,12 +19,20 @@
 
   loaders = {
     home-manager = "flake";
-    # lix = "raw";
+    nixpkgs = "nixpkgs";
+
+    # Apparently flakes will always be used before nilla ;-;
+    nilla = "nilla";
+    nilla-cli = "nilla";
+    nilla-nixos = "nilla";
+    nilla-home = "nilla";
   };
 
   settings = {
     nixpkgs = {
-      configuration.allowUnfree = true;
+      configuration = {
+        allowUnfree = true;
+      };
       overlays = [
         (import ./packages/overlays.nix)
         config.inputs.lix-module.result.overlays.lixFromNixpkgs
@@ -32,14 +40,33 @@
       ];
     };
 
-    lix-module.inputs.nixpkgs = nixpkgs-flake;
-    home-manager.inputs.nixpkgs = nixpkgs-flake;
-    nix-index-db.inputs.nixpkgs = nixpkgs-flake;
-    nixvim.inputs.nixpkgs = nixpkgs-flake;
-    sops-nix.inputs.nixpkgs = nixpkgs-flake;
-    niri.inputs.nixpkgs = nixpkgs-flake;
-    hmm.inputs.nixpkgs = nixpkgs-flake;
-    auto-cpufreq.inputs.nixpkgs = nixpkgs-flake;
+    npins = {
+      args.pkgs = config.inputs.nixpkgs.result.x86_64-linux;
+    };
+    lix-module = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    home-manager = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    nix-index-db = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    nixvim = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    sops-nix = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    niri = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    hmm = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    auto-cpufreq = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
   };
 in {
   config = {
@@ -48,8 +75,8 @@ in {
       (name: pin: {
         src = srcOverrides.${name} or pin;
 
-        settings = settings.${name} or (lib.modules.when false {});
-        loader = loaders.${name} or (lib.modules.when false {});
+        loader = lib.modules.when (loaders ? ${name}) loaders.${name};
+        settings = lib.modules.when (settings ? ${name}) settings.${name};
       })
       pins;
   };

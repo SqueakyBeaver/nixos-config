@@ -1,16 +1,13 @@
-inputs: {
+{
   config,
   pkgs,
   lib,
   ...
 }: {
-  imports = with inputs; [
+  imports = [
     ./syncthing
     ./niri
     # ../../modules/home
-    sops-nix.result.homeManagerModules.sops
-    nixvim.result.homeManagerModules.nixvim
-    nix-index-db.result.hmModules.nix-index
   ];
 
   browser = {
