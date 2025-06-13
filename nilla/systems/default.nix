@@ -1,8 +1,6 @@
 {config}: {
   includes = [
     ./thinkpad
-    # ./homelab
-    # ./server
   ];
 
   config.modules = {
@@ -12,5 +10,7 @@
     home-manager = config.inputs.home-manager.result;
     nixos-hardware = config.inputs.nixos-hardware.result;
     sops-nix = config.inputs.sops-nix.result;
+    nix-index-db = config.inputs.nix-index-db.result;
+    nixvim = config.inputs.nixvim.result;
   };
 }

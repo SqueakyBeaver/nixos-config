@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  project,
   ...
 }: let
   module = "apps";
@@ -20,7 +21,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      config.inputs.hmm.result.packages.${pkgs.system}.default
+      project.inputs.hmm.result.packages.${pkgs.system}.default
     ];
   };
 }

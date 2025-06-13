@@ -1,5 +1,6 @@
-My rather cluttered nixos config
-I do not suggest using this, even though it works well enough
+My not very well organized NixOS config
 
-TODOS:
-* Spotx overlay
+built using [nilla](https://github.com/nilla-nix/nilla) and [npins](https://github.com/andir/npins)
+
+TODO:
+* Rewrite from the ground up and make better choices (not started)

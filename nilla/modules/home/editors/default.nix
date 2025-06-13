@@ -17,6 +17,7 @@ in {
       default = false;
       description = "Enable graphical editors/IDEs";
     };
+
     codium.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

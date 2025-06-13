@@ -32,6 +32,8 @@
           nix flake init --template github:the-nix-way/dev-templates#$1
         }
 
+        eval ${pkgs.just} --completions=zsh
+
         # Too lazy to put this in a better place ;-;
         export PATH=$HOME/bin:$PATH
       '';
