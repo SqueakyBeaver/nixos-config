@@ -1,5 +1,9 @@
 name: Update npins
 
+on:
+  schedule:
+    - cron: "48 3 * * 3"
+
 jobs:
   update-npins:
     permissions:
