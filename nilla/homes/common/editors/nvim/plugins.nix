@@ -249,7 +249,7 @@
         };
       };
 
-      auto-session.enable = true;
+      # auto-session.enable = true;
 
       nvim-ufo.enable = true;
 
