@@ -1,0 +1,18 @@
+on:
+  workflow_run:
+    workflows: [Update npins]
+    types:
+      - completed
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: yesolutions/mirror-action@master
+        with:
+          REMOTE: https://codeberg.org/SqueakyBeaver/nixos-config
+          GIT_USERNAME: ${{ vars.CODEBERG_USERNAME }}
+          GIT_PASSWORD: ${{ vars.CODEBERG_TOKEN }}

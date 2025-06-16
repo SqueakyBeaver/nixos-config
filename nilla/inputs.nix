@@ -35,7 +35,7 @@
       };
       overlays = [
         (import ./packages/overlays.nix)
-        config.inputs.lix-module.result.overlays.lixFromNixpkgs
+        # config.inputs.lix-module.result.overlays.lixFromNixpkgs
         config.inputs.niri.result.overlays.niri
       ];
     };

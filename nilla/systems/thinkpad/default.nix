@@ -1,23 +1,27 @@
 {
   config,
   lib,
-}: {
+}: let
+  inherit (config) mods;
+in {
   config = {
     systems.nixos.thinkpad = {
       args = {
         project = config;
       };
 
-      modules = with config.modules; [
-        ../../modules/nixos
+      modules = [
+        # I put everything in a seperate dir to make it look nicer
+        ./sysconfig/configuration.nix
 
-        ./configuration.nix
+        ../common
 
-        sops-nix.nixosModules.sops
-        niri.nixosModules.niri
-        stylix.nixosModules.stylix
+        mods.lix-module.nixosModules.default
+        mods.niri.nixosModules.niri
+        mods.sops-nix.nixosModules.sops
+        mods.stylix.nixosModules.stylix
 
-        home-manager.nixosModules.home-manager
+        mods.home-manager.nixosModules.home-manager
         # WARNING: IF YOU DON'T HAVE THIS BIT, EVERYTHING WILL EXPLODE
         {
           home-manager.useGlobalPkgs = true;
@@ -25,28 +29,10 @@
           home-manager.backupFileExtension = "hm-bak";
         }
 
-        nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+        mods.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
       ];
 
-      homes = {
-        "beaver@thinkpad" = {
-          systems = ["x86_64-linux"];
-
-          args = {
-            project = config;
-          };
-
-          modules = with config.modules; [
-            ../../homes/beaver
-
-            sops-nix.homeManagerModules.sops
-            nixvim.homeManagerModules.nixvim
-            nix-index-db.hmModules.nix-index
-
-            ../../modules/home
-          ];
-        };
-      };
+      homes = {inherit (config.homes) "beaver:x86_64-linux";};
     };
   };
 }
