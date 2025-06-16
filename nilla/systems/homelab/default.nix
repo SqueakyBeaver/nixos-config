@@ -1,49 +1,38 @@
 {
-  self,
-  inputs,
+  config,
   lib,
-  homeImports,
-  pkgs,
-  namespace,
-  ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-    ./boot
-    ./power
-    ./users
-  ];
+}: let
+  inherit (config) mods;
+in {
+  config = {
+    systems.nixos.homelab = {
+      args = {
+        project = config;
+      };
 
-  audio.enable = true;
-  desktop.plasma.enable = true;
-  xdg.enable = true;
-  virt = {
-    enable = true;
-    podman.enable = true;
+      modules = [
+        # I put everything in a seperate dir to make it look nicer
+        ./sysconfig/configuration.nix
+
+        ../common
+
+        mods.lix-module.nixosModules.default
+        mods.niri.nixosModules.niri
+        mods.sops-nix.nixosModules.sops
+        mods.stylix.nixosModules.stylix
+
+        mods.home-manager.nixosModules.home-manager
+        # WARNING: IF YOU DON'T HAVE THIS BIT, EVERYTHING WILL EXPLODE
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hm-bak";
+        }
+
+        mods.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+      ];
+
+      homes = {inherit (config.homes) "beaver:x86_64-linux";};
+    };
   };
-  cloudflared = {
-    enable = true;
-  };
-
-  # Set your time zone.
-  time.timeZone = "America/Chicago";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  users.defaultUserShell = pkgs.zsh;
-
-  environment.variables.EDITOR = "nvim";
 }

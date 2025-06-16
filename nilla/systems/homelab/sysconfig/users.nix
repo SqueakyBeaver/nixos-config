@@ -11,6 +11,20 @@
       "libvirtd"
       "adbusers"
       "mysql"
+      "wireshark"
+      "podman"
+    ];
+    subUidRanges = [
+      {
+        startUid = 100000;
+        count = 65536;
+      }
+    ];
+    subGidRanges = [
+      {
+        startGid = 100000;
+        count = 65536;
+      }
     ];
     shell = pkgs.zsh;
   };
