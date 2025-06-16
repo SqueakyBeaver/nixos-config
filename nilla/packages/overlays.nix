@@ -3,7 +3,7 @@ final: prev: {
     # Not using a pinned version so that way I know I stay up to date (sorry)
     spotx = prev.fetchurl {
       url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/refs/heads/main/spotx.sh";
-      hash = "sha256-XFPSzcgMJFruFKm0P4TejMMq/Gg5lXU8jY9EJtXXZeo=";
+      hash = "sha256-x4gXhTchzwsx954Gm8qVH1v3oOdfskR8cY4a/Asj1Mk=";
     };
     installPhase =
       builtins.replaceStrings [
