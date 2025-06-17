@@ -19,7 +19,7 @@
     # NVIM_LISTEN_ADDRESS = "/tmp/nvimsocket";
   };
 
-  home.username = "beaver";
-  home.homeDirectory = "/home/beaver";
+  home.username = "otter";
+  home.homeDirectory = "/home/otter";
   home.stateVersion = "24.05";
 }
