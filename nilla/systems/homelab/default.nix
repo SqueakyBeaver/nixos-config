@@ -15,7 +15,7 @@ in {
         ./sysconfig/configuration.nix
 
         ../common
-
+        mods.disko.nixosModules.default
         mods.lix-module.nixosModules.default
         mods.niri.nixosModules.niri
         mods.sops-nix.nixosModules.sops

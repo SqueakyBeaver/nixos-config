@@ -7,7 +7,7 @@
   imports = [
     ./apps.nix
     ./cli.nix
-    ./syncthing
+    # ./syncthing
     ./editors.nix
     ../common/niri
   ];
@@ -18,6 +18,7 @@
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
     # For neovim-remote
     # NVIM_LISTEN_ADDRESS = "/tmp/nvimsocket";
+    EDITOR = "nvim";
   };
 
   home.username = "beaver";

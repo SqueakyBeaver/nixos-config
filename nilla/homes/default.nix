@@ -7,7 +7,7 @@ in {
     "beaver:x86_64-linux" = {
       modules = [
         ./beaver
-
+        config.mods.agenix.homeManagerModules.default
         config.mods.sops-nix.homeManagerModules.sops
         config.mods.nixvim.homeManagerModules.nixvim
         config.mods.nix-index-db.hmModules.nix-index

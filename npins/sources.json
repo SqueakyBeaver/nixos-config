@@ -1,5 +1,21 @@
 {
   "pins": {
+    "agenix": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ryantm",
+        "repo": "agenix"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "0.15.0",
+      "revision": "564595d0ad4be7277e07fa63b5a991b3c645655d",
+      "url": "https://api.github.com/repos/ryantm/agenix/tarball/0.15.0",
+      "hash": "01dhrghwa7zw93cybvx4gnrskqk97b004nfxgsys0736823956la"
+    },
     "auto-cpufreq": {
       "type": "Git",
       "repository": {
@@ -12,6 +28,22 @@
       "revision": "f8b5b5d458e4640c1b2a4a4e09ee1f82b750adbc",
       "url": "https://github.com/AdnanHodzic/auto-cpufreq/archive/f8b5b5d458e4640c1b2a4a4e09ee1f82b750adbc.tar.gz",
       "hash": "0hay33rp79cs0b5rm6kcn4b3w69p5pq45fa9qjvlb906yvdbsil8"
+    },
+    "disko": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "disko"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.12.0",
+      "revision": "7121f74b976481bc36877abaf52adab2a178fcbe",
+      "url": "https://api.github.com/repos/nix-community/disko/tarball/v1.12.0",
+      "hash": "0wbx518d2x54yn4xh98cgm65wvj0gpy6nia6ra7ns4j63hx14fkq"
     },
     "flake-compat": {
       "type": "Git",
@@ -209,14 +241,14 @@
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "Mic92",
+        "owner": "mic92",
         "repo": "sops-nix"
       },
       "branch": "master",
       "submodules": false,
-      "revision": "50754dfaa0e24e313c626900d44ef431f3210138",
-      "url": "https://github.com/Mic92/sops-nix/archive/50754dfaa0e24e313c626900d44ef431f3210138.tar.gz",
-      "hash": "1q0b58m9bm4kkm19c0d8lbr10cg00ijqn63wqwxfc0s5yv6x1san"
+      "revision": "77c423a03b9b2b79709ea2cb63336312e78b72e2",
+      "url": "https://github.com/mic92/sops-nix/archive/77c423a03b9b2b79709ea2cb63336312e78b72e2.tar.gz",
+      "hash": "0hw7xx8y5lsf3gzzdl1wc3m5li7dl5gcfvjwfphhdkgxijiczgj6"
     },
     "stylix": {
       "type": "Git",

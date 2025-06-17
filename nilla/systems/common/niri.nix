@@ -9,7 +9,13 @@
       enable = true;
       package = pkgs.niri-unstable;
     };
-    services.displayManager.gdm = {
+
+    services = {
+      # cage.enable = true;
+      greetd.enable = true;
+    };
+
+    programs.regreet = {
       enable = true;
     };
 

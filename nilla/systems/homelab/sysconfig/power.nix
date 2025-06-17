@@ -35,6 +35,8 @@
       };
     };
 
+    logind.lidSwitch = "ignore";
+
     # Just in case kde plasma enables it
     power-profiles-daemon.enable = false;
 

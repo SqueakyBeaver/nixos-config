@@ -9,7 +9,7 @@ deploy:
     nixos-rebuild switch --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo
 
 fast:
-    nixos-rebuild switch --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo --fast
+    nixos-rebuild switch --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo --no-reexec
 
 test:
     nixos-rebuild test --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo

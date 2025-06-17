@@ -6,6 +6,7 @@
   environment.systemPackages = [
     pkgs.podman-compose
     pkgs.docker-compose
+    pkgs.ssh-to-age
   ];
 
   security.rtkit.enable = true;
@@ -38,12 +39,12 @@
 
     flatpak.enable = true;
     colord.enable = true;
-    plantuml-server.enable = true;
+    
     fwupd.enable = true;
   };
 
   programs = {
-   virt-manager.enable = true;
+    virt-manager.enable = true;
   };
 
   virtualisation = {

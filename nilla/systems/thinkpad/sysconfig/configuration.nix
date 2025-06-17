@@ -8,11 +8,16 @@
     ./boot.nix
     ./cli.nix
     ./hardware-configuration.nix
-    ./networking.nix
     ./plymouth.nix
     ./power.nix
-    ./sysutils.nix
     ./users.nix
+    ./networking.nix
+    ./sysutils.nix
+
+    # For testing homelab stuff
+    # ../../homelab/sysconfig/networking.nix
+    # ../../homelab/sysconfig/nginx.nix
+    # ../../homelab/sysconfig/sysutils.nix
 
     ../../common/niri.nix
   ];

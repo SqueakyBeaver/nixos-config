@@ -30,6 +30,7 @@
       firewall = {
         allowedTCPPorts = [
           1701 # Weylus
+          5355 # LLMNR
           9001 # Weylus
           9090
           8080
@@ -39,8 +40,9 @@
         ];
 
         allowedUDPPorts = [
-          7236 # Miracast
           5353 # Miracast
+          5355 # LLMNR
+          7236 # Miracast
           21027 # Syncthing
           22000 # Syncthing
         ];
@@ -88,12 +90,6 @@
         browsing = true;
       };
 
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        openFirewall = true;
-      };
-
       openssh = {
         enable = true;
         settings.UseDns = true;
@@ -101,14 +97,20 @@
 
       tailscale = {
         enable = true;
-
+        openFirewall = true;
+        authKeyFile = config.sops.secrets.tailscale_key.path;
         useRoutingFeatures = "client";
-
         extraUpFlags = [
-          "--accept-routes"
+          # "--accept-routes"
           "--ssh"
         ];
       };
+    };
+
+    sops.secrets.tailscale_key = {
+      format = "json";
+      sopsFile = ./tailscale.auth.thinkpad.sops.beaver.json;
+      key = "tailscale_auth_key";
     };
 
     systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";

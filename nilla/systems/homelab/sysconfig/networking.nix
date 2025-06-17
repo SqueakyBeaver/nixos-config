@@ -1,6 +1,6 @@
 {
   config,
-  pkgs,
+  lib,
   ...
 }:
 # networking configuration
@@ -18,57 +18,22 @@
         # "1.1.1.1"
       ];
 
-      # useDHCP = false;
-      # dhcpcd.enable = false;
-
       networkmanager = {
         enable = true;
         dns = "systemd-resolved";
         wifi.macAddress = "random";
       };
 
-      firewall = {
+      firewall = lib.mkForce {
+        enable = true;
         allowedTCPPorts = [
-          # 1701 # Weylus
-          # 9001 # Weylus
-          9090
-          8080
-          # 7236 # Miracast
-          # 7250 # Miracast
-          # 22000 # Syncthing
+          80
+          443
         ];
 
         allowedUDPPorts = [
-          # 7236 # Miracast
-          # 5353 # Miracast
-          # 21027 # Syncthing
-          # 22000 # Syncthing
-        ];
-
-        allowedTCPPortRanges = [
-          {
-            # from = 1714;
-            # to = 1764;
-          } # KDE Connect
-        ];
-
-        allowedUDPPortRanges = [
-          # {
-          #   from = 4000;
-          #   to = 4007;
-          # }
-          # {
-          #   from = 8000;
-          #   to = 8010;
-          # }
-          # {
-          #   from = 8080;
-          #   to = 8090;
-          # }
-          # {
-          #   from = 1714;
-          #   to = 1764;
-          # } # KDE Connect
+          80
+          443
         ];
       };
     };
@@ -81,44 +46,54 @@
         dnsovertls = "opportunistic";
         # dnssec = "true";
       };
-      # printing = {
-      #   enable = true;
-      #   openFirewall = true;
-      #   drivers = [pkgs.gutenprint];
-      #   browsing = true;
-      # };
-
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        openFirewall = true;
-      };
 
       openssh = {
         enable = true;
-        settings.UseDns = true;
+        settings = {
+          UseDns = true;
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+          PermitRootLogin = "no";
+        };
+      };
+
+      caddy = {
+        enable = true;
+        virtualHosts."vault.${config.networking.hostName}.corgi-decibel".extraConfig = ''
+          reverse_proxy 127.0.0.1:
+        '';
+        virtualHosts."plantuml.${config.networking.hostName}.corgi-decibel".extraConfig = ''
+          reverse_proxy 127.0.0.1:62300
+        '';
+      };
+
+      fail2ban = {
+        enable = true;
+        
       };
 
       tailscale = {
         enable = true;
-
+        permitCertUid = "caddy";
+        authKeyFile = config.sops.secrets.tailscale_key.path;
         useRoutingFeatures = "client";
-
         extraUpFlags = [
-          "--accept-routes"
+          # "--accept-routes"
           "--ssh"
         ];
       };
     };
 
+    sops.secrets.tailscale_key = {
+      format = "json";
+      sopsFile = ../../thinkpad/sysconfig/tailscale.auth.thinkpad.sops.beaver.json;
+      key = "tailscale_auth_key";
+    };
+
+
     systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
 
     programs = {
-      # wireshark = {
-      #   enable = false;
-      #   package = pkgs.wireshark-qt;
-      # };
-
       gnupg.agent = {
         enable = true;
         enableSSHSupport = true;
