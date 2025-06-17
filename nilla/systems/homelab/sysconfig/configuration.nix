@@ -7,7 +7,7 @@
   imports = [
     ./boot.nix
     ./cli.nix
-    ./hardware-configuration.nix
+    ./disko.nix
     ./networking.nix
     # ./nginx.nix
     ./plymouth.nix
