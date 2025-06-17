@@ -32,7 +32,7 @@ in {
         mods.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
       ];
 
-      homes = {inherit (config.homes) "beaver:x86_64-linux";};
+      homes = {inherit (config.homes) "otter:x86_64-linux";};
     };
   };
 }
