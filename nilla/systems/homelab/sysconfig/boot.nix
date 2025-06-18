@@ -4,16 +4,16 @@
   config,
   ...
 }: {
-  # boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   # # Limit number of snapshots to keep
-  # boot.loader.systemd-boot.configurationLimit = 20;
+  boot.loader.systemd-boot.configurationLimit = 20;
   #
-  # boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-  };
+  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub = {
+  #   enable = true;
+  #   efiSupport = true;
+  #   efiInstallAsRemovable = true;
+  # };
 
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
