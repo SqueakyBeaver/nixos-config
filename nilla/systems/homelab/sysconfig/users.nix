@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-  users.groups.beaver = {};
-  users.users.beaver = {
+  users.groups.otter = {};
+  users.users.otter = {
     isNormalUser = true;
-    description = "Squeaky Beaver";
-    group = "beaver";
+    description = "Playful Otter";
+    group = "otter";
     extraGroups = [
       "networkmanager"
       "wheel"
