@@ -8,10 +8,10 @@
     caddy = {
       enable = true;
       virtualHosts = {
-        "plantuml.${config.networking.hostName}.corgi-decibel".extraConfig = ''
+        "plantuml.${config.networking.hostName}.corgi-decibel.ts.net".extraConfig = ''
           reverse_proxy 127.0.0.1:62300
         '';
-        "vault.${config.networking.hostName}.corgi-decibel".extraConfig = ''
+        "vault.${config.networking.hostName}.corgi-decibel.ts.net".extraConfig = ''
           reverse_proxy 127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}
         '';
       };
