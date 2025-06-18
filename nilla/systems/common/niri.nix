@@ -23,6 +23,7 @@
       enable = true;
       base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
       autoEnable = true;
+      polarity = "dark";
       # targets.plymouth.enable = false;
 
       cursor = {

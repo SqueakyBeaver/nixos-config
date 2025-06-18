@@ -23,9 +23,7 @@
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
-      pkgs.kdePackages.plasma-browser-integration
       pkgs.valent
-      pkgs.gnomeExtensions.gsconnect
     ];
   };
 

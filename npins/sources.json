@@ -196,6 +196,19 @@
       "url": "https://github.com/nix-community/nixvim/archive/aef7b53979b89cea9f5eaebf96c16d3bdae150e2.tar.gz",
       "hash": "0zwxp8njmg08fj2whcdn3f6zqxa88l0ihdsxl2d3kx2k2zqrym3p"
     },
+    "nody-greeter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "JezerM",
+        "repo": "nody-greeter"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "cba2e448b2e04c4b0ebdb4ebd623d81b58f0a0d5",
+      "url": "https://github.com/JezerM/nody-greeter/archive/cba2e448b2e04c4b0ebdb4ebd623d81b58f0a0d5.tar.gz",
+      "hash": "1fkcwm0ha9vn2msyp5g37nkx5didq5m1jmja3z68srrh8nig6yci"
+    },
     "sops-nix": {
       "type": "Git",
       "repository": {
