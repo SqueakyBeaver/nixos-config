@@ -8,7 +8,7 @@
     ./apps.nix
     ./cli.nix
     ./editors.nix
-    ../common/niri
+    # ../common/niri
   ];
 
   home.sessionVariables = {

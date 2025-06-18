@@ -15,7 +15,7 @@
     ./sysutils.nix
     ./users.nix
 
-    ../../common/niri.nix
+    ../../common/kde.nix
   ];
 
 
