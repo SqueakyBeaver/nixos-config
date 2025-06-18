@@ -8,10 +8,6 @@
     src = config.inputs.nixpkgs.src;
   };
 
-  doNotImport = [
-    "nody-greeter"
-  ];
-
   # FIXME: Remove this when lix has `builtins.warn`
   srcOverrides.stylix = nixpkgs-flake.legacyPackages.x86_64-linux.applyPatches {
     name = "stylix-for-lix";
