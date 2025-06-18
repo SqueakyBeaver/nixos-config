@@ -24,7 +24,7 @@
         wifi.macAddress = "random";
       };
 
-      firewall = lib.mkForce {
+      firewall = {
         enable = true;
         allowedTCPPorts = [
           80
@@ -57,20 +57,9 @@
         };
       };
 
-      caddy = {
-        enable = true;
-        virtualHosts."vault.${config.networking.hostName}.corgi-decibel".extraConfig = ''
-          reverse_proxy 127.0.0.1:
-        '';
-        virtualHosts."plantuml.${config.networking.hostName}.corgi-decibel".extraConfig = ''
-          reverse_proxy 127.0.0.1:62300
-        '';
-      };
-
-      fail2ban = {
-        enable = true;
-        
-      };
+      # fail2ban = {
+      #   enable = true;
+      # };
 
       tailscale = {
         enable = true;

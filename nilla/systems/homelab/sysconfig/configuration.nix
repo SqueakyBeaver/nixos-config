@@ -34,7 +34,7 @@
       LC_TIME = "en_US.UTF-8";
     };
 
-    networking.hostName = "thinkpad";
+    networking.hostName = "hostname";
     users.defaultUserShell = pkgs.zsh;
   };
 }
