@@ -17,7 +17,7 @@ in {
         ../common
         mods.disko.nixosModules.default
         # mods.lix-module.nixosModules.default
-        mods.niri.nixosModules.niri
+        # mods.niri.nixosModules.niri
         mods.sops-nix.nixosModules.sops
         mods.stylix.nixosModules.stylix
 
