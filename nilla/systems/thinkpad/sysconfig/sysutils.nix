@@ -16,7 +16,7 @@
     })
     pkgs.mangohud
     pkgs.steamtinkerlaunch
-    pkgs.protonup-qt
+    pkgs.protonup
 
     pkgs.podman-compose
     pkgs.docker-compose
@@ -72,6 +72,7 @@
       ];
     };
     virt-manager.enable = true;
+    gamemode.enable = true;
   };
 
   virtualisation = {

@@ -39,14 +39,30 @@
         config.inputs.niri.result.overlays.niri
       ];
     };
-
+    # Non-flake
     npins = {
       args.pkgs = config.inputs.nixpkgs.result.x86_64-linux;
+    };
+    # Flake
+    agenix = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    auto-cpufreq = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    disko = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    hmm = {
+      inputs.nixpkgs = nixpkgs-flake;
+    };
+    home-manager = {
+      inputs.nixpkgs = nixpkgs-flake;
     };
     lix-module = {
       inputs.nixpkgs = nixpkgs-flake;
     };
-    home-manager = {
+    niri = {
       inputs.nixpkgs = nixpkgs-flake;
     };
     nix-index-db = {
@@ -58,13 +74,7 @@
     sops-nix = {
       inputs.nixpkgs = nixpkgs-flake;
     };
-    niri = {
-      inputs.nixpkgs = nixpkgs-flake;
-    };
-    hmm = {
-      inputs.nixpkgs = nixpkgs-flake;
-    };
-    auto-cpufreq = {
+    stylix = {
       inputs.nixpkgs = nixpkgs-flake;
     };
   };

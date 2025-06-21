@@ -98,7 +98,7 @@
       tailscale = {
         enable = true;
         openFirewall = true;
-        authKeyFile = config.sops.secrets.tailscale_key.path;
+        authKeyFile = config.sops.secrets.tailscale_auth_key.path;
         useRoutingFeatures = "client";
         extraUpFlags = [
           # "--accept-routes"
@@ -107,10 +107,9 @@
       };
     };
 
-    sops.secrets.tailscale_key = {
+    sops.secrets.tailscale_auth_key = {
       format = "json";
       sopsFile = ./tailscale.auth.thinkpad.sops.beaver.json;
-      key = "tailscale_auth_key";
     };
 
     systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
