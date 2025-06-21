@@ -209,6 +209,19 @@
       "url": "https://github.com/mic92/sops-nix/archive/77c423a03b9b2b79709ea2cb63336312e78b72e2.tar.gz",
       "hash": "0hw7xx8y5lsf3gzzdl1wc3m5li7dl5gcfvjwfphhdkgxijiczgj6"
     },
+    "spotx-bash": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Spotx-official",
+        "repo": "spotx-bash"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "181fd7fc8fe838237660a46ae096570d869bc30f",
+      "url": "https://github.com/Spotx-official/spotx-bash/archive/181fd7fc8fe838237660a46ae096570d869bc30f.tar.gz",
+      "hash": "139zziq8arzq3hn7av2bqlpilj5kgasbwq08gi1nh8sd4fkikbdl"
+    },
     "stylix": {
       "type": "Git",
       "repository": {

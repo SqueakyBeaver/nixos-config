@@ -8,6 +8,10 @@
     src = config.inputs.nixpkgs.src;
   };
 
+  doNotImport = [
+    "spotx-bash"
+  ];
+
   # FIXME: Remove this when lix has `builtins.warn`
   srcOverrides.stylix = nixpkgs-flake.legacyPackages.x86_64-linux.applyPatches {
     name = "stylix-for-lix";
@@ -88,6 +92,6 @@ in {
         loader = lib.modules.when (loaders ? ${name}) loaders.${name};
         settings = lib.modules.when (settings ? ${name}) settings.${name};
       })
-      pins;
+      (builtins.removeAttrs pins doNotImport);
   };
 }

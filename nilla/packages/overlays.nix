@@ -1,10 +1,9 @@
-final: prev: {
+final: prev: let
+  pins = import ../../npins;
+in {
   spotify = prev.spotify.overrideAttrs (finalAttrs: prevAttrs: {
     # Not using a pinned version so that way I know I stay up to date (sorry)
-    spotx = prev.fetchurl {
-      url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/refs/heads/main/spotx.sh";
-      hash = "sha256-x4gXhTchzwsx954Gm8qVH1v3oOdfskR8cY4a/Asj1Mk=";
-    };
+    spotx = "${pins.spotx-bash}/spotx.sh";
     installPhase =
       builtins.replaceStrings [
         "runHook postInstall"
@@ -27,4 +26,8 @@ final: prev: {
         final.zip
       ];
   });
+
+  gnome2.GConf = prev.gnome2.GConf.override {
+    python3 = final.python312;
+  };
 }
