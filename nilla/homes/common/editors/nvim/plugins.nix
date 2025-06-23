@@ -308,30 +308,5 @@
 
       ###############################
     };
-
-    programs.nixvim.extraPlugins = [
-      # TODO: Other jujutsu plugins (am tired)
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "jj-diffconflicts";
-        src = pkgs.fetchFromGitHub {
-          owner = "rafikdraoui";
-          repo = "jj-diffconflicts";
-          hash = "sha256-LM2eP29yK+lIlWzJiIKIRcbVjNhyjV2unE4GJDTLKXQ=";
-          rev = "8140e5295ef2008a947f1f374c2d71a5bc7e38a0";
-        };
-      })
-      pkgs.vimPlugins.vim-dirdiff
-    ];
-
-    home.packages = [
-      # https://github.com/jj-vcs/jj/wiki/Vim#dirdiff-plugin
-      (pkgs.writeShellScriptBin "nvimdirdiff" ''
-        DIR1=$(printf '%q' "$1"); shift
-        DIR2=$(printf '%q' "$1"); shift
-        # Setting the colorscheme is optional
-        nvim "$@" -c "DirDiff $DIR1 $DIR2"
-      '')
-      pkgs.zathura
-    ];
   };
 }

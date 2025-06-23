@@ -27,7 +27,7 @@ in {
       ];
   });
 
-  gnome2.GConf = prev.gnome2.GConf.override {
-    python3 = final.python312;
-  };
+  # gnome2.GConf = prev.gnome2.GConf.override {
+  #   python3 = final.python312;
+  # };
 }

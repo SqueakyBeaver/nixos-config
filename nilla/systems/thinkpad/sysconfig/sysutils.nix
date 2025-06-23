@@ -72,7 +72,10 @@
       ];
     };
     virt-manager.enable = true;
-    gamemode.enable = true;
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
   };
 
   virtualisation = {

@@ -17,6 +17,8 @@
     ];
     programs.nixvim = {
       enable = true;
+      # Not good to enable this, but I hate compiling nil
+      nixpkgs.useGlobalPackages = true;
 
       clipboard.providers.wl-copy.enable = true;
       clipboard.register = "unnamedplus";
