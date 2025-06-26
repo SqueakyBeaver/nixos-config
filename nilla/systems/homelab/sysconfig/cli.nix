@@ -12,7 +12,7 @@
     # (project.inputs.nilla-home.result.packages.default.result.${pkgs.system})
 
     pkgs.just
-    pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
+    pkgs.busybox
   ];
   programs = {
     zsh = {
