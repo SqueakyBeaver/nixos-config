@@ -9,7 +9,6 @@
     ./cli.nix
     ./disko.nix
     ./networking.nix
-    # ./nginx.nix
     ./plymouth.nix
     ./power.nix
     ./sysutils.nix

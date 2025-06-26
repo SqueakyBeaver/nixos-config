@@ -53,9 +53,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "b9975e12cfbbb961a569f7c239b3751d210160da",
+      "revision": "cb0e7e000294660838db3c722e76eb1f14a4e1c7",
       "url": null,
-      "hash": "1iflx5aj8lpv058i3zikf2jbdjs8p5ycn78z0zsbadajcdcz96lp"
+      "hash": "0bhkh9z6y8hyrhab2ix4wf0gaawzd78viz1ccfchk14fbr13q93p"
     },
     "home-manager": {
       "type": "Git",
@@ -66,9 +66,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "86402a17b6c67b07c5536354da5d56c14196de46",
-      "url": "https://github.com/nix-community/home-manager/archive/86402a17b6c67b07c5536354da5d56c14196de46.tar.gz",
-      "hash": "09p7k4025afqlmyhx0j6nff3w9nvwx0yq4fzvpwy39risfls3kxq"
+      "revision": "ff31a4677c1a8ae506aa7e003a3dba08cb203f82",
+      "url": "https://github.com/nix-community/home-manager/archive/ff31a4677c1a8ae506aa7e003a3dba08cb203f82.tar.gz",
+      "hash": "1kjrgi2gyghzqdazw2cbyfbb73c8kw7491b2bnc5c24nkrr84c0d"
     },
     "lix-module": {
       "type": "Tarball",
@@ -101,9 +101,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "dea86652c07dcd6302f48df8b0397f5efc3a2103",
-      "url": "https://github.com/nilla-nix/cli/archive/dea86652c07dcd6302f48df8b0397f5efc3a2103.tar.gz",
-      "hash": "14hszcd854nr17cwjw5gix5m1k7gp90f3sbf9igw145jys1y2mzw"
+      "revision": "4139298ff98c1b2c526854124dedbe2db9166efe",
+      "url": "https://github.com/nilla-nix/cli/archive/4139298ff98c1b2c526854124dedbe2db9166efe.tar.gz",
+      "hash": "1jn82waj58fz97h013741zzy5dfhpfxr9mmi22pdqh4avd7ffrh2"
     },
     "nilla-home": {
       "type": "Git",
@@ -140,9 +140,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "03153ce955a8ad754b0f2bb4fa25cbbcb9832f25",
-      "url": "https://github.com/sodiboo/niri-flake/archive/03153ce955a8ad754b0f2bb4fa25cbbcb9832f25.tar.gz",
-      "hash": "1dxycimmw6hlniy5zsvksb6g1whzlfdzjra3xl8sy0rb1fhp8lmy"
+      "revision": "e25d4210316a72df39459e460050257f397021fe",
+      "url": "https://github.com/sodiboo/niri-flake/archive/e25d4210316a72df39459e460050257f397021fe.tar.gz",
+      "hash": "0zpbplm8bb3mpnd76wkn4lsw2lk2da92rp5nfm3094bb4577hjhd"
     },
     "nix-index-db": {
       "type": "Git",
@@ -185,9 +185,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1f3e5741a927b5b0a983f08ab9d3bcf313bc141e",
-      "url": "https://github.com/nix-community/nixvim/archive/1f3e5741a927b5b0a983f08ab9d3bcf313bc141e.tar.gz",
-      "hash": "04cwh4xv9qdm0x8z5n6iz8xydxm3hf6blpp1prliafdqf62kp78p"
+      "revision": "6a15c2ffc50ca7998df2fd6b86c3c9f298e9137a",
+      "url": "https://github.com/nix-community/nixvim/archive/6a15c2ffc50ca7998df2fd6b86c3c9f298e9137a.tar.gz",
+      "hash": "1y6fixxwkmxdbhfji2mfb55m80382gvfw4769rnybkddsyfhim7f"
     },
     "sops-nix": {
       "type": "Git",
@@ -224,9 +224,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "67a6479c1aa95210a346a227743f074b82471432",
-      "url": "https://github.com/danth/stylix/archive/67a6479c1aa95210a346a227743f074b82471432.tar.gz",
-      "hash": "044v1an4ix6byg0c7d9agddfq2j7brfkayf6y02d8lvzq36qxrcw"
+      "revision": "edcecc02e6f113758f401b2248d739f28c063478",
+      "url": "https://github.com/danth/stylix/archive/edcecc02e6f113758f401b2248d739f28c063478.tar.gz",
+      "hash": "1gm55i3rwk6x8hn8xfsc3z9jha5bz71vhhvjc2cr4z5x5f2cg609"
     }
   },
   "version": 5

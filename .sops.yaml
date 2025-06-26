@@ -4,6 +4,7 @@
 # for a more complex example.
 keys:
   - &admin_beaver age1j6naf8x20slpur7awgnjhc5vdjerzn5psqe94gdtxn5wrwvw7ssstdvnhp
+  # - &admin_otter 
 creation_rules:
   - path_regex: .*\.sops\.beaver\.(yaml|json|env|ini|[^.]*\.bin)$
     key_groups:
@@ -14,4 +15,4 @@ creation_rules:
     key_groups:
       - age:
         - *admin_beaver
-        # - *admin_homelab
+        # - *admin_otter

@@ -63,8 +63,8 @@
 
       tailscale = {
         enable = true;
-        permitCertUid = "caddy";
-        authKeyFile = config.sops.secrets.tailscale_key.path;
+        # permitCertUid = "caddy";
+        # authKeyFile = config.sops.secrets.tailscale_key.path;
         useRoutingFeatures = "client";
         extraUpFlags = [
           # "--accept-routes"
@@ -73,11 +73,10 @@
       };
     };
 
-    sops.secrets.tailscale_key = {
-      format = "json";
-      sopsFile = ../../thinkpad/sysconfig/tailscale.auth.thinkpad.sops.beaver.json;
-      key = "tailscale_auth_key";
-    };
+    # sops.secrets.tailscale_key = {
+    #   format = "json";
+    #   sopsFile = ../../thinkpad/sysconfig/tailscale.auth.thinkpad.sops.beaver.json;
+    # };
 
 
     systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
