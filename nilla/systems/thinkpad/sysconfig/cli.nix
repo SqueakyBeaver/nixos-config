@@ -12,7 +12,6 @@
     (project.inputs.nilla-home.result.packages.default.result.${pkgs.system})
 
     pkgs.just
-    pkgs.busybox
     pkgs.rocmPackages.rocm-smi # For btop gpu monitoring (hope)
   ];
   programs = {

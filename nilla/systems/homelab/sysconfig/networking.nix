@@ -8,7 +8,6 @@
   config = {
     networking = {
       nftables.enable = true;
-      useDHCP = lib.mkDefault true;
 
       # use my nextDNS config
       nameservers = [
