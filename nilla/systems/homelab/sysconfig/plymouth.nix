@@ -9,9 +9,9 @@
       theme = lib.mkForce "blahaj";
       themePackages = with pkgs; [
         # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = ["rings_2" "cuts" "ibm"];
-        })
+        # (adi1090x-plymouth-themes.override {
+        #   selected_themes = ["rings_2" "cuts" "ibm"];
+        # })
 
         plymouth-blahaj-theme
       ];

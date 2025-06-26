@@ -8,6 +8,7 @@
   config = {
     networking = {
       nftables.enable = true;
+      useDHCP = lib.mkDefault true;
 
       # use my nextDNS config
       nameservers = [
@@ -77,7 +78,6 @@
     #   format = "json";
     #   sopsFile = ../../thinkpad/sysconfig/tailscale.auth.thinkpad.sops.beaver.json;
     # };
-
 
     systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
 

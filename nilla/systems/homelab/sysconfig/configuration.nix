@@ -33,7 +33,7 @@
       LC_TIME = "en_US.UTF-8";
     };
 
-    networking.hostName = "hostname";
+    networking.hostName = "homelab";
     users.defaultUserShell = pkgs.zsh;
   };
 }
