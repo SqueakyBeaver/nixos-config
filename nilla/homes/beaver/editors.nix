@@ -6,6 +6,6 @@
 
   home.packages = [
     # pkgs.unityhub
-    pkgs.android-studio
+    # pkgs.android-studio
   ];
 }

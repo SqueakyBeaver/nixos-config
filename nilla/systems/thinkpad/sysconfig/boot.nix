@@ -26,7 +26,6 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = with config.boot.kernelPackages; [
     ryzen-smu
-    turbostat # Doing some testing ig
   ];
   # https://nixos.wiki/wiki/Linux_kernel
 }

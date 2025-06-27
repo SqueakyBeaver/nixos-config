@@ -52,6 +52,5 @@
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan
     pkgs.amdctl
-    pkgs.bc
   ];
 }

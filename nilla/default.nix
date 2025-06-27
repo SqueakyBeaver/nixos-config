@@ -11,7 +11,6 @@
   };
 
   config.mods = {
-    agenix = config.inputs.agenix.result;
     disko = config.inputs.disko.result;
     lix-module = config.inputs.lix-module.result;
     niri = config.inputs.niri.result;

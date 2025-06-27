@@ -5,17 +5,17 @@
   ...
 }: {
   home.packages = with pkgs; [
-    project.packages.musescore-appimage.result.${pkgs.system}
-    pkgs.muse-sounds-manager
+    # project.packages.musescore-appimage.result.${pkgs.system}
+    # pkgs.muse-sounds-manager
     pkgs.bitwarden
-    pkgs.bottles
+    # pkgs.bottles
     pkgs.legcord
     # pkgs.dolphin-emu
     # pkgs.gimp
     project.inputs.hmm.result.packages.${pkgs.system}.default
     pkgs.libreoffice-fresh
     pkgs.obsidian
-    pkgs.prismlauncher
+    # pkgs.prismlauncher
     pkgs.spotify
     pkgs.vlc
   ];
@@ -32,7 +32,7 @@
     package = pkgs.ungoogled-chromium;
   };
 
-  programs.obs-studio = {
+ programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs

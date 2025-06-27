@@ -6,16 +6,8 @@
   environment.systemPackages = [
     pkgs.appimage-run
 
-    (pkgs.lutris.override {
-      extraLibraries = pkgs: [
-        pkgs.libthai
-      ];
-      extraPkgs = pkgs: [
-        pkgs.xemu
-      ];
-    })
+    pkgs.lutris
     pkgs.mangohud
-    pkgs.steamtinkerlaunch
     pkgs.protonup
 
     pkgs.podman-compose
@@ -68,7 +60,7 @@
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       extraCompatPackages = [
         pkgs.proton-ge-bin
-        pkgs.dotnet-sdk # For tmodloader
+        # pkgs.dotnet-sdk # For tmodloader
       ];
     };
     virt-manager.enable = true;
