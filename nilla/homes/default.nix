@@ -7,7 +7,8 @@ in {
     "beaver:x86_64-linux" = {
       modules = [
         ./beaver
-        config.mods.sops-nix.homeManagerModules.sops
+        ./common
+        # config.mods.sops-nix.homeManagerModules.sops
         config.mods.nixvim.homeManagerModules.nixvim
         config.mods.nix-index-db.hmModules.nix-index
       ];
@@ -20,7 +21,7 @@ in {
     "otter:x86_64-linux" = {
       modules = [
         ./otter
-
+        ./common
         config.mods.nixvim.homeManagerModules.nixvim
         config.mods.nix-index-db.hmModules.nix-index
       ];

@@ -108,8 +108,8 @@
     };
 
     sops.secrets.tailscale_auth_key = {
-      format = "json";
-      sopsFile = ./tailscale.auth.thinkpad.sops.beaver.json;
+      format = "yaml";
+      sopsFile = ./secrets/tailscale.sops.thinkpad.yaml;
     };
 
     systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";

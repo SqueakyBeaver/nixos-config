@@ -3,13 +3,16 @@
 # Also see https://github.com/Mic92/dotfiles/blob/d6114726d859df36ccaa32891c4963ae5717ef7f/nixos/.sops.yaml
 # for a more complex example.
 keys:
+  - &thinkpad age1gq06epvvz3r58kvlksl3kt7mnkr52hhrfa9hcnkpl9ve08c07q3sjgxmfz
   - &admin_beaver age1j6naf8x20slpur7awgnjhc5vdjerzn5psqe94gdtxn5wrwvw7ssstdvnhp
+  # - &homelab 
   # - &admin_otter 
 creation_rules:
-  - path_regex: .*\.sops\.beaver\.(yaml|json|env|ini|[^.]*\.bin)$
+  - path_regex: .*\.sops\.thinkpad\.(yaml|json|env|ini|[^.]*\.bin)$
     key_groups:
       - age:
         - *admin_beaver
+        - *thinkpad
 
   - path_regex: .*\.sops\.homelab\.(yaml|json|env|ini|[^.]*\.bin)$
     key_groups:

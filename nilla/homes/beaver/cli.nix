@@ -200,7 +200,7 @@
 
   services.ssh-agent.enable = true;
 
-  sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
+  # sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
 
   # Workaround for bad ~/.ssh/config file permissions
   home.file = {
