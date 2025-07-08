@@ -43,10 +43,6 @@
         # config.inputs.niri.result.overlays.niri
       ];
     };
-    # Non-flake
-    npins = {
-      args.pkgs = config.inputs.nixpkgs.result.x86_64-linux;
-    };
     # Flake
     agenix = {
       inputs.nixpkgs = nixpkgs-flake;

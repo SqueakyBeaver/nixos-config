@@ -55,7 +55,7 @@
       ${pkgs.networkmanager}/bin/nm-online -s -q # wait until the internet is online, as esp. if we go offline we need to wait to retry...
       cd /etc/nixos
       ${pkgs.git}/bin/git fetch
-      ${pkgs.git}/bin/git checkout origin/release
+      ${pkgs.git}/bin/git checkout origin/main
     '';
 
     systemd.services.nixos-upgrade.serviceConfig = {
@@ -80,21 +80,21 @@
         builders-use-substitutes = true;
         experimental-features = ["nix-command" "flakes"];
 
-        trusted-users = ["root" "wheel"];
+        trusted-users = ["root" "@wheel"];
 
         substituters = [
           # high priority since it's almost always used
           "https://cache.nixos.org?priority=10"
 
           "https://nix-community.cachix.org"
-          # "https://niri.cachix.org"
+          "https://niri.cachix.org"
         ];
 
         trusted-public-keys = [
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
 
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          # "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+          "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         ];
       };
     };
