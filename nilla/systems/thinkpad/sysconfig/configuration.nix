@@ -19,7 +19,8 @@
     # ../../homelab/sysconfig/nginx.nix
     # ../../homelab/sysconfig/sysutils.nix
 
-    ../../common/niri.nix
+    # ../../common/niri.nix
+    ../../common/kde.nix
   ];
 
 

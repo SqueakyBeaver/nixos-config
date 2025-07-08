@@ -8,6 +8,7 @@
     ./waybar.nix
     ./stylix.nix 
     ./binds.nix
+    ../stylix.nix
   ];
 
   home.packages = with pkgs; [
@@ -35,10 +36,10 @@
     timeouts = [
       {
         timeout = 260;
-        command = "brightnessctl s 50%-";
+        command = "${pkgs.brightnessctl}/bin/brightnessctl s 50%-";
       }
       {
-        timeout = 300;
+        timeout = 400;
         command = "${pkgs.swaylock}/bin/swaylock -fF";
       }
       {

@@ -8,7 +8,7 @@
 
     pkgs.lutris
     pkgs.mangohud
-    pkgs.protonup
+    pkgs.protonup-rs
 
     pkgs.podman-compose
     pkgs.docker-compose
@@ -60,7 +60,7 @@
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       extraCompatPackages = [
         pkgs.proton-ge-bin
-        # pkgs.dotnet-sdk # For tmodloader
+        pkgs.dotnet-sdk
       ];
     };
     virt-manager.enable = true;
@@ -104,5 +104,6 @@
       };
     };
     amdgpu.opencl.enable = true;
+    amdgpu.overdrive.enable = true;
   };
 }

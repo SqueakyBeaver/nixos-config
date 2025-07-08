@@ -13,7 +13,7 @@
   config.mods = {
     disko = config.inputs.disko.result;
     lix-module = config.inputs.lix-module.result;
-    niri = config.inputs.niri.result;
+    # niri = config.inputs.niri.result;
     stylix = config.inputs.stylix.result;
     home-manager = config.inputs.home-manager.result;
     nixos-hardware = config.inputs.nixos-hardware.result;

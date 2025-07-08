@@ -9,7 +9,8 @@
     ./cli.nix
     # ./syncthing
     ./editors.nix
-    ../common/niri
+    # ../common/niri
+    ../common/stylix.nix
   ];
 
   home.sessionVariables = {

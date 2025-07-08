@@ -15,7 +15,7 @@ in {
         ./sysconfig/configuration.nix
         ../common
         mods.lix-module.nixosModules.default
-        mods.niri.nixosModules.niri
+        # mods.niri.nixosModules.niri
         mods.sops-nix.nixosModules.sops
         mods.stylix.nixosModules.stylix
         mods.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1

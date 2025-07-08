@@ -18,6 +18,8 @@
     # pkgs.prismlauncher
     pkgs.spotify
     pkgs.vlc
+    pkgs.bottles
+    pkgs.umu-launcher
   ];
 
   programs.firefox = {
@@ -25,6 +27,24 @@
     nativeMessagingHosts = [
       pkgs.valent
     ];
+    policies."3rdparty" = {
+      Extensions = {
+        "uBlock0@raymondhill.net" = {
+          adminSettings = {
+            # I like ironfox's uBlock default filters better
+            assetsBootstrapLocation = "https://gitlab.com/ironfox-oss/IronFox/-/raw/dev/uBlock/assets.main.json";
+          };
+        };
+      };
+    };
+  };
+
+  programs.floorp = {
+    enable = true;
+    nativeMessagingHosts = [
+      pkgs.valent
+    ];
+    policies = config.programs.firefox.policies;
   };
 
   programs.chromium = {
@@ -32,7 +52,7 @@
     package = pkgs.ungoogled-chromium;
   };
 
- programs.obs-studio = {
+  programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
