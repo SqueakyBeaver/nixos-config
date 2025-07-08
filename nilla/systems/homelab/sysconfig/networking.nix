@@ -61,16 +61,16 @@
       #   enable = true;
       # };
 
-      tailscale = {
-        enable = true;
-        # permitCertUid = "caddy";
-        # authKeyFile = config.sops.secrets.tailscale_key.path;
-        useRoutingFeatures = "client";
-        extraUpFlags = [
-          # "--accept-routes"
-          "--ssh"
-        ];
-      };
+      # tailscale = {
+      #   enable = true;
+      #   # permitCertUid = "caddy";
+      #   # authKeyFile = config.sops.secrets.tailscale_key.path;
+      #   useRoutingFeatures = "client";
+      #   extraUpFlags = [
+      #     # "--accept-routes"
+      #     "--ssh"
+      #   ];
+      # };
     };
 
     # sops.secrets.tailscale_key = {
@@ -78,7 +78,7 @@
     #   sopsFile = ../../thinkpad/sysconfig/tailscale.auth.thinkpad.sops.beaver.json;
     # };
 
-    systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
+    # systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
 
     programs = {
       gnupg.agent = {

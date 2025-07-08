@@ -5,7 +5,7 @@
 keys:
   - &thinkpad age1gq06epvvz3r58kvlksl3kt7mnkr52hhrfa9hcnkpl9ve08c07q3sjgxmfz
   - &admin_beaver age1j6naf8x20slpur7awgnjhc5vdjerzn5psqe94gdtxn5wrwvw7ssstdvnhp
-  # - &homelab 
+  - &homelab age1ykdf99vns6qzf0a20xjqmwq2pupupz5hmedvkt8z4xatv3szy9lqekpekk
   # - &admin_otter 
 creation_rules:
   - path_regex: .*\.sops\.thinkpad\.(yaml|json|env|ini|[^.]*\.bin)$
@@ -18,4 +18,5 @@ creation_rules:
     key_groups:
       - age:
         - *admin_beaver
+        - *homelab
         # - *admin_otter
