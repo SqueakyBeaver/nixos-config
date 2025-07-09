@@ -60,9 +60,6 @@
     };
   };
 
-  # I don't want it auto-started tbh
-  systemd.services.plantuml-server.wantedBy = pkgs.lib.mkOverride 0 [];
-
   environment.variables = {
     DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";
   };

@@ -8,7 +8,7 @@
   # Here so I can easily see what ports go where
   ports = {
     plantuml = 62300;
-    vaultwarden = config.services.vaultwarden.config.ROCKET_PORT; # 8222 by default
+    vaultwarden = 8000;
     overleaf = -1;
   };
 in {
@@ -23,10 +23,12 @@ in {
 
           ingress = {
             "plantuml.${domain}" = {
-              service = "http://localhost:${ports.plantuml}";
+              service = "http://localhost:${builtins.toString ports.plantuml}";
+              # originRequest.originServerName = "plantuml.${domain}";
             };
             "vault.${domain}" = {
-              service = "http://localhost:${ports.vaultwarden}";
+              service = "http://localhost:${builtins.toString ports.vaultwarden}";
+              # originRequest.originServerName = "vault.${domain}";
             };
           };
 
@@ -37,12 +39,15 @@ in {
 
     caddy = {
       enable = true;
+      acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
       virtualHosts = {
         "plantuml.${domain}".extraConfig = ''
-          reverse_proxy 127.0.0.${builtins.toString ports.plantuml}
+          tls internal
+          reverse_proxy http://localhost:${builtins.toString ports.plantuml}/plantuml
         '';
         "vault.${domain}".extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString ports.vaultwarden}
+          tls internal
+          reverse_proxy http://localhost:${builtins.toString ports.vaultwarden}
         '';
       };
     };
@@ -50,12 +55,12 @@ in {
     # The actual services
     vaultwarden = {
       enable = true;
-      dbBackend = "mysql";
+      dbBackend = "sqlite";
       # TODO: Use a better dir?
-      backupDir = "/var/backup/vaultwarden";
+      # backupDir = "/var/backup/vaultwarden";
       environmentFile = config.sops.secrets.vaultwarden.path;
       config = {
-        DOMAIN = "vault.${domain}";
+        DOMAIN = "https://vault.${domain}";
         SIGNUPS_ALLOWED = false;
       };
     };
@@ -68,7 +73,7 @@ in {
 
   sops.secrets = {
     vaultwarden = {
-      format = "json";
+      format = "dotenv";
       sopsFile = ./secrets/vaultwarden.sops.homelab.env;
     };
     cloudflare-cert = {

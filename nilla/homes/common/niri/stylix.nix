@@ -4,7 +4,10 @@
   config,
   ...
 }: {
-    systemd.user.services."swaybg" = {
+  stylix.targets.kde.enable = lib.mkForce true;
+  stylix.targets.qt.enable = lib.mkForce true;
+  
+  systemd.user.services."swaybg" = {
     Unit = {
       Description = "wallpapers! brought to you by stylix! :3";
       PartOf = ["graphical-session.target"];

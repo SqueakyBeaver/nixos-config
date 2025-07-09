@@ -57,9 +57,9 @@
         };
       };
 
-      # fail2ban = {
-      #   enable = true;
-      # };
+      fail2ban = {
+        enable = true;
+      };
 
       # tailscale = {
       #   enable = true;

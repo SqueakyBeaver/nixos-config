@@ -71,6 +71,9 @@
     nixvim = {
       inputs.nixpkgs = nixpkgs-flake;
     };
+    plasma-manager = {
+      inputs.nixpks = nixpkgs-flake;
+    };
     sops-nix = {
       inputs.nixpkgs = nixpkgs-flake;
     };

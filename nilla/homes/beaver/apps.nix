@@ -8,7 +8,7 @@
     # project.packages.musescore-appimage.result.${pkgs.system}
     # pkgs.muse-sounds-manager
     pkgs.bitwarden
-    # pkgs.bottles
+    pkgs.bottles
     pkgs.legcord
     # pkgs.dolphin-emu
     # pkgs.gimp
@@ -18,14 +18,17 @@
     # pkgs.prismlauncher
     pkgs.spotify
     pkgs.vlc
-    pkgs.bottles
     pkgs.umu-launcher
+
+    # hopefully makes the global app menu work
+    pkgs.libdbusmenu
+    pkgs.libsForQt5.libdbusmenu
   ];
 
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
-      pkgs.valent
+      pkgs.kdePackages.plasma-browser-integration
     ];
     policies."3rdparty" = {
       Extensions = {

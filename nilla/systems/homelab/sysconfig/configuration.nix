@@ -12,6 +12,7 @@
     ./networking.nix
     ./plymouth.nix
     ./power.nix
+    ./selfhosting.nix
     ./sysutils.nix
     ./users.nix
 

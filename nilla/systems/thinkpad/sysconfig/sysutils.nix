@@ -44,10 +44,6 @@
 
     flatpak.enable = true;
     colord.enable = true;
-    plantuml-server = {
-      enable = true;
-      listenPort = 62300;
-    };
     fwupd.enable = true;
   };
 

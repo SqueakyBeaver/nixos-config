@@ -160,6 +160,19 @@
       "url": "https://github.com/nix-community/nixvim/archive/bc997a240953bda9fa526e8a3d6f798a6072308a.tar.gz",
       "hash": "0znn4hda0rfvzqpzafwk077kzz0wg41xgv3rf7vigg3zg3sj6w4l"
     },
+    "plasma-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "plasma-manager"
+      },
+      "branch": "trunk",
+      "submodules": false,
+      "revision": "b7697abe89967839b273a863a3805345ea54ab56",
+      "url": "https://github.com/nix-community/plasma-manager/archive/b7697abe89967839b273a863a3805345ea54ab56.tar.gz",
+      "hash": "05gw226063jbklfgcyr01a04278v7shn8a4imjg47rdzgsqf68fn"
+    },
     "sops-nix": {
       "type": "Git",
       "repository": {

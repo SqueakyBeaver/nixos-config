@@ -11,6 +11,7 @@
     ./editors.nix
     # ../common/niri
     ../common/stylix.nix
+    ../common/plasma
   ];
 
   home.sessionVariables = {

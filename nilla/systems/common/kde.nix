@@ -7,16 +7,15 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "breeze";
   };
 
   stylix = {
     enable = true;
     base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
-    autoEnable = false;
+    # autoEnable = false;
     polarity = "dark";
     # targets.plymouth.enable = false;
-    targets.qt.enable = false;
+    # targets.qt.enable = false;
 
     cursor = {
       package = pkgs.phinger-cursors;
