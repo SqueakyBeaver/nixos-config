@@ -10,7 +10,7 @@ in {
         ./common
         # config.mods.sops-nix.homeManagerModules.sops
         config.mods.nixvim.homeManagerModules.nixvim
-        config.mods.nix-index-db.hmModules.nix-index
+        config.mods.nix-index-db.homeModules.nix-index
         config.mods.plasma-manager.homeManagerModules.plasma-manager
       ];
 
@@ -24,7 +24,7 @@ in {
         ./otter
         ./common
         config.mods.nixvim.homeManagerModules.nixvim
-        config.mods.nix-index-db.hmModules.nix-index
+        config.mods.nix-index-db.homeModules.nix-index
       ];
 
       args = {

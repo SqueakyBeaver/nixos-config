@@ -2,7 +2,7 @@
   config,
   lib,
 }: let
-  pins = import ../npins;
+  pins = (import ../npins) {};
 
   nixpkgs-flake = config.inputs.flake-compat.result.load {
     src = config.inputs.nixpkgs.src;
@@ -13,20 +13,19 @@
   ];
 
   # FIXME: Remove this when lix has `builtins.warn`
-  srcOverrides.stylix = nixpkgs-flake.legacyPackages.x86_64-linux.applyPatches {
+  srcOverrides.stylix = (nixpkgs-flake.legacyPackages.x86_64-linux.applyPatches {
     name = "stylix-for-lix";
     src = pins.stylix;
     patches = [
       ./stylix-for-lix.patch
     ];
-  };
+  });
 
   loaders = {
     home-manager = "flake";
     nixpkgs = "nixpkgs";
 
     # Apparently flakes will always be used before nilla ;-;
-    nilla = "nilla";
     nilla-cli = "nilla";
     nilla-nixos = "nilla";
     nilla-home = "nilla";
@@ -43,10 +42,10 @@
         # config.inputs.niri.result.overlays.niri
       ];
     };
-    # Flake
-    agenix = {
-      inputs.nixpkgs = nixpkgs-flake;
+    npins = {
+      args.pkgs = import pins.nixpkgs {system = builtins.currentSystem;};
     };
+    # Flake
     auto-cpufreq = {
       inputs.nixpkgs = nixpkgs-flake;
     };

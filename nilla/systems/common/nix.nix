@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  project,
   ...
 }: {
   config = {
@@ -11,7 +12,7 @@
       curl
       gcc
       cmake
-      npins
+      project.inputs.npins.result
       # inputs.nilla-cli.packages.${pkgs.system}
     ];
 
@@ -80,36 +81,22 @@
         builders-use-substitutes = true;
         experimental-features = ["nix-command" "flakes"];
 
-        trusted-users = ["root"]; # "@wheel"];
+        trusted-users = ["root" "@wheel"];
 
         substituters = [
           # high priority since it's almost always used
           "https://cache.nixos.org?priority=10"
 
           "https://nix-community.cachix.org"
-          "https://niri.cachix.org"
         ];
 
         trusted-public-keys = [
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
 
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         ];
       };
     };
-
-    # https://github.com/orgs/nilla-nix/discussions/12
-    nixpkgs.flake = {
-      source = builtins.path {
-        name = "source";
-        inherit (pkgs) path;
-      };
-      # I don't like fetching nixpkgs every time I use a flake
-      setFlakeRegistry = true;
-      setNixPath = true;
-    };
-    nix.channel.enable = false; # disable imperative channels
 
     system.stateVersion = "24.05";
   };
