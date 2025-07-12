@@ -21,7 +21,7 @@
         "Cube" = "Meta+Shift+C";
         "Grid View" = "Meta+G";
         "Overview" = "Meta+W";
-        "Show Desktop" = "Meta+D";
+        "Show Desktop" = "Meta+M";
         "Switch to Next Desktop" = "Meta+U";
         "Switch to Previous Desktop" = "Meta+I";
         "Walk Through Windows" = "Alt+Tab";
@@ -33,6 +33,7 @@
         "Window to Previous Desktop" = "Meta+Ctrl+I";
         "karousel-column-move-end" = "Meta+Ctrl+Shift+End";
         "karousel-column-move-left" = "Meta+Ctrl+H";
+        "karousel-column-move-right" = "Meta+Ctrl+L";
         "karousel-column-move-start" = "Meta+Ctrl+Shift+Home";
         "karousel-column-toggle-stacked" = "Meta+X";
         "karousel-column-width-decrease" = "Meta+-";

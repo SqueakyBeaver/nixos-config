@@ -118,6 +118,15 @@
             html = [
               "prettierd"
             ];
+            json = [
+              "prettierd"
+            ];
+            xml = [
+              "prettierd"
+            ];
+            rust = [
+              "rustfmt"
+            ];
 
             "_" = [
               "trim_whitespace"

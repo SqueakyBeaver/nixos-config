@@ -80,7 +80,7 @@
         builders-use-substitutes = true;
         experimental-features = ["nix-command" "flakes"];
 
-        trusted-users = ["root" "@wheel"];
+        trusted-users = ["root"]; # "@wheel"];
 
         substituters = [
           # high priority since it's almost always used
@@ -100,9 +100,14 @@
     };
 
     # https://github.com/orgs/nilla-nix/discussions/12
-    nixpkgs.flake.source = builtins.path {
-      name = "source";
-      inherit (pkgs) path;
+    nixpkgs.flake = {
+      source = builtins.path {
+        name = "source";
+        inherit (pkgs) path;
+      };
+      # I don't like fetching nixpkgs every time I use a flake
+      setFlakeRegistry = true;
+      setNixPath = true;
     };
     nix.channel.enable = false; # disable imperative channels
 
