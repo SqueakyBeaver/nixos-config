@@ -9,9 +9,13 @@
   ports = {
     plantuml = 62300;
     vaultwarden = 8000;
-    overleaf = -1;
+    overleaf = 6969;
   };
 in {
+  imports = [
+    ./services/overleaf.nix
+  ];
+
   services = {
     # I don't wanna forward ports tbh
     cloudflared = {
@@ -24,11 +28,12 @@ in {
           ingress = {
             "plantuml.${domain}" = {
               service = "http://localhost:${builtins.toString ports.plantuml}";
-              # originRequest.originServerName = "plantuml.${domain}";
             };
             "vault.${domain}" = {
               service = "http://localhost:${builtins.toString ports.vaultwarden}";
-              # originRequest.originServerName = "vault.${domain}";
+            };
+            "overleaf.${domain}" = {
+              service = "http://localhost:${builtins.toString ports.overleaf}";
             };
           };
 
@@ -43,11 +48,15 @@ in {
       virtualHosts = {
         "plantuml.${domain}".extraConfig = ''
           tls internal
-          reverse_proxy http://localhost:${builtins.toString ports.plantuml}/plantuml
+          reverse_proxy http://localhost:${builtins.toString ports.plantuml}
         '';
         "vault.${domain}".extraConfig = ''
           tls internal
           reverse_proxy http://localhost:${builtins.toString ports.vaultwarden}
+        '';
+        "overleaf.${domain}".extraConfig = ''
+          tls internal
+          reverse_proxy http://localhost:${builtins.toString ports.overleaf}
         '';
       };
     };

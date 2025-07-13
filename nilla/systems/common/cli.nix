@@ -3,5 +3,6 @@
     pkgs.pciutils
     pkgs.usbutils
     pkgs.inxi
+    pkgs.nettools
   ];
 }

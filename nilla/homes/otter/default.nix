@@ -9,6 +9,7 @@
     ./cli.nix
     ./editors.nix
     ../common/stylix.nix
+    ../common/plasma
   ];
 
   home.sessionVariables = {

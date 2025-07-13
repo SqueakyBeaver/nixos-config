@@ -29,11 +29,13 @@
         allowedTCPPorts = [
           80
           443
+          5355 # LLMNR
         ];
 
         allowedUDPPorts = [
           80
           443
+          5355 # LLMNR
         ];
       };
     };
