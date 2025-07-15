@@ -2,6 +2,7 @@
 {
   pkgs,
   lib,
+  project,
   ...
 }: let
   ports.overleaf = 6969;
@@ -48,13 +49,44 @@ in {
         ];
       };
       "sharelatex" = {
-        image = "sharelatex/sharelatex";
+        # *sigh* I need more latex packages
+        image = "overleaf:latest";
+        imageFile = pkgs.dockerTools.buildImage {
+          name = "overleaf";
+          tag = "latest";
+
+          fromImage = pkgs.dockerTools.pullImage {
+            imageName = "sharelatex/sharelatex";
+            imageDigest = "sha256:a9b671a7f751042afbc059060459f5c9a63a3dfeda365a480bc8db1c6eb5a063";
+            sha256 = "sha256-cesepVuhnZ/0uCCVFqtUuodoRPgucrDTyl747o8Nr3k=";
+          };
+
+          copyToRoot = pkgs.buildEnv {
+            name = "texlive-full";
+            paths = [pkgs.texliveFull];
+            # /bin is a symlink to /usr/bin on Debian, add a prefix to avoid replacing original `/bin`
+            extraPrefix = "/usr";
+            postBuild = ''
+              if [[ -d "$out/usr/etc" ]] ; then
+                mv $out/usr/etc $out/etc
+              fi
+              # Overleaf makes /usr/local/bin the first in PATH
+              # Fuck Overleaf
+              mkdir -p $out/usr/local/bin
+              for i in $( ls "$out/usr/bin/") ; do 
+                ln -sf "$out/usr/bin/$i" "$out/usr/local/bin/$i"
+              done
+            '';
+          };
+        };
+
         environment = {
           EMAIL_CONFIRMATION_DISABLED = "true";
           ENABLE_CONVERSIONS = "true";
           ENABLED_LINKED_FILE_TYPES = "project_file,project_output_file";
           GIT_BRIDGE_ENABLED = "false";
           OVERLEAF_APP_NAME = "Overleaf";
+          OVERLEAF_BEHIND_PROXY = "true";
           OVERLEAF_LISTEN_IP = "0.0.0.0";
           OVERLEAF_PORT = "${builtins.toString ports.overleaf}";
           OVERLEAF_MONGO_URL = "mongodb://mongo/sharelatex";
@@ -78,6 +110,7 @@ in {
           "--network-alias=sharelatex"
           "--network=overleaf_default"
         ];
+        entrypoint = "/sbin/my_init";
       };
     };
   };

@@ -14,7 +14,6 @@
     # misc
     libnotify
     openssl
-    miktex
 
     # utils
     killall

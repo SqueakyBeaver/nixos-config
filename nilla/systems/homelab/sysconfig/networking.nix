@@ -63,24 +63,25 @@
         enable = true;
       };
 
-      # tailscale = {
-      #   enable = true;
-      #   # permitCertUid = "caddy";
-      #   # authKeyFile = config.sops.secrets.tailscale_key.path;
-      #   useRoutingFeatures = "client";
-      #   extraUpFlags = [
-      #     # "--accept-routes"
-      #     "--ssh"
-      #   ];
-      # };
+      # TODO: Selfhost headscale?
+      tailscale = {
+        enable = true;
+        openFirewall = true;
+        authKeyFile = config.sops.secrets.tailscale_auth_key.path;
+        useRoutingFeatures = "client";
+        extraUpFlags = [
+          # "--accept-routes"
+          "--ssh"
+        ];
+      };
     };
 
-    # sops.secrets.tailscale_key = {
-    #   format = "json";
-    #   sopsFile = ../../thinkpad/sysconfig/tailscale.auth.thinkpad.sops.beaver.json;
-    # };
+    sops.secrets.tailscale_auth_key = {
+      format = "yaml";
+      sopsFile = ./secrets/tailscale.sops.homelab.yaml;
+    };
 
-    # systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
+    systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
 
     programs = {
       gnupg.agent = {
