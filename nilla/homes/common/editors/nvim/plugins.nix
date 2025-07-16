@@ -204,14 +204,7 @@
       };
 
       dropbar.enable = true;
-
-      vimtex = {
-        enable = true;
-        settings = {
-          view_method = "zathura";
-        };
-      };
-
+      
       ###############################
 
       #### Neovim random utilies ####
@@ -259,6 +252,10 @@
       };
 
       # auto-session.enable = true;
+
+      tmux-navigator = {
+        enable = true;
+      };
 
       nvim-ufo.enable = true;
 

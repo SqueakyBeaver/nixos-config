@@ -37,9 +37,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "2d9a19fc503712344c6986c4a01b3a9dcb04d671",
+      "revision": "4826df385fd6cfb910588cdea714fe4958e2eb1e",
       "url": null,
-      "hash": "sha256-+CrA8p029MBmXfNpmK1PElZ7X8uFOhX1VkobX02IJqI="
+      "hash": "sha256-1fcUcKAmCkAHwpggaoiLvW19L3QwOk1lrrBLLxMjWOY="
     },
     "home-manager": {
       "type": "Git",
@@ -50,15 +50,33 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "bf893ad4cbf46610dd1b620c974f824e266cd1df",
-      "url": "https://github.com/nix-community/home-manager/archive/bf893ad4cbf46610dd1b620c974f824e266cd1df.tar.gz",
-      "hash": "sha256-mCHfZhQKdTj2JhCFcqfOfa3uKZbwUkPQbd0/zPnhOE8="
+      "revision": "e8c19a3cec2814c754f031ab3ae7316b64da085b",
+      "url": "https://github.com/nix-community/home-manager/archive/e8c19a3cec2814c754f031ab3ae7316b64da085b.tar.gz",
+      "hash": "sha256-S+wmHhwNQ5Ru689L2Gu8n1OD6s9eU9n9mD827JNR+kw="
+    },
+    "lix": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.lix.systems/lix-project/lix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "8f325fe436d890c5c88a7206301ab61ef0071c62",
+      "url": null,
+      "hash": "sha256-KfVX8BoLErQGqSJjmX6+Tb3E8zLGc2i3PqUei9E7JNM="
     },
     "lix-module": {
-      "type": "Tarball",
-      "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz",
-      "locked_url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/9098ac95768f7006d7e070b88bae76939f6034e6.tar.gz?rev=9098ac95768f7006d7e070b88bae76939f6034e6",
-      "hash": "sha256-6U0CyPycIBc04hbYy2hBINnVso58n/ZyywY2BD3hu+s="
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.lix.systems/lix-project/nixos-module"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "4d4c2b8f0a801c91ce5b717c77fe3a17efa1402f",
+      "url": null,
+      "hash": "sha256-gbpuESxl/An4GTh7QEbQRYJozVIxWkwVGbWK0/0GoRc="
     },
     "nilla": {
       "type": "GitRelease",
@@ -124,9 +142,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "12201a430ee613bc720cef21a130b416cb1b5108",
-      "url": "https://github.com/Mic92/nix-index-database/archive/12201a430ee613bc720cef21a130b416cb1b5108.tar.gz",
-      "hash": "sha256-LVqpSiYJ+zcxLvA6YUn9udrq8+NFBJ9oSwiEePPa9+g="
+      "revision": "839e02dece5845be3a322e507a79712b73a96ba2",
+      "url": "https://github.com/Mic92/nix-index-database/archive/839e02dece5845be3a322e507a79712b73a96ba2.tar.gz",
+      "hash": "sha256-FMH1OSSJp8Cx8MZHXz6KckxJGbCnVMotZNAH3v2WneU="
     },
     "nixos-hardware": {
       "type": "Git",
@@ -137,15 +155,15 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "7ced9122cff2163c6a0212b8d1ec8c33a1660806",
-      "url": "https://github.com/NixOS/nixos-hardware/archive/7ced9122cff2163c6a0212b8d1ec8c33a1660806.tar.gz",
-      "hash": "sha256-gATnkOe37eeVwKKYCsL+OnS2gU4MmLuZFzzWCtaKLI8="
+      "revision": "d1bfa8f6ccfb5c383e1eba609c1eb67ca24ed153",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/d1bfa8f6ccfb5c383e1eba609c1eb67ca24ed153.tar.gz",
+      "hash": "sha256-P8J72psdc/rWliIvp8jUpoQ6qRDlVzgSDDlgkaXQ0Fw="
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre826938.9807714d6944/nixexprs.tar.xz",
-      "hash": "sha256-ROMKbpfgrbogAWXNXJxUu+BoPyZdOq/MQ3UNYVP863o="
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre830073.62e0f05ede1d/nixexprs.tar.xz",
+      "hash": "sha256-CQTnJDUdkaxq1Jd8lvwEcqjdK/C3SxgPJYtxqqwAJcQ="
     },
     "nixvim": {
       "type": "Git",
@@ -156,22 +174,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "4b068551d85cb4984fc60268a95097cf7af1ae48",
-      "url": "https://github.com/nix-community/nixvim/archive/4b068551d85cb4984fc60268a95097cf7af1ae48.tar.gz",
-      "hash": "sha256-Txnm5vJqZgaHpEM/9OANg1Ux4e9xHQ7iXfQ8EqtqM9s="
-    },
-    "npins": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "andir",
-        "repo": "npins"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "afa9fe50cb0bff9ba7e9f7796892f71722b2180d",
-      "url": "https://github.com/andir/npins/archive/afa9fe50cb0bff9ba7e9f7796892f71722b2180d.tar.gz",
-      "hash": "sha256-D6dYAMk9eYpBriE07s8Q7M3WBT7uM9pz3RKIoNk+h7I="
+      "revision": "1fb1bf8a73ccf207dbe967cdb7f2f4e0122c8bd5",
+      "url": "https://github.com/nix-community/nixvim/archive/1fb1bf8a73ccf207dbe967cdb7f2f4e0122c8bd5.tar.gz",
+      "hash": "sha256-WzHqmJ1wEZoUGAedomwcVLCuNsiB9bZzZXk7K9ZDBwk="
     },
     "plasma-manager": {
       "type": "Git",
@@ -195,9 +200,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "3633fc4acf03f43b260244d94c71e9e14a2f6e0d",
-      "url": "https://github.com/mic92/sops-nix/archive/3633fc4acf03f43b260244d94c71e9e14a2f6e0d.tar.gz",
-      "hash": "sha256-KrDPXobG7DFKTOteqdSVeL1bMVitDcy7otpVZWDE6MA="
+      "revision": "2c8def626f54708a9c38a5861866660395bb3461",
+      "url": "https://github.com/mic92/sops-nix/archive/2c8def626f54708a9c38a5861866660395bb3461.tar.gz",
+      "hash": "sha256-GllP7cmQu7zLZTs9z0J2gIL42IZHa9CBEXwBY9szT0U="
     },
     "spotx-bash": {
       "type": "Git",
@@ -221,9 +226,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f6c5aaa4f8b70ec0bf995be43311c38be3131776",
-      "url": "https://github.com/danth/stylix/archive/f6c5aaa4f8b70ec0bf995be43311c38be3131776.tar.gz",
-      "hash": "sha256-c4o/PeudMsxXaJ0G8B75eFyhH7XvcFv21kvgn3jDjlQ="
+      "revision": "0ba0ffe94cbe20ae739c2aa8cae04cbf900bf56b",
+      "url": "https://github.com/danth/stylix/archive/0ba0ffe94cbe20ae739c2aa8cae04cbf900bf56b.tar.gz",
+      "hash": "sha256-QRuM25aYp3n2cf59gEJE0VcIoGRX2ps8gp2mzorKodw="
     }
   },
   "version": 6

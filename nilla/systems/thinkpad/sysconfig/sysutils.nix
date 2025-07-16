@@ -8,7 +8,7 @@
 
     pkgs.lutris
     pkgs.mangohud
-    pkgs.protonup-rs
+    pkgs.protonup-qt
 
     pkgs.podman-compose
     pkgs.docker-compose
@@ -32,15 +32,15 @@
       };
     };
 
-    mysql = {
-      enable = true;
-      package = pkgs.mariadb;
-      settings = {
-        mysqld = {
-          lower_case_table_names = 1;
-        };
-      };
-    };
+    # mysql = {
+    #   enable = true;
+    #   package = pkgs.mariadb;
+    #   settings = {
+    #     mysqld = {
+    #       lower_case_table_names = 1;
+    #     };
+    #   };
+    # };
 
     flatpak.enable = true;
     colord.enable = true;
@@ -53,13 +53,11 @@
       protontricks.enable = true;
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       extraCompatPackages = [
         pkgs.proton-ge-bin
-        pkgs.dotnet-sdk
       ];
     };
-    virt-manager.enable = true;
+    # virt-manager.enable = true;
     gamemode = {
       enable = true;
       enableRenice = true;
@@ -67,8 +65,8 @@
   };
 
   virtualisation = {
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
+    # libvirtd.enable = true;
+    # spiceUSBRedirection.enable = true;
 
     podman = {
       enable = true;
@@ -87,7 +85,7 @@
   };
 
   hardware = {
-    xpadneo.enable = true;
+    # xpadneo.enable = true;
     graphics.enable32Bit = true;
 
     bluetooth = {
@@ -100,6 +98,6 @@
       };
     };
     amdgpu.opencl.enable = true;
-    amdgpu.overdrive.enable = true;
+    # amdgpu.overdrive.enable = true;
   };
 }

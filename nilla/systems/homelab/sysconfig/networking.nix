@@ -10,6 +10,8 @@
       nftables.enable = true;
 
       # use my nextDNS config
+      # I'll actually use it here since this machine will access the Internet
+      # almost exclusively outside of a browser
       nameservers = [
         "45.90.28.0#7dbdb5.dns.nextdns.io"
         "2a07:a8c0::#7dbdb5.dns.nextdns.io"
@@ -22,6 +24,12 @@
         enable = true;
         dns = "systemd-resolved";
         wifi.macAddress = "random";
+        ethernet.macAddress = "random";
+        # NOTE: If we have issues with LLMNR, this might be the culprit?
+        connectionConfig = {
+          "ipv4.dhcp-send-hostname" = false;
+          "ipv6.dhcp-send-hostname" = false;
+        };
       };
 
       firewall = {

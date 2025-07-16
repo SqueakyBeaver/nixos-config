@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  project,
   ...
 }: {
   home.packages = with pkgs; [
@@ -25,15 +26,10 @@
     just
     which
     tree
-    btop
+    btop-rocm
     iotop
     iftop
     sops
-
-    # programming stuff
-    nil
-    alejandra
-    llvmPackages.clang-unwrapped
   ];
 
   programs = {
@@ -47,16 +43,6 @@
     ssh.enable = true;
     zsh.enable = true;
     nix-index.enable = true;
-
-    bottom = {
-      enable = true;
-      settings = {
-        flags = {
-          enable_gpu = true;
-          temperature_type = "c";
-        };
-      };
-    };
 
     git = {
       enable = true;
@@ -163,6 +149,7 @@
         };
       };
     };
+
     alacritty = {
       enable = true;
 
@@ -194,7 +181,78 @@
         };
       };
     };
+
+    tmux = {
+      enable = true;
+      aggressiveResize = true;
+      clock24 = true;
+      customPaneNavigationAndResize = true;
+      focusEvents = true;
+      mouse = true; # I will 100% forget keybinds
+      newSession = true;
+      secureSocket = false;
+      tmuxp.enable = true;
+      plugins = with pkgs; [
+        tmuxPlugins.better-mouse-mode
+        tmuxPlugins.fzf-tmux-url
+        tmuxPlugins.tmux-which-key
+        tmuxPlugins.tmux-powerline
+        tmuxPlugins.vim-tmux-navigator
+        tmuxPlugins.tmux-thumbs
+      ];
+      extraConfig = ''
+        set -as terminal-features ",alacritty*:RGB"
+        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy && wl-paste -n | wl-copy -p"
+        bind-key p run "wl-paste -n | tmux load-buffer - ; tmux paste-buffer"
+
+        bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+        set -g detach-on-destroy off  # don't exit from tmux when closing a session
+      '';
+    };
+
+    sesh = {
+      enable = true;
+      settings = {
+        session = [
+          {
+            name = "nixos-config";
+            path = "~/nixos-config";
+            startup_command = "nvim .";
+          }
+        ];
+      };
+    };
+
+    fzf.tmux.enableShellIntegration = true;
+
     ssh.addKeysToAgent = "confirm";
+
+    # Open sesh with Alt-s
+    zsh.initContent = ''
+      function sesh-sessions() {
+        {
+          exec </dev/tty
+          exec <&1
+          local session
+          session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+          zle reset-prompt > /dev/null 2>&1 || true
+          [[ -z "$session" ]] && return
+          sesh connect $session
+        }
+      }
+
+      zle     -N             sesh-sessions
+      bindkey -M emacs '\es' sesh-sessions
+      bindkey -M vicmd '\es' sesh-sessions
+      bindkey -M viins '\es' sesh-sessions
+    '';
+
+    zoxide = {
+      enable = true;
+      options = [
+        "--cmd=cd"
+      ];
+    };
   };
 
   services.ssh-agent.enable = true;

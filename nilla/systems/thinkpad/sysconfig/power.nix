@@ -3,6 +3,16 @@
     thinkfan = {
       enable = true;
       smartSupport = true;
+
+      levels = [
+        [0 0 60]
+        [1 60 65]
+        [2 65 70]
+        [3 70 75]
+        [4 75 80]
+        [5 80 85]
+        [7 85 32767]
+      ];
     };
 
     upower.enable = true;
@@ -43,6 +53,11 @@
   };
 
   # powerManagement.powertop.enable = true;
+
+  boot.kernelParams = [
+    "amd_cpufreq.cppc_enable=1"
+    "amd_cpufreq=enable"
+  ];
 
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan

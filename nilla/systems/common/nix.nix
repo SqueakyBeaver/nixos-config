@@ -12,7 +12,7 @@
       curl
       gcc
       cmake
-      project.inputs.npins.result
+      npins
       # inputs.nilla-cli.packages.${pkgs.system}
     ];
 
@@ -67,8 +67,6 @@
     };
 
     nix = {
-      package = pkgs.lix;
-
       gc = {
         automatic = true;
         dates = "Mon,Wed,Fri *-*-* 09:45";

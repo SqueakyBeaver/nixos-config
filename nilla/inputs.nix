@@ -10,16 +10,8 @@
 
   doNotImport = [
     "spotx-bash"
+    "lix"
   ];
-
-  # FIXME: Remove this when lix has `builtins.warn`
-  srcOverrides.stylix = (nixpkgs-flake.legacyPackages.x86_64-linux.applyPatches {
-    name = "stylix-for-lix";
-    src = pins.stylix;
-    patches = [
-      ./stylix-for-lix.patch
-    ];
-  });
 
   loaders = {
     home-manager = "flake";
@@ -42,9 +34,6 @@
         # config.inputs.niri.result.overlays.niri
       ];
     };
-    npins = {
-      args.pkgs = import pins.nixpkgs {system = builtins.currentSystem;};
-    };
     # Flake
     auto-cpufreq = {
       inputs.nixpkgs = nixpkgs-flake;
@@ -60,6 +49,11 @@
     };
     lix-module = {
       inputs.nixpkgs = nixpkgs-flake;
+      # inputs.lix = lix-flake;
+      inputs.lix = let
+        lix = import "${pins.lix}" // {versionSuffix = "main";};
+      in
+        lix;
     };
     niri = {
       inputs.nixpkgs = nixpkgs-flake;
@@ -85,7 +79,7 @@ in {
     inputs =
       builtins.mapAttrs
       (name: pin: {
-        src = srcOverrides.${name} or pin;
+        src = pin;
 
         loader = lib.modules.when (loaders ? ${name}) loaders.${name};
         settings = lib.modules.when (settings ? ${name}) settings.${name};

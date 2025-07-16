@@ -9,31 +9,35 @@
     networking = {
       nftables.enable = true;
 
-      # use my nextDNS config
+      # not gonna use my nextdns config here
+      # The only time I really need it is when browsing the web,
+      # and firefox connects to it via https
       nameservers = [
-        "45.90.28.0#7dbdb5.dns.nextdns.io"
-        "2a07:a8c0::#7dbdb5.dns.nextdns.io"
-        "45.90.30.0#7dbdb5.dns.nextdns.io"
-        "2a07:a8c1::#7dbdb5.dns.nextdns.io"
-        # "1.1.1.1"
+        "9.9.9.9#dns.quad9.net"
+        "2620:fe::fe#dns.quad9.net"
+        "149.112.112.112#dns.quad9.net"
+        "2620:fe::9#dns.quad9.net"
+        "1.1.1.1#one.one.one.one"
+        "2606:4700:4700::1111#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+        "2606:4700:4700::1001#one.one.one.one"
       ];
-
-      # useDHCP = false;
-      # dhcpcd.enable = false;
 
       networkmanager = {
         enable = true;
         dns = "systemd-resolved";
         wifi.macAddress = "random";
+        ethernet.macAddress = "random";
+        # NOTE: If we have issues with LLMNR, this might be the culprit?
+        connectionConfig = {
+          "ipv4.dhcp-send-hostname" = false;
+          "ipv6.dhcp-send-hostname" = false;
+        };
       };
 
       firewall = {
         allowedTCPPorts = [
-          1701 # Weylus
           5355 # LLMNR
-          9001 # Weylus
-          9090
-          8080
           7236 # Miracast
           7250 # Miracast
           22000 # Syncthing
@@ -46,32 +50,6 @@
           21027 # Syncthing
           22000 # Syncthing
         ];
-
-        allowedTCPPortRanges = [
-          {
-            from = 1714;
-            to = 1764;
-          } # KDE Connect
-        ];
-
-        allowedUDPPortRanges = [
-          {
-            from = 4000;
-            to = 4007;
-          }
-          {
-            from = 8000;
-            to = 8010;
-          }
-          {
-            from = 8080;
-            to = 8090;
-          }
-          {
-            from = 1714;
-            to = 1764;
-          } # KDE Connect
-        ];
       };
     };
 
@@ -81,7 +59,14 @@
         enable = true;
         domains = ["~."];
         dnsovertls = "opportunistic";
-        # dnssec = "true";
+        fallbackDns = [
+          "9.9.9.9"
+          "2620:fe::fe"
+          "1.1.1.1"
+          "2606:4700:4700::1111"
+          "8.8.8.8" # Please never get to here
+        ];
+        dnssec = "true";
       };
       printing = {
         enable = true;
@@ -98,7 +83,8 @@
       tailscale = {
         enable = true;
         openFirewall = true;
-        authKeyFile = config.sops.secrets.tailscale_auth_key.path;
+        # Commented since I don't need tailscale to be on all time
+        # authKeyFile = config.sops.secrets.tailscale_auth_key.path;
         useRoutingFeatures = "client";
         extraUpFlags = [
           # "--accept-routes"
@@ -116,7 +102,7 @@
 
     programs = {
       wireshark = {
-        enable = false;
+        enable = true;
         package = pkgs.wireshark-qt;
       };
 

@@ -4,11 +4,17 @@
   project,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = [
     # project.packages.musescore-appimage.result.${pkgs.system}
     # pkgs.muse-sounds-manager
     pkgs.bitwarden
-    pkgs.bottles
+    (pkgs.bottles.override {removeWarningPopup = true;})
+    pkgs.vkbasalt
+    pkgs.winetricks
+    # I have problems with a specific game and I'm hoping this will fix them
+    pkgs.wine-staging
+    pkgs.vkd3d
+
     pkgs.legcord
     # pkgs.dolphin-emu
     # pkgs.gimp
@@ -23,6 +29,14 @@
     # hopefully makes the global app menu work
     pkgs.libdbusmenu
     pkgs.libsForQt5.libdbusmenu
+
+    pkgs.gst_all_1.gstreamer
+    pkgs.gst_all_1.gst-plugins-base
+    pkgs.gst_all_1.gst-plugins-good
+    pkgs.gst_all_1.gst-plugins-bad
+    pkgs.gst_all_1.gst-plugins-ugly
+    pkgs.gst_all_1.gst-libav
+    pkgs.gst_all_1.gst-vaapi
   ];
 
   programs.firefox = {

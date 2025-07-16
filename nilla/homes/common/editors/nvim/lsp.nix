@@ -122,7 +122,6 @@
         cssls.enable = true;
         omnisharp.enable = true;
         hls.enable = true;
-        ltex.enable = true;
       };
     };
 
