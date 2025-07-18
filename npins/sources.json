@@ -25,9 +25,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "79c5920ec4af99639c653215ffcb3d8f1dff6982",
-      "url": "https://github.com/nix-community/emacs-overlay/archive/79c5920ec4af99639c653215ffcb3d8f1dff6982.tar.gz",
-      "hash": "100679c2jmv73iymzjh6gid9pbvq4gwad9jhi4gf0svwdr1sc3dh"
+      "revision": "614abf799bbc623abdd197cc47222161781dbaf7",
+      "url": "https://github.com/nix-community/emacs-overlay/archive/614abf799bbc623abdd197cc47222161781dbaf7.tar.gz",
+      "hash": "03j1iayz2xwkxqzwsvllb6rgmv42fzrv3swf5fg59grfgs67i0pl"
     },
     "flake-compat": {
       "type": "Git",
@@ -63,9 +63,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "460f1e9af95b081fb7e2022485b6c22b92085936",
-      "url": "https://github.com/nix-community/home-manager/archive/460f1e9af95b081fb7e2022485b6c22b92085936.tar.gz",
-      "hash": "0gqjraa8jjj5fin2gx5xny5yynwis2dv1ahi5wiwiqqj1kr7rf8b"
+      "revision": "d0300c8808e41da81d6edfc202f3d3833c157daf",
+      "url": "https://github.com/nix-community/home-manager/archive/d0300c8808e41da81d6edfc202f3d3833c157daf.tar.gz",
+      "hash": "0wkiknkfls8i3d8aylimbi6qr7ffdr4px7vhzdc944nzb7pf1dwa"
     },
     "lix": {
       "type": "Git",
@@ -75,9 +75,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "9d5a5c4dc09c5fc924e7f343c2d75408a998dd9f",
+      "revision": "9d8ab804355d95d38a61ad5053d415ca1882d554",
       "url": null,
-      "hash": "1pcdsvv7j978mh14pwgc8k4niz86qgaidd8v49pqgcs1hjsl8bh7"
+      "hash": "1pyckmpykahjjg3d3s9zwhrxzrmvf56n7yh6njbg57d67m1h6nh8"
     },
     "lix-module": {
       "type": "Git",
@@ -175,8 +175,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre830073.62e0f05ede1d/nixexprs.tar.xz",
-      "hash": "sha256-CQTnJDUdkaxq1Jd8lvwEcqjdK/C3SxgPJYtxqqwAJcQ="
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre831064.6e987485eb2c/nixexprs.tar.xz",
+      "hash": "1m11dghl4nb9n5l4jc7yb85y0vqk3mqkqb7vyfd5n3mk4xijcjm2"
     },
     "nixvim": {
       "type": "Git",
