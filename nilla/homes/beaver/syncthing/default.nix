@@ -1,14 +1,9 @@
 {
   config,
-  namespace,
   lib,
   ...
 }: {
-  services.syncthing = let
-    # I am so sad that I have to do it like this, but oh well
-    devices = (lib.modules.importJSON config.sops.secrets.beaver_thinkpad_syncthing_devices.path).config;
-    folders = (lib.modules.importJSON config.sops.secrets.beaver_thinkpad_syncthing_folders.path).config;
-  in {
+  services.syncthing = {
     enable = true; # Shouldn't be needed (?) but just in case
     cert = config.sops.secrets.beaver_thinkpad_syncthing_cert.path;
     key = config.sops.secrets.beaver_thinkpad_syncthing_key.path;
@@ -40,7 +35,14 @@
 
         "/home/beaver/Coding" = {
           label = "coding";
-          devices = [];
+          devices = [ ];
+        };
+
+        "/home/beaver/org" = {
+          label = "org-notes";
+          devices = [
+            "phone"
+          ];
         };
       };
     };

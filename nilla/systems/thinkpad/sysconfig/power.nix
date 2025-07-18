@@ -54,13 +54,8 @@
 
   # powerManagement.powertop.enable = true;
 
-  boot.kernelParams = [
-    "amd_cpufreq.cppc_enable=1"
-    "amd_cpufreq=enable"
-  ];
 
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan
-    pkgs.amdctl
   ];
 }

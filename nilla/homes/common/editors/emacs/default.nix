@@ -1,0 +1,31 @@
+{
+  config,
+  pkgs,
+  project,
+  ...
+}: {
+  home.packages = [
+    pkgs.shellcheck
+    pkgs.discount
+    pkgs.graphviz
+    pkgs.gnuplot
+  ];
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-pgtk;
+
+    extraPackages = epkgs: [
+      epkgs.vterm
+    ];
+  };
+
+  services.emacs = {
+    enable = true;
+  };
+
+  # For doom emacs' doom script thingy
+  home.sessionPath = [
+    "$HOME/.emacs.d/bin"
+  ];
+}

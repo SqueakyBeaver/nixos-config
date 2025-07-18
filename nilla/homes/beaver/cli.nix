@@ -25,5 +25,5 @@
     };
   };
 
-  # sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/beaver/.config/sops/age/keys.txt";
 }

@@ -13,7 +13,6 @@
       gcc
       cmake
       npins
-      # inputs.nilla-cli.packages.${pkgs.system}
     ];
 
     programs.nix-ld = {
@@ -29,11 +28,6 @@
         libssh
         bzip2
         libxml2
-        acl
-        libsodium
-        util-linux
-        xz
-        systemd
       ];
     };
 
@@ -69,8 +63,6 @@
     nix = {
       gc = {
         automatic = true;
-        dates = "Mon,Wed,Fri *-*-* 09:45";
-        options = "--delete-older-than 7d";
         persistent = true;
       };
       optimise.automatic = true;

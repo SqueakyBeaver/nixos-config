@@ -1,9 +1,9 @@
 {
   imports = [
-    ./fonts.nix
-    ./nix.nix
     ./cli.nix
+    ./fonts.nix
     ./inputs.nix
+    ./nix.nix
+    ./system.nix
   ];
-
 }

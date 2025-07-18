@@ -4,5 +4,6 @@
     pkgs.usbutils
     pkgs.inxi
     pkgs.nettools
+    pkgs.gnumake
   ];
 }

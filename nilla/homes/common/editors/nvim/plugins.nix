@@ -15,6 +15,36 @@
           highlight.enable = true;
           indent.enable = true;
         };
+          # I don't want them all installed
+          grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+            bash
+            c
+            c_sharp
+            cpp
+            css
+            gitattributes
+            gitcommit
+            gitignore
+            go
+            gomod
+            gosum
+            html
+            javascript
+            json
+            jsonc
+            lua
+            markdown
+            nix
+            php
+            python
+            regex
+            rust
+            typescript
+            vim
+            vimdoc
+            xml
+            yaml
+          ];
         # folding = true;
       };
 
@@ -127,7 +157,6 @@
             rust = [
               "rustfmt"
             ];
-
             "_" = [
               "trim_whitespace"
               "trim_newlines"
@@ -204,7 +233,7 @@
       };
 
       dropbar.enable = true;
-      
+
       ###############################
 
       #### Neovim random utilies ####
@@ -227,7 +256,7 @@
 
       toggleterm = {
         enable = true;
-        settings.open_mapping = "[[<C-\\>]]";
+        settings.open_mapping = "[[<C-`>]]";
       };
 
       mini = {

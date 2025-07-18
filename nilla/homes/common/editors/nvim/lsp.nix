@@ -121,7 +121,6 @@
         ts_ls.enable = true;
         cssls.enable = true;
         omnisharp.enable = true;
-        hls.enable = true;
       };
     };
 

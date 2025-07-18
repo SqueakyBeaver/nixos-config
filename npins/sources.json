@@ -16,6 +16,19 @@
       "url": "https://api.github.com/repos/nix-community/disko/tarball/v1.12.0",
       "hash": "sha256-eDoSOhxGEm2PykZFa/x9QG5eTH0MJdiJ9aR00VAofXE="
     },
+    "emacs-overlay": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "emacs-overlay"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "79c5920ec4af99639c653215ffcb3d8f1dff6982",
+      "url": "https://github.com/nix-community/emacs-overlay/archive/79c5920ec4af99639c653215ffcb3d8f1dff6982.tar.gz",
+      "hash": "100679c2jmv73iymzjh6gid9pbvq4gwad9jhi4gf0svwdr1sc3dh"
+    },
     "flake-compat": {
       "type": "Git",
       "repository": {
@@ -50,9 +63,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "e8c19a3cec2814c754f031ab3ae7316b64da085b",
-      "url": "https://github.com/nix-community/home-manager/archive/e8c19a3cec2814c754f031ab3ae7316b64da085b.tar.gz",
-      "hash": "sha256-S+wmHhwNQ5Ru689L2Gu8n1OD6s9eU9n9mD827JNR+kw="
+      "revision": "460f1e9af95b081fb7e2022485b6c22b92085936",
+      "url": "https://github.com/nix-community/home-manager/archive/460f1e9af95b081fb7e2022485b6c22b92085936.tar.gz",
+      "hash": "0gqjraa8jjj5fin2gx5xny5yynwis2dv1ahi5wiwiqqj1kr7rf8b"
     },
     "lix": {
       "type": "Git",
@@ -62,9 +75,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "8f325fe436d890c5c88a7206301ab61ef0071c62",
+      "revision": "9d5a5c4dc09c5fc924e7f343c2d75408a998dd9f",
       "url": null,
-      "hash": "sha256-KfVX8BoLErQGqSJjmX6+Tb3E8zLGc2i3PqUei9E7JNM="
+      "hash": "1pcdsvv7j978mh14pwgc8k4niz86qgaidd8v49pqgcs1hjsl8bh7"
     },
     "lix-module": {
       "type": "Git",
@@ -174,9 +187,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1fb1bf8a73ccf207dbe967cdb7f2f4e0122c8bd5",
-      "url": "https://github.com/nix-community/nixvim/archive/1fb1bf8a73ccf207dbe967cdb7f2f4e0122c8bd5.tar.gz",
-      "hash": "sha256-WzHqmJ1wEZoUGAedomwcVLCuNsiB9bZzZXk7K9ZDBwk="
+      "revision": "bc0555c8694d43fb63ae2c7afec08b6987431a04",
+      "url": "https://github.com/nix-community/nixvim/archive/bc0555c8694d43fb63ae2c7afec08b6987431a04.tar.gz",
+      "hash": "0v2y0hdf2ranglvgg0kbmq0lxrm8jk99xzviwb12wylg3lwx54jr"
     },
     "plasma-manager": {
       "type": "Git",
@@ -226,10 +239,10 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0ba0ffe94cbe20ae739c2aa8cae04cbf900bf56b",
-      "url": "https://github.com/danth/stylix/archive/0ba0ffe94cbe20ae739c2aa8cae04cbf900bf56b.tar.gz",
-      "hash": "sha256-QRuM25aYp3n2cf59gEJE0VcIoGRX2ps8gp2mzorKodw="
+      "revision": "03699ed214f6e8195bc7199d6ae3aeccf9732b08",
+      "url": "https://github.com/danth/stylix/archive/03699ed214f6e8195bc7199d6ae3aeccf9732b08.tar.gz",
+      "hash": "18vxdikn1lyzvsbldwyvl5kprjcxsv60gn7sj9h8p3wn5yml119n"
     }
   },
-  "version": 6
+  "version": 5
 }

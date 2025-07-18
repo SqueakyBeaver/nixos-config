@@ -27,7 +27,6 @@
   services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "plasma";
   environment.systemPackages = with pkgs; [
-    kdePackages.yakuake
     kdePackages.kate
     kdePackages.discover
     kdePackages.karousel

@@ -45,6 +45,8 @@
     flatpak.enable = true;
     colord.enable = true;
     fwupd.enable = true;
+
+    
   };
 
   programs = {

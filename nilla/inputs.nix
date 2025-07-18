@@ -2,7 +2,7 @@
   config,
   lib,
 }: let
-  pins = (import ../npins) {};
+  pins = import ../npins;
 
   nixpkgs-flake = config.inputs.flake-compat.result.load {
     src = config.inputs.nixpkgs.src;
@@ -30,6 +30,7 @@
       };
       overlays = [
         (import ./packages/overlays.nix)
+        config.inputs.emacs-overlay.result.overlays.default
         # config.inputs.lix-module.result.overlays.lixFromNixpkgs
         # config.inputs.niri.result.overlays.niri
       ];

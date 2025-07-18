@@ -12,6 +12,7 @@
     ./power.nix
     ./users.nix
     ./networking.nix
+    ./rebinds.nix
     ./sysutils.nix
 
     # For testing homelab stuff

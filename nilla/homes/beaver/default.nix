@@ -7,9 +7,9 @@
   imports = [
     ./apps.nix
     ./cli.nix
-    # ./syncthing
     ./editors.nix
-    # ../common/niri
+    ./programming.nix
+    ./syncthing
     ../common/stylix.nix
     ../common/plasma
   ];
