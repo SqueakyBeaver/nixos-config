@@ -146,13 +146,13 @@
               "stylua"
             ];
             html = [
-              "prettierd"
+              "prettier"
             ];
             json = [
-              "prettierd"
+              "prettier"
             ];
             xml = [
-              "prettierd"
+              "prettier"
             ];
             rust = [
               "rustfmt"

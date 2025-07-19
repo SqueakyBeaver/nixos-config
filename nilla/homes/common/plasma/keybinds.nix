@@ -49,7 +49,7 @@
         "karousel-window-move-previous" = "Meta+{";
         "karousel-window-move-up" = "Meta+Shift+K";
         "karousel-window-toggle-floating" = "Meta+Space";
-        "view_zoom_in" = "Meta+=";
+        "view_zoom_in" = "Meta++";
         "view_zoom_out" = "Meta+_";
       };
       "services/Alacritty.desktop"."_launch" = ["Meta+T" "Ctrl+Alt+T"];

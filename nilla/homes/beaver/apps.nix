@@ -15,7 +15,6 @@
     # pkgs.gimp
     project.inputs.hmm.result.packages.${pkgs.system}.default
     pkgs.libreoffice-fresh
-    pkgs.obsidian
     # pkgs.prismlauncher
     pkgs.spotify
     pkgs.vlc
@@ -36,14 +35,6 @@
         };
       };
     };
-  };
-
-  programs.floorp = {
-    enable = true;
-    nativeMessagingHosts = [
-      pkgs.valent
-    ];
-    policies = config.programs.firefox.policies;
   };
 
   programs.chromium = {

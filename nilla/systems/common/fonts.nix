@@ -11,12 +11,8 @@
       # Sans(Serif) fonts
       noto-fonts
       noto-fonts-emoji
-      roboto
       inter
       fira-sans
-      manrope
-      montserrat
-      fraunces
 
       # monospace fonts
       jetbrains-mono
@@ -42,7 +38,7 @@
       useEmbeddedBitmaps = true;
       defaultFonts = {
         serif = ["Noto Serif"];
-        sansSerif = ["Fira Sans" "Manrope" "Montserrat"];
+        sansSerif = ["Fira Sans" "Noto Sans" "Inter"];
         monospace = ["JetBrains Mono" "Fira Code"];
         emoji = ["Symbols Nerd Font" "Noto Color Emoji" "Material Symbols"];
       };

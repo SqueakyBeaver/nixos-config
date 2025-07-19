@@ -44,6 +44,13 @@
             "phone"
           ];
         };
+
+        "/home/beaver/Classes" = {
+          label = "classes";
+          devices = [
+            "phone"
+          ];
+        };
       };
     };
   };

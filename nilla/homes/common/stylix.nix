@@ -20,5 +20,5 @@
     polarity = "dark";
   };
 
-  fonts.fontconfig.enable = lib.mkForce false;
+  # fonts.fontconfig.enable = lib.mkForce false;
 }

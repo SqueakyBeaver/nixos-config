@@ -5,6 +5,7 @@
 }: {
   home.packages = with pkgs; [
     clang
+    csharpier
     shellcheck
     dotnet-sdk
     go
@@ -12,6 +13,7 @@
     nodejs
     typescript
     prettier
+    prettierd
     stylelint
     discount # Markdown
     pandoc

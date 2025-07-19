@@ -6,10 +6,10 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = lib.mkForce "blahaj";
-      themePackages = with pkgs; [
-        plymouth-blahaj-theme
-      ];
+      # theme = lib.mkForce "blahaj";
+      # themePackages = with pkgs; [
+      #   plymouth-blahaj-theme
+      # ];
     };
 
     # Enable "Silent Boot"

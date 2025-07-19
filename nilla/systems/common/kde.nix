@@ -32,6 +32,7 @@
     kdePackages.karousel
     material-kwin-decoration
     adwaita-icon-theme # For gnome apps
+    xsettingsd # Unity is a piece of shit
   ];
 
   services.input-remapper.enable = true;
