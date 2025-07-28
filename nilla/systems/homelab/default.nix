@@ -15,6 +15,7 @@ in {
         ./sysconfig/configuration.nix
 
         ../common
+        ../common/desktop/kde.nix
         mods.disko.nixosModules.default
         mods.lix-module.nixosModules.default
         # mods.niri.nixosModules.niri

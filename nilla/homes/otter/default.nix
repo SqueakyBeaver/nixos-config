@@ -8,7 +8,7 @@
     ./apps.nix
     ./editors.nix
     ../common/stylix.nix
-    ../common/plasma
+    ../common/desktop/plasma
   ];
 
   home.sessionVariables = {

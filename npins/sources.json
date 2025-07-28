@@ -67,19 +67,6 @@
       "url": "https://github.com/nix-community/home-manager/archive/9fca4915873d488f267253b00998669697a26453.tar.gz",
       "hash": "1p721gc7i1hw3q6pf06ybc1skm8jk3kc2kzk3qsa7fd3slbhk4w1"
     },
-    "hyprland": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "hyprwm",
-        "repo": "hyprland"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "c63d0003a1e5155248695f19778f815a8ad34c67",
-      "url": "https://github.com/hyprwm/hyprland/archive/c63d0003a1e5155248695f19778f815a8ad34c67.tar.gz",
-      "hash": "0gcww77sc7ypyxa77pxrc6fwa5slxpvm977qf65mzwjb5a5n0ifz"
-    },
     "lix": {
       "type": "Git",
       "repository": {

@@ -9,7 +9,7 @@
     ./waybar.nix
     ./stylix.nix
     ./binds.nix
-    ../stylix.nix
+    ../../stylix.nix
   ];
 
   home.packages = with pkgs; [
