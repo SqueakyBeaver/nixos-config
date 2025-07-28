@@ -26,4 +26,6 @@
     # pkgs.unityhub
     # pkgs.android-studio
   ];
+  # For unity
+  services.xsettingsd.enable = true; 
 }

@@ -9,6 +9,7 @@
     pkgs.discount
     pkgs.graphviz
     pkgs.gnuplot
+    pkgs.sqlite
   ];
 
   programs.emacs = {

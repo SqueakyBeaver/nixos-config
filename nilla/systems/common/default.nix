@@ -5,5 +5,6 @@
     ./inputs.nix
     ./nix.nix
     ./system.nix
+    ./desktop
   ];
 }

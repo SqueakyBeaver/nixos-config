@@ -13,6 +13,9 @@
       profileNames = ["default"];
     };
     targets.floorp = config.stylix.targets.firefox;
+    targets.gtk.extraCss = ''
+      window.background { border-radius: 2px; }
+    '';
 
     image = ./wall.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";

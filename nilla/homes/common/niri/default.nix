@@ -2,11 +2,12 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   imports = [
     ./waybar.nix
-    ./stylix.nix 
+    ./stylix.nix
     ./binds.nix
     ../stylix.nix
   ];
@@ -18,36 +19,47 @@
     xsettingsd
   ];
 
-  services.swaync.enable = true;
-  services.cliphist.enable = true;
+  services = {
+    swaync.enable = true;
+    cliphist.enable = true;
+    # swayosd.enable = true;
 
-  services.swayidle = {
-    enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock -fF";
-      }
-      {
-        event = "lock";
-        command = "lock";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 260;
-        command = "${pkgs.brightnessctl}/bin/brightnessctl s 50%-";
-      }
-      {
-        timeout = 400;
-        command = "${pkgs.swaylock}/bin/swaylock -fF";
-      }
-      {
-        timeout = 600;
-        command = "${pkgs.systemd}/bin/systemctl suspend";
-      }
-    ];
+    swayidle = {
+      enable = true;
+      events = [
+        {
+          event = "before-sleep";
+          command = "${pkgs.swaylock}/bin/swaylock -fF";
+        }
+        {
+          event = "lock";
+          command = "lock";
+        }
+      ];
+      timeouts = [
+        {
+          timeout = 260;
+          command = "${pkgs.brightnessctl}/bin/brightnessctl s 50%-";
+        }
+        {
+          timeout = 400;
+          command = "${pkgs.swaylock}/bin/swaylock -fF";
+        }
+        {
+          timeout = 600;
+          command = "${pkgs.systemd}/bin/systemctl suspend";
+        }
+      ];
+    };
   };
+
+  # systemd.user.services.swayosd.Service.ExecStart = lib.mkForce (let
+  #   cfg = config.services.swayosd;
+  # in
+  #   "${cfg.package}/bin/swayosd-libinput-backend"
+  #   + (lib.optionalString (cfg.display != null) " --display ${cfg.display}")
+  #   + (lib.optionalString (cfg.stylePath != null) " --style ${lib.escapeShellArg cfg.stylePath}")
+  #   + (lib.optionalString (cfg.topMargin != null) " --top-margin ${toString cfg.topMargin}"));
 
   programs = {
     fuzzel.enable = true;

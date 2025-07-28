@@ -15,15 +15,9 @@
     ./networking.nix
     ./rebinds.nix
     ./sysutils.nix
-
-    # For testing homelab stuff
-    # ../../homelab/sysconfig/networking.nix
-    # ../../homelab/sysconfig/nginx.nix
-    # ../../homelab/sysconfig/sysutils.nix
-
-    # ../../common/niri.nix
-    ../../common/kde.nix
   ];
+  
+  desktop.environment = "niri";
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";

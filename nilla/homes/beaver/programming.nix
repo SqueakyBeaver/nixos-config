@@ -4,10 +4,12 @@
   ...
 }: {
   home.packages = with pkgs; [
-    clang
+    llvmPackages.clang
     csharpier
+    dotnet-sdk_9
+    omnisharp-roslyn
+    mono
     shellcheck
-    dotnet-sdk
     go
     gopls
     nodejs

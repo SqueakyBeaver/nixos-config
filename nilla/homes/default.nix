@@ -10,7 +10,6 @@ in {
         ./common
         config.mods.nixvim.homeManagerModules.nixvim
         config.mods.nix-index-db.homeModules.nix-index
-        config.mods.plasma-manager.homeManagerModules.plasma-manager
         config.mods.sops-nix.homeManagerModules.sops
       ];
 

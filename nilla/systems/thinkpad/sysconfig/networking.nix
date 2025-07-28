@@ -66,7 +66,6 @@
           "2606:4700:4700::1111"
           "8.8.8.8" # Please never get to here
         ];
-        dnssec = "true";
       };
       printing = {
         enable = true;

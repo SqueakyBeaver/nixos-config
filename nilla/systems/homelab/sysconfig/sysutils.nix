@@ -27,15 +27,15 @@
       };
     };
 
-    mysql = {
-      enable = true;
-      package = pkgs.mariadb;
-      settings = {
-        mysqld = {
-          lower_case_table_names = 1;
-        };
-      };
-    };
+    # mysql = {
+    #   enable = true;
+    #   package = pkgs.mariadb;
+    #   settings = {
+    #     mysqld = {
+    #       lower_case_table_names = 1;
+    #     };
+    #   };
+    # };
 
     flatpak.enable = true;
     colord.enable = true;
@@ -43,14 +43,7 @@
     fwupd.enable = true;
   };
 
-  programs = {
-    virt-manager.enable = true;
-  };
-
   virtualisation = {
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
-
     podman = {
       enable = true;
       dockerCompat = true;

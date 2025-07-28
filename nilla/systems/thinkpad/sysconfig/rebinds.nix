@@ -16,6 +16,7 @@
         settings = {
           main = {
             capslock = "backspace";
+            rightshift = "rightshift";
           };
           # Emacs will destroy my pinky ;-;
           alt = {

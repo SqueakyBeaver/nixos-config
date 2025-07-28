@@ -46,6 +46,7 @@
 
     git = {
       enable = true;
+      lfs.enable = true;
       # FIXME: If you copy this, change it
       userName = "Beaverr";
       userEmail = "squeaky.beaver4133@protonmail.com";

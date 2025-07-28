@@ -9,8 +9,9 @@
   };
 
   doNotImport = [
-    "spotx-bash"
     "lix"
+    "spotx-bash"
+    "valent"
   ];
 
   loaders = {
@@ -32,7 +33,7 @@
         (import ./packages/overlays.nix)
         config.inputs.emacs-overlay.result.overlays.default
         # config.inputs.lix-module.result.overlays.lixFromNixpkgs
-        # config.inputs.niri.result.overlays.niri
+        config.inputs.niri.result.overlays.niri
       ];
     };
     # Flake
@@ -55,9 +56,6 @@
         lix = import "${pins.lix}" // {versionSuffix = "main";};
       in
         lix;
-    };
-    niri = {
-      inputs.nixpkgs = nixpkgs-flake;
     };
     nix-index-db = {
       inputs.nixpkgs = nixpkgs-flake;

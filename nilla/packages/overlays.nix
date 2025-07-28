@@ -26,4 +26,8 @@ in {
         final.zip
       ];
   });
+
+  valent = prev.valent.overrideAttrs (finalAttrs: prevAttrs: {
+    src = pins.valent;
+  });
 }
