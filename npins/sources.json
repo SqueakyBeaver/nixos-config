@@ -25,9 +25,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "07c08ea0037b2fd7e0b5416361586d4552ac8255",
-      "url": "https://github.com/nix-community/emacs-overlay/archive/07c08ea0037b2fd7e0b5416361586d4552ac8255.tar.gz",
-      "hash": "1cmvw47c8gzsxfkiq47sxnc6lw7ks0zb3wwj9xli34zfk6bvvnrh"
+      "revision": "a460ed2bc3383fcb691f8b88c254145d237b4283",
+      "url": "https://github.com/nix-community/emacs-overlay/archive/a460ed2bc3383fcb691f8b88c254145d237b4283.tar.gz",
+      "hash": "1agvy4k4wravy5150yp4m880xki1b0phsrk2drj0lf3b6gdpxink"
     },
     "flake-compat": {
       "type": "Git",
@@ -50,9 +50,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "4826df385fd6cfb910588cdea714fe4958e2eb1e",
+      "revision": "2fd091076dbe91c97a25404e6fbf3dbf7130a285",
       "url": null,
-      "hash": "sha256-1fcUcKAmCkAHwpggaoiLvW19L3QwOk1lrrBLLxMjWOY="
+      "hash": "0dv10qwa7z5hc8wb03rkhlqygwx24d5f1svhly9g6amfyc8d7n5n"
     },
     "home-manager": {
       "type": "Git",
@@ -63,21 +63,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "9fca4915873d488f267253b00998669697a26453",
-      "url": "https://github.com/nix-community/home-manager/archive/9fca4915873d488f267253b00998669697a26453.tar.gz",
-      "hash": "1p721gc7i1hw3q6pf06ybc1skm8jk3kc2kzk3qsa7fd3slbhk4w1"
-    },
-    "lix": {
-      "type": "Git",
-      "repository": {
-        "type": "Git",
-        "url": "https://git.lix.systems/lix-project/lix"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "57b1c289b59240d8cc34adc4c4c59bb0042c612d",
-      "url": null,
-      "hash": "13w72arwgdjvx2nfs6zxgbdpxlza4dgandxvn2pfciix9yk5fqfv"
+      "revision": "f49e872f55e36e67ebcb906ff65f86c7a1538f7c",
+      "url": "https://github.com/nix-community/home-manager/archive/f49e872f55e36e67ebcb906ff65f86c7a1538f7c.tar.gz",
+      "hash": "09qzq4bkxkgn8lp5gzxbyzvqhdlkswq2qxaqmhfgy5508hrxb25y"
     },
     "lix-module": {
       "type": "Git",
@@ -168,9 +156,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "fafdcb505ba605157ff7a7eeea452bc6d6cbc23c",
-      "url": "https://github.com/nix-community/nix-index-database/archive/fafdcb505ba605157ff7a7eeea452bc6d6cbc23c.tar.gz",
-      "hash": "07sxsm80nxmyvlbh9c8xqc7l1gifl04yk8kn139rv5pwyxwhszxi"
+      "revision": "f0736b09c43028fd726fb70c3eb3d1f0795454cf",
+      "url": "https://github.com/nix-community/nix-index-database/archive/f0736b09c43028fd726fb70c3eb3d1f0795454cf.tar.gz",
+      "hash": "0rgfjjrh7zri5591px1lhvygzhlg4r3zk85ymrja2x3nq1q6alnb"
     },
     "nixos-hardware": {
       "type": "Git",
@@ -188,8 +176,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre833752.fc02ee70efb8/nixexprs.tar.xz",
-      "hash": "13djcw3j6mybs22ciimrfwfyhgy3wqr462jvw8z7rzk90wj9k94h"
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre835620.17f6bd177404/nixexprs.tar.xz",
+      "hash": "1anz60qld0p0im3wf8gxvb108k97fq8y9zj13jppdgvamv1l6kmv"
     },
     "nixvim": {
       "type": "Git",
@@ -200,9 +188,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "dff79d34f8021d721461f63286537efc28a41451",
-      "url": "https://github.com/nix-community/nixvim/archive/dff79d34f8021d721461f63286537efc28a41451.tar.gz",
-      "hash": "1fw93jvngjjnkhhg38xm26qi2pvqh5r8bz670g59fa5776wpwalr"
+      "revision": "e1aa35fb04047df11a9c1ab539a0bac35ddad509",
+      "url": "https://github.com/nix-community/nixvim/archive/e1aa35fb04047df11a9c1ab539a0bac35ddad509.tar.gz",
+      "hash": "1x90z28hsmizv1sdnpp6s6mgr4yarmkl3q1z77dapqpy531rbp34"
     },
     "plasma-manager": {
       "type": "Git",
@@ -239,9 +227,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "868fb87e29680d9ed26e0f689e7fe73a03092a35",
-      "url": "https://github.com/Spotx-official/spotx-bash/archive/868fb87e29680d9ed26e0f689e7fe73a03092a35.tar.gz",
-      "hash": "sha256-1pkfR74cR677DLbvx/qLRDddBHq83Ahk8x4tiEV4wKQ="
+      "revision": "8b9a9924cf2f7268337a9bad5e84b0083268f40d",
+      "url": "https://github.com/Spotx-official/spotx-bash/archive/8b9a9924cf2f7268337a9bad5e84b0083268f40d.tar.gz",
+      "hash": "1bdwg5c9j7g81whc187krlyb6fhzjapqsilrixx2zl73rrx4f8r3"
     },
     "stylix": {
       "type": "Git",
@@ -252,9 +240,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "ceda12a6da2181e424d8ed7e68ed291745f06f49",
-      "url": "https://github.com/danth/stylix/archive/ceda12a6da2181e424d8ed7e68ed291745f06f49.tar.gz",
-      "hash": "0gwqnqvr1p7b1xwg4xpdkp0hrv2815nd7g2av3jq2gf7xalih8kv"
+      "revision": "57d036d92283fddc6ae080459e72e767144a1cda",
+      "url": "https://github.com/danth/stylix/archive/57d036d92283fddc6ae080459e72e767144a1cda.tar.gz",
+      "hash": "0fickjkiqmq605bkczvcvdz1kkl6y7nz53va395qns9nqs99777j"
     },
     "valent": {
       "type": "Git",

@@ -13,7 +13,7 @@
     pkgs.legcord
     # pkgs.dolphin-emu
     # pkgs.gimp
-    project.inputs.hmm.result.packages.${pkgs.system}.default
+    pkgs.hedgemodmanager
     pkgs.libreoffice-fresh
     # pkgs.prismlauncher
     pkgs.spotify
@@ -23,18 +23,8 @@
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
-      pkgs.kdePackages.plasma-browser-integration
+      # pkgs.kdePackages.plasma-browser-integration
     ];
-    # policies."3rdparty" = {
-    #   Extensions = {
-    #     "uBlock0@raymondhill.net" = {
-    #       adminSettings = {
-    #         # I like ironfox's uBlock default filters better
-    #         assetsBootstrapLocation = "https://gitlab.com/ironfox-oss/IronFox/-/raw/dev/uBlock/assets.main.json";
-    #       };
-    #     };
-    #   };
-    # };
   };
 
   programs.chromium = {

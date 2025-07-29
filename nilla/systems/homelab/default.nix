@@ -17,7 +17,7 @@ in {
         ../common
         ../common/desktop/kde.nix
         mods.disko.nixosModules.default
-        mods.lix-module.nixosModules.default
+        mods.lix-module.nixosModules.lixFromNixpkgs
         # mods.niri.nixosModules.niri
         mods.sops-nix.nixosModules.sops
         mods.stylix.nixosModules.stylix

@@ -7,12 +7,9 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    targets.kde.enable = false;
-    targets.qt.enable = false;
     targets.firefox = {
       profileNames = ["default"];
     };
-    targets.floorp = config.stylix.targets.firefox;
     targets.gtk.extraCss = ''
       window.background { border-radius: 2px; }
     '';

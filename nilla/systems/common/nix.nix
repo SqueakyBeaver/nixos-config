@@ -61,6 +61,7 @@
     # };
 
     nix = {
+      package = pkgs.lixPackageSets.latest.lix;
       gc = {
         automatic = true;
         persistent = true;

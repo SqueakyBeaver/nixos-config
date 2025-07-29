@@ -1,8 +1,6 @@
 {
-  config,
   lib,
   pkgs,
-  project,
   ...
 }: {
   stylix = {
@@ -33,7 +31,10 @@
     seahorse.enable = true;
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  services = {
+    gnome.gnome-keyring.enable = true;
+    greetd.enable = true;
+  };
 
   environment.systemPackages = [
     pkgs.kdePackages.dolphin
@@ -43,7 +44,10 @@
     pkgs.kdePackages.kate
     pkgs.adwaita-icon-theme
     pkgs.libsecret
+    pkgs.wl-clipboard
+    pkgs.wayland-utils
+    pkgs.gamescope
+    pkgs.networkmanagerapplet
+    pkgs.adwaita-icon-theme # For gnome apps
   ];
-
-  qt.enable = true;
 }

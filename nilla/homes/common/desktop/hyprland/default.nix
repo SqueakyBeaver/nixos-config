@@ -8,19 +8,28 @@
     ./hyprpanel.nix
   ];
 
+  stylix.icons = {
+    enable = true;
+    package = pkgs.adwaita-icon-theme;
+    light = "Adwaita";
+    dark = "Adwaita";
+  };
+
   home.packages = [
-    pkgs.fuzzel
     pkgs.brightnessctl
     pkgs.rofimoji
     pkgs.xsettingsd
   ];
 
   programs = {
+    fuzzel.enable = true;
+    alacritty.enable = true;
     hyprlock.enable = true;
     wlogout.enable = true;
   };
 
   services = {
+    cliphist.enable = true;
     hyprpolkitagent.enable = true;
     hyprpaper.enable = true;
     hypridle = {
@@ -94,9 +103,10 @@
 
       env = [
         "QT_QPA_PLATFORM,wayland"
+        "GDK_SCALE,1"
       ];
 
-      monitor = "eDP-1, 1920x1080@60, 0x0, 1.25";
+      monitor = ", preferred, auto, 1.25";
 
       general = {
         gaps_out = 5;
