@@ -15,36 +15,36 @@
           highlight.enable = true;
           indent.enable = true;
         };
-          # I don't want them all installed
-          grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-            bash
-            c
-            c_sharp
-            cpp
-            css
-            gitattributes
-            gitcommit
-            gitignore
-            go
-            gomod
-            gosum
-            html
-            javascript
-            json
-            jsonc
-            lua
-            markdown
-            nix
-            php
-            python
-            regex
-            rust
-            typescript
-            vim
-            vimdoc
-            xml
-            yaml
-          ];
+        # I don't want them all installed
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          bash
+          c
+          c_sharp
+          cpp
+          css
+          gitattributes
+          gitcommit
+          gitignore
+          go
+          gomod
+          gosum
+          html
+          javascript
+          json
+          jsonc
+          lua
+          markdown
+          nix
+          php
+          python
+          regex
+          rust
+          typescript
+          vim
+          vimdoc
+          xml
+          yaml
+        ];
         # folding = true;
       };
 
@@ -120,19 +120,20 @@
       conform-nvim = {
         enable = true;
         settings = {
-          formatters_by_ft = {
+          formatters_by_ft = let
+            prettier = {
+              __unkeyed-1 = "prettierd";
+              __unkeyed-2 = "prettier";
+              timeout_ms = 2000;
+              stop_after_first = true;
+            };
+          in {
             bash = [
               "shellcheck"
               "shellharden"
               "shfmt"
             ];
             cpp = ["clang_format"];
-            javascript = {
-              __unkeyed-1 = "prettierd";
-              __unkeyed-2 = "prettier";
-              timeout_ms = 2000;
-              stop_after_first = true;
-            };
             python = [
               "ruff_fix"
               "ruff_format"
@@ -145,15 +146,12 @@
             lua = [
               "stylua"
             ];
-            html = [
-              "prettier"
-            ];
-            json = [
-              "prettier"
-            ];
-            xml = [
-              "prettier"
-            ];
+            html = prettier;
+            json = prettier;
+            xml = prettier;
+            javascript = prettier;
+            typescript = prettier;
+            typescriptreact = prettier;
             rust = [
               "rustfmt"
             ];
@@ -181,6 +179,8 @@
       cursorline.enable = true;
 
       indent-blankline.enable = true;
+
+      guess-indent.enable = true;
 
       nix.enable = true;
 
@@ -259,32 +259,7 @@
         settings.open_mapping = "[[<C-`>]]";
       };
 
-      mini = {
-        enable = true;
-        modules = {
-          ai = {
-            n_lines = 50;
-            search_method = "cover_or_next";
-          };
-          surround = {
-            mappings = {
-              add = "gsa";
-              delete = "gsd";
-              find = "gsf";
-              find_left = "gsF";
-              highlight = "gsh";
-              replace = "gsr";
-              update_n_lines = "gsn";
-            };
-          };
-        };
-      };
-
       # auto-session.enable = true;
-
-      tmux-navigator = {
-        enable = true;
-      };
 
       nvim-ufo.enable = true;
 
@@ -335,7 +310,7 @@
 
       lazygit.enable = true;
 
-      gitblame.enable = true;
+      # gitblame.enable = true;
 
       neo-tree.enable = true;
 

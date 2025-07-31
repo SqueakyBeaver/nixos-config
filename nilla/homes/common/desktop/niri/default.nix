@@ -22,7 +22,7 @@
   services = {
     swaync.enable = true;
     cliphist.enable = true;
-    # swayosd.enable = true;
+    swayosd.enable = true;
 
     swayidle = {
       enable = true;
@@ -67,104 +67,107 @@
     swaylock.enable = true;
     wlogout.enable = true;
 
-    niri.settings = {
-      clipboard.disable-primary = true;
-      prefer-no-csd = true;
+    niri = {
+      package = pkgs.niri-unstable;
+      settings = {
+        clipboard.disable-primary = true;
+        prefer-no-csd = true;
 
-      spawn-at-startup = [
-        {
-          command = ["sh" "-c" "xwayland-satellite & { sleep 1; xsettingsd; } &"];
-        }
-      ];
-
-      environment = {
-        QT_QPA_PLATFORM = "wayland";
-        DISPLAY = ":0";
-      };
-
-      input = {
-        power-key-handling.enable = false;
-        keyboard = {
-          xkb = {
-            layout = "us";
-            options = "caps:backspace";
-          };
-        };
-
-        touchpad = {
-          accel-profile = "flat";
-          accel-speed = 0.50;
-          click-method = "clickfinger";
-          scroll-method = "two-finger";
-        };
-
-        mouse = {
-          accel-profile = "flat";
-          accel-speed = 0.20;
-        };
-
-        trackpoint = {
-          accel-profile = "flat";
-          accel-speed = 0.20;
-        };
-      };
-
-      layout = {
-        preset-column-widths = [
-          {proportion = 1. / 3.;}
-          {proportion = 1. / 2.;}
-          {proportion = 2. / 3.;}
+        spawn-at-startup = [
+          {
+            command = ["sh" "-c" "xwayland-satellite & { sleep 1; xsettingsd; } &"];
+          }
         ];
 
-        tab-indicator = {
-          gap = 2;
-          place-within-column = true;
-          corner-radius = 5;
-          gaps-between-tabs = 5;
+        environment = {
+          QT_QPA_PLATFORM = "wayland";
+          DISPLAY = ":0";
         };
 
-        gaps = 5;
-      };
-
-      workspaces = {
-        main = {};
-        music = {};
-      };
-
-      window-rules = [
-        {
-          draw-border-with-background = false;
-          geometry-corner-radius = let
-            r = 7.0;
-          in {
-            top-left = r;
-            top-right = r;
-            bottom-right = r;
-            bottom-left = r;
+        input = {
+          power-key-handling.enable = false;
+          keyboard = {
+            xkb = {
+              layout = "us";
+              options = "caps:backspace";
+            };
           };
 
-          clip-to-geometry = true;
-        }
-        {
-          matches = [
-            {
-              app-id = "steam";
-              title = "^notificationtoasts_\d+_desktop$";
-            }
-          ];
-          default-floating-position = {
-            relative-to = "bottom-right";
-            x = 10;
-            y = 10;
+          touchpad = {
+            accel-profile = "flat";
+            accel-speed = 0.50;
+            click-method = "clickfinger";
+            scroll-method = "two-finger";
           };
-        }
-        {
-          matches = [
-            {app-id = "[Ss]potify";}
+
+          mouse = {
+            accel-profile = "flat";
+            accel-speed = 0.20;
+          };
+
+          trackpoint = {
+            accel-profile = "flat";
+            accel-speed = 0.20;
+          };
+        };
+
+        layout = {
+          preset-column-widths = [
+            {proportion = 1. / 3.;}
+            {proportion = 1. / 2.;}
+            {proportion = 2. / 3.;}
           ];
-          open-on-workspace = "music";
-        }
-      ];
+
+          tab-indicator = {
+            gap = 2;
+            place-within-column = true;
+            corner-radius = 5;
+            gaps-between-tabs = 5;
+          };
+
+          gaps = 5;
+        };
+
+        workspaces = {
+          main = {};
+          music = {};
+        };
+
+        window-rules = [
+          {
+            draw-border-with-background = false;
+            geometry-corner-radius = let
+              r = 7.0;
+            in {
+              top-left = r;
+              top-right = r;
+              bottom-right = r;
+              bottom-left = r;
+            };
+
+            clip-to-geometry = true;
+          }
+          {
+            matches = [
+              {
+                app-id = "steam";
+                title = "^notificationtoasts_\d+_desktop$";
+              }
+            ];
+            default-floating-position = {
+              relative-to = "bottom-right";
+              x = 10;
+              y = 10;
+            };
+          }
+          {
+            matches = [
+              {app-id = "[Ss]potify";}
+            ];
+            open-on-workspace = "music";
+          }
+        ];
+      };
     };
   };
 

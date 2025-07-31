@@ -7,11 +7,12 @@
   stylix = {
     targets.kde.enable = lib.mkForce true;
     targets.qt.enable = lib.mkForce true;
-    icons = {
-      enable = true;
-      package = pkgs.adwaita-icon-theme;
-      light = "Adwaita";
-      dark = "Adwaita";
+    
+
+    fonts.sizes = {
+      applications = 12;
+      desktop = 11;
+      popups = 13;
     };
   };
 

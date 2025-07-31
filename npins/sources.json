@@ -25,9 +25,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "a460ed2bc3383fcb691f8b88c254145d237b4283",
-      "url": "https://github.com/nix-community/emacs-overlay/archive/a460ed2bc3383fcb691f8b88c254145d237b4283.tar.gz",
-      "hash": "1agvy4k4wravy5150yp4m880xki1b0phsrk2drj0lf3b6gdpxink"
+      "revision": "2dc863f0ba0b72414695f5bedabeeb4a1eef0c44",
+      "url": "https://github.com/nix-community/emacs-overlay/archive/2dc863f0ba0b72414695f5bedabeeb4a1eef0c44.tar.gz",
+      "hash": "1hb0facjfy65hh4sds886m08vbd3bfvfs0jrbzgf209r6qi1avn0"
     },
     "flake-compat": {
       "type": "Git",
@@ -50,9 +50,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "2fd091076dbe91c97a25404e6fbf3dbf7130a285",
+      "revision": "593ac48f9942c074e8ac83e7603cd56f211e94ae",
       "url": null,
-      "hash": "0dv10qwa7z5hc8wb03rkhlqygwx24d5f1svhly9g6amfyc8d7n5n"
+      "hash": "0mwdpr1lsy4q4a9593q22yfb6qz89lif7ccz6aqajz1lynf3c331"
     },
     "home-manager": {
       "type": "Git",
@@ -63,9 +63,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f49e872f55e36e67ebcb906ff65f86c7a1538f7c",
-      "url": "https://github.com/nix-community/home-manager/archive/f49e872f55e36e67ebcb906ff65f86c7a1538f7c.tar.gz",
-      "hash": "09qzq4bkxkgn8lp5gzxbyzvqhdlkswq2qxaqmhfgy5508hrxb25y"
+      "revision": "bd82507edd860c453471c46957cbbe3c9fd01b5c",
+      "url": "https://github.com/nix-community/home-manager/archive/bd82507edd860c453471c46957cbbe3c9fd01b5c.tar.gz",
+      "hash": "0vkr2lmn3g1wks4r9xqmh1llqqlfh4f73l9434jw4mcv4vjh88bs"
     },
     "lix-module": {
       "type": "Git",
@@ -143,9 +143,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "76d7de1a046d589b75967a597895f8e5efdc8e16",
-      "url": "https://github.com/sodiboo/niri-flake/archive/76d7de1a046d589b75967a597895f8e5efdc8e16.tar.gz",
-      "hash": "0z3lb16zqm09aasdb92j4rqpkv1lqrzvjgj65xfzlqbpw9g0zvbb"
+      "revision": "40cac0b43a13fd7916cb4cd67d4a53343a647dba",
+      "url": "https://github.com/sodiboo/niri-flake/archive/40cac0b43a13fd7916cb4cd67d4a53343a647dba.tar.gz",
+      "hash": "06ynw2br6031ak0z802s55wrm44r6kdhpz9ixq4k38161mkwpi6m"
     },
     "nix-index-db": {
       "type": "Git",
@@ -176,8 +176,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre835620.17f6bd177404/nixexprs.tar.xz",
-      "hash": "1anz60qld0p0im3wf8gxvb108k97fq8y9zj13jppdgvamv1l6kmv"
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre836203.dc9637876d0d/nixexprs.tar.xz",
+      "hash": "0k5zcg1cd4przidmgd0q5jswl7qw3ycn82iqz6jr5d5mrhvvy5hq"
     },
     "nixvim": {
       "type": "Git",
@@ -188,9 +188,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e1aa35fb04047df11a9c1ab539a0bac35ddad509",
-      "url": "https://github.com/nix-community/nixvim/archive/e1aa35fb04047df11a9c1ab539a0bac35ddad509.tar.gz",
-      "hash": "1x90z28hsmizv1sdnpp6s6mgr4yarmkl3q1z77dapqpy531rbp34"
+      "revision": "1729fe160872c9e53bd6977d92f53ef131606d4e",
+      "url": "https://github.com/nix-community/nixvim/archive/1729fe160872c9e53bd6977d92f53ef131606d4e.tar.gz",
+      "hash": "0vky9qhmwy0a6av8n12g09c1nav3wisck075kkg9bdi95mq1a74z"
     },
     "plasma-manager": {
       "type": "Git",
@@ -240,9 +240,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "57d036d92283fddc6ae080459e72e767144a1cda",
-      "url": "https://github.com/danth/stylix/archive/57d036d92283fddc6ae080459e72e767144a1cda.tar.gz",
-      "hash": "0fickjkiqmq605bkczvcvdz1kkl6y7nz53va395qns9nqs99777j"
+      "revision": "e544f6ec6cabf2f846975408540e30811b3df4e0",
+      "url": "https://github.com/danth/stylix/archive/e544f6ec6cabf2f846975408540e30811b3df4e0.tar.gz",
+      "hash": "00z4z8k4q68zbcvfihyv0kgpkzpw18vcm79wbxkxcvwcsvmxwzhx"
     },
     "valent": {
       "type": "Git",

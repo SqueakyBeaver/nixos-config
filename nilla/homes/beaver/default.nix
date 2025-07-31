@@ -11,7 +11,7 @@
     ./programming.nix
     ./syncthing
     ../common/stylix.nix
-    ../common/desktop/hyprland
+    ../common/desktop/niri
   ];
 
   home.sessionVariables = {

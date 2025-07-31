@@ -4,6 +4,5 @@
     ./fonts.nix
     ./inputs.nix
     ./nix.nix
-    ./system.nix
   ];
 }

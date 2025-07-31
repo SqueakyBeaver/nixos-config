@@ -47,6 +47,15 @@
     };
   };
 
+  xdg.portal = {
+    # These *might* not be necessary 
+    # but holy shit unityhub is making me lose my fucking mind
+    extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
+  };
+
   # Some nice packages to have
   environment.systemPackages = with pkgs; [
     nautilus

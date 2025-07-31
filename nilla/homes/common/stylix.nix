@@ -18,6 +18,13 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
     polarity = "dark";
+
+    icons = {
+      enable = true;
+      package = pkgs.adwaita-icon-theme;
+      light = "Adwaita";
+      dark = "Adwaita";
+    };
   };
 
   # fonts.fontconfig.enable = lib.mkForce false;
