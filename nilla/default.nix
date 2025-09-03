@@ -11,6 +11,7 @@
   };
 
   config.mods = {
+    chaotic = config.inputs.chaotic.result;
     disko = config.inputs.disko.result;
     home-manager = config.inputs.home-manager.result;
     lix-module = config.inputs.lix-module.result;

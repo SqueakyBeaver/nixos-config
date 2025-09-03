@@ -5,13 +5,11 @@
 }: {
   config.fonts = {
     packages = with pkgs; [
-      # icon fonts
-      material-symbols
-
       # Sans(Serif) fonts
       noto-fonts
       noto-fonts-emoji
       inter
+      inter-nerdfont
       fira-sans
 
       # monospace fonts
@@ -40,7 +38,7 @@
         serif = ["Noto Serif"];
         sansSerif = ["Fira Sans" "Noto Sans" "Inter"];
         monospace = ["JetBrains Mono" "Fira Code"];
-        emoji = ["Symbols Nerd Font" "Noto Color Emoji" "Material Symbols"];
+        emoji = ["Noto Color Emoji"];
       };
     };
   };

@@ -113,14 +113,11 @@
         };
         rust_analyzer = {
           enable = true;
-          settings = {
-            installRustc = true;
-            installCargo = true;
-          };
         };
         ts_ls.enable = true;
         cssls.enable = true;
         omnisharp.enable = true;
+        qmlls.enable = true;
       };
     };
 

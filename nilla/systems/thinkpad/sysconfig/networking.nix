@@ -67,12 +67,23 @@
           "8.8.8.8" # Please never get to here
         ];
       };
+
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        nssmdns6 = true;
+        openFirewall = true;
+      };
+
       printing = {
         enable = true;
         openFirewall = true;
         drivers = [pkgs.gutenprint];
         browsing = true;
       };
+
+      samba.enable = true;
+      samba.openFirewall = true;
 
       openssh = {
         enable = true;

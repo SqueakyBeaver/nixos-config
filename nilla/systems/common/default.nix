@@ -4,5 +4,6 @@
     ./fonts.nix
     ./inputs.nix
     ./nix.nix
+    ./stylix.nix
   ];
 }

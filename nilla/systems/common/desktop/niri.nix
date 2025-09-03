@@ -29,35 +29,22 @@
     gvfs.enable = true;
 
     udisks2.enable = true;
-    udev.packages = [pkgs.swayosd];
     gnome.sushi.enable = true;
     blueman.enable = true;
   };
-
-  stylix = {
-    enable = true;
-    base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
-    autoEnable = true;
-    polarity = "dark";
-
-    cursor = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-dark";
-      size = 24;
-    };
-  };
-
+ 
   xdg.portal = {
-    # These *might* not be necessary 
+    # These *might* not be necessary
     # but holy shit unityhub is making me lose my fucking mind
     extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.kdePackages.xdg-desktop-portal-kde
     ];
   };
 
   # Some nice packages to have
   environment.systemPackages = with pkgs; [
+    kdePackages.dolphin
     nautilus
     eog
     wl-clipboard
@@ -70,21 +57,10 @@
     swaylock
     swayidle
     swayosd
-    adwaita-icon-theme # For gnome apps
+    # GTK themes pls work
+    adwaita-icon-theme
+    gnome-icon-theme
+    hicolor-icon-theme
+    gnome-themes-extra
   ];
-
-  systemd.services.swayosd-libinput-backend = {
-    description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
-    documentation = ["https://github.com/ErikReider/SwayOSD"];
-    wantedBy = ["graphical.target"];
-    partOf = ["graphical.target"];
-    after = ["graphical.target"];
-
-    serviceConfig = {
-      Type = "dbus";
-      BusName = "org.erikreider.swayosd";
-      ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
-      Restart = "on-failure";
-    };
-  };
 }

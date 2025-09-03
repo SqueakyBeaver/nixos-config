@@ -28,9 +28,6 @@
         START_CHARGE_THRESH_BAT0 = 60;
         STOP_CHARGE_THRESH_BAT0 = 80;
 
-        RUNTIME_PM_ON_AC = "auto";
-        RUNTIME_PM_ON_BAT = "auto";
-
         USB_EXCLUDE_BTUSB = 1;
       };
     };

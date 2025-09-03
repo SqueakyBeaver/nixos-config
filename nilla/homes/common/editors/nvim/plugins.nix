@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
@@ -16,35 +17,35 @@
           indent.enable = true;
         };
         # I don't want them all installed
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-          bash
-          c
-          c_sharp
-          cpp
-          css
-          gitattributes
-          gitcommit
-          gitignore
-          go
-          gomod
-          gosum
-          html
-          javascript
-          json
-          jsonc
-          lua
-          markdown
-          nix
-          php
-          python
-          regex
-          rust
-          typescript
-          vim
-          vimdoc
-          xml
-          yaml
-        ];
+        # grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        #   bash
+        #   c
+        #   c_sharp
+        #   cpp
+        #   css
+        #   gitattributes
+        #   gitcommit
+        #   gitignore
+        #   go
+        #   gomod
+        #   gosum
+        #   html
+        #   javascript
+        #   json
+        #   jsonc
+        #   lua
+        #   markdown
+        #   nix
+        #   php
+        #   python
+        #   regex
+        #   rust
+        #   typescript
+        #   vim
+        #   vimdoc
+        #   xml
+        #   yaml
+        # ];
         # folding = true;
       };
 
@@ -76,7 +77,6 @@
               };
             };
             documentation.auto_show = true;
-            trigger.show_in_snippet = false;
             list.selection = {
               preselect = false;
               auto_insert = false;
@@ -120,6 +120,12 @@
       conform-nvim = {
         enable = true;
         settings = {
+          formatters = {
+            qmlformat = {
+              command = "qmlformat";
+              args = config.lib.nixvim.mkRaw ''{"$FILENAME"}'';
+            };
+          };
           formatters_by_ft = let
             prettier = {
               __unkeyed-1 = "prettierd";
@@ -155,6 +161,9 @@
             rust = [
               "rustfmt"
             ];
+            qml = [
+              "qmlformat"
+            ];
             "_" = [
               "trim_whitespace"
               "trim_newlines"
@@ -183,54 +192,6 @@
       guess-indent.enable = true;
 
       nix.enable = true;
-
-      twilight.enable = true;
-      zen-mode = {
-        enable = true;
-
-        settings = {
-          on_close = ''
-            function()
-              require("gitsigns.actions").toggle_current_line_blame()
-              vim.cmd('IBLEnable')
-              vim.cmd('GitBlameToggle')
-              vim.opt.number = true
-              require("gitsigns.actions").refresh()
-            end
-          '';
-          on_open = ''
-            function()
-              require("gitsigns.actions").toggle_current_line_blame()
-              vim.cmd('IBLDisable')
-              vim.cmd('GitBlameToggle')
-              vim.opt.number = false
-              require("gitsigns.actions").refresh()
-            end
-          '';
-          plugins = {
-            gitsigns = {
-              enabled = true;
-            };
-
-            options = {
-              enabled = true;
-              ruler = false;
-              showcmd = false;
-            };
-            twilight = {
-              enabled = false;
-            };
-          };
-          window = {
-            backdrop = 0.95;
-            height = 1;
-            options = {
-              signcolumn = "no";
-            };
-            width = 0.8;
-          };
-        };
-      };
 
       dropbar.enable = true;
 
@@ -264,6 +225,9 @@
       nvim-ufo.enable = true;
 
       web-devicons.enable = true;
+
+      orgmode.enable = true;
+      headlines.enable = true;
 
       ##############################
 

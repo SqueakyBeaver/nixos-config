@@ -16,23 +16,21 @@
 
   security.rtkit.enable = true;
   services = {
-    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      wireplumber.extraConfig."10-bluez" = {
-        "monitor.bluez.properties" = {
-          "bluez5.enable-sbc-xq" = true;
-          "bluez5.enable-msbc" = true;
-          "bluez5.enable-hw-volume" = true;
-          "bluez5.roles" = [
-            "hsp_hs"
-            "hsp_ag"
-            "hfp_hf"
-            "hfp_ag"
-          ];
+      wireplumber.extraConfig = {
+        "10-bluez" = {
+          "monitor.bluez.properties" = {
+            "bluez5.enable-hw-volume" = true;
+          };
+        };
+        "11-bluetooth-policy" = {
+          "wireplumber.settings" = {
+            "bluetooth.autoswitch-to-headset-profile" = false;
+          };
         };
       };
     };
@@ -67,6 +65,13 @@
       enable = true;
       enableRenice = true;
     };
+
+    # Use android tablet as a sort of drawing tablet
+    weylus = {
+      enable = true;
+      openFirewall = true;
+      users = ["beaver"];
+    };
   };
 
   virtualisation = {
@@ -100,6 +105,8 @@
         General = {
           Experimental = true;
           KernelExperimental = true;
+          MultiProfile = "multiple";
+          Enable = "Source,Sink,Media,Socket";
         };
       };
     };

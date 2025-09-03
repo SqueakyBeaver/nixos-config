@@ -10,18 +10,34 @@
     pkgs.bitwarden
     (pkgs.bottles.override {removeWarningPopup = true;})
 
-    pkgs.legcord
+    pkgs.vesktop
     # pkgs.dolphin-emu
     # pkgs.gimp
     pkgs.hedgemodmanager
     pkgs.libreoffice-fresh
     # pkgs.prismlauncher
-    pkgs.spotify
+    pkgs.pavucontrol
+    # pkgs.spotify
+    pkgs.youtube-music
+    pkgs.kdePackages.elisa
     pkgs.vlc
+
+    pkgs.xournalpp
   ];
 
   programs.firefox = {
     enable = true;
+    nativeMessagingHosts = [
+      pkgs.kdePackages.plasma-browser-integration
+    ];
+  };
+
+  programs.floorp = {
+    enable = true;
+    package = pkgs.firedragon;
+    nativeMessagingHosts = [
+      pkgs.kdePackages.plasma-browser-integration
+    ];
   };
 
   programs.chromium = {

@@ -8,9 +8,10 @@ in {
       modules = [
         ./beaver
         ./common
-        config.mods.nixvim.homeManagerModules.nixvim
+        config.mods.nixvim.homeModules.nixvim
         config.mods.nix-index-db.homeModules.nix-index
         config.mods.sops-nix.homeManagerModules.sops
+        config.mods.plasma-manager.homeModules.plasma-manager
       ];
 
       args = {
@@ -22,9 +23,9 @@ in {
       modules = [
         ./otter
         ./common
-        config.mods.nixvim.homeManagerModules.nixvim
+        config.mods.nixvim.homeModules.nixvim
         config.mods.nix-index-db.homeModules.nix-index
-        config.mods.plasma-manager.homeManagerModules.plasma-manager
+        config.mods.plasma-manager.homeModules.plasma-manager
       ];
 
       args = {

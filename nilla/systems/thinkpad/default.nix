@@ -14,7 +14,8 @@ in {
         # I put everything in a seperate dir to make it look nicer
         ./sysconfig/configuration.nix
         ../common
-        ../common/desktop/niri.nix
+        ../common/desktop/kde.nix
+        mods.chaotic.nixosModules.default
         mods.lix-module.nixosModules.lixFromNixpkgs
         mods.niri.nixosModules.niri
         mods.sops-nix.nixosModules.sops

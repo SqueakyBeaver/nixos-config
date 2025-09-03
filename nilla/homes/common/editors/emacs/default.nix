@@ -10,6 +10,7 @@
     pkgs.graphviz
     pkgs.gnuplot
     pkgs.sqlite
+    pkgs.gnutls
   ];
 
   programs.emacs = {

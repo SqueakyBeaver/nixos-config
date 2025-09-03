@@ -34,7 +34,8 @@
 in {
   home.packages = [
     pkgs.networkmanager_dmenu
-    pkgs.gammastep
+    pkgs.wl-gammarelay-rs
+    pkgs.pavucontrol
   ];
 
   programs.waybar = {

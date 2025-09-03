@@ -35,11 +35,8 @@
         AMDGPU_ABM_LEVEL_ON_AC = 0;
         AMDGPU_ABM_LEVEL_ON_BAT = 2;
 
-        START_CHARGE_THRESH_BAT0 = 60;
+        START_CHARGE_THRESH_BAT0 = 70;
         STOP_CHARGE_THRESH_BAT0 = 80;
-
-        RUNTIME_PM_ON_AC = "auto";
-        RUNTIME_PM_ON_BAT = "auto";
 
         USB_EXCLUDE_BTUSB = 1;
       };

@@ -30,4 +30,8 @@ in {
   valent = prev.valent.overrideAttrs (finalAttrs: prevAttrs: {
     src = pins.valent;
   });
+  
+  firedragon = prev.firedragon.overrideAttrs (finalAttrs: prevAttrs: {
+
+  });
 }

@@ -40,7 +40,21 @@
     };
 
     eza.enable = true;
-    ssh.enable = true;
+    ssh = {
+      enable = true;
+      matchBlocks."*" = {
+        addKeysToAgent = "confirm";
+        forwardAgent = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        compression = false;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
+    };
     zsh.enable = true;
     nix-index.enable = true;
 
@@ -226,7 +240,6 @@
 
     fzf.tmux.enableShellIntegration = true;
 
-    ssh.addKeysToAgent = "confirm";
 
     # Open sesh with Alt-s
     zsh.initContent = ''

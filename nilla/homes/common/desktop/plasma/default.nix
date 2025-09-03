@@ -10,6 +10,9 @@
 
   stylix.targets.kde.enable = lib.mkForce true;
   stylix.targets.qt.enable = lib.mkForce true;
+  stylix.targets.qt.platform = "kde";
+
+  qt.platformTheme.name = lib.mkForce "kde";
 
   programs.plasma = {
     enable = true;

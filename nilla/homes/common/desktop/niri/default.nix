@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./waybar.nix
+    ../waybar
     ./stylix.nix
     ./binds.nix
     ../../stylix.nix
@@ -17,6 +17,7 @@
     brightnessctl
     rofimoji
     xsettingsd
+    wl-gammarelay-rs
   ];
 
   services = {
@@ -74,9 +75,8 @@
         prefer-no-csd = true;
 
         spawn-at-startup = [
-          {
-            command = ["sh" "-c" "xwayland-satellite & { sleep 1; xsettingsd; } &"];
-          }
+          {command = ["xsettingsd"];}
+          {command = ["${pkgs.wl-gammarelay-rs}/bin/wl-gammarelay-rs"];}
         ];
 
         environment = {
@@ -133,6 +133,33 @@
           music = {};
         };
 
+        layer-rules = [
+          {
+            matches = [
+              {namespace = "bar";}
+              {namespace = "wallpaper";}
+            ];
+            block-out-from = "screencast";
+          }
+          {
+            excludes = [
+              {namespace = "bar$";}
+              {namespace = "wallpaper";}
+              {namespace = "notif";}
+            ];
+
+            geometry-corner-radius = let
+              r = 7.0;
+            in {
+              top-left = r;
+              top-right = r;
+              bottom-right = r;
+              bottom-left = r;
+            };
+            shadow.enable = true;
+          }
+        ];
+
         window-rules = [
           {
             draw-border-with-background = false;
@@ -159,6 +186,7 @@
               x = 10;
               y = 10;
             };
+            open-floating = true;
           }
           {
             matches = [
