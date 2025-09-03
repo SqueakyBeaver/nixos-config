@@ -2,7 +2,7 @@
   config,
   lib,
 }: let
-  pins = import ../npins;
+  pins = (import ../npins) {};
 
   nixpkgs-flake = config.inputs.flake-compat.result.load {
     src = config.inputs.nixpkgs.src;

@@ -12,7 +12,7 @@
       curl
       gcc
       cmake
-      npins
+      (project.inputs.npins.result {})
     ];
 
     programs.nix-ld = {
