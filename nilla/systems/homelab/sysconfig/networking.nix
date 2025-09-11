@@ -23,13 +23,8 @@
       networkmanager = {
         enable = true;
         dns = "systemd-resolved";
-        wifi.macAddress = "random";
-        ethernet.macAddress = "random";
-        # NOTE: If we have issues with LLMNR, this might be the culprit?
-        connectionConfig = {
-          "ipv4.dhcp-send-hostname" = false;
-          "ipv6.dhcp-send-hostname" = false;
-        };
+        wifi.macAddress = "stable-ssid";
+        ethernet.macAddress = "stable-ssid";
       };
 
       firewall = {
@@ -52,9 +47,17 @@
       # DNS resolver
       resolved = {
         enable = true;
+        llmnr = "true";
         domains = ["~."];
         dnsovertls = "opportunistic";
         # dnssec = "true";
+      };
+
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        # nssmdns6 = true;
+        openFirewall = true;
       };
 
       openssh = {

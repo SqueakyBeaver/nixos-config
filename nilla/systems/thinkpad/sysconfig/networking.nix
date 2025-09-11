@@ -14,13 +14,6 @@
       # and firefox connects to it via https
       nameservers = [
         "9.9.9.9#dns.quad9.net"
-        "2620:fe::fe#dns.quad9.net"
-        "149.112.112.112#dns.quad9.net"
-        "2620:fe::9#dns.quad9.net"
-        "1.1.1.1#one.one.one.one"
-        "2606:4700:4700::1111#one.one.one.one"
-        "1.0.0.1#one.one.one.one"
-        "2606:4700:4700::1001#one.one.one.one"
       ];
 
       networkmanager = {
@@ -32,21 +25,22 @@
         connectionConfig = {
           "ipv4.dhcp-send-hostname" = false;
           "ipv6.dhcp-send-hostname" = false;
+          "connection.mdns" = "yes";
         };
       };
 
       firewall = {
         allowedTCPPorts = [
           5355 # LLMNR
-          7236 # Miracast
-          7250 # Miracast
+          # 7236 # Miracast
+          # 7250 # Miracast
           22000 # Syncthing
         ];
 
         allowedUDPPorts = [
-          5353 # Miracast
+          5353 # Miracast and mDNS
           5355 # LLMNR
-          7236 # Miracast
+          # 7236 # Miracast
           21027 # Syncthing
           22000 # Syncthing
         ];
@@ -57,28 +51,19 @@
       # DNS resolver
       resolved = {
         enable = true;
+        llmnr = "true";
         domains = ["~."];
         dnsovertls = "opportunistic";
-        fallbackDns = [
-          "9.9.9.9"
-          "2620:fe::fe"
-          "1.1.1.1"
-          "2606:4700:4700::1111"
-          "8.8.8.8" # Please never get to here
-        ];
-      };
-
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        nssmdns6 = true;
-        openFirewall = true;
       };
 
       printing = {
         enable = true;
         openFirewall = true;
-        drivers = [pkgs.gutenprint];
+        drivers = [
+          pkgs.gutenprint
+          pkgs.cups-filters
+          pkgs.cups-browsed
+        ];
         browsing = true;
       };
 

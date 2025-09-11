@@ -195,6 +195,10 @@
 
       dropbar.enable = true;
 
+      jupytext.enable = true;
+
+      molten.enable = true;
+
       ###############################
 
       #### Neovim random utilies ####

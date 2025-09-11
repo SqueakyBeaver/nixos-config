@@ -23,6 +23,8 @@
     pkgs.vlc
 
     pkgs.xournalpp
+
+    pkgs.pixelflasher
   ];
 
   programs.firefox = {
@@ -34,7 +36,7 @@
 
   programs.floorp = {
     enable = true;
-    package = pkgs.firedragon;
+    package = null;
     nativeMessagingHosts = [
       pkgs.kdePackages.plasma-browser-integration
     ];

@@ -9,13 +9,18 @@
     ./plugins.nix
   ];
 
-  config = {
-    home.packages = [
-      pkgs.wl-clipboard
-      pkgs.neovim-remote
-      pkgs.neovim-qt-unwrapped
-    ];
-    programs.nixvim = {
+  home.packages = [
+    pkgs.wl-clipboard
+    pkgs.neovim-remote
+    pkgs.neovim-qt
+  ];
+
+  programs = {
+    neovide = {
+      enable = true;
+    };
+
+    nixvim = {
       enable = true;
       # Not good to enable this, but I hate compiling nil
       nixpkgs.useGlobalPackages = true;

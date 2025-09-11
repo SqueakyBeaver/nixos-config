@@ -19,8 +19,8 @@
     xsettingsd # Unity is a piece of shit
   ];
 
-  qt.platformTheme = lib.mkForce "kde";
-  stylix.targets.qt.platform = "kde6";
+  # qt.platformTheme = lib.mkForce "kde";
+  # stylix.targets.qt.platform = "kde";
 
   programs.partition-manager.enable = true;
   programs.kdeconnect.enable = true;

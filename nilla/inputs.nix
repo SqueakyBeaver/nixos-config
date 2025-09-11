@@ -11,7 +11,6 @@
   doNotImport = [
     "spotx-bash"
     "valent"
-    "firedragon"
   ];
 
   loaders = {

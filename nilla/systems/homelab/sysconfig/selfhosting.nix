@@ -10,9 +10,11 @@
     plantuml = 62300;
     vaultwarden = 8000;
     overleaf = 6969;
+    jellyfin = 8096;
   };
 in {
   imports = [
+    ./services/jellyfin.nix
     ./services/overleaf.nix
   ];
 
@@ -34,6 +36,9 @@ in {
             };
             "overleaf.${domain}" = {
               service = "http://localhost:${builtins.toString ports.overleaf}";
+            };
+            "jelly.${domain}" = {
+              service = "http://localhost:${builtins.toString ports.jellyfin}";
             };
           };
 
@@ -57,6 +62,10 @@ in {
         "overleaf.${domain}".extraConfig = ''
           tls internal
           reverse_proxy http://localhost:${builtins.toString ports.overleaf}
+        '';
+        "jelly.${domain}".extraConfig = ''
+          tls internal
+          reverse_proxy http://localhost:${builtins.toString ports.jellyfin}
         '';
       };
     };

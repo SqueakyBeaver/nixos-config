@@ -19,6 +19,7 @@
     nix-index-db = config.inputs.nix-index-db.result;
     nixos-hardware = config.inputs.nixos-hardware.result;
     nixvim = config.inputs.nixvim.result;
+    pkgs-small = config.inputs.nixpkgs-small.result;
     plasma-manager = config.inputs.plasma-manager.result;
     sops-nix = config.inputs.sops-nix.result;
     stylix = config.inputs.stylix.result;
