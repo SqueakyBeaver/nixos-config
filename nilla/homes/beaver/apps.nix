@@ -27,31 +27,36 @@
     pkgs.pixelflasher
   ];
 
-  programs.firefox = {
-    enable = true;
-    nativeMessagingHosts = [
-      pkgs.kdePackages.plasma-browser-integration
-    ];
-  };
+  programs = {
+    firefox = {
+      enable = true;
+      nativeMessagingHosts = [
+        pkgs.kdePackages.plasma-browser-integration
+      ];
+    };
 
-  programs.floorp = {
-    enable = true;
-    package = null;
-    nativeMessagingHosts = [
-      pkgs.kdePackages.plasma-browser-integration
-    ];
-  };
+    floorp = {
+      enable = true;
+      package = null;
+      nativeMessagingHosts = [
+        pkgs.kdePackages.plasma-browser-integration
+      ];
+    };
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
-  };
+    chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      nativeMessagingHosts = [
+        pkgs.kdePackages.plasma-browser-integration
+      ];
+    };
 
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-vaapi
-    ];
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-vaapi
+      ];
+    };
   };
 }
