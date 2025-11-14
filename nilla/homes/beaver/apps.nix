@@ -7,27 +7,23 @@
   home.packages = [
     # project.packages.musescore-appimage.result.${pkgs.system}
     # pkgs.muse-sounds-manager
-    pkgs.bitwarden
+    pkgs.bitwarden-desktop
     (pkgs.bottles.override {removeWarningPopup = true;})
-
-    pkgs.vesktop
-    # pkgs.dolphin-emu
-    # pkgs.gimp
     pkgs.hedgemodmanager
-    pkgs.libreoffice-fresh
-    # pkgs.prismlauncher
-    pkgs.pavucontrol
-    # pkgs.spotify
-    pkgs.youtube-music
+    pkgs.inkscape
     pkgs.kdePackages.elisa
-    pkgs.vlc
-
-    pkgs.xournalpp
-
+    pkgs.libreoffice-fresh
+    pkgs.motrix
+    pkgs.pavucontrol
     pkgs.pixelflasher
+    pkgs.vesktop
+    pkgs.vlc
+    pkgs.youtube-music
   ];
 
   programs = {
+    aria2.enable = true;
+
     firefox = {
       enable = true;
       nativeMessagingHosts = [

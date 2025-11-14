@@ -7,7 +7,7 @@
     packages = with pkgs; [
       # Sans(Serif) fonts
       noto-fonts
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       inter
       inter-nerdfont
       fira-sans

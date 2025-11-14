@@ -76,13 +76,15 @@
         bashls.enable = true;
         basedpyright = {
           enable = true;
-          settings = {
-            basedpyright = {
-              analysis = {
-                typeCheckingMode = "off";
-                # ignore = ["*"];
+          config = {
+            settings = {
+              basedpyright = {
+                analysis = {
+                  typeCheckingMode = "basic";
+                  # ignore = ["*"];
+                };
+                disableOrganizeImports = true;
               };
-              disableOrganizeImports = true;
             };
           };
         };
@@ -92,24 +94,24 @@
         nil_ls.enable = true;
         ruff = {
           enable = true;
-          settings = {
-            lint = {
-              select = [
-                # pycodestyle
-                "E"
-                # Pyflakes
-                "F"
-                # pyupgrade
-                "UP"
-                # flake8-bugbear
-                "B"
-                # flake8-simplify
-                "SIM"
-                # isort
-                "I"
-              ];
-            };
-          };
+          # config = {
+          #   lint = {
+          #     select = [
+          #       # pycodestyle
+          #       "E"
+          #       # Pyflakes
+          #       "F"
+          #       # pyupgrade
+          #       "UP"
+          #       # flake8-bugbear
+          #       "B"
+          #       # flake8-simplify
+          #       "SIM"
+          #       # isort
+          #       "I"
+          #     ];
+          #   };
+          # };
         };
         rust_analyzer = {
           enable = true;

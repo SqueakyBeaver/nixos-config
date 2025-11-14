@@ -32,6 +32,9 @@ in {
   });
   
   firedragon = prev.firedragon.overrideAttrs (finalAttrs: prevAttrs: {
+  });
 
+  keyd = prev.keyd.overrideAttrs(finalAttrs: prevAttrs: {
+    src = pins.keyd;
   });
 }

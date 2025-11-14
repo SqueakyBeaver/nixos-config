@@ -16,7 +16,7 @@ in {
 
       args = {
         project = config;
-        system = "x86_64-linux";
+        stdenv.hostPlatform.system = "x86_64-linux";
       };
     };
     "otter:x86_64-linux" = {
@@ -30,7 +30,7 @@ in {
 
       args = {
         project = config;
-        system = "x86_64-linux";
+        stdenv.hostPlatform.system = "x86_64-linux";
       };
     };
   };

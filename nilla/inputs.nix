@@ -11,6 +11,7 @@
   doNotImport = [
     "spotx-bash"
     "valent"
+    "keyd"
   ];
 
   loaders = {

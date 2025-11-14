@@ -11,6 +11,7 @@
     vaultwarden = 8000;
     overleaf = 6969;
     jellyfin = 8096;
+    seerr = 5055;
   };
 in {
   imports = [
@@ -40,6 +41,9 @@ in {
             "jelly.${domain}" = {
               service = "http://localhost:${builtins.toString ports.jellyfin}";
             };
+            "seerr.${domain}" = {
+              service = "http://localhost:${builtins.toString ports.seerr}";
+            };
           };
 
           default = "http_status:404";
@@ -66,6 +70,10 @@ in {
         "jelly.${domain}".extraConfig = ''
           tls internal
           reverse_proxy http://localhost:${builtins.toString ports.jellyfin}
+        '';
+        "seerr.${domain}".extraConfig = ''
+          tls internal
+          reverse_proxy http://localhost:${builtins.toString ports.seerr}
         '';
       };
     };

@@ -32,5 +32,5 @@
   };
 
   networking.hostName = "homelab";
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.bash;
 }

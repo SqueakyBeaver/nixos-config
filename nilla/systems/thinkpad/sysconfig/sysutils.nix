@@ -48,8 +48,6 @@
     flatpak.enable = true;
     colord.enable = true;
     fwupd.enable = true;
-
-    udev.packages = [ pkgs.android-udev-rules ];
   };
 
   programs = {

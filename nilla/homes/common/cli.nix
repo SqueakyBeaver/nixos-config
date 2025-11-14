@@ -40,6 +40,7 @@
     };
 
     eza.enable = true;
+
     ssh = {
       enable = true;
       matchBlocks."*" = {
@@ -55,7 +56,10 @@
         controlPersist = "no";
       };
     };
+
     zsh.enable = true;
+    fish.enable = true;
+    
     nix-index.enable = true;
 
     git = {
@@ -66,7 +70,7 @@
       userEmail = "squeaky.beaver4133@protonmail.com";
 
       # https://blog.gitbutler.com/how-git-core-devs-configure-git/
-      extraConfig = {
+      settings = {
         column = {
           ui = "auto";
         };
@@ -197,33 +201,33 @@
       };
     };
 
-    tmux = {
-      enable = true;
-      aggressiveResize = true;
-      clock24 = true;
-      customPaneNavigationAndResize = true;
-      focusEvents = true;
-      mouse = true; # I will 100% forget keybinds
-      newSession = true;
-      secureSocket = false;
-      tmuxp.enable = true;
-      plugins = with pkgs; [
-        tmuxPlugins.better-mouse-mode
-        tmuxPlugins.fzf-tmux-url
-        tmuxPlugins.tmux-which-key
-        tmuxPlugins.tmux-powerline
-        tmuxPlugins.vim-tmux-navigator
-        tmuxPlugins.tmux-thumbs
-      ];
-      extraConfig = ''
-        set -as terminal-features ",alacritty*:RGB"
-        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy && wl-paste -n | wl-copy -p"
-        bind-key p run "wl-paste -n | tmux load-buffer - ; tmux paste-buffer"
-
-        bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
-        set -g detach-on-destroy off  # don't exit from tmux when closing a session
-      '';
-    };
+    # tmux = {
+    #   enable = true;
+    #   aggressiveResize = true;
+    #   clock24 = true;
+    #   customPaneNavigationAndResize = true;
+    #   focusEvents = true;
+    #   mouse = true; # I will 100% forget keybinds
+    #   newSession = true;
+    #   secureSocket = false;
+    #   tmuxp.enable = true;
+    #   plugins = with pkgs; [
+    #     tmuxPlugins.better-mouse-mode
+    #     tmuxPlugins.fzf-tmux-url
+    #     tmuxPlugins.tmux-which-key
+    #     tmuxPlugins.tmux-powerline
+    #     tmuxPlugins.vim-tmux-navigator
+    #     tmuxPlugins.tmux-thumbs
+    #   ];
+    #   extraConfig = ''
+    #     set -as terminal-features ",alacritty*:RGB"
+    #     bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy && wl-paste -n | wl-copy -p"
+    #     bind-key p run "wl-paste -n | tmux load-buffer - ; tmux paste-buffer"
+    #
+    #     bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+    #     set -g detach-on-destroy off  # don't exit from tmux when closing a session
+    #   '';
+    # };
 
     sesh = {
       enable = true;

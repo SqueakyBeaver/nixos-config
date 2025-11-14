@@ -26,6 +26,5 @@
         count = 65536;
       }
     ];
-    shell = pkgs.zsh;
   };
 }

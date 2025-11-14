@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    pkgs.bitwarden
+    pkgs.bitwarden-desktop
     pkgs.vlc
   ];
 

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   system,
   ...
 }: {
@@ -18,16 +19,13 @@
             capslock = "backspace";
             rightshift = "rightshift";
           };
-          # Emacs will destroy my pinky ;-;
-          alt = {
-            capslock = "leftcontrol";
-          };
         };
       };
 
       trackball-mouse = {
         ids = [
           "056e:010d:f02f9ad5"
+          "056e:010d:1989813c"
         ];
 
         settings = {
@@ -36,6 +34,7 @@
             mouse1 = "back";
             mouseforward = "M-h";
             mouseback = "M-l";
+            f18 = "middlemouse";
           };
         };
       };
@@ -44,5 +43,14 @@
     #   enable = true;
     #   enableUdevRules = true; # Might cause issues
     # };
+  };
+
+  environment.systemPackages = [
+    pkgs.keyd
+  ];
+
+  systemd.services.keyd.serviceConfig = {
+    group = "keyd";
+    RestrictRealtime = lib.mkForce false;
   };
 }
