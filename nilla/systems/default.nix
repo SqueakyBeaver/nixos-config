@@ -1,6 +1,0 @@
-{config}: {
-  includes = [
-    ./thinkpad
-    ./homelab
-  ];
-}

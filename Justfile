@@ -6,22 +6,22 @@
 #
 ############################################################################
 deploy:
-    nixos-rebuild switch --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo
+    nixos-rebuild switch --flake . --sudo
 
 fast:
-    nixos-rebuild switch --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo --no-reexec
+    nixos-rebuild switch --flake . --sudo --no-reexec
 
 test:
-    nixos-rebuild test --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo
+    nixos-rebuild test --flake . --sudo
 
 boot:
-    nixos-rebuild boot --file ./nilla.nix --attr systems.nixos.thinkpad.result --sudo
+    nixos-rebuild boot --flake . --sudo
 
 up:
-    npins update
+    nix flakes update
 
 debug:
-   nixos-rebuild test --file ./nilla.nix --attr systems.nixos.thinkpad.result --show-trace --verbose --sudo
+   nixos-rebuild test --flake . --show-trace --verbose --sudo
 
 # Get the gc roots that are most likely created by nix-direnv
 roots:
