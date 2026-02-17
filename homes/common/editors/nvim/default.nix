@@ -16,18 +16,18 @@
   ];
 
   programs = {
-    neovide = {
-      enable = true;
-    };
-
     nixvim = {
       enable = true;
       # Not good to enable this, but I hate compiling nil
-      nixpkgs.useGlobalPackages = true;
+      # nixpkgs.useGlobalPackages = true;
 
       clipboard.providers.wl-copy.enable = true;
       clipboard.register = "unnamedplus";
       luaLoader.enable = true; # Why not
+
+      performance = {
+        byteCompileLua.enable = true;
+      };
 
       globals = {
         mapleader = " ";

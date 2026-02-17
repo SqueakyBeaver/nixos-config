@@ -42,6 +42,7 @@
 
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
       matchBlocks."*" = {
         addKeysToAgent = "confirm";
         forwardAgent = false;
@@ -57,18 +58,18 @@
     };
 
     zsh.enable = true;
-    
+
     nix-index.enable = true;
 
     git = {
       enable = true;
       lfs.enable = true;
-      # FIXME: If you copy this, change it
-      userName = "Beaverr";
-      userEmail = "squeaky.beaver4133@protonmail.com";
-
-      # https://blog.gitbutler.com/how-git-core-devs-configure-git/
       settings = {
+        user = {
+          name = "Beaverr";
+          email = "squeaky.beaver4133@protonmail.com";
+        };
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git/
         column = {
           ui = "auto";
         };
@@ -241,7 +242,6 @@
     };
 
     fzf.tmux.enableShellIntegration = true;
-
 
     # Open sesh with Alt-s
     zsh.initContent = ''

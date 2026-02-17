@@ -17,7 +17,7 @@
     pkgs.pixelflasher
     pkgs.vesktop
     pkgs.vlc
-    pkgs.youtube-music
+    pkgs.pear-desktop
   ];
 
   programs = {

@@ -5,7 +5,7 @@
   ...
 }: {
   stylix = {
-    enable = true;
+    # enable = true;
     autoEnable = true;
     targets.firefox = {
       profileNames = ["default"];

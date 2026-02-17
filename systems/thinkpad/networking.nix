@@ -51,9 +51,14 @@
       # DNS resolver
       resolved = {
         enable = true;
-        llmnr = "true";
-        domains = ["~."];
-        dnsovertls = "opportunistic";
+        settings = {
+          Resolve = {
+            LLMNR = "true";
+            Domains = ["~."];
+            DNSOverTLS = "opportunistic";
+            # dnssec = "true";
+          };
+        };
       };
 
       printing = {

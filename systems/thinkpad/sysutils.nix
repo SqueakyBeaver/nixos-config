@@ -95,7 +95,6 @@
   };
 
   hardware = {
-    # xpadneo.enable = true;
     graphics.enable32Bit = true;
 
     bluetooth = {

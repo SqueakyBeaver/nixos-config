@@ -47,10 +47,14 @@
       # DNS resolver
       resolved = {
         enable = true;
-        llmnr = "true";
-        domains = ["~."];
-        dnsovertls = "opportunistic";
-        # dnssec = "true";
+        settings = {
+          Resolve = {
+            LLMNR = "true";
+            Domains = ["~."];
+            DNSOverTLS = "opportunistic";
+            # dnssec = "true";
+          };
+        };
       };
 
       avahi = {

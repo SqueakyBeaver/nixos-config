@@ -60,7 +60,7 @@
     # };
 
     nix = {
-      package = pkgs.lix;
+      # package = pkgs.lix;
       gc = {
         automatic = true;
         persistent = true;
