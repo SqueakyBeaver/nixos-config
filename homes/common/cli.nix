@@ -26,6 +26,7 @@
     which
     tree
     btop-rocm
+    amdgpu_top
     iotop
     iftop
     sops

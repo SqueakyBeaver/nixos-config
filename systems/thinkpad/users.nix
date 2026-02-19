@@ -13,6 +13,8 @@
       "mysql"
       "wireshark"
       "podman"
+      "video"
+      "render"
     ];
     subUidRanges = [
       {

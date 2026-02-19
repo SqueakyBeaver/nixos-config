@@ -5,12 +5,10 @@
       smartSupport = true;
 
       levels = [
-        [0 0 60]
-        [1 60 65]
-        [2 65 70]
-        [3 70 75]
-        [4 75 80]
-        [5 80 85]
+        [0 0 55]
+        [1 50 65]
+        [3 60 75]
+        [5 70 85]
         [7 85 32767]
       ];
     };
@@ -35,6 +33,12 @@
         AMDGPU_ABM_LEVEL_ON_AC = 0;
         AMDGPU_ABM_LEVEL_ON_BAT = 2;
 
+        RADEON_DPM_PERF_LEVEL_ON_AC = "high";
+        RADEON_DPM_PERF_LEVEL_ON_BAT = "auto";
+
+        RADEON_DPM_STATE_ON_AC = "performance";
+        RADEON_DPM_STATE_ON_BAT = "balanced";
+
         START_CHARGE_THRESH_BAT0 = 70;
         STOP_CHARGE_THRESH_BAT0 = 80;
 
@@ -42,7 +46,6 @@
       };
     };
 
-    # Just in case kde plasma enables it
     power-profiles-daemon.enable = false;
 
     # logind.powerKey = "suspend-then-hibernate";
@@ -50,7 +53,6 @@
   };
 
   # powerManagement.powertop.enable = true;
-
 
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan

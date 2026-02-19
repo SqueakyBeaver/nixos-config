@@ -12,7 +12,6 @@
     ./programming.nix
     ./syncthing
     ../common
-    ../common/stylix.nix
     ../common/desktop/plasma
     inputs.nixvim.homeModules.nixvim
     inputs.nix-index-db.homeModules.nix-index

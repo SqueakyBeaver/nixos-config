@@ -87,7 +87,7 @@
           ./systems/thinkpad
           inputs.chaotic.nixosModules.default
           inputs.lix-module.nixosModules.lixFromNixpkgs
-          inputs.niri.nixosModules.niri
+          # inputs.niri.nixosModules.niri
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1

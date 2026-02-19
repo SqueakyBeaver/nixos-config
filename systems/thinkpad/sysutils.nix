@@ -12,6 +12,8 @@
 
     pkgs.podman-compose
     pkgs.docker-compose
+
+    pkgs.rocmPackages.clr
   ];
 
   security.rtkit.enable = true;
@@ -35,15 +37,15 @@
       };
     };
 
-    # mysql = {
-    #   enable = true;
-    #   package = pkgs.mariadb;
-    #   settings = {
-    #     mysqld = {
-    #       lower_case_table_names = 1;
-    #     };
-    #   };
-    # };
+    open-webui = {
+      enable = true;
+    };
+
+    ollama = {
+      enable = true;
+      rocmOverrideGfx = "9.0.12";
+      package = pkgs.ollama-rocm;
+    };
 
     flatpak.enable = true;
     colord.enable = true;

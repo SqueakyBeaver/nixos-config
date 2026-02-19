@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./cli.nix
-    ./stylix.nix
+    # ./stylix.nix
   ];
   nix.gc = {
     automatic = true;
