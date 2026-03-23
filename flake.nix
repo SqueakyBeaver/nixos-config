@@ -87,7 +87,6 @@
           ./systems/thinkpad
           inputs.chaotic.nixosModules.default
           inputs.lix-module.nixosModules.lixFromNixpkgs
-          # inputs.niri.nixosModules.niri
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
@@ -118,7 +117,6 @@
           inputs.lix-module.nixosModules.lixFromNixpkgs
           inputs.sops-nix.nixosModules.sops
           inputs.disko.nixosModules.default
-          inputs.stylix.nixosModules.stylix
           inputs.home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;

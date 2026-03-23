@@ -40,6 +40,6 @@ in {
 
   pixelflasher = prev.pixelflasher.overrideAttrs (finalAttrs: prevAttrs: {
     src = inputs.pixelflasher;
-    version = "8.13.0.0"; # Probably won't update the version bc idc
+    version = "8.14.3.1"; # Probably won't update the version bc idc
   });
 }

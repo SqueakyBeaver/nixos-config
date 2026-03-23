@@ -2,8 +2,13 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }: {
+  imports = [
+    inputs.niri.nixosModules.niri
+  ];
+
   programs = {
     niri = {
       enable = true;
@@ -32,7 +37,7 @@
     gnome.sushi.enable = true;
     blueman.enable = true;
   };
- 
+
   xdg.portal = {
     # These *might* not be necessary
     # but holy shit unityhub is making me lose my fucking mind

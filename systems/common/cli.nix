@@ -1,9 +1,10 @@
 {pkgs, ...}: {
-  environment.systemPackages = [
-    pkgs.pciutils
-    pkgs.usbutils
-    pkgs.inxi
-    pkgs.nettools
-    pkgs.gnumake
+  environment.systemPackages = with pkgs; [
+    pciutils
+    usbutils
+    inxi
+    nettools
+    gnumake
+    bat
   ];
 }

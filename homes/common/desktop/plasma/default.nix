@@ -2,13 +2,13 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.plasma-manager.homeModules.plasma-manager
     ./keybinds.nix
   ];
-
-  # qt.platformTheme.name = lib.mkForce "kde";
 
   programs.plasma = {
     enable = true;

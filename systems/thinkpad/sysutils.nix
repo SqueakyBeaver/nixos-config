@@ -12,8 +12,6 @@
 
     pkgs.podman-compose
     pkgs.docker-compose
-
-    pkgs.rocmPackages.clr
   ];
 
   security.rtkit.enable = true;
@@ -37,14 +35,14 @@
       };
     };
 
-    open-webui = {
+    mysql = {
       enable = true;
-    };
-
-    ollama = {
-      enable = true;
-      rocmOverrideGfx = "9.0.12";
-      package = pkgs.ollama-rocm;
+      package = pkgs.mariadb;
+      settings = {
+        mysqld = {
+          lower_case_table_names = 1;
+        };
+      };
     };
 
     flatpak.enable = true;
@@ -67,13 +65,6 @@
       enable = true;
       enableRenice = true;
     };
-
-    # Use android tablet as a sort of drawing tablet
-    weylus = {
-      enable = true;
-      openFirewall = true;
-      users = ["beaver"];
-    };
   };
 
   virtualisation = {
@@ -88,9 +79,6 @@
       autoPrune.enable = true;
     };
   };
-
-  # I don't want it auto-started tbh
-  # systemd.services.plantuml-server.wantedBy = pkgs.lib.mkOverride 0 [];
 
   environment.variables = {
     DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";
@@ -112,6 +100,5 @@
       };
     };
     amdgpu.opencl.enable = true;
-    # amdgpu.overdrive.enable = true;
   };
 }

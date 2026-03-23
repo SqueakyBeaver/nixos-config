@@ -13,10 +13,8 @@
     ./syncthing
     ../common
     ../common/desktop/plasma
-    inputs.nixvim.homeModules.nixvim
     inputs.nix-index-db.homeModules.nix-index
     inputs.sops-nix.homeManagerModules.sops
-    inputs.plasma-manager.homeModules.plasma-manager
   ];
 
   home.sessionVariables = {

@@ -1,12 +1,14 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     ./lsp.nix
     ./maps.nix
     ./plugins.nix
+    inputs.nixvim.homeModules.nixvim
   ];
 
   home.packages = [

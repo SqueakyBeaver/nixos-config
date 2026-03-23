@@ -47,12 +47,7 @@
     };
 
     power-profiles-daemon.enable = false;
-
-    # logind.powerKey = "suspend-then-hibernate";
-    # logind.lidSwitch = "suspend-then-hibernate";
   };
-
-  # powerManagement.powertop.enable = true;
 
   environment.systemPackages = [
     pkgs.lm_sensors # For thinkfan

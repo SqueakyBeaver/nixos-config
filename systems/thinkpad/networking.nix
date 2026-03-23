@@ -56,7 +56,7 @@
             LLMNR = "true";
             Domains = ["~."];
             DNSOverTLS = "opportunistic";
-            # dnssec = "true";
+            dnssec = "true";
           };
         };
       };
