@@ -7,14 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    systems.url = "github:nix-systems/x86_64-linux";
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,14 +48,7 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    keyd = {
-      url = "github:rvaiya/keyd";
-      flake = false;
-    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,7 +71,6 @@
   outputs = {
     self,
     nixpkgs,
-    flake-utils,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -85,8 +80,7 @@
           ./systems/common
           ./systems/common/desktop/kde.nix
           ./systems/thinkpad
-          inputs.chaotic.nixosModules.default
-          inputs.lix-module.nixosModules.lixFromNixpkgs
+          inputs.lix-module.nixosModules.default
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
@@ -101,7 +95,7 @@
           }
           {
             nixpkgs.config.allowUnfree = true;
-              nixpkgs.overlays = [
+            nixpkgs.overlays = [
               (import ./packages/overlays.nix {inherit inputs;})
             ];
           }
@@ -114,7 +108,7 @@
           ./systems/homelab
           ./systems/common
           ./systems/common/desktop/kde.nix
-          inputs.lix-module.nixosModules.lixFromNixpkgs
+          inputs.lix-module.nixosModules.default
           inputs.sops-nix.nixosModules.sops
           inputs.disko.nixosModules.default
           inputs.home-manager.nixosModules.default

@@ -8,13 +8,10 @@
   imports = [
     ./apps.nix
     ./editors.nix
-    ../common/stylix.nix
     ../common/desktop/plasma
     ../common
-    inputs.nixvim.homeModules.nixvim
     inputs.nix-index-db.homeModules.nix-index
     inputs.plasma-manager.homeModules.plasma-manager
-    inputs.stylix.homeModules.stylix
   ];
 
   home.sessionVariables = {

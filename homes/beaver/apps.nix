@@ -15,6 +15,7 @@
     pkgs.motrix
     pkgs.pavucontrol
     pkgs.pixelflasher
+    pkgs.scrcpy
     pkgs.vesktop
     pkgs.vlc
     pkgs.pear-desktop

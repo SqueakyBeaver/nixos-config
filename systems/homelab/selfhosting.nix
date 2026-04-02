@@ -16,7 +16,7 @@
 in {
   imports = [
     ./services/jellyfin.nix
-    ./services/overleaf.nix
+    # ./services/overleaf.nix
   ];
 
   services = {
