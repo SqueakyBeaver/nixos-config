@@ -282,6 +282,34 @@
 
         extensions = {
           fzf-native.enable = true;
+          live-grep-args = {
+            enable = true;
+            settings = {
+              auto_quoting = true;
+              mappings = {
+                i = {
+                  "<C-i>" = {
+                    __raw = "require(\"telescope-live-grep-args.actions\").quote_prompt({ postfix = \" --iglob \" })";
+                  };
+                  "<C-k>" = {
+                    __raw = "require(\"telescope-live-grep-args.actions\").quote_prompt()";
+                  };
+                  "<C-space>" = {
+                    __raw = "require(\"telescope.actions\").to_fuzzy_refine";
+                  };
+                };
+              };
+              theme = "dropdown";
+            };
+          };
+          ui-select = {
+            enable = true;
+            settings = {
+              specific_opts = {
+                codeactions = false;
+              };
+            };
+          };
         };
       };
 

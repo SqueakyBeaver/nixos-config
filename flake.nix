@@ -9,14 +9,16 @@
     };
 
     lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      url = "git+https://git.lix.systems/lix-project/lix?ref=main";
       flake = false;
     };
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
+
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     disko = {
       url = "github:nix-community/disko";
@@ -97,6 +99,7 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
               (import ./packages/overlays.nix {inherit inputs;})
+              inputs.nix-cachyos-kernel.overlays.default
             ];
           }
         ];
