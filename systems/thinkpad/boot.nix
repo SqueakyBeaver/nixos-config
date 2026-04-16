@@ -25,8 +25,8 @@
     }
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.extraModulePackages = with config.boot.kernelPackages; [
-  #   ryzen-smu
-  # ];
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    ryzen-smu
+  ];
 }

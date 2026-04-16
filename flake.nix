@@ -18,7 +18,9 @@
       inputs.lix.follows = "lix";
     };
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel";
+    };
 
     disko = {
       url = "github:nix-community/disko";
@@ -55,20 +57,15 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    valent = {
-      url = "github:andyholmes/valent";
-      flake = false;
-    };
-    spotx-bash = {
-      url = "github:Spotx-official/spotx-bash";
-      flake = false;
-    };
     pixelflasher = {
       url = "github:badabing2005/PixelFlasher";
       flake = false;
     };
-    # npins.url = "github:andir/npins";
   };
   outputs = {
     self,
@@ -80,11 +77,10 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./systems/common
-          ./systems/common/desktop/kde.nix
           ./systems/thinkpad
           inputs.lix-module.nixosModules.default
           inputs.sops-nix.nixosModules.sops
-          inputs.stylix.nixosModules.stylix
+          # inputs.stylix.nixosModules.stylix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
           inputs.home-manager.nixosModules.default
           {
@@ -100,6 +96,7 @@
             nixpkgs.overlays = [
               (import ./packages/overlays.nix {inherit inputs;})
               inputs.nix-cachyos-kernel.overlays.default
+              inputs.niri.overlays.niri
             ];
           }
         ];

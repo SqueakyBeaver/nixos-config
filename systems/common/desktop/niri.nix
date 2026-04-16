@@ -1,7 +1,5 @@
 {
   pkgs,
-  config,
-  lib,
   inputs,
   ...
 }: {
@@ -17,24 +15,15 @@
     regreet.enable = true;
     kdeconnect = {
       enable = true;
-      package = pkgs.valent;
     };
     seahorse.enable = true;
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "alacritty";
-    };
-    gnome-disks.enable = true;
-    file-roller.enable = true;
   };
 
   services = {
     # cage.enable = true;
     greetd.enable = true;
-    gvfs.enable = true;
 
     udisks2.enable = true;
-    gnome.sushi.enable = true;
     blueman.enable = true;
   };
 
@@ -48,24 +37,42 @@
   };
 
   # Some nice packages to have
-  environment.systemPackages = with pkgs; [
-    kdePackages.dolphin
-    nautilus
-    eog
-    wl-clipboard
-    wayland-utils
-    libsecret
-    gamescope
-    xwayland-satellite-unstable
-    swaybg
-    networkmanagerapplet
-    swaylock
-    swayidle
-    swayosd
-    # GTK themes pls work
-    adwaita-icon-theme
-    gnome-icon-theme
-    hicolor-icon-theme
-    gnome-themes-extra
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      wl-clipboard
+      wayland-utils
+      libsecret
+      gamescope
+      xwayland-satellite-unstable
+      swaybg
+      networkmanagerapplet
+      swaylock
+      swayidle
+      swayosd
+      # GTK themes pls work
+      adwaita-icon-theme
+      gnome-icon-theme
+      hicolor-icon-theme
+      gnome-themes-extra
+    ]
+    ++ (with pkgs.kdePackages; [
+      ark
+      baloo
+      baloo-widgets
+      dolphin
+      dolphin-plugins
+      elisa
+      gwenview
+      kate
+      kde-gtk-config
+      kio
+      kio-admin
+      kio-extras
+      kio-fuse
+      ktexteditor
+      kwallet
+      kwallet-pam
+      kwalletmanager
+      okular
+    ]);
 }

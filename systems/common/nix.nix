@@ -74,12 +74,13 @@
         trusted-users = ["root" "@wheel"];
 
         substituters = [
-          # high priority since it's almost always used
-          "https://cache.nixos.org?priority=10"
+          "https://cache.nixos.org"
 
           "https://nix-community.cachix.org"
           "https://niri.cachix.org"
+          "https://noctalia.cachix.org"
           "https://attic.xuyh0120.win/lantian"
+          "https://cache.garnix.io"
         ];
 
         trusted-public-keys = [
@@ -87,7 +88,9 @@
 
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
           "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+          "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
           "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+          "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         ];
       };
     };

@@ -17,6 +17,6 @@
 
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
-  boot.kernelPackages = pkgs.cachyosKernels.linux-cachyos-latest-x86_64-v3;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   # https://nixos.wiki/wiki/Linux_kernel
 }

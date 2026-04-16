@@ -1,73 +1,16 @@
 # Niri config for me :3
-{
-  pkgs,
-  config,
-  lib,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ../waybar
-    ./stylix.nix
     ./binds.nix
-    ../../stylix.nix
-  ];
-
-  home.packages = with pkgs; [
-    swaybg
-    brightnessctl
-    rofimoji
-    xsettingsd
-    wl-gammarelay-rs
+    ../noctalia
   ];
 
   services = {
-    swaync.enable = true;
     cliphist.enable = true;
-    swayosd.enable = true;
-
-    swayidle = {
-      enable = true;
-      events = [
-        {
-          event = "before-sleep";
-          command = "${pkgs.swaylock}/bin/swaylock -fF";
-        }
-        {
-          event = "lock";
-          command = "lock";
-        }
-      ];
-      timeouts = [
-        {
-          timeout = 260;
-          command = "${pkgs.brightnessctl}/bin/brightnessctl s 50%-";
-        }
-        {
-          timeout = 400;
-          command = "${pkgs.swaylock}/bin/swaylock -fF";
-        }
-        {
-          timeout = 600;
-          command = "${pkgs.systemd}/bin/systemctl suspend";
-        }
-      ];
-    };
   };
 
-  # systemd.user.services.swayosd.Service.ExecStart = lib.mkForce (let
-  #   cfg = config.services.swayosd;
-  # in
-  #   "${cfg.package}/bin/swayosd-libinput-backend"
-  #   + (lib.optionalString (cfg.display != null) " --display ${cfg.display}")
-  #   + (lib.optionalString (cfg.stylePath != null) " --style ${lib.escapeShellArg cfg.stylePath}")
-  #   + (lib.optionalString (cfg.topMargin != null) " --top-margin ${toString cfg.topMargin}"));
-
   programs = {
-    fuzzel.enable = true;
     alacritty.enable = true;
-    swaylock.enable = true;
-    wlogout.enable = true;
 
     niri = {
       package = pkgs.niri-unstable;
@@ -76,13 +19,13 @@
         prefer-no-csd = true;
 
         spawn-at-startup = [
-          {command = ["xsettingsd"];}
-          {command = ["${pkgs.wl-gammarelay-rs}/bin/wl-gammarelay-rs"];}
+          {argv = ["noctalia-shell"];}
         ];
 
         environment = {
           QT_QPA_PLATFORM = "wayland";
           DISPLAY = ":0";
+          NIXOS_OZONE_WL = "1";
         };
 
         input = {
@@ -159,6 +102,10 @@
             };
             shadow.enable = true;
           }
+          {
+            matches = [{namespace = "^noctalia-overview*";}];
+            place-within-backdrop = true;
+          }
         ];
 
         window-rules = [
@@ -179,7 +126,7 @@
             matches = [
               {
                 app-id = "steam";
-                title = "^notificationtoasts_\d+_desktop$";
+                title = "^notificationtoasts_\\d+_desktop$";
               }
             ];
             default-floating-position = {
@@ -189,23 +136,13 @@
             };
             open-floating = true;
           }
-          {
-            matches = [
-              {app-id = "[Ss]potify";}
-            ];
-            open-on-workspace = "music";
-          }
         ];
+
+        debug = {
+          # For noctalia notification actions and window activation
+          honor-xdg-activation-with-invalid-serial = true;
+        };
       };
     };
-  };
-
-  # Might need to change this idk.
-  # Only used bc xwayland-satellite makes applications HUUUGE
-  xdg.configFile."xsettingsd/xsettingsd.conf" = {
-    text = ''
-      Gdk/WindowScalingFactor 1
-      Gdk/UnscaledDPI 122880
-    '';
   };
 }

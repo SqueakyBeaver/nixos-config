@@ -14,8 +14,9 @@
     ./networking.nix
     ./rebinds.nix
     ./sysutils.nix
+    ../common/desktop/niri.nix
   ];
-  
+
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
