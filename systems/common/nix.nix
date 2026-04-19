@@ -80,7 +80,6 @@
           "https://niri.cachix.org"
           "https://noctalia.cachix.org"
           "https://attic.xuyh0120.win/lantian"
-          "https://cache.garnix.io"
         ];
 
         trusted-public-keys = [
@@ -90,7 +89,6 @@
           "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
           "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
           "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-          "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         ];
       };
     };

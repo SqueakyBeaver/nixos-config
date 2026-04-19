@@ -5,6 +5,8 @@
     ../noctalia
   ];
 
+  qt.platformTheme.name = "qtct";
+
   services = {
     cliphist.enable = true;
   };
@@ -24,8 +26,13 @@
 
         environment = {
           QT_QPA_PLATFORM = "wayland";
+          QT_QPA_PLATFORMTHEME = "qt6ct";
           DISPLAY = ":0";
           NIXOS_OZONE_WL = "1";
+        };
+
+        cursor = {
+          theme = "breeze_cursors";
         };
 
         input = {
@@ -63,10 +70,18 @@
           ];
 
           tab-indicator = {
-            gap = 2;
+            gap = 4;
             place-within-column = true;
             corner-radius = 5;
             gaps-between-tabs = 5;
+          };
+
+          border = {
+            enable = false;
+          };
+
+          focus-ring = {
+            width = 2;
           };
 
           gaps = 5;
@@ -90,6 +105,7 @@
               {namespace = "bar$";}
               {namespace = "wallpaper";}
               {namespace = "notif";}
+              {namespace = "noctalia";}
             ];
 
             geometry-corner-radius = let

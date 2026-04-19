@@ -14,7 +14,7 @@
     ./networking.nix
     ./rebinds.nix
     ./sysutils.nix
-    ../common/desktop/niri.nix
+    ../common/desktop/kde.nix
   ];
 
   time.timeZone = "America/Chicago";

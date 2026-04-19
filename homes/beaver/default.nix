@@ -12,8 +12,8 @@
     ./programming.nix
     ./syncthing
     ../common
-    # ../common/desktop/plasma
-    ../common/desktop/niri
+    ../common/desktop/plasma
+    # ../common/desktop/niri
     inputs.nix-index-db.homeModules.nix-index
     inputs.sops-nix.homeManagerModules.sops
   ];

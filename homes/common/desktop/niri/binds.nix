@@ -69,6 +69,7 @@ in {
         };
 
         "Mod+Q".action.close-window = {};
+        "Mod+G".action.toggle-overview = {};
 
         "Mod+Space".action.toggle-window-floating = {};
         "Mod+W".action.toggle-column-tabbed-display = {};
