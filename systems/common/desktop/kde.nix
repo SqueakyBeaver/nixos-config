@@ -8,6 +8,7 @@
     kdePackages.kate
     kdePackages.discover
     kdePackages.karousel
+    kdePackages.kfind
     adwaita-icon-theme # For gnome apps
   ];
 

@@ -4,8 +4,6 @@
   ...
 }: {
   environment.systemPackages = [
-    pkgs.appimage-run
-
     pkgs.lutris
     pkgs.mangohud
     pkgs.protonup-qt
@@ -51,6 +49,10 @@
   };
 
   programs = {
+    appimage = {
+      enable = true;
+      };
+    };
     steam = {
       enable = true;
       protontricks.enable = true;

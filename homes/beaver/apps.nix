@@ -4,15 +4,14 @@
   ...
 }: {
   home.packages = [
-    # project.packages.musescore-appimage.result.${pkgs.system}
-    # pkgs.muse-sounds-manager
     pkgs.bitwarden-desktop
     (pkgs.bottles.override {removeWarningPopup = true;})
-    pkgs.hedgemodmanager
     pkgs.inkscape
     pkgs.kdePackages.elisa
     pkgs.libreoffice-fresh
     pkgs.motrix
+    pkgs.musescore
+    pkgs.muse-sounds-manager
     pkgs.pavucontrol
     pkgs.pixelflasher
     pkgs.scrcpy

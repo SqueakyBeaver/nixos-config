@@ -28,7 +28,6 @@
         "Walk Through Windows (Reverse)" = "Alt+Shift+Tab";
         "Window Close" = "Meta+Q";
         "Window Fullscreen" = "Meta+Shift+F";
-        "Window Maximize" = "Meta+F";
         "Window to Next Desktop" = "Meta+Ctrl+U";
         "Window to Previous Desktop" = "Meta+Ctrl+I";
         "karousel-column-move-end" = "Meta+Ctrl+Shift+End";
