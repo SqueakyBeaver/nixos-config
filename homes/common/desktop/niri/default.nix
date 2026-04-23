@@ -1,7 +1,13 @@
 # Niri config for me :3
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./binds.nix
+    # ./stylix.nix
+    # ../../stylix
     ../noctalia
   ];
 
@@ -10,6 +16,15 @@
   services = {
     cliphist.enable = true;
   };
+
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     pkgs.kdePackages.xdg-desktop-portal-kde
+  #     pkgs.xdg-desktop-portal-gtk
+  #     pkgs.xdg-desktop-portal-gnome
+  #   ];
+  # };
 
   programs = {
     alacritty.enable = true;
@@ -27,6 +42,7 @@
         environment = {
           QT_QPA_PLATFORM = "wayland";
           QT_QPA_PLATFORMTHEME = "qt6ct";
+          XDG_MENU_PREFIX = "plasma-";
           DISPLAY = ":0";
           NIXOS_OZONE_WL = "1";
         };
@@ -153,6 +169,8 @@
             open-floating = true;
           }
         ];
+
+        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
 
         debug = {
           # For noctalia notification actions and window activation

@@ -19,18 +19,50 @@ in {
       norepeat {
         "Mod+Shift+Slash".action.show-hotkey-overlay = {};
 
-        "Mod+T".action.spawn = ["alacritty"];
-        "Mod+D".action.spawn = noctalia "launcher toggle";
-        "Mod+Comma".action.spawn = noctalia "settings toggle";
-        "Super+Alt+L".action.spawn = noctalia "lockScreen lock";
+        "Mod+T" = {
+          action.spawn = ["alacritty"];
+          hotkey-overlay.title = "Open Terminal";
+        };
+        "Mod+E" = {
+          action.spawn = ["dolphin"];
+          hotkey-overlay.title = "Open File Manager";
+        };
 
-        "Mod+V".action.spawn = noctalia "launcher clipboard";
+        "Mod+D" = {
+          action.spawn = noctalia "launcher toggle";
+          hotkey-overlay.title = "Toggle Launcher";
+        };
+        "Mod+Comma" = {
+          action.spawn = noctalia "settings toggle";
+          hotkey-overlay.title = "Toggle Noctalia Settings";
+        };
+        "Super+Alt+L" = {
+          action.spawn = noctalia "lockScreen lock";
+          hotkey-overlay.title = "Lock Screen";
+        };
 
-        "Mod+Shift+D".action.spawn = ["wlogout"];
+        "Mod+V" = {
+          action.spawn = noctalia "launcher clipboard";
+          hotkey-overlay.title = "Show Clipboard History";
+        };
 
-        "Mod+Period".action.spawn = noctalia "launcher emoji";
-        "Mod+A".action.spawn = noctalia "controlCenter toggle";
-        "Mod+N".action.spawn = noctalia "notifications toggleHistory";
+        "Mod+Shift+D" = {
+          action.spawn = ["wlogout"];
+          hotkey-overlay.title = "Logout";
+        };
+
+        "Mod+Period" = {
+          action.spawn = noctalia "launcher emoji";
+          hotkey-overlay.title = "Show Emoji Picker";
+        };
+        "Mod+A" = {
+          action.spawn = noctalia "controlCenter toggle";
+          hotkey-overlay.title = "Toggle Noctalia Control Center";
+        };
+        "Mod+N" = {
+          action.spawn = noctalia "notifications toggleHistory";
+          hotkey-overlay.title = "Show/Hide Notification History";
+        };
 
         "Print".action.screenshot = {};
         "Ctrl+Print".action.screenshot-screen = {};
@@ -62,7 +94,6 @@ in {
           allow-when-locked = true;
           action.spawn = noctalia "brightness increase";
         };
-
         "XF86MonBrightnessDown" = {
           allow-when-locked = true;
           action.spawn = noctalia "brightness decrease";

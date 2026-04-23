@@ -14,6 +14,10 @@
     autoEnable = true;
     polarity = "dark";
 
+    targets = {
+      gtksourceview.enable = false;
+    };
+
     cursor = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-dark";

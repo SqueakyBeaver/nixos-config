@@ -58,7 +58,28 @@
       };
     };
 
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      dotDir = "${config.xdg.configHome}/zsh";
+      initContent = ''
+        function sesh-sessions() {
+          {
+            exec </dev/tty
+            exec <&1
+            local session
+            session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+            zle reset-prompt > /dev/null 2>&1 || true
+            [[ -z "$session" ]] && return
+            sesh connect $session
+          }
+        }
+
+        zle     -N             sesh-sessions
+        bindkey -M emacs '\es' sesh-sessions
+        bindkey -M vicmd '\es' sesh-sessions
+        bindkey -M viins '\es' sesh-sessions
+      '';
+    };
 
     nix-index.enable = true;
 
@@ -244,26 +265,6 @@
     };
 
     fzf.tmux.enableShellIntegration = true;
-
-    # Open sesh with Alt-s
-    zsh.initContent = ''
-      function sesh-sessions() {
-        {
-          exec </dev/tty
-          exec <&1
-          local session
-          session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
-          zle reset-prompt > /dev/null 2>&1 || true
-          [[ -z "$session" ]] && return
-          sesh connect $session
-        }
-      }
-
-      zle     -N             sesh-sessions
-      bindkey -M emacs '\es' sesh-sessions
-      bindkey -M vicmd '\es' sesh-sessions
-      bindkey -M viins '\es' sesh-sessions
-    '';
 
     zoxide = {
       enable = true;

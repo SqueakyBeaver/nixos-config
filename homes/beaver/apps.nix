@@ -1,8 +1,13 @@
 {
   config,
-  pkgs,
+pkgs,
+inputs,
   ...
 }: {
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
+
   home.packages = [
     pkgs.bitwarden-desktop
     (pkgs.bottles.override {removeWarningPopup = true;})
@@ -30,9 +35,9 @@
       ];
     };
 
-    floorp = {
+    zen-browser = {
       enable = true;
-      package = null;
+      setAsDefaultBrowser = true;
       nativeMessagingHosts = [
         pkgs.kdePackages.plasma-browser-integration
       ];

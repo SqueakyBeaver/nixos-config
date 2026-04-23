@@ -51,7 +51,6 @@
   programs = {
     appimage = {
       enable = true;
-      };
     };
     steam = {
       enable = true;
