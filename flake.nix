@@ -18,10 +18,6 @@
       inputs.lix.follows = "lix";
     };
 
-    nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel";
-    };
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -111,8 +107,13 @@
           {
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
+              # FIXME: Skip tests on openldap bc they're failing rn; wait for upstream fix
+              (_: prev: {
+                openldap = prev.openldap.overrideAttrs {
+                  doCheck = !prev.stdenv.hostPlatform.isi686;
+                };
+              })
               (import ./packages/overlays.nix {inherit inputs;})
-              inputs.nix-cachyos-kernel.overlays.default
               inputs.niri.overlays.niri
             ];
           }

@@ -82,6 +82,7 @@
 
       tailscale = {
         enable = true;
+        disableUpstreamLogging = true;
         openFirewall = true;
         # Commented since I don't need tailscale to be on all time
         # authKeyFile = config.sops.secrets.tailscale_auth_key.path;
@@ -89,6 +90,10 @@
         extraUpFlags = [
           # "--accept-routes"
           "--ssh"
+        ];
+
+        extraDaemonFlags = [
+          "--no-logs-no-support"
         ];
       };
     };

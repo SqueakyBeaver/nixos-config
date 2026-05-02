@@ -9,6 +9,8 @@
     kdePackages.discover
     kdePackages.karousel
     kdePackages.kfind
+    kdePackages.oxygen
+    kdePackages.oxygen-icons
     adwaita-icon-theme # For gnome apps
   ];
 
@@ -20,11 +22,6 @@
     displayManager = {
       plasma-login-manager.enable = true;
       defaultSession = "plasma";
-
-      # sddm = {
-      #   enable = true;
-      #   wayland.enable = true;
-      # };
     };
   };
 
