@@ -8,12 +8,11 @@
 deploy *FLAGS:
     nixos-rebuild switch --flake . --sudo {{FLAGS}}
 
-
 deploy-homelab *FLAGS:
-    nixos-rebuild switch --flake .#homelab --target-host otter@homelab --sudo  {{FLAGS}}
+    nixos-rebuild switch --flake .#homelab --target-host otter@homelab --sudo --ask-sudo-password {{FLAGS}}
 
 boot-homelab *FLAGS:
-    nixos-rebuild boot --flake .#homelab --target-host otter@homelab --sudo  {{FLAGS}}
+    nixos-rebuild boot --flake .#homelab --target-host otter@homelab --sudo --ask-sudo-password {{FLAGS}}
 
 fast *FLAGS:
     nixos-rebuild switch --flake . --sudo --no-reexec {{FLAGS}}
