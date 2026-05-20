@@ -29,5 +29,5 @@
 
   home.username = "beaver";
   home.homeDirectory = "/home/beaver";
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
 }

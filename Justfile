@@ -5,23 +5,30 @@
 #  Nix commands related to the local machine
 #
 ############################################################################
-deploy:
-    nixos-rebuild switch --flake . --sudo
+deploy *FLAGS:
+    nixos-rebuild switch --flake . --sudo {{FLAGS}}
 
-fast:
-    nixos-rebuild switch --flake . --sudo --no-reexec
 
-test:
-    nixos-rebuild test --flake . --sudo
+deploy-homelab *FLAGS:
+    nixos-rebuild switch --flake .#homelab --target-host otter@homelab --sudo  {{FLAGS}}
 
-boot:
-    nixos-rebuild boot --flake . --sudo
+boot-homelab *FLAGS:
+    nixos-rebuild boot --flake .#homelab --target-host otter@homelab --sudo  {{FLAGS}}
 
-up:
-    nix flakes update
+fast *FLAGS:
+    nixos-rebuild switch --flake . --sudo --no-reexec {{FLAGS}}
 
-debug:
-   nixos-rebuild test --flake . --show-trace --verbose --sudo
+test *FLAGS:
+    nixos-rebuild test --flake . --sudo {{FLAGS}}
+
+boot *FLAGS:
+    nixos-rebuild boot --flake . --sudo {{FLAGS}}
+
+up *FLAGS:
+    nix flakes update {{FLAGS}}
+
+debug *FLAGS:
+   nixos-rebuild test --flake . --show-trace --verbose --sudo {{FLAGS}}
 
 # Get the gc roots that are most likely created by nix-direnv
 roots:
@@ -29,5 +36,5 @@ roots:
 
 # In case of sudden failure
 # Should probably also edit ~/.zsh_history and fix it
-repair:
-    sudo nix-store --verify --check-contents --repair -v
+repair *FLAGS:
+    sudo nix-store --verify --check-contents --repair -v {{FLAGS}}

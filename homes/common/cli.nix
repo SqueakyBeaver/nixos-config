@@ -44,7 +44,7 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks."*" = {
+      settings."*" = {
         addKeysToAgent = "confirm";
         forwardAgent = false;
         serverAliveInterval = 0;
@@ -61,6 +61,18 @@
     zsh = {
       enable = true;
       dotDir = "${config.xdg.configHome}/zsh";
+      history = {
+        append = true;
+        findNoDups = true;
+        ignoreAllDups = true;
+        expireDuplicatesFirst = true;
+        save = 100000;
+        size = 1000000;
+        saveNoDups = true;
+      };
+      oh-my-zsh = {
+        
+      };
       initContent = ''
         function sesh-sessions() {
           {

@@ -20,7 +20,13 @@
     nixvim = {
       enable = true;
       # Not good to enable this, but I hate compiling nil
-      # nixpkgs.useGlobalPackages = true;
+      nixpkgs.useGlobalPackages = true;
+      # nixpkgs = {
+      #   config = {
+      #     allowUnfree = true;
+      #     allowBroken = true;
+      #   };
+      # };
 
       clipboard.providers.wl-copy.enable = true;
       clipboard.register = "unnamedplus";

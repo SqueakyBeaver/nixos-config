@@ -2,7 +2,9 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,17 +107,20 @@
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
           {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [
-              # FIXME: Skip tests on openldap bc they're failing rn; wait for upstream fix
-              (_: prev: {
-                openldap = prev.openldap.overrideAttrs {
-                  doCheck = !prev.stdenv.hostPlatform.isi686;
-                };
-              })
-              (import ./packages/overlays.nix {inherit inputs;})
-              inputs.niri.overlays.niri
-            ];
+            nixpkgs = {
+              config.allowUnfree = true;
+
+              overlays = [
+                # FIXME: Skip tests on openldap bc they're failing rn; wait for upstream fix
+                (_: prev: {
+                  openldap = prev.openldap.overrideAttrs {
+                    doCheck = !prev.stdenv.hostPlatform.isi686;
+                  };
+                })
+                (import ./packages/overlays.nix {inherit inputs;})
+                inputs.niri.overlays.niri
+              ];
+            };
           }
         ];
       };
