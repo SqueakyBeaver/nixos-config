@@ -194,7 +194,7 @@
 
       lsp-lines.enable = true;
 
-      cursorline.enable = true;
+      # cursorline.enable = true;
 
       indent-blankline.enable = true;
 

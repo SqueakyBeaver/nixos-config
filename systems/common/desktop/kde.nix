@@ -4,19 +4,26 @@
   lib,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    kdePackages.kate
-    kdePackages.discover
-    kdePackages.karousel
-    kdePackages.kfind
-    kdePackages.oxygen
-    kdePackages.oxygen-icons
-    adwaita-icon-theme # For gnome apps
-  ];
+  environment.systemPackages = with pkgs.kdePackages; [
+    kate
+    discover
+    karousel
+    kfind
+    oxygen
+    oxygen-icons
+    kio-gdrive
+    kaccounts-providers
+    kaccounts-integration
+  ] ++ [
+      pkgs.adwaita-icon-theme # For gnome apps
+    ];
 
   services = {
     desktopManager = {
-      plasma6.enable = true;
+      plasma6 = {
+        enable = true;
+        enableQt5Integration = true;
+      };
     };
 
     displayManager = {

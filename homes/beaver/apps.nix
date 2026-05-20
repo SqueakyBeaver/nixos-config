@@ -23,6 +23,7 @@ inputs,
     pkgs.vesktop
     pkgs.vlc
     pkgs.pear-desktop
+    pkgs.apktool
   ];
 
   programs = {
