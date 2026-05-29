@@ -52,6 +52,7 @@
     appimage = {
       enable = true;
     };
+
     steam = {
       enable = true;
       protontricks.enable = true;
@@ -61,10 +62,16 @@
         pkgs.proton-ge-bin
       ];
     };
+
     # virt-manager.enable = true;
     gamemode = {
       enable = true;
       enableRenice = true;
+    };
+
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
     };
   };
 
@@ -100,6 +107,11 @@
         };
       };
     };
+
     amdgpu.opencl.enable = true;
+  };
+
+  nixpkgs.config = {
+    android_sdk.accept_license = true;
   };
 }

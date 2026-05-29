@@ -5,16 +5,17 @@
     description = "Squeaky Beaver";
     group = "beaver";
     extraGroups = [
-      "networkmanager"
-      "wheel"
-      "gamemode"
-      "libvirtd"
       "adbusers"
+      "gamemode"
+      "keyd"
+      "libvirtd"
       "mysql"
-      "wireshark"
+      "networkmanager"
       "podman"
-      "video"
       "render"
+      "video"
+      "wheel"
+      "wireshark"
     ];
     subUidRanges = [
       {
@@ -28,5 +29,6 @@
         count = 65536;
       }
     ];
+    shell = pkgs.fish;
   };
 }

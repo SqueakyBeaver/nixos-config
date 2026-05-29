@@ -58,8 +58,20 @@
       };
     };
 
-    zsh = {
+    fish = {
       enable = true;
+      functions = {
+        "setup-direnv" = {
+          body = ''
+            nix flake init --template github:the-nix-way/dev-templates#$argv
+            sed -E 's/https:\/\/flakehub\.com.*/nixpkgs\/nixos-unstable\";/' flake.nix -i
+          '';
+        };
+      };
+    };
+
+    zsh = {
+      # enable = true;
       dotDir = "${config.xdg.configHome}/zsh";
       history = {
         append = true;
@@ -71,7 +83,7 @@
         saveNoDups = true;
       };
       oh-my-zsh = {
-        
+        plugins = ["colored-man-pages" "colorize"];
       };
       initContent = ''
         function sesh-sessions() {
