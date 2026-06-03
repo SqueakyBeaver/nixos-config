@@ -9,7 +9,7 @@ inputs,
   ];
 
   home.packages = [
-    pkgs.bitwarden-desktop
+    # pkgs.bitwarden-desktop # FIXME: Wait until upstream is updated to electron v42
     (pkgs.bottles.override {removeWarningPopup = true;})
     pkgs.inkscape
     pkgs.kdePackages.elisa
@@ -24,6 +24,7 @@ inputs,
     pkgs.vlc
     pkgs.pear-desktop
     pkgs.apktool
+    pkgs.jadx
   ];
 
   programs = {

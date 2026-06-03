@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "nixpkgs/nixos-unstable";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -99,12 +99,15 @@
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
           inputs.home-manager.nixosModules.default
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-bak";
-            home-manager.users.beaver = ./homes/beaver;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "hm-bak";
+              overwriteBackup = true;
+              users.beaver = ./homes/beaver;
 
-            home-manager.extraSpecialArgs = {inherit inputs;};
+              extraSpecialArgs = {inherit inputs;};
+            };
           }
           {
             nixpkgs = {
