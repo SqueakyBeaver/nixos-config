@@ -16,36 +16,6 @@
           highlight.enable = true;
           indent.enable = true;
         };
-        # I don't want them all installed
-        # grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        #   bash
-        #   c
-        #   c_sharp
-        #   cpp
-        #   css
-        #   gitattributes
-        #   gitcommit
-        #   gitignore
-        #   go
-        #   gomod
-        #   gosum
-        #   html
-        #   javascript
-        #   json
-        #   jsonc
-        #   lua
-        #   markdown
-        #   nix
-        #   php
-        #   python
-        #   regex
-        #   rust
-        #   typescript
-        #   vim
-        #   vimdoc
-        #   xml
-        #   yaml
-        # ];
         # folding = true;
       };
 
@@ -239,8 +209,16 @@
 
       web-devicons.enable = true;
 
-      orgmode.enable = true;
       headlines.enable = true;
+
+      neorg = {
+        enable = true;
+        telescopeIntegration.enable = true;
+        # TODO: I'm weirdly demotivated rn
+        # settings = {};
+      };
+
+      orgmode.enable = true;
 
       ##############################
 

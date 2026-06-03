@@ -19,6 +19,10 @@ in {
     # ./services/overleaf.nix
   ];
 
+  environment.systemPackages = [
+    pkgs.nss # Caddy shits itself sometimes without this? I don't really know
+  ];
+
   services = {
     # I don't wanna forward ports tbh
     cloudflared = {
