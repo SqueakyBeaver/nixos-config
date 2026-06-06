@@ -56,15 +56,15 @@
           key = "<leader>j";
         }
         {
-          action = "<CMD>LspStop<Enter>";
+          action = "<CMD>lsp disable<Enter>";
           key = "<leader>lx";
         }
         {
-          action = "<CMD>LspStart<Enter>";
+          action = "<CMD>lsp enable<Enter>";
           key = "<leader>ls";
         }
         {
-          action = "<CMD>LspRestart<Enter>";
+          action = "<CMD>lsp restart<Enter>";
           key = "<leader>lr";
         }
         {
@@ -120,6 +120,8 @@
         cssls.enable = true;
         omnisharp.enable = true;
         qmlls.enable = true;
+        kotlin_language_server.enable = true;
+        jdtls.enable = true;
       };
     };
 

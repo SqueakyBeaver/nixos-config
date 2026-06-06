@@ -1,5 +1,4 @@
-{inputs, ...}: final: prev: let
-in {
+{inputs, ...}: final: prev: {
   spotify = prev.spotify.overrideAttrs (finalAttrs: prevAttrs: {
     # Not using a pinned version so that way I know I stay up to date (sorry)
     spotx = "${inputs.spotx-bash}/spotx.sh";
