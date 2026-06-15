@@ -1,6 +1,6 @@
 {
   includes = [
     ./musescore.nix
-    ./unityhub.nix
+    # ./unityhub.nix
   ];
 }

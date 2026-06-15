@@ -4,18 +4,25 @@
   lib,
   ...
 }: {
-  environment.systemPackages = with pkgs.kdePackages; [
-    kate
-    discover
-    karousel
-    kfind
-    oxygen
-    oxygen-icons
-    kio-gdrive
-    kaccounts-providers
-    kaccounts-integration
-  ] ++ [
+  environment.systemPackages = with pkgs.kdePackages;
+    [
+      kate
+      discover
+      karousel
+      kfind
+      oxygen
+      oxygen-icons
+      kio-gdrive
+      kio-fuse
+      kaccounts-providers
+      kaccounts-integration
+      krdc
+      krfb
+      krdp
+    ]
+    ++ [
       pkgs.adwaita-icon-theme # For gnome apps
+      pkgs.sshfs
     ];
 
   services = {
@@ -43,5 +50,10 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [5901];
+    allowedUDPPorts = [5901];
   };
 }

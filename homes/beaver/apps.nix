@@ -15,8 +15,6 @@ inputs,
     pkgs.kdePackages.elisa
     pkgs.libreoffice-fresh
     pkgs.motrix
-    pkgs.musescore
-    pkgs.muse-sounds-manager
     pkgs.pavucontrol
     pkgs.pixelflasher
     pkgs.scrcpy
