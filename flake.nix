@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -58,7 +58,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -114,12 +117,12 @@
               config.allowUnfree = true;
 
               overlays = [
-                # FIXME: Skip tests on openldap bc they're failing rn; wait for upstream fix
-                (_: prev: {
-                  openldap = prev.openldap.overrideAttrs {
-                    doCheck = !prev.stdenv.hostPlatform.isi686;
-                  };
-                })
+                # # FIXME: Skip tests on openldap bc they're failing rn; wait for upstream fix
+                # (_: prev: {
+                #   openldap = prev.openldap.overrideAttrs {
+                #     doCheck = !prev.stdenv.hostPlatform.isi686;
+                #   };
+                # })
                 (import ./packages/overlays.nix {inherit inputs;})
                 inputs.niri.overlays.niri
               ];
