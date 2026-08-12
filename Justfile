@@ -33,6 +33,11 @@ debug *FLAGS:
 roots:
     nix-store --gc --print-roots | egrep -v "^(/nix/var|/run/\w+-system|\{memory|/proc)"
 
+# Same as roots, except it filters the output to only show the .direnv paths
+direnv-roots:
+    nix-store --gc --print-roots | egrep -v "^(/nix/var|/run/\w+-system|\{memory|/proc)" | awk -F '\.direnv' '/direnv/ { print $1 ".direnv" }'
+
+
 # In case of sudden failure
 # Should probably also edit ~/.zsh_history and fix it
 repair *FLAGS:

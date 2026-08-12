@@ -2,107 +2,91 @@
   config,
   lib,
   ...
-}:
-# networking configuration
-{
-  config = {
-    networking = {
-      nftables.enable = true;
+}: {
+  networking = {
+    nftables.enable = true;
+    networkmanager = {
+      enable = true;
+      # dns = "systemd-resolved";
+      # wifi.macAddress = "stable-ssid";
+      # ethernet.macAddress = "stable-ssid";
+    };
 
-      # use my nextDNS config
-      # I'll actually use it here since this machine will access the Internet
-      # almost exclusively outside of a browser
-      nameservers = [
-        "45.90.28.0#7dbdb5.dns.nextdns.io"
-        "2a07:a8c0::#7dbdb5.dns.nextdns.io"
-        "45.90.30.0#7dbdb5.dns.nextdns.io"
-        "2a07:a8c1::#7dbdb5.dns.nextdns.io"
-        # "1.1.1.1"
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        80
+        443
+        # 5355 # LLMNR
       ];
 
-      networkmanager = {
-        enable = true;
-        dns = "systemd-resolved";
-        wifi.macAddress = "stable-ssid";
-        ethernet.macAddress = "stable-ssid";
-      };
+      allowedUDPPorts = [
+        80
+        443
+        # 5355 # LLMNR
+      ];
+    };
+  };
 
-      firewall = {
-        enable = true;
-        allowedTCPPorts = [
-          80
-          443
-          5355 # LLMNR
-        ];
+  services = {
+    # DNS resolver
+    # resolved = {
+    #   enable = true;
+    #   settings = {
+    #     Resolve = {
+    #       LLMNR = "true";
+    #       # Domains = ["~."];
+    #       DNSOverTLS = "opportunistic";
+    #       # dnssec = "true";
+    #     };
+    #   };
+    # };
 
-        allowedUDPPorts = [
-          80
-          443
-          5355 # LLMNR
-        ];
+    # avahi = {
+    #   enable = true;
+    #   nssmdns4 = true;
+    #   # nssmdns6 = true;
+    #   openFirewall = true;
+    # };
+
+    openssh = {
+      enable = true;
+      settings = {
+        UseDns = true;
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
       };
     };
 
-    services = {
-      # DNS resolver
-      resolved = {
-        enable = true;
-        settings = {
-          Resolve = {
-            LLMNR = "true";
-            Domains = ["~."];
-            DNSOverTLS = "opportunistic";
-            # dnssec = "true";
-          };
-        };
-      };
-
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        # nssmdns6 = true;
-        openFirewall = true;
-      };
-
-      openssh = {
-        enable = true;
-        settings = {
-          UseDns = true;
-          PasswordAuthentication = false;
-          KbdInteractiveAuthentication = false;
-          PermitRootLogin = "no";
-        };
-      };
-
-      fail2ban = {
-        enable = true;
-      };
-
-      # TODO: Selfhost headscale?
-      tailscale = {
-        enable = true;
-        openFirewall = true;
-        authKeyFile = config.sops.secrets.tailscale_auth_key.path;
-        useRoutingFeatures = "client";
-        extraUpFlags = [
-          # "--accept-routes"
-          "--ssh"
-        ];
-      };
+    fail2ban = {
+      enable = true;
     };
 
-    sops.secrets.tailscale_auth_key = {
-      format = "yaml";
-      sopsFile = ./secrets/tailscale.sops.homelab.yaml;
+    # TODO: Selfhost headscale?
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+      authKeyFile = config.sops.secrets.tailscale_auth_key.path;
+      useRoutingFeatures = "client";
+      extraUpFlags = [
+        # "--accept-routes"
+        "--ssh"
+      ];
     };
+  };
 
-    systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
+  sops.secrets.tailscale_auth_key = {
+    format = "yaml";
+    sopsFile = ./secrets/tailscale.sops.homelab.yaml;
+  };
 
-    programs = {
-      gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
+  systemd.services.tailscaled.environment.TS_NO_LOGS_NO_SUPPORT = "true";
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
     };
   };
 }

@@ -89,68 +89,66 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    commonModules = [
+      ./systems/common
+
+      inputs.lix-module.nixosModules.default
+      inputs.sops-nix.nixosModules.sops
+      inputs.home-manager.nixosModules.default
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "hm-bak";
+          overwriteBackup = true;
+
+          extraSpecialArgs = {inherit inputs;};
+        };
+      }
+      {
+        nixpkgs = {
+          config.allowUnfree = true;
+
+          overlays = [
+            (import ./packages/overlays.nix {inherit inputs;})
+          ];
+        };
+      }
+    ];
+
+    mkConfiguration = attrs:
+      nixpkgs.lib.nixosSystem (nixpkgs.lib.mergeAttrsConcatenateValues {
+          specialArgs = {inherit inputs;};
+          modules = commonModules;
+        }
+        attrs);
+  in {
     nixosConfigurations = {
-      thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+      thinkpad = mkConfiguration {
         modules = [
-          ./systems/common
           ./systems/thinkpad
-          inputs.lix-module.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
           # inputs.stylix.nixosModules.stylix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
-          inputs.home-manager.nixosModules.default
           {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "hm-bak";
-              overwriteBackup = true;
-              users.beaver = ./homes/beaver;
-
-              extraSpecialArgs = {inherit inputs;};
-            };
+            home-manager.users.beaver = ./homes/beaver;
           }
           {
-            nixpkgs = {
-              config.allowUnfree = true;
-
-              overlays = [
-                # # FIXME: Skip tests on openldap bc they're failing rn; wait for upstream fix
-                # (_: prev: {
-                #   openldap = prev.openldap.overrideAttrs {
-                #     doCheck = !prev.stdenv.hostPlatform.isi686;
-                #   };
-                # })
-                (import ./packages/overlays.nix {inherit inputs;})
-                inputs.niri.overlays.niri
-              ];
-            };
+            nixpkgs.overlays = [
+              inputs.niri.overlays.niri
+            ];
           }
         ];
       };
 
-      homelab = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+      homelab = mkConfiguration {
         modules = [
           ./systems/homelab
-          ./systems/common
           ./systems/common/desktop/kde.nix
-          inputs.lix-module.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
           inputs.disko.nixosModules.default
-          inputs.home-manager.nixosModules.default
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-bak";
             home-manager.users.otter = ./homes/otter;
-
-            home-manager.extraSpecialArgs = {inherit inputs;};
           }
-
-          {nixpkgs.config.allowUnfree = true;}
         ];
       };
     };

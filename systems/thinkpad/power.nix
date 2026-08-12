@@ -44,6 +44,12 @@
         RADEON_DPM_STATE_ON_AC = "performance";
         RADEON_DPM_STATE_ON_BAT = "balanced";
 
+        RUNTIME_PM_ON_AC = "on";
+        RUNTIME_PM_ON_BAT = "on";
+        RUNTIME_PM_DRIVER_DENYLIST = "mei_me nouveau radeon xhci_hcd ahci";
+        AHCI_RUNTIME_PM_ON_BAT="on";
+
+        USB_AUTOSUSPEND = 0;
         USB_EXCLUDE_BTUSB = 1;
       };
     };

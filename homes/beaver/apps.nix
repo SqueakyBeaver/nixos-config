@@ -23,6 +23,7 @@ inputs,
     pkgs.pear-desktop
     pkgs.apktool
     pkgs.jadx
+    pkgs.ghidra
   ];
 
   programs = {
@@ -30,9 +31,9 @@ inputs,
 
     firefox = {
       enable = true;
-      nativeMessagingHosts = [
-        pkgs.kdePackages.plasma-browser-integration
-      ];
+      # nativeMessagingHosts = [
+      #   pkgs.kdePackages.plasma-browser-integration
+      # ];
     };
 
     zen-browser = {
