@@ -4,26 +4,32 @@
   lib,
   ...
 }: {
-  environment.systemPackages = with pkgs.kdePackages;
-    [
-      kate
-      discover
-      karousel
-      kfind
-      oxygen
-      oxygen-icons
-      kio-gdrive
-      kio-fuse
-      kaccounts-providers
-      kaccounts-integration
-      krdc
-      krfb
-      krdp
-    ]
-    ++ [
-      pkgs.adwaita-icon-theme # For gnome apps
-      pkgs.sshfs
+  environment = {
+    systemPackages = with pkgs.kdePackages;
+      [
+        kate
+        discover
+        karousel
+        kfind
+        oxygen
+        oxygen-icons
+        kio-gdrive
+        kio-fuse
+        kaccounts-providers
+        kaccounts-integration
+        krdc
+        krfb
+        krdp
+      ]
+      ++ [
+        pkgs.adwaita-icon-theme # For gnome apps
+        pkgs.sshfs
+      ];
+
+    plasma6.excludePackages = [
+      pkgs.kdePackages.kwin-x11
     ];
+  };
 
   services = {
     desktopManager = {
