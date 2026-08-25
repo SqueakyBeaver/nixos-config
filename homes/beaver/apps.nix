@@ -13,7 +13,7 @@ inputs,
     (pkgs.bottles.override {removeWarningPopup = true;})
     pkgs.inkscape
     pkgs.kdePackages.elisa
-    pkgs.libreoffice-fresh
+    pkgs.libreoffice-stable
     pkgs.motrix
     pkgs.pavucontrol
     pkgs.pixelflasher
