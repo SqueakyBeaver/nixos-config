@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./cli.nix
-    # ./stylix.nix
   ];
   
   xdg = {
