@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  config.fonts = {
+  fonts = {
     packages = with pkgs; [
       # Sans(Serif) fonts
       noto-fonts
@@ -21,6 +21,9 @@
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+
+      # Emacs fallback font
+      symbola
     ];
 
     # causes more issues than it solves
