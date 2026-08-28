@@ -94,24 +94,6 @@
         nil_ls.enable = true;
         ruff = {
           enable = true;
-          # config = {
-          #   lint = {
-          #     select = [
-          #       # pycodestyle
-          #       "E"
-          #       # Pyflakes
-          #       "F"
-          #       # pyupgrade
-          #       "UP"
-          #       # flake8-bugbear
-          #       "B"
-          #       # flake8-simplify
-          #       "SIM"
-          #       # isort
-          #       "I"
-          #     ];
-          #   };
-          # };
         };
         rust_analyzer = {
           enable = true;
@@ -122,6 +104,8 @@
         qmlls.enable = true;
         kotlin_language_server.enable = true;
         jdtls.enable = true;
+        jinja_lsp.enable = true;
+        sqls.enable = true;
       };
     };
 
