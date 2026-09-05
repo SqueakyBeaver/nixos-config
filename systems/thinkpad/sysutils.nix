@@ -46,6 +46,11 @@
     flatpak.enable = true;
     colord.enable = true;
     fwupd.enable = true;
+
+    # syncthing = {
+    #   enable = true;
+    #   openDefaultPorts = true;
+    # };
   };
 
   programs = {

@@ -10,6 +10,7 @@
     ./editors.nix
     ../common/desktop/plasma
     ../common
+    # ./syncthing
     inputs.nix-index-db.homeModules.nix-index
     inputs.plasma-manager.homeModules.plasma-manager
   ];

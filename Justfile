@@ -37,6 +37,19 @@ roots:
 direnv-roots:
     nix-store --gc --print-roots | egrep -v "^(/nix/var|/run/\w+-system|\{memory|/proc)" | awk -F '\.direnv' '/direnv/ { print $1 ".direnv" }'
 
+ssh-to-sops:
+    #! /usr/bin/env bash
+    set -euxo pipefail
+
+    mkdir -p ~/.config/sops/age
+
+    if [ -a ~/.config/sops/age/keys.txt ]; then
+        mv --backup="numbered" ~/.config/sops/age/keys.txt ~/.config/sops/age/keys.txt.bak
+
+    nix-shell -p ssh-to-age --run "systemd-ask-password | ssh-to-age -private-key -i ~/.ssh/id_ed25519 -stdinpass > ~/.config/sops/age/keys.txt"
+    echo "AGE Public Key: "
+    nix-shell -p age --run "age-keygen -y ~/.config/sops/age/keys.txt"
+
 
 # In case of sudden failure
 # Should probably also edit ~/.zsh_history and fix it

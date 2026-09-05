@@ -1,7 +1,7 @@
 {
   config,
-pkgs,
-inputs,
+  pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -9,7 +9,7 @@ inputs,
   ];
 
   home.packages = [
-    # pkgs.bitwarden-desktop # FIXME: Wait until upstream is updated to electron v42
+    pkgs.bitwarden-desktop
     (pkgs.bottles.override {removeWarningPopup = true;})
     pkgs.inkscape
     pkgs.kdePackages.elisa
