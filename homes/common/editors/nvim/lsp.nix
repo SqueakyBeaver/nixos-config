@@ -24,6 +24,12 @@
       clear = true;
     };
 
+    programs.nixvim.filetype = {
+      extension = {
+        jinja = "jinja";
+      };
+    };
+
     programs.nixvim.lsp = {
       inlayHints.enable = true;
       keymaps = [

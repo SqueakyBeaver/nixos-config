@@ -4,302 +4,308 @@
   config,
   ...
 }: {
-  config = {
-    programs.nixvim.plugins = {
-      direnv.enable = true;
+  programs.nixvim.plugins = {
+    direnv.enable = true;
 
-      #### Treesitter stuff ########
-      treesitter = {
-        enable = true;
-        settings = {
-          # auto_install = true;
-          highlight.enable = true;
-          indent.enable = true;
-        };
-        # folding = true;
+    #### Treesitter stuff ########
+    treesitter = {
+      enable = true;
+      settings = {
+        # auto_install = true;
+        highlight.enable = true;
+        indent.enable = true;
       };
+      # folding = true;
+    };
 
-      treesitter-context = {
-        enable = true;
-        settings = {
-          max_lines = 4;
-          multiline_threshold = 5;
-        };
+    treesitter-context = {
+      enable = true;
+      settings = {
+        max_lines = 4;
+        multiline_threshold = 5;
       };
+    };
 
-      ts-autotag.enable = true;
+    ts-autotag.enable = true;
 
-      ############################
+    ############################
 
-      ####### Debugging ##########
+    ####### Debugging ##########
 
-      dap.enable = true;
-      dap-lldb.enable = true;
-      dap-python.enable = true;
-      dap-ui.enable = true;
+    dap.enable = true;
+    dap-lldb.enable = true;
+    dap-python.enable = true;
+    dap-ui.enable = true;
 
-      ############################
+    ############################
 
-      #### Code writing QoL #######
+    #### Code writing QoL #######
 
-      luasnip.enable = true;
+    luasnip.enable = true;
+    friendly-snippets.enable = true;
 
-      blink-cmp = {
-        enable = true;
+    blink-cmp = {
+      enable = true;
 
-        settings = {
-          completion = {
-            accept.auto_brackets = {
-              enabled = true;
-              semantic_token_resolution = {
-                enabled = false;
-              };
-            };
-            documentation.auto_show = true;
-            list.selection = {
-              preselect = false;
-              auto_insert = false;
-            };
-          };
-
-          signature = {
+      settings = {
+        completion = {
+          accept.auto_brackets = {
             enabled = true;
+            semantic_token_resolution = {
+              enabled = false;
+            };
           };
+          documentation.auto_show = true;
+          list.selection = {
+            preselect = false;
+            auto_insert = false;
+          };
+        };
 
-          sources = {
-            providers = {
-              buffer = {
-                score_offset = -7;
+        signature = {
+          enabled = true;
+        };
+
+        sources = {
+          providers = {
+            buffer = {
+              score_offset = -7;
+            };
+            lsp = {
+              fallbacks = [];
+            };
+          };
+        };
+
+        keymap = {
+          "<C-Space>" = ["show" "show_documentation" "hide_documentation" "fallback"];
+          "<C-k>" = ["show_signature" "hide_signature" "fallback"];
+          "<C-d>" = ["scroll_documentation_down" "fallback"];
+          "<C-u>" = ["scroll_documentation_down" "fallback"];
+          "<C-e>" = ["cancel" "fallback"];
+          "<CR>" = ["accept" "fallback"];
+          "<S-Tab>" = [
+            "select_prev"
+            "snippet_backward"
+            "fallback"
+          ];
+          "<Tab>" = [
+            "select_next"
+            "snippet_forward"
+            "fallback"
+          ];
+        };
+      };
+    };
+
+    conform-nvim = {
+      enable = true;
+      settings = {
+        formatters = {
+          qmlformat = {
+            command = "qmlformat";
+            args = config.lib.nixvim.mkRaw ''{"$FILENAME"}'';
+          };
+        };
+        formatters_by_ft = let
+          prettier = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            timeout_ms = 2000;
+            stop_after_first = true;
+          };
+        in {
+          bash = [
+            "shellcheck"
+            "shellharden"
+            "shfmt"
+          ];
+          cpp = ["clang_format"];
+          python = [
+            "ruff_fix"
+            "ruff_format"
+            "ruff_organize_imports"
+          ];
+          nix = [
+            "alejandra"
+            "injected"
+          ];
+          lua = [
+            "stylua"
+          ];
+          html = prettier;
+          json = prettier;
+          xml = prettier;
+          javascript = prettier;
+          typescript = prettier;
+          typescriptreact = prettier;
+          rust = [
+            "rustfmt"
+          ];
+          qml = [
+            "qmlformat"
+          ];
+          "_" = [
+            "trim_whitespace"
+            "trim_newlines"
+          ];
+          jinja = [
+            "djlint"
+          ];
+        };
+        log_level = "debug";
+        notify_on_error = false;
+        notify_no_formatters = false;
+        default_format_opts.lsp_format = "fallback";
+      };
+    };
+
+    nvim-autopairs = {
+      enable = true;
+      settings = {
+        check_ts = true;
+      };
+    };
+
+    lsp-lines.enable = true;
+
+    # cursorline.enable = true;
+
+    indent-blankline.enable = true;
+
+    guess-indent.enable = true;
+
+    nix.enable = true;
+
+    dropbar.enable = true;
+
+    jupytext.enable = true;
+
+    molten.enable = true;
+
+    ###############################
+
+    #### Neovim random utilies ####
+
+    autosource.enable = true;
+
+    auto-save.enable = true;
+
+    barbar.enable = true;
+
+    multicursors.enable = true;
+
+    comment.enable = true;
+
+    fidget.enable = true;
+
+    lightline.enable = true;
+
+    which-key.enable = true;
+
+    neoclip.enable = true;
+
+    toggleterm = {
+      enable = true;
+      settings.open_mapping = "[[<C-`>]]";
+    };
+
+    # auto-session.enable = true;
+
+    nvim-ufo.enable = true;
+
+    web-devicons.enable = true;
+
+    headlines.enable = true;
+
+    neorg = {
+      enable = true;
+      telescopeIntegration.enable = true;
+      # TODO: I'm weirdly demotivated rn
+      # settings = {};
+    };
+
+    orgmode.enable = true;
+
+    ##############################
+
+    ##### Git and file stuff #######
+
+    telescope = {
+      enable = true;
+
+      settings = {
+        defaults = {
+          file_ignore_patterns = [
+            "^.git/"
+            "^.mypy_cache/"
+            "^__pycache__/"
+            "^output/"
+            "^data/"
+            "%.ipynb"
+          ];
+          layout_config = {
+            prompt_position = "top";
+          };
+          mappings = {
+            i = {
+              "<A-j>" = {
+                __raw = "require('telescope.actions').move_selection_next";
               };
-              lsp = {
-                fallbacks = [];
+              "<A-k>" = {
+                __raw = "require('telescope.actions').move_selection_previous";
               };
             };
           };
-
-          keymap = {
-            "<C-Space>" = ["accept" "show_documentation" "hide_documentation" "fallback"];
-            "<C-k>" = ["show_signature" "hide_signature" "fallback"];
-            "<C-d>" = ["scroll_documentation_up" "fallback"];
-            "<C-e>" = ["cancel" "fallback"];
-            "<C-f>" = ["scroll_documentation_down" "fallback"];
-            "<CR>" = ["accept" "fallback"];
-            "<S-Tab>" = [
-              "select_prev"
-              "fallback"
-            ];
-            "<Tab>" = [
-              "select_next"
-              "fallback"
-            ];
+          selection_caret = "> ";
+          set_env = {
+            COLORTERM = "truecolor";
           };
+          sorting_strategy = "ascending";
         };
       };
 
-      conform-nvim = {
-        enable = true;
-        settings = {
-          formatters = {
-            qmlformat = {
-              command = "qmlformat";
-              args = config.lib.nixvim.mkRaw ''{"$FILENAME"}'';
-            };
-          };
-          formatters_by_ft = let
-            prettier = {
-              __unkeyed-1 = "prettierd";
-              __unkeyed-2 = "prettier";
-              timeout_ms = 2000;
-              stop_after_first = true;
-            };
-          in {
-            bash = [
-              "shellcheck"
-              "shellharden"
-              "shfmt"
-            ];
-            cpp = ["clang_format"];
-            python = [
-              "ruff_fix"
-              "ruff_format"
-              "ruff_organize_imports"
-            ];
-            nix = [
-              "alejandra"
-              "injected"
-            ];
-            lua = [
-              "stylua"
-            ];
-            html = prettier;
-            json = prettier;
-            xml = prettier;
-            javascript = prettier;
-            typescript = prettier;
-            typescriptreact = prettier;
-            rust = [
-              "rustfmt"
-            ];
-            qml = [
-              "qmlformat"
-            ];
-            "_" = [
-              "trim_whitespace"
-              "trim_newlines"
-            ];
-          };
-          log_level = "debug";
-          notify_on_error = false;
-          notify_no_formatters = false;
-          default_format_opts.lsp_format = "fallback";
-        };
-      };
-
-      nvim-autopairs = {
-        enable = true;
-        settings = {
-          check_ts = true;
-        };
-      };
-
-      lsp-lines.enable = true;
-
-      # cursorline.enable = true;
-
-      indent-blankline.enable = true;
-
-      guess-indent.enable = true;
-
-      nix.enable = true;
-
-      dropbar.enable = true;
-
-      jupytext.enable = true;
-
-      molten.enable = true;
-
-      ###############################
-
-      #### Neovim random utilies ####
-
-      auto-save.enable = true;
-
-      barbar.enable = true;
-
-      multicursors.enable = true;
-
-      comment.enable = true;
-
-      fidget.enable = true;
-
-      lightline.enable = true;
-
-      which-key.enable = true;
-
-      neoclip.enable = true;
-
-      toggleterm = {
-        enable = true;
-        settings.open_mapping = "[[<C-`>]]";
-      };
-
-      # auto-session.enable = true;
-
-      nvim-ufo.enable = true;
-
-      web-devicons.enable = true;
-
-      headlines.enable = true;
-
-      neorg = {
-        enable = true;
-        telescopeIntegration.enable = true;
-        # TODO: I'm weirdly demotivated rn
-        # settings = {};
-      };
-
-      orgmode.enable = true;
-
-      ##############################
-
-      ##### Git and file stuff #######
-
-      telescope = {
-        enable = true;
-
-        settings = {
-          defaults = {
-            file_ignore_patterns = [
-              "^.git/"
-              "^.mypy_cache/"
-              "^__pycache__/"
-              "^output/"
-              "^data/"
-              "%.ipynb"
-            ];
-            layout_config = {
-              prompt_position = "top";
-            };
+      extensions = {
+        fzf-native.enable = true;
+        live-grep-args = {
+          enable = true;
+          settings = {
+            auto_quoting = true;
             mappings = {
               i = {
-                "<A-j>" = {
-                  __raw = "require('telescope.actions').move_selection_next";
+                "<C-i>" = {
+                  __raw = "require(\"telescope-live-grep-args.actions\").quote_prompt({ postfix = \" --iglob \" })";
                 };
-                "<A-k>" = {
-                  __raw = "require('telescope.actions').move_selection_previous";
+                "<C-k>" = {
+                  __raw = "require(\"telescope-live-grep-args.actions\").quote_prompt()";
+                };
+                "<C-space>" = {
+                  __raw = "require(\"telescope.actions\").to_fuzzy_refine";
                 };
               };
             };
-            selection_caret = "> ";
-            set_env = {
-              COLORTERM = "truecolor";
-            };
-            sorting_strategy = "ascending";
+            theme = "dropdown";
           };
         };
-
-        extensions = {
-          fzf-native.enable = true;
-          live-grep-args = {
-            enable = true;
-            settings = {
-              auto_quoting = true;
-              mappings = {
-                i = {
-                  "<C-i>" = {
-                    __raw = "require(\"telescope-live-grep-args.actions\").quote_prompt({ postfix = \" --iglob \" })";
-                  };
-                  "<C-k>" = {
-                    __raw = "require(\"telescope-live-grep-args.actions\").quote_prompt()";
-                  };
-                  "<C-space>" = {
-                    __raw = "require(\"telescope.actions\").to_fuzzy_refine";
-                  };
-                };
-              };
-              theme = "dropdown";
-            };
-          };
-          ui-select = {
-            enable = true;
-            settings = {
-              specific_opts = {
-                codeactions = false;
-              };
+        ui-select = {
+          enable = true;
+          settings = {
+            specific_opts = {
+              codeactions = false;
             };
           };
         };
       };
-
-      lazygit.enable = true;
-
-      # gitblame.enable = true;
-
-      neo-tree.enable = true;
-
-      gitsigns.enable = true;
-
-      ###############################
     };
+
+    lazygit.enable = true;
+
+    # gitblame.enable = true;
+
+    neo-tree.enable = true;
+
+    gitsigns.enable = true;
+
+    ###############################
   };
 }

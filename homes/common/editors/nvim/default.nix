@@ -32,10 +32,6 @@
       clipboard.register = "unnamedplus";
       luaLoader.enable = true; # Why not
 
-      performance = {
-        byteCompileLua.enable = true;
-      };
-
       globals = {
         mapleader = " ";
         maplocalleader = " ";

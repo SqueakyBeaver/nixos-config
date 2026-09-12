@@ -28,7 +28,7 @@
     resumeDevice = "/dev/disk/by-partlabel/root";
     # FIXME: Change if drive chages or anything
     # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Manually_specify_hibernate_location
-    kernelParams = ["resume_offset=113192960"];
+    kernelParams = ["resume_offset=2584576"];
 
     kernelPackages = pkgs.linuxPackages_zen;
     extraModulePackages = with config.boot.kernelPackages; [
