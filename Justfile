@@ -6,28 +6,28 @@
 #
 ############################################################################
 deploy *FLAGS:
-    nixos-rebuild switch --flake . --sudo {{FLAGS}}
+    nh os switch . {{FLAGS}}
 
 deploy-homelab *FLAGS:
-    nixos-rebuild switch --flake .#homelab --target-host otter@homelab --sudo --ask-sudo-password {{FLAGS}}
+    nh os switch .#homelab --target-host otter@homelab --ask-sudo-password {{FLAGS}}
 
 boot-homelab *FLAGS:
-    nixos-rebuild boot --flake .#homelab --target-host otter@homelab --sudo --ask-sudo-password {{FLAGS}}
+    nh os boot .#homelab --target-host otter@homelab --ask-sudo-password {{FLAGS}}
 
 fast *FLAGS:
-    nixos-rebuild switch --flake . --sudo --no-reexec {{FLAGS}}
+    nh os switch . {{FLAGS}}
 
 test *FLAGS:
-    nixos-rebuild test --flake . --sudo {{FLAGS}}
+    nh os test . {{FLAGS}}
 
 boot *FLAGS:
-    nixos-rebuild boot --flake . --sudo {{FLAGS}}
+    nh os boot . {{FLAGS}}
 
 up *FLAGS:
     nix flakes update {{FLAGS}}
 
 debug *FLAGS:
-   nixos-rebuild test --flake . --show-trace --verbose --sudo {{FLAGS}}
+   nh os test . --show-trace --verbose {{FLAGS}}
 
 # Get the gc roots that are most likely created by nix-direnv
 roots:

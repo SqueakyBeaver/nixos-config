@@ -95,7 +95,6 @@
           };
         };
         clangd.enable = true;
-        gopls.enable = true;
         html.enable = true;
         nil_ls.enable = true;
         ruff = {
@@ -106,9 +105,6 @@
         };
         ts_ls.enable = true;
         cssls.enable = true;
-        omnisharp.enable = true;
-        qmlls.enable = true;
-        kotlin_language_server.enable = true;
         jdtls.enable = true;
         jinja_lsp.enable = true;
         sqls.enable = true;

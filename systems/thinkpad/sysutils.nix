@@ -4,7 +4,6 @@
   ...
 }: {
   environment.systemPackages = [
-    pkgs.lutris
     pkgs.mangohud
     pkgs.protonup-qt
 
@@ -33,15 +32,15 @@
       };
     };
 
-    mysql = {
-      enable = true;
-      package = pkgs.mariadb;
-      settings = {
-        mysqld = {
-          lower_case_table_names = 1;
-        };
-      };
-    };
+    # mysql = {
+    #   enable = true;
+    #   package = pkgs.mariadb;
+    #   settings = {
+    #     mysqld = {
+    #       lower_case_table_names = 1;
+    #     };
+    #   };
+    # };
 
     flatpak.enable = true;
     colord.enable = true;

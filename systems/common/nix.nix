@@ -15,7 +15,8 @@
     ];
   };
 
-  programs.nix-ld = {
+  programs = {
+    nix-ld = {
     enable = true;
     # Add as we need them
     libraries = with pkgs; [
@@ -39,14 +40,24 @@
       fuse
       e2fsprogs
     ];
+    };
+
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--no-direnv --keep-since 3d --optimise";
+      };
+    };
   };
 
   nix = {
-    gc = {
-      automatic = true;
-      persistent = true;
-    };
-    optimise.automatic = true;
+    # gc = {
+    #   automatic = true;
+    #   persistent = true;
+    # };
+    # optimise.automatic = true;
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;

@@ -10,7 +10,7 @@
 
   home.packages = [
     pkgs.bitwarden-desktop
-    (pkgs.bottles.override {removeWarningPopup = true;})
+    # (pkgs.bottles.override {removeWarningPopup = true;})
     pkgs.inkscape
     pkgs.kdePackages.elisa
     pkgs.libreoffice-stable
@@ -21,9 +21,9 @@
     pkgs.vesktop
     pkgs.vlc
     pkgs.pear-desktop
-    pkgs.apktool
-    pkgs.jadx
-    pkgs.ghidra
+    # pkgs.apktool
+    # pkgs.jadx
+    # pkgs.ghidra
   ];
 
   programs = {
@@ -52,12 +52,12 @@
       ];
     };
 
-    obs-studio = {
-      enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-vaapi
-      ];
-    };
+    # obs-studio = {
+    #   enable = true;
+    #   plugins = with pkgs.obs-studio-plugins; [
+    #     wlrobs
+    #     obs-vaapi
+    #   ];
+    # };
   };
 }
