@@ -64,7 +64,7 @@
         "setup-direnv" = {
           body = ''
             nix flake init --template github:the-nix-way/dev-templates#$argv
-            sed -E 's/https:\/\/flakehub\.com.*/nixpkgs\/nixos-unstable\";/' flake.nix -i
+            sed -E 's/https:\/\/flakehub\.com.*/"https:\/\/nixos.org\/channels\/nixpkgs-unstable\/nixexprs.tar.xz";/' flake.nix -i
           '';
         };
       };

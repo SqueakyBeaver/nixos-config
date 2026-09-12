@@ -41,6 +41,7 @@
         # setup-direnv <lang>
         setup-direnv() {
           nix flake init --template github:the-nix-way/dev-templates#$1
+          sed -E 's/https:\/\/flakehub\.com.*/"https:\/\/nixos.org\/channels\/nixpkgs-unstable\/nixexprs.tar.xz";/' flake.nix -i
         }
 
         # Too lazy to put this in a better place ;-;
