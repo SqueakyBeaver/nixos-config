@@ -9,6 +9,7 @@
 
     pkgs.podman-compose
     pkgs.docker-compose
+    pkgs.distrobox
   ];
 
   security.rtkit.enable = true;

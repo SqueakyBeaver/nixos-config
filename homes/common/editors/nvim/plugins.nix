@@ -10,12 +10,10 @@
     #### Treesitter stuff ########
     treesitter = {
       enable = true;
-      settings = {
-        # auto_install = true;
-        highlight.enable = true;
-        indent.enable = true;
-      };
-      # folding = true;
+
+      folding.enable = true;
+      highlight.enable = true;
+      indent.enable = true;
     };
 
     treesitter-context = {
@@ -102,10 +100,6 @@
       enable = true;
       settings = {
         formatters = {
-          qmlformat = {
-            command = "qmlformat";
-            args = config.lib.nixvim.mkRaw ''{"$FILENAME"}'';
-          };
         };
         formatters_by_ft = let
           prettier = {
@@ -142,9 +136,6 @@
           rust = [
             "rustfmt"
           ];
-          qml = [
-            "qmlformat"
-          ];
           "_" = [
             "trim_whitespace"
             "trim_newlines"
@@ -178,10 +169,6 @@
     nix.enable = true;
 
     dropbar.enable = true;
-
-    jupytext.enable = true;
-
-    molten.enable = true;
 
     ###############################
 
