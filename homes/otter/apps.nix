@@ -1,19 +1,14 @@
 {
-  config,
   pkgs,
+  config,
   ...
 }: {
-  home.packages = with pkgs; [
-    # pkgs.bitwarden-desktop
+  home.packages = [
     pkgs.vlc
   ];
 
   programs.firefox = {
     enable = true;
-  };
-
-  programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 }
