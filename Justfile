@@ -5,17 +5,19 @@
 #  Nix commands related to the local machine
 #
 ############################################################################
-deploy *FLAGS:
+
+alias deploy := switch
+alias deploy-homelab := switch-homelab
+
+
+switch *FLAGS:
     nh os switch . {{FLAGS}}
 
-deploy-homelab *FLAGS:
-    nh os switch .#homelab --target-host otter@homelab --ask-sudo-password {{FLAGS}}
+switch-homelab *FLAGS:
+    nh os switch .#homelab --target-host otter@homelab {{FLAGS}}
 
 boot-homelab *FLAGS:
-    nh os boot .#homelab --target-host otter@homelab --ask-sudo-password {{FLAGS}}
-
-fast *FLAGS:
-    nh os switch . {{FLAGS}}
+    nh os boot .#homelab --target-host otter@homelab {{FLAGS}}
 
 test *FLAGS:
     nh os test . {{FLAGS}}
