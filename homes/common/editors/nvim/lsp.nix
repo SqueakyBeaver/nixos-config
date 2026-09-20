@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   config = {
     programs.nixvim.autoCmd = [
       {
@@ -96,7 +100,10 @@
         };
         clangd.enable = true;
         html.enable = true;
-        nil_ls.enable = true;
+        nil_ls = {
+          enable = true;
+          package = pkgs.lixPackageSets.git.nil;
+        };
         ruff = {
           enable = true;
         };

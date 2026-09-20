@@ -23,7 +23,7 @@
     pkgs.gomodifytags
     pkgs.gotests
     pkgs.nixfmt
-    pkgs.nil
+    pkgs.lixPackageSets.git.nil
   ];
 
   programs.doom-emacs = {

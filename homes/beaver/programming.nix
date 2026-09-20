@@ -13,7 +13,7 @@
     discount # Markdown
     pandoc
     alejandra
-    nil
+    lixPackageSets.git.nil
     python3
     ruff
     basedpyright
