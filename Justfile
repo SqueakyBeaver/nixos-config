@@ -26,7 +26,7 @@ boot *FLAGS:
     nh os boot . {{FLAGS}}
 
 up *FLAGS:
-    nix flakes update {{FLAGS}}
+    nix flake update {{FLAGS}}
 
 debug *FLAGS:
    nh os test . --show-trace --verbose {{FLAGS}}

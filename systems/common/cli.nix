@@ -7,7 +7,16 @@
     gnumake
     bat
     just
+    man-pages
+    man-pages-posix
   ];
+
+  documentation = {
+    man = {
+      cache.enable = true;
+      man-db.enable = true;
+    };
+  };
 
   programs = {
     fish = {

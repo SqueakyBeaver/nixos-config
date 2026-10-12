@@ -21,6 +21,7 @@
     pkgs.vesktop
     pkgs.vlc
     pkgs.pear-desktop
+    pkgs.kdePackages.ghostwriter
     # pkgs.apktool
     # pkgs.jadx
     # pkgs.ghidra

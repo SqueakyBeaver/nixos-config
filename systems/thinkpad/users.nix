@@ -16,6 +16,8 @@
       "video"
       "wheel"
       "wireshark"
+      "lp"
+      "scanner"
     ];
     subUidRanges = [
       {

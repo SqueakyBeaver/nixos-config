@@ -114,6 +114,7 @@
             "shellharden"
             "shfmt"
           ];
+          c = ["clang_format"];
           cpp = ["clang_format"];
           python = [
             "ruff_fix"
