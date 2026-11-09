@@ -13,7 +13,6 @@
     ./syncthing
     ../common
     ../common/desktop/plasma
-    # ../common/desktop/niri
     inputs.nix-index-db.homeModules.nix-index
     inputs.sops-nix.homeManagerModules.sops
   ];
@@ -22,8 +21,6 @@
     NIXOS_OZONE_WL = "1";
     ### OOOOH Java font anti-aliasing
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
-    # For neovim-remote
-    # NVIM_LISTEN_ADDRESS = "/tmp/nvimsocket";
     EDITOR = "nvim";
   };
 

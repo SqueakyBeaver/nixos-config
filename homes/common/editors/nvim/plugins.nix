@@ -98,6 +98,7 @@
 
     conform-nvim = {
       enable = true;
+      autoInstall.enable = true;
       settings = {
         formatters = {
         };

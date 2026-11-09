@@ -259,8 +259,6 @@
     };
   };
 
-  # services.ssh-agent.enable = true;
-
   # Workaround for bad ~/.ssh/config file permissions
   home.file = {
     ".ssh/config" = {

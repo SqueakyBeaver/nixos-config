@@ -25,10 +25,6 @@
         pkgs.adwaita-icon-theme # For gnome apps
         pkgs.sshfs
       ];
-
-    plasma6.excludePackages = [
-      pkgs.kdePackages.kwin-x11
-    ];
   };
 
   services = {

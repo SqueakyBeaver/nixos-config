@@ -10,7 +10,6 @@
 
   home.packages = [
     pkgs.bitwarden-desktop
-    # (pkgs.bottles.override {removeWarningPopup = true;})
     pkgs.inkscape
     pkgs.kdePackages.elisa
     pkgs.libreoffice-stable
@@ -22,9 +21,8 @@
     pkgs.vlc
     pkgs.pear-desktop
     pkgs.kdePackages.ghostwriter
-    # pkgs.apktool
-    # pkgs.jadx
-    # pkgs.ghidra
+    pkgs.apktool
+    pkgs.jadx
   ];
 
   programs = {
@@ -32,9 +30,6 @@
 
     firefox = {
       enable = true;
-      # nativeMessagingHosts = [
-      #   pkgs.kdePackages.plasma-browser-integration
-      # ];
     };
 
     zen-browser = {
@@ -52,13 +47,5 @@
         pkgs.kdePackages.plasma-browser-integration
       ];
     };
-
-    # obs-studio = {
-    #   enable = true;
-    #   plugins = with pkgs.obs-studio-plugins; [
-    #     wlrobs
-    #     obs-vaapi
-    #   ];
-    # };
   };
 }
